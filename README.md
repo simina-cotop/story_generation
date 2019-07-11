@@ -18,3 +18,4 @@ python model_8.py
 
 ## Things to keep in mind when running the model
 * Whenever you want to debug the model and check the values of the many many variables to get an overview, remember ```print``` is your friend.
+* If you get an error like ```AttributeError: 'ProgbarLogger' object has no attribute 'log_values'```, don't panic. Just check if your dataset has been loaded by checking ```x_train``` within *dataLoaders.py*. Print this variable and make sure that the data is being loaded. If it's empty, you need to check further to see where is the problem.
