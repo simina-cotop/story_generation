@@ -1,0 +1,1552 @@
+=============== Script: gender_pay_gap ==============
+-- TEXT 0 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 1 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 2 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 3 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 4 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 5 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 6 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 7 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 8 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 9 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 10 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 11 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 12 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 13 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 14 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 15 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 16 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 17 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 18 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 19 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk uk .
+ spain .
+
+-- TEXT 20 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ a
+ wider approximately number the
+ gender pay gap in
+
+-- TEXT 21 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ number % .
+ spain with
+
+-- TEXT 22 ---
+this shows gender pay gap is
+ the
+ gender pay gap in
+ spain is
+ number % % % .
+
+-- TEXT 23 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ the
+ lowest gender pay gap of
+ number the
+ %
+-- TEXT 24 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk has
+ the
+ number %
+-- TEXT 25 ---
+this shows gender pay gap is
+ the
+ gender pay gap in
+ germany has
+ the
+ smallest pay gap with
+
+-- TEXT 26 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ the
+ next highest
+ of
+ number % for
+
+-- TEXT 27 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ the
+ smallest pay at
+ number the
+ next
+-- TEXT 28 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ number % .
+ spain at
+ just
+ number
+-- TEXT 29 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ displayed
+ as
+ a
+ percentage of
+ germany with
+
+-- TEXT 30 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ displayed
+ as
+ a
+ wider gender pay gap in
+ germany
+-- TEXT 31 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ number higher % .
+ the
+
+-- TEXT 32 ---
+this shows gender pay gap is
+ the
+ gender pay gap in
+ gender pay gap of
+ number % and
+
+-- TEXT 33 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ number % % number % .
+ the
+
+-- TEXT 34 ---
+this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ uk than in
+ the
+ gender pay gap is
+
+-- TEXT 35 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ germany has
+ germany has
+ germany has
+ germany
+-- TEXT 36 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ displayed
+ as
+ a
+ percentage ,
+ followed by
+
+-- TEXT 37 ---
+this shows gender pay gap is
+ the
+ gender pay gap of
+ over number % % ,
+ .
+ uk, spain and germany
+-- TEXT 38 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ the
+ gender pay gap of
+ number % number %
+-- TEXT 39 ---
+this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ highest number % number %
+===============================
+epoch 0.0 . Sample:this shows gender pay gap the
+ uk germany, span and the uk number gender pay gap in
+ displayed
+ ,
+ the
+ gender pay gap in
+ the
+ ,
+ the
+ .
+ gender pay gap number % number
+epoch 0.5 . Sample:this shows gender pay gap the
+ in
+ between
+ there
+ lowest number % and
+ is
+ number % times
+ germany percentage the
+ number gender pay gap number over
+epoch 1.0 . Sample:this shows gender pay gap number % in
+ the
+ gender pay gap number % ,
+ number % in
+ the
+ number % than number % '
+ number %
+epoch 1.5 . Sample:this shows gender pay gap the
+ number % number % .
+ spain number % in
+ the
+ number % in
+ the
+ gender pay gap number %
+epoch 2.0 . Sample:this shows gender pay gap number % smallest number % highest
+ number % payback number % in
+ the
+ number % in
+ the
+ number % in
+
+epoch 2.5 . Sample:this shows gender pay gap number % in
+ the
+ number % number % inequality  
+ number % number % the 
+ number % .
+ the
+ number %
+epoch 3.0 . Sample:this shows gender pay gap number % exactly
+ number % much
+ number % table
+ number % gap number % )
+ number % however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself number %
+epoch 3.5 . Sample:this shows gender pay gap number % higher number % however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself number % has
+ different
+ number % that
+ number % number % bar
+ number %
+epoch 4.0 . Sample:this shows gender pay gap followed number % times
+ number % or
+ number % uk, spain an germany number % in
+ number % :
+ number % of
+ number
+epoch 4.5 . Sample:this shows gender pay gap number % ,
+ number % however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself number % being
+ number % times
+ number % number % between
+ number % gender pay gap
+epoch 5.0 . Sample:this shows gender pay gap with
+ number % and
+ number % .
+ number % .
+ the
+ number % gap number % .
+ the
+ number %
+epoch 5.5 . Sample:this shows gender pay gap the
+ number % number % spain number % pay number % number % number % over number % inequality  
+ number
+epoch 6.0 . Sample:this shows gender pay gap a
+ the
+ number % .
+ number % largest number % .
+ the
+ number % .
+ the
+ number %
+epoch 6.5 . Sample:this shows gender pay gap gender pay gap .
+ the
+ number % in
+ the
+ number % just
+ number % .
+ the
+ number % difference
+ number %
+epoch 7.0 . Sample:this shows gender pay gap chart
+ gender pay gap .
+ the
+ number % .
+ the
+ number % .
+ the
+ number % ,
+ the
+ number % .
+ the
+
+epoch 7.5 . Sample:this shows gender pay gap number % has
+ the
+ number % .
+ the
+ number % in
+ the
+ number % .
+ the
+ number % .
+ number
+epoch 8.0 . Sample:this shows gender pay gap in
+ the
+ uk is
+ number % and
+ number % in
+ the
+ number % .
+ the
+ number % .
+ the
+ number
+epoch 8.5 . Sample:this shows gender pay gap with
+ number % .
+ the
+ number % .
+ the
+ number % .
+ the
+ number % .
+ the
+ number % .
+
+epoch 9.0 . Sample:this shows gender pay gap chart
+ percentage uk despite its poor maternity packages uk ,
+ largest in
+ the
+ uk between
+ number % .
+ number % in
+ the
+ number %
+epoch 9.5 . Sample:this shows gender pay gap :
+ the
+ gender pay gap in
+ the
+ uk at
+ number % .
+ the
+ number % in
+ the
+ number % .
+ the
+ number
+epoch 10.0 . Sample:this shows gender pay gap in
+ the
+ uk a
+ number % .
+ number % .
+ the
+ uk ,
+ the
+ number % .
+ the
+ number %
+epoch 10.5 . Sample:this shows gender pay gap the
+ gender pay gap ,
+ the
+ uk gender pay gap in
+ the
+ uk germany, spain and the uk in
+ the
+ number % .
+ germany the
+ number % .
+
+epoch 11.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ uk 6 gender pay gap in
+ number % ,
+ the
+ uk the
+ uk has
+ the
+ uk that
+
+epoch 11.5 . Sample:this shows gender pay gap in
+ the
+ uk has
+ the
+ uk has
+ the
+ uk has
+ the
+ uk chart
+ shows
+ 3 .
+ the
+ uk has
+ the
+
+epoch 12.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ number % ,
+ the
+ gender pay gap is
+ number % and
+ spain has
+ the
+ number % and
+ the
+
+epoch 12.5 . Sample:this shows gender pay gap and
+ the
+ uk is
+ the
+ uk across
+ is
+ ,
+ highest
+ is
+ at
+ number % .
+ the
+ uk than number %
+epoch 13.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ number % ,
+ uk has
+ the
+ gender pay gap is
+ number % .
+ spain at
+ number % in
+
+epoch 13.5 . Sample:this shows gender pay gap is
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap is
+ number % .
+ spain germany is
+ number % .
+
+epoch 14.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ number % ,
+ the
+ gender pay gap is
+ number % the
+ uk of
+ number % .
+ the
+ uk
+epoch 14.5 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ uk is
+ number % .
+ spain .
+ the
+ uk is
+ number % .
+ the
+ uk
+epoch 15.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ the
+ gap .
+ the
+ gender pay gap is
+ number % .
+ spain germany is
+ number % in
+ the
+
+epoch 15.5 . Sample:this shows gender pay gap the
+ gender pay gap is
+ the
+ uk has
+ the
+ largest pay gap ,
+ .
+ the
+ uk has
+ the
+ germany has
+ the
+ lowest
+epoch 16.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gender pay gap in
+ number % and
+ spain at
+ number % .
+ the
+ number % .
+ the
+
+epoch 16.5 . Sample:this shows gender pay gap for
+ gender pay gap in
+ the
+ uk has
+ the
+ gender pay gap in
+ the
+ largest in
+ spain is
+ the
+ uk has
+ the
+ uk with
+
+epoch 17.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap is
+ the
+ gap and
+ the
+ gender pay gap in
+ number % and
+ spain is
+ number % and
+ the
+ uk
+epoch 17.5 . Sample:this shows gender pay gap a
+ gender pay gap has
+ the
+ uk with
+ the
+ largest gap (
+ .
+ the
+ uk and
+ germany has
+ the
+ lowest number %
+epoch 18.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ gap and
+ the
+ gender pay gap is
+ number % and
+ spain is
+ number % .
+ the
+ uk
+epoch 18.5 . Sample:this shows gender pay gap shows
+ is
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ gap with
+ number % .
+ spain at
+ number % .
+ spain
+epoch 19.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gap is
+ men and women with
+ the
+ gender pay gap is
+ number % and
+ spain ,
+ the
+ lowest of
+
+epoch 19.5 . Sample:this shows gender pay gap with
+ a
+ gender pay gap in
+ the
+ uk has
+ the
+ gap with
+ number % in
+ spain with
+ germany has
+ the
+ lowest number
+epoch 20.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ gap .
+ the
+ gender pay gap is
+ number % and
+ spain with
+ number % .
+ number %
+epoch 20.5 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ gap with
+ number % .
+ spain is
+ germany has
+ the
+ lowest
+epoch 21.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ the
+ gap is
+ the
+ gender pay gap is
+ number % and
+ spain is
+ the
+ lowest in
+ the
+ number
+epoch 21.5 . Sample:this shows gender pay gap ,
+ the
+ gender pay gap is
+ the
+ uk with
+ the
+ largest gap ,
+ .
+ spain ,
+ spain and
+ germany has
+ the
+ lowest
+epoch 22.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gap than
+ the
+ gender pay gap is
+ number % and
+ spain in
+ the
+ lowest of
+ number %
+epoch 22.5 . Sample:this shows gender pay gap graph
+ shows
+ that
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % and
+ spain at
+ germany
+epoch 23.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gap with
+ a
+ gender pay gap is
+ number % in
+ spain is
+ the
+ lowest in
+ the
+ largest
+epoch 23.5 . Sample:this shows gender pay gap shows
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap ,
+ .
+ spain has
+ the
+ spain at
+ germany has
+
+epoch 24.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gap ,
+ the
+ gender pay gap in
+ number % and
+ spain is
+ the
+ lowest in
+ the
+ largest
+epoch 24.5 . Sample:this shows gender pay gap chart
+ shows
+ that
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % for
+ spain at
+ germany
+epoch 25.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gap with
+ the
+ gender pay gap is
+ number % .
+ spain of
+ the
+ lowest of
+ number %
+epoch 25.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap is
+ the
+ uk is
+ the
+ largest gap ,
+ .
+ the
+ uk has
+ the
+ lowest gap is
+ number
+epoch 26.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ gap .
+ the
+ gender pay gap in
+ number % for
+ spain is
+ the
+ lowest of
+ number %
+epoch 26.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap is
+ number % gap has
+ the
+ spain and
+ germany has
+
+epoch 27.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap is
+ pay gap is
+ the
+ gender pay gap in
+ number % for
+ spain ,
+ the
+ lowest of
+ number %
+epoch 27.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % )
+ with
+ spain at
+ germany has
+
+epoch 28.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ gap is
+ the
+ gender pay gap in
+ number % and
+ spain ,
+ the
+ lowest of
+ number %
+epoch 28.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap ,
+ followed ,
+ the
+ largest over number spain has
+
+epoch 29.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ pay gap in
+ the
+ gender pay gap in
+ number % and
+ spain ,
+ the
+ lowest of
+ number %
+epoch 29.5 . Sample:this shows gender pay gap has
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap and
+ followed .
+ the
+ uk at
+ germany with
+ number %
+epoch 30.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ pay gap in
+ the
+ gender pay gap is
+ number % in
+ spain is
+ a
+ percentage between
+ the
+ lowest
+epoch 30.5 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ in
+ the
+ uk has
+ the
+ largest pay gap is
+ number % .
+ spain at
+ germany has
+
+epoch 31.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ pay gap in
+ the
+ gender pay gap is
+ number % in
+ spain at
+ the
+ percentage ,
+ the
+ lowest
+epoch 31.5 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % .
+ spain and
+ germany has
+ the
+
+epoch 32.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ the
+ gender pay of
+ number % .
+ spain is
+ the
+ lowest of
+ number % .
+ the
+
+epoch 32.5 . Sample:this shows gender pay gap .
+ the
+ gender pay gap is
+ the
+ uk has
+ the
+ largest pay gap with
+ number % )
+ spain at
+ spain and
+ germany
+epoch 33.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay gap .
+ the
+ gender pay gap is
+ number % and
+ spain ,
+ the
+ lowest of
+ number %
+epoch 33.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap ,
+ followed ,
+ the
+ biggest pay spain has
+ the
+ lowest
+epoch 34.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ gender pay of
+ number % and
+ spain is
+ the
+ lowest of
+ number % .
+ the
+
+epoch 34.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap ,
+ followed .
+ it
+ is
+ spain and
+ germany has
+
+epoch 35.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap ,
+ pay gap between
+ men and women in
+ gender pay gap in
+ the
+ gender pay gap in
+ number % and
+ spain is
+ the
+
+epoch 35.5 . Sample:this shows gender pay gap displays
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % a
+ spain at
+ germany has
+ the
+
+epoch 36.0 . Sample:this shows gender pay gap of
+ the
+ gender pay gap in
+ pay gap in
+ the
+ gender pay gap in
+ number % for
+ spain at
+ .
+ the
+ percentage of
+ the
+
+epoch 36.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap with
+ number % for
+ spain and
+ germany has
+ the
+ lowest
+epoch 37.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay gap with
+ a
+ gender pay gap is
+ number % and
+ spain ,
+ the
+ lowest of
+ number %
+epoch 37.5 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap ,
+ followed )
+ ,
+ the
+ biggest pay spain is
+ the
+
+epoch 38.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay gap with
+ a
+ gender pay gap is
+ number % and
+ spain ,
+ the
+ lowest of
+ number %
+epoch 38.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk is
+ largest pay gap with
+ number % difference
+ is
+ spain at
+ germany has
+ the
+
+epoch 39.0 . Sample:this shows gender pay gap of
+ the
+ gender pay gap in
+ pay gap .
+ the
+ gender pay gap in
+ number % and
+ spain ,
+ the
+ lowest of
+ number %
+epoch 39.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap is
+ in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % )
+ and
+ spain at
+ germany
+epoch 40.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap is
+ pay gap is
+ the
+ gender pay gap is
+ number % in
+ spain at
+ a
+ percentage of
+ the
+ lowest
+epoch 40.5 . Sample:this shows gender pay gap has
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ number % highest
+ is
+ spain at
+ germany has
+
+epoch 41.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay gap between
+ gender pay gap in
+ number % .
+ spain at
+ a
+ percentage ,
+ the
+ lowest of
+
+epoch 41.5 . Sample:this shows gender pay gap is
+ a
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap ,
+ followed .
+ it
+ is
+ spain and
+ germany has
+ the
+
+epoch 42.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ pay between
+ men and women in
+ number % and
+ spain at
+ a
+ percentage ,
+ the
+ lowest of
+ number
+epoch 42.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap ,
+ followed by
+ biggest pay at
+ germany as
+ number
+epoch 43.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap ,
+ pay between
+ men and women in
+ the
+ gender pay gap in
+ number % and
+ spain ,
+ the
+ lowest of
+ number
+epoch 43.5 . Sample:this shows gender pay gap represents
+ how
+ the
+ gender pay gap in
+ the
+ uk is
+ largest pay gap with
+ number % )
+ and
+ spain at
+ germany has
+
+epoch 44.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay gap is
+ the
+ gender pay gap in
+ number % in
+ spain at
+ a
+ percentage ,
+ the
+ lowest
+epoch 44.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest pay gap with
+ germany, spain and the uk .
+ it
+ is
+ spain and
+ germany has
+
+epoch 45.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay between
+ men and women in
+ number % and
+ spain at
+ a
+ percentage between
+ the
+ lowest of
+ number
+epoch 45.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ germany, spain and the uk .
+ it
+ is
+ spain at
+ germany has
+
+epoch 46.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay gap in
+ the
+ gender pay gap is
+ number % and
+ spain is
+ a
+ percentage ,
+ the
+ lowest
+epoch 46.5 . Sample:this shows gender pay gap is
+ a
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap with
+ germany, spain and the uk .
+ it
+ is
+ spain and
+ germany has
+
+epoch 47.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay between
+ men and women in
+ number % and
+ spain at
+ a
+ percentage of
+ the
+ lowest of
+ number
+epoch 47.5 . Sample:this shows gender pay gap shows
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ it
+ is
+ spain and
+ germany has
+
+epoch 48.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay between
+ men and women is
+ number % and
+ spain at
+ a
+ percentage ,
+ the
+ lowest of
+ number
+epoch 48.5 . Sample:this shows gender pay gap at
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest pay gap with
+ germany, spain and the uk .
+ it
+ is
+ spain and
+ germany has
+
+epoch 49.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap is
+ pay between
+ men and women ,
+ number % and
+ spain at
+ a
+ percentage difference
+ in
+ the
+ lowest of
+
+epoch 49.5 . Sample:this shows gender pay gap with
+ a
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap ,
+ followed by
+ it
+ is
+ spain and
+ germany has
+
+epoch 50.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay between
+ men and women in
+ number % .
+ spain at
+ a
+ percentage ,
+ the
+ lowest of
+ number
+epoch 50.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap with
+ germany, spain and the uk .
+ it
+ is
+ spain and
+ germany has
+ the
+
+epoch 51.0 . Sample:this shows gender pay gap is
+ the
+ gender pay gap in
+ pay between
+ men and women in
+ number % in
+ spain at
+ a
+ percentage of
+ the
+ lowest of
+ number
+epoch 51.5 . Sample:this shows gender pay gap with
+ the
+ gender pay gap in
+ the
+ uk with
+ the
+ largest gap ,
+ followed ,
+ the
+ biggest pay at
+ germany .
+ number
+epoch 52.0 . Sample:this shows gender pay gap in
+ the
+ gender pay gap in
+ pay between
+ men and women in
+ number % and
+ spain at
+ a
+ percentage .
+ the
+ lowest of
+ number
+epoch 52.5 . Sample:this shows gender pay gap ,
+ the
+ gender pay gap in
+ the
+ uk has
+ the
+ largest pay gap ,
+ followed ,
+ the
+ biggest pay at
+ germany of
+

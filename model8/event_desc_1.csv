@@ -1,0 +1,127 @@
+<topic>_gender_pay_gap
+gender pay gap
+<x_axis_labels>_gender_pay_gap
+Germany, Spain and the Uk
+<x_axis_label_highest_value>_gender_pay_gap
+Uk
+<y_axis_highest_value>_gender_pay_gap
+biggest
+<topic_related_property>_gender_pay_gap
+pay
+<y_axis>_gender_pay_gap
+%
+<order_Scnd>
+Secondly
+<x_axis_label_Scnd_highest_value>_gender_pay_gap
+Spain
+<x_axis_label_least_value>_gender_pay_gap
+Germany
+<y_axis_least_value>
+smallest
+<y_x_comparison>
+while
+<y_axis_trend>
+mere
+<y_axis_inferred_value>
+NUMBER
+<x_axis>_gender_pay_gap
+country
+<y_axis_approx>
+approximately
+<y_axis_trend_down>
+under
+<y_axis_trend_up>
+increase
+<final_label_left>
+finally
+<x_axis_labels_count>_gender_pay_gap
+3
+<topic>_median_salary_women
+median salary of women per year
+<x_axis_range_start>_median_salary_women
+between
+<x_axis>_median_salary_women
+years
+<x_axis_label_least_value>_median_salary_women
+2000
+<x_axis_range_end>_median_salary_women
+and
+<x_axis_label_highest_value>_median_salary_women
+2015
+<x_axis_trend>_median_salary_women
+year on year
+<y_axis>_median_salary_women
+salary
+<topic_related_property>_median_salary_women
+median
+<topic_related_object>_median_salary_women
+women
+<y_axis_inferred_value_add>_median_salary_women
+5000
+<y_axis_highest_value>
+highest
+<x_axis_label_Scnd_highest_value>_median_salary_women
+2010
+<x_axis_label_3rd_highest_value>_median_salary_women
+2005
+<x_axis_labels>_median_salary_women
+2000, 2005, 2010 and 2015
+<y_axis_least_value>
+least
+<y_axis_inferred_label>_median_salary_se
+$
+<topic>_median_salary_se
+median salary for software engineers relative to their degree
+<x_axis_label_least_value>_median_salary_se
+no degree
+<y_axis>_median_salary_se
+salary
+<x_axis_label_Scnd_highest_value>_median_salary_se
+master
+<x_axis_label_highest_value>_median_salary_se
+phd
+<x_axis_label_3rd_highest_value>_median_salary_se
+bachelor
+<x_axis_labels_count>_median_salary_se
+4
+<topic_related_property>_median_salary_se
+median
+<y_axis_inferred_value_add>_median_salary_se
+15000
+<topic_related_object>_median_salary_se
+engineers
+
+
+<topic>_money_spent_he
+money spent on higher education
+
+
+
+<topic>_num_top_unis
+number of top 100 university
+
+
+
+<topic>_obesity
+what causes obesity
+
+
+
+<topic>_student_choice_study
+what do students choose to study
+
+
+
+<topic>_women_study_department
+women representation in different uni colleges
+
+
+
+<topic>_women_work_sector
+women representation in different domains
+
+
+
+
+<topic>_young_evenings
+how do young students spend their evenings

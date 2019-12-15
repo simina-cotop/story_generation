@@ -1,0 +1,727 @@
+''
+This
+chart
+shows
+the
+gender pay gap    <topic>_gender_pay_gap
+between
+Germany, Spain and the UK    <x_axis_labels>
+.
+We
+can
+see
+that
+the
+UK    <x_axis_label_highest_value>
+has
+the
+biggest    <y_axis_highest_value>
+pay    <topic_related_property>
+gap    <y_axis>
+,
+followed    <order_Scnd>
+by
+Spain    <x_axis_label_Scnd_highest_value>
+and
+Germany    <x_axis_label_least_value>
+has
+the
+smallest    <y_axis_least_value>
+.
+<end_of_desciption>
+Surprisingly
+the
+UK    <x_axis_label_highest_value>
+has
+the
+largest    <y_axis_highest_value>
+gap    <y_axis>
+in
+gender    <topic_related_property>
+pay    <topic_related_property>
+at
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+while    <y_x_comparison>
+Germany    <x_axis_label_least_value>
+has
+a
+mere    <y_axis_trend>
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+gap    <y_axis>
+.
+Spain    <x_axis_label_Scnd_highest_value>
+has
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+lower    <y_x_comparison>
+than
+the
+UK    <x_axis_label_highest_value>
+'
+s    
+despite its poor Maternity packages   <interpretation>
+.
+<end_of_desciption>
+There
+is
+a
+wider    <y_axis_trend>
+pay    <topic_related_property>
+gap   <y_axis>
+in
+the
+UK    <x_axis_label_highest_value>
+than
+Germany    <x_axis_label_least_value>
+or
+Spain    <x_axis_label_Scnd_highest_value>
+<end_of_desciption>
+The
+gender pay gap    <topic>_gender_pay_gap_gender_pay_gap
+is
+greatest    <y_axis_highest_value>
+by
+about
+10    <y_axis_inferred_value_add>
+%    <y_axis>
+in
+the
+UK    <x_axis_label_highest_value>
+than    <y_x_comparison>
+in
+Germany   <x_axis_label_least_value>
+.
+Spain    <x_axis_label_Scnd_highest_value>
+is
+exactly
+halfway    <y_axis_inferred_value_add>
+between
+the
+two
+countries    <x_axis>
+.
+<end_of_desciption>
+This
+graph
+represents
+how
+the
+gender pay gap    <topic>_gender_pay_gap_gender_pay_gap
+varies
+across
+several
+European
+countries    <x_axis>
+.
+Currently
+,
+the
+largest    <y_axis_highest_value>
+pay    <topic_related_property>
+gap    <y_axis>
+between
+male and female    <topic_related_property>
+workers
+is
+in
+the
+UK    <x_axis_label_highest_value>
+with
+approximately    <y_axis_approx>
+17    <y_axis_inferred_value_approx>
+%    <y_axis>
+.
+Secondly   <order_Scnd>
+,
+the
+gap    <y_axis>
+which
+is
+the
+largest
+is
+in
+Spain    <x_axis_label_Scnd_highest_value>
+at
+just
+under    <y_axis_trend>
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+.
+Finally    <final_label_left>
+Germany    <x_axis_label_least_value>
+has
+the
+smallest    <y_axis_least_value>
+gap    <y_axis>
+with
+approximately    <y_axis_approx>
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+.
+<end_of_desciption>
+This
+chart
+shows
+that
+the
+biggest    <y_axis_highest_value>
+Gender Pay Gap    <topic>_gender_pay_gap
+is
+in
+the
+UK    <x_axis_label_highest_value>
+with
+a
+percentage    <y_axis>
+of
+over    <y_axis_approx>
+14    <y_axis_inferred_value_approx>
+.
+Spain    <x_axis_label_Scnd_highest_value>
+has
+a
+Gender Pay Gap    <topic>_gender_pay_gap
+of
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+and
+Germany    <x_axis_label_least_value>
+is
+the
+lowest    <y_axis_least_value>
+of
+the
+3    <x_axis_labels_count>
+with
+a
+Gender Pay Gap    <topic>_gender_pay_gap
+of
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+<end_of_desciption>
+the
+table
+shows
+that
+the
+UK    <x_axis_label_highest_value>
+has
+the
+biggest    <y_axis_highest_value>
+gender pay gap    <topic>_gender_pay_gap
+(
+13    <y_axis_inferred_value_approx>
+%    <y_axis>
+)
+,
+followed    <order_Scnd>
+by
+spain    <x_axis_label_Scnd_highest_value>
+(
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+)
+and
+Germany    <x_axis_label_least_value>
+(
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+)
+.
+<end_of_desciption>
+This
+chart
+shows
+the
+gender pay gap    <topic>_gender_pay_gap
+,
+by
+percentage   <y_axis>
+between
+Germany, Spain and the UK    <x_axis_labels>
+.
+The
+UK    <x_axis_label_highest_value>
+has
+the
+largest    <y_axis_highest_value>
+pay   <topic_related_property>
+gap    <y_axis>
+with
+over    <y_axis_approx>
+14    <y_axis_inferred_value_approx>
+%    <y_axis>
+difference
+.
+Germany    <x_axis_label_least_value>
+has
+the
+smallest    <y_axis_least_value>
+pay    <topic_related_property>
+gap    <y_axis>
+with
+only    <y_axis_least_value>
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+difference
+in
+pay    <topic_related_property>
+between
+men and women    <topic_related_property>
+.
+<end_of_desciption>
+The
+gender pay gap   <topic>_gender_pay_gap
+is
+much
+higher   <y_axis_highest_value>
+in
+the
+UK   <x_axis_label_highest_value>
+than   <y_x_comparison>
+in
+Germany and Spain    <y_x_comparison_rest>
+.
+It
+is
+1/3    <y_axis_inferred_value_mul>
+higher    <y_axis_trend_up>
+than
+that
+in
+Spain   <x_axis_label_Scnd_highest_value>
+which
+is
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+and
+3    <y_axis_inferred_value_mul>
+times
+that
+in
+Germany    <x_axis_label_least_value>
+.
+<end_of_desciption>
+This
+chat
+looks
+at
+the
+percentage    <y_axis>
+gender pay gap    <topic>_gender_pay_gap
+in
+UK, Spain and Germany    <x_axis_labels>
+.
+The
+UK    <x_axis_label_highest_value>
+has
+the
+largest    <y_axis_highest_value>
+gender    <topic_related_property>
+pay    <topic_related_property>
+gap    <y_axis>
+with
+Germany    <x_axis_label_least_value>
+having
+the
+lowest    <y_axis_least_value>
+.
+<end_of_desciption>
+This
+chart
+depicts
+the
+gender pay gap    <topic>_gender_pay_gap
+in
+three    <x_axis_labels_count>
+different
+countries   <x_axis>
+:
+Germany, Spain and the UK    <x_axis_labels>
+.
+The
+chart
+shows
+that
+the
+gender    <topic_related_property>
+pay    <topic_related_property>
+gap    <y_axis>
+is
+largest    <y_axis_highest_value>
+in
+the
+UK    <x_axis_label_highest_value>
+at
+over    <y_axis_approx>
+14    <y_axis_inferred_value_approx>
+percent    <y_axis_inferred_label>
+,
+and
+smallest    <y_axis_least_value>
+in
+Germany    <x_axis_label_least_value>
+at
+NUMBER_least    <y_axis_least_value_val>
+percent    <y_axis_inferred_label>
+.
+<end_of_desciption>
+This
+chart
+shows
+the
+gender pay gap    <topic>_gender_pay_gap
+of
+3    <x_axis_labels_count>
+countries    <x_axis>
+.
+The
+largest    <y_axis_highest_value>
+is
+the
+UK    <x_axis_label_highest_value>
+with
+16    <y_axis_inferred_value_approx>
+%    <y_axis>
+,
+followed    <order_Scnd>
+by
+Spain    <x_axis_label_Scnd_highest_value>
+at
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+and
+lastly    <final_label_left>
+Germany    <x_axis_label_least_value>
+at
+6    <y_axis_least_value_val_approx>
+%    <y_axis>
+<end_of_desciption>
+Germany    <x_axis_label_least_value>
+has
+the
+lowest    <y_axis_least_value>
+gender    <topic_related_property>
+payback    <topic_related_property>
+of
+just
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+.
+Spain    <x_axis_label_Scnd_highest_value>
+is
+double    <y_axis_inferred_value_mul>
+that
+at
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+and
+the
+UK    <x_axis_label_highest_value>
+is
+behind
+with
+the
+largest    <y_axis_highest_value>
+inequality  
+of
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+.
+<end_of_desciption>
+This
+graph
+shows
+a
+gender pay gap    <topic>_gender_pay_gap
+in
+Germany, Spain and the UK    <x_axis_labels>
+.
+the
+gap    <y_axis>
+is
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+in
+Germany   <x_axis_label_least_value>
+,
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+in
+Spain    <x_axis_label_Scnd_highest_value>
+and
+just
+over    <y_axis_approx>
+14    <y_axis_inferred_value_approx>
+%    <y_axis>
+in
+the
+UK    <x_axis_label_highest_value>
+.
+<end_of_desciption>
+This
+graph
+shows
+that
+the
+gender pay gap    <topic>_gender_pay_gap
+is
+largest    <y_axis_highest_value>
+in
+the
+UK    <x_axis_label_highest_value>
+at
+over    <y_axis_approx>
+14    <y_axis_inferred_value_approx>
+%    <y_axis>
+,
+the
+next    <order_Scnd>
+highest
+is
+Spain    <x_axis_label_Scnd_highest_value>
+at
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+.
+Germany    <x_axis_label_least_value>
+has
+the
+lowest    <y_axis_least_value>
+gap    <y_axis>
+at
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+<end_of_desciption>
+The
+graph
+indicates
+the
+gender pay gap    <topic>_gender_pay_gap
+as
+a
+percentage    <y_axis>
+,
+comparing
+the
+UK, Spain an Germany    <x_axis_labels>
+.
+The
+UK   <x_axis_label_highest_value>
+has
+the
+largest    <y_axis_highest_value>
+pay    <topic_related_property>
+gap    <y_axis>
+,
+followed    <order_Scnd>
+by
+Spain    <x_axis_label_Scnd_highest_value>
+and
+then
+Germany    <x_axis_label_least_value>
+has
+the
+smallest    <y_axis_least_value>
+pay    <topic_related_property>
+gap    <y_axis>
+.
+<end_of_desciption>
+this
+chart
+shows
+the
+gender pay gap    <topic>_gender_pay_gap
+across
+3    <x_axis_labels_count>
+european
+countries    <x_axis>
+,
+the
+lowest    <y_axis_least_value>
+pay    <topic_related_property>
+gap    <y_axis>
+being
+germany    <x_axis_label_least_value>
+with
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+,
+spain    <x_axis_label_Scnd_highest_value>
+with
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+percent    <y_axis_inferred_label>
+and
+the
+uk    <x_axis_label_highest_value>
+having
+the
+biggest    <y_axis_highest_value>
+pay   <topic_related_property>
+gap    <y_axis>
+with
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+<end_of_desciption>
+The
+UK    <x_axis_label_highest_value>
+has
+the
+highest    <y_axis_highest_value>
+gender pay gap   <topic>_gender_pay_gap
+which
+is
+more    <y_axis_trend_up>
+than
+double    <y_axis_inferred_value_mul>
+the
+lowest    <y_axis_least_value>
+of
+Germany    <x_axis_label_least_value>
+<end_of_desciption>
+This
+chart
+displays
+the
+gender pay gap    <topic>_gender_pay_gap
+in
+3    <x_axis_labels_count>
+countries    <x_axis>
+.
+The
+UK    <x_axis_label_highest_value>
+has
+the
+highest    <y_axis_highest_value>
+percentage    <y_axis>
+of
+a
+gap    <y_axis>
+with
+16    <y_axis_inferred_value_approx>
+%    <y_axis>
+,
+followed    <order_Scnd>
+by
+Spain    <x_axis_label_Scnd_highest_value>
+at
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+and
+lastly    <final_label_left>
+Germany    <x_axis_label_least_value>
+with
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+.
+<end_of_desciption>
+This
+bar
+chart
+shows
+the
+gender pay gap    <topic>_gender_pay_gap
+in
+three    <x_axis_labels_count>
+countries    <x_axis>
+,
+;
+Germany, Span and the UK   <x_axis_labels>
+.
+It
+is
+displayed
+as
+a
+percentage    <y_axis>
+,
+and
+the
+UK    <x_axis_label_highest_value>
+has
+a
+higher    <y_axis_highest_value>
+percentage    <y_axis>
+.
+However it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself    <interpretation>
+.
+<end_of_desciption>
+The
+gender pay gap    <topic>_gender_pay_gap
+is
+highest     <y_axis_highest_value>
+in
+the
+UK    <x_axis_label_highest_value>
+at
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+,
+followed    <order_Scnd>
+by 
+Spain    <x_axis_label_Scnd_highest_value>
+at
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+.
+Germany    <x_axis_label_least_value>
+has
+the
+lowest    <y_axis_least_value>
+gender pay gap    <topic>_gender_pay_gap
+at
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+<end_of_desciption>
+It
+is
+the
+percentage    <y_axis>
+difference
+in
+pay    <topic_related_property>
+between
+men and women    <topic_related_property>
+in
+3    <x_axis_labels_count>
+different
+countries    <x_axis>
+.
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+for
+Germany    <x_axis_label_least_value>
+\\n    <separator>
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+for
+Spain    <x_axis_label_Scnd_highest_value>
+\\n    <separator>
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+for
+The 
+UK    <x_axis_label_highest_value>
+<end_of_desciption>
+Uk    <x_axis_label_highest_value>
+has
+the
+largest    <y_axis_highest_value>
+gender pay gap    <topic>_gender_pay_gap
+at
+NUMBER_highest    <y_axis_highest_value_val>
+%    <y_axis>
+whilst    <y_x_comparison_rest>
+Spain    <x_axis_label_Scnd_highest_value>
+is
+NUMBER_scnd    <y_axis_Scnd_highest_val>
+%    <y_axis>
+and
+Germany    <x_axis_label_least_value>
+only    <y_axis_least_value>
+NUMBER_least    <y_axis_least_value_val>
+%    <y_axis>
+<end_of_desciption>

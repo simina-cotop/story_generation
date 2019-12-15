@@ -9,7 +9,7 @@ import os
 import tensorflow as tf
 import dill
 import copy
-
+import logging
 import arksKerasTools
 import AgendaGenerator
 
@@ -18,13 +18,19 @@ import AgendaGenerator
 x_train, y_train, e_p_train, e_f_train, e_p_context_train, e_f_context_train, a_train, \
     x_val, y_val, e_p_val, e_f_val, e_p_context_val, e_f_context_val, a_val, \
     di2w, dw2i, di2e, de2i, _ = dataLoaders.model_6_loader()
+
+#print ("x_train is : : ")
+#print(x_train)
+#print("dw2i is : ")
+#print(dw2i)
 w2v_matrix = dataLoaders.load_word2vec_matrix()
 c_gru_coef_train = Config.C_gru_interpolation_coef * np.ones(shape=[np.shape(x_train)[0], 1])
 c_gru_coef_val = Config.C_gru_interpolation_coef * np.ones(shape=[np.shape(x_val)[0], 1])
 
-bath_random_seed = AgendaGenerator.Agenda.generate_seed('bath', temperature=1)
-grocery_random_seed = AgendaGenerator.Agenda.generate_seed('grocery', temperature=1)
-Config.Seeds.extend([bath_random_seed, grocery_random_seed])
+#women_salary_random_seed = AgendaGenerator.Agenda.generate_seed('median_salary_women', temperature=1) 
+gender_random_seed = AgendaGenerator.Agenda.generate_seed('gender_pay_gap', temperature=1)
+#grocery_random_seed = AgendaGenerator.Agenda.generate_seed('grocery', temperature=1)
+Config.Seeds.extend([gender_random_seed])#, women_salary_random_seed])#, grocery_random_seed])
 
 
 def generate_sequences(model, seed, generation_length, n_generation=1,
@@ -43,6 +49,8 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
     e_f_histories = list()
     text_lists = list()
     for i in range(n_generation):
+        #print("*************************************************************************")
+
         # initialize stuff
         e_p_pointer = 0
         e_f_pointer = 1
@@ -56,8 +64,16 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
         a_outs = list()
 
         event_span = 1
-
-        for j in range(generation_length):
+        #print ("x_context inside generate sequences")
+        #print (x_context)
+        #print("generation length is : ")
+        #print(generation_length)
+        #if 'Evoking' in e_f_context[0]:
+        #    continue
+        #if 'Evoking' in e_p_context[0]:
+        #    continue    
+        for j in range(generation_length):#generation_length   20
+            #print("*************************************************************************")
             x_seq_input_int = dataLoaders.word_to_int(x_context, dw2i)
             x_seq_input = np.reshape(np.array(x_seq_input_int), newshape=(1, -1))
             e_p_context_input_int = dataLoaders.word_to_int(e_p_context, de2i)
@@ -94,6 +110,8 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
             e_p_history.append(seed.agenda[e_p_pointer])
             e_f_history.append(seed.agenda[e_f_pointer])
 
+            #print("new_word inside generate_sequences is : ")
+            #print(new_word)
             generated_sequence.append(new_word)
 
             # shift to the next event if span reached and generation is not finishing
@@ -139,6 +157,9 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
 
         # filter out the '+' to generate text.
         text_lists.append(' '.join(text_list).replace('+', ' '))
+        #text_lists.append(' '.join(generated_sequence_s).replace('+', ' '))
+    #print ("generated_sequence_s isinde generate_sequences is : ")
+    #print(generated_sequence_s)
     return generated_sequence_s, a_list, e_p_histories, e_f_histories, len(seed.x_context), text_lists
 
 
@@ -150,7 +171,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
     x_context = collections.deque(seed.x_context, maxlen=context_length)
     e_p_context = collections.deque(seed.e_p_context, maxlen=context_length)
     e_f_context = collections.deque(seed.e_f_context, maxlen=context_length)
-
+    #print("starting beam search")
     # initialize agenda with beginning configs
     beam_agenda = list()
 
@@ -175,16 +196,17 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
                    'text': seed.x_context, 'log_prob': 0, 'terminate': False}
 
     beam_agenda.append(agenda_item)
-
+    stop_1 = 0
     while True:
         # beam search.
         # in each step, cache the candidates in cache_agenda and select the top ones to replace beam_agenda.
         # stops if seed.agenda is exhausted and a '.' is seen.
-
+        #print("inside while")
         cache_agenda = list()
-
+        stop_2 = 0
         for aitem in beam_agenda:
             # run the model to get a
+            #print("inside first for")
             xnp = np.reshape(np.array(aitem['x']), newshape=(1, -1))
             epcnp = np.reshape(aitem['epc'], newshape=(1, -1))
             efcnp = np.reshape(aitem['efc'], newshape=(1, -1))
@@ -195,10 +217,10 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
             pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
 
             top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
-
+            stop_3 = 0
             for index in top_k_indices:
                 cache_item = copy.deepcopy(aitem)
-
+                #print("inside second for")
                 new_word = di2w[index]
                 step_probability = pred_distribution[0][index]
 
@@ -222,12 +244,18 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
                 cache_item['log_prob'] += np.log(step_probability)
 
                 cache_agenda.append(cache_item)
-
+                stop_3 = stop_3 + 1
+                if (stop_3 > 10):
+                    break
+            stop_2 = stop_2 + 1
+            if (stop_2 > 10):
+                break
         cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
         beam_agenda = cache_agenda_sorted[-k:]
 
         # terminate search if termination conditions are met
         break_flag = False
+        
         for i in range(len(beam_agenda)):
             aitem = beam_agenda[i]
             if (aitem['text'][-1] in ['.', '!', '?'] and aitem['efp'] == len(seed.agenda) - 1) or\
@@ -235,9 +263,16 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
                 beam_agenda = [aitem]
                 break_flag = True
                 break
-        if break_flag is True:
+        stop_1 = stop_1 + 1
+        #print("*****************************************************")
+        #print("beam agenda is : ")
+        #print (beam_agenda)
+        #print("*****************************************************")
+        if (stop_1 > 10):
             break
-
+        #if break_flag is True:
+        
+    #print("first while loop finished")
     # filter generated sequence to remove repititions
     # MAX_REPITITION_SPAN = 3
     output_item = beam_agenda[0]
@@ -264,6 +299,11 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
 
     # filter out the '+' in generated text.
     filtered_text = ' '.join(text).replace('+', ' ')
+    #print("*****************************************************")
+    #print ("filtered text is : ")
+    #print(filtered_text)
+    #print("*****************************************************")
+    #print("beam search finished")
     return filtered_text, seed
 
 
@@ -294,15 +334,17 @@ class SampleGeneration(keras.callbacks.Callback):
 
     def on_epoch_end(self, batch, logs=None):
         seq, a_list, e_p_histories, e_f_histories, seedlen, text_lists = \
-            generate_sequences(self.model, seed=self.seed, generation_length=500, n_generation=1)
+            generate_sequences(self.model, seed=self.seed, generation_length=40, n_generation=1)
+        #print("text_lists inside on_epoch_end is : ")
+        #print(text_lists)
         self.samples.append(text_lists[0])
         seq, a_list, e_p_histories, e_f_histories, seedlen, text_lists = \
-            generate_sequences(self.model, seed=Config.Sample_Seed_grocery, generation_length=500, n_generation=1)
+            generate_sequences(self.model, seed=Config.Sample_Seed_gender, generation_length=40, n_generation=1)
         self.samples.append(text_lists[0])
 
-        print()
-        print(str(seq))
-        print('seed=,', seq[0][:seedlen])
+        #print()
+        #print(str(seq))
+        #print('seed=,', seq[0][:seedlen])
         for i in range(len(a_list[0])):
             print(str(seq[0][i+seedlen]) + ': ' + str(a_list[0][i]) + ': ' + str(e_f_histories[0][i]))
 
@@ -356,6 +398,7 @@ def def_model():
     parameters in configurations.Config
     :returns the model, and the dictionaries
     """
+    #print ("inside def_model()")
     # input context x
     x_context = keras.layers.Input(shape=[None, ], dtype='int32', name='x_context')
     # event labels
@@ -367,11 +410,21 @@ def def_model():
     c_gru_coef = keras.layers.Input(shape=[1, ], dtype='float32', name='c_coef')
 
     # embeddings
-    x_embedding_layer = keras.layers.Embedding(input_dim=Config.Active_vocabulary_size,
+    #print("Config.Active_vocabulary_size")
+    #print(Config.Active_vocabulary_size)
+    #print("Config.Input_Embedding_size")
+    #print(Config.Input_Embedding_size)
+    x_embedding_layer = keras.layers.Embedding(input_dim=8059, #Config.Active_vocabulary_size, 
                                                output_dim=Config.Input_Embedding_size,
                                                weights=[w2v_matrix], trainable=True)
     event_embedding_layer = keras.layers.Embedding(input_dim=Config.Event_vocabulary_size,
                                                    output_dim=Config.Event_embedding_size)
+    #print ("x_context is : ")
+    #x_context.reshape(112, 300)
+    #print (x_context.shape)
+    
+
+
     x_seq_embedding = x_embedding_layer(x_context)
     e_p_context_embedding = event_embedding_layer(e_p_context)
     e_f_context_embedding = event_embedding_layer(e_f_context)
@@ -458,11 +511,14 @@ def train_model(model):
     # tensorboard_on = False
 
     call_back_list = [csv_logger, early_stopping_callback, sample_generation_callback]
-
+    
     if check_point_on:
         call_back_list.append(checkpointer)
     # if tensorboard_on:
     #    call_back_list.append(tensorboard_logger)
+
+    #print ("train data")
+    #print (len(x_val))
 
     model.fit([x_train, e_p_context_train, e_f_context_train, e_f_train, e_p_train, a_train, c_gru_coef_train],
               [y_train, a_train],
@@ -491,19 +547,22 @@ def load_model():
 
 
 def main():
+    print ("start of main")
     """
     acquire model and generate 5 stories for each seed in variable 'seed'
     :return:
     """
     # TODO ==================  Train and evaluate model  =========================
-    # Config.Seeds = AgendaGenerator.Agenda.generate_seeds(['grocery'], {'grocery': 15})
+    #Config.Seeds = AgendaGenerator.Agenda.generate_seeds(['gender_pay_gap'], {'gender_pay_gap': 15})
 
-#    if not os.path.exists(os.path.join('.', Config.Run_Index)):
-#        os.mkdir(os.path.join('.', Config.Run_Index))
+    #if not os.path.exists(os.path.join('.', Config.Run_Index)):
+    #    os.mkdir(os.path.join('.', Config.Run_Index))
     # train_samples is empty if the model is loaded from a file.
     # otherwise it records a sample generated after each epoch.
-    model, train_samples, loaded_from_checkpoint_file = load_model()
 
+    model, train_samples, loaded_from_checkpoint_file = load_model()
+    #print ("train samples")
+    #print(train_samples)
     evaluation = model.evaluate(x=[x_val, e_p_context_val, e_f_context_val, e_f_val, e_p_val, a_val, c_gru_coef_val],
                                 y=[y_val, a_val])
 
@@ -511,35 +570,41 @@ def main():
     print(str(evaluation))
 
     # TODO ===================== Generate Sequences =======================
-    scripts = ['grocery']
+    scripts = ['median_salary_women']#, 'median_salary_women']
     seeds_path = 'seeds_binaries_' + Config.Run_Index
 
     # load seeds
     seeds_dict = dict()
-    if os.path.exists(seeds_path):
-        seeds_dict = dill.load(open(seeds_path, 'rb'))
-    else:
-        for script in scripts:
-            generation_seeds = list()
-            for _ in range(20):
-                generation_seeds.append(AgendaGenerator.Agenda.generate_seed(script))
-            for _ in range(20):
-                generation_seeds.append(AgendaGenerator.Agenda.generate_random_seed(script, length=15))
-            seeds_dict[script] = generation_seeds
-        dill.dump(seeds_dict, open(seeds_path, 'wb'))
+    #if os.path.exists(seeds_path):
+    #    seeds_dict = dill.load(open(seeds_path, 'rb'))
+        
+    #else:
+    for script in scripts:
+        generation_seeds = list()
+        for _ in range(20):
+            generation_seeds.append(AgendaGenerator.Agenda.generate_seed(script))
+        for _ in range(20):
+            generation_seeds.append(AgendaGenerator.Agenda.generate_random_seed(script, length= 15))
+        seeds_dict[script] = generation_seeds
+    #print("seed dictionary is : ")
+    #print(seeds_dict)
+    dill.dump(seeds_dict, open(seeds_path, 'wb'))
 
     generation_path = 'generation_binaries_' + Config.Run_Index
 
     generations = dict()
 
     # generate texts
+    
     for script in scripts:
         texts, seeds = list(), list()
         for seed in seeds_dict[script]:
             texte, seede = plain_beam(model, seed)
             texts.append(texte), seeds.append(seede)
         generations[script] = texts, seeds
-
+    print ("generations[script] is : ")
+    print(generations[script])
+    print("***********************************************************")
     dill.dump(generations, open(generation_path, 'wb'))
 
     with open(Config.Sample_path, 'w') as sample_out:
@@ -552,7 +617,7 @@ def main():
         sample_out.write('===============================\n')
         for step, sample in enumerate(train_samples):
             sample_out.write('epoch ' + str(step/2) + ' . Sample:' + sample + '\n')
-
+    
 
 def random_hyper_search(index_list, opt_log_path):
     header = ','.join(['index', 'dropout', 'lr', 'clipnorm', 'batch_size', 'context_length',
@@ -595,6 +660,6 @@ def random_hyper_search(index_list, opt_log_path):
                           str(round(evaluation[7], 3)) + ',' + str(round(evaluation[8], 3)) + '\n')
 
 
-random_hyper_search(list(range(45, 60, 1)), os.path.join('..', 'log_opt2.csv'))
+#random_hyper_search(list(range(45, 60, 1)), os.path.join('..', 'log_opt2.csv'))
 
-# main()
+main()

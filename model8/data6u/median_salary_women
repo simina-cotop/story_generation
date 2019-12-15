@@ -1,0 +1,622 @@
+''
+This
+shows
+the
+average salary earnt by women    <topic>_median_salary_women
+between    <x_axis_range_start>_median_salary_women
+the
+years    <x_axis>_median_salary_women
+of
+2000    <x_axis_label_least_value>_median_salary_women
+and    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+We
+can
+see
+that
+year on year    <x_axis_trend>_median_salary_women
+, 
+salaries    <y_axis>_median_salary_women
+are
+slowly    <y_axis_trend>_median_salary_women
+increasing    <y_axis_trend_up>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+The
+chart
+shows
+every
+5    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+the
+median    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+of
+women    <topic_related_object>_median_salary_women
+is
+rising    <y_axis_trend_up>_median_salary_women
+by
+about
+2    <y_axis_inferred_value_add>_median_salary_women
+-
+3    <y_axis_inferred_value_add>_median_salary_women
+%    <y_axis_inferred_label>_median_salary_women
+a
+year    <x_axis>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+The
+salary    <y_axis>_median_salary_women
+of
+woman    <topic_related_object>_median_salary_women
+has
+gone up    <y_axis_trend_up>_median_salary_women
+year on year    <x_axis_trend>_median_salary_women
+<end_of_desciption>_median_salary_women
+The
+median salary of women    <topic>_median_salary_women
+grows    <y_axis_trend_up>_median_salary_women
+at
+a
+cost
+rate
+of
+approximately    <y_axis_trend>_median_salary_women
+$    <y_axis_inferred_label>_median_salary_women
+5,000    <y_axis_inferred_value_add>_median_salary_women
+per
+5    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+.
+A  logical conclusion would be a few decades ago women did nover , this would not be a reality    <interpretation>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+graph
+represents
+the
+median salary of women    <topic>_median_salary_women
+from    <x_axis_range_start>_median_salary_women
+the
+years    <x_axis>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+-    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+The
+highest    <y_axis_highest_value>
+percentage    <y_axis>_median_salary_women
+is
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+with
+NUMBER_highest    <y_axis_highest_value_val>_median_salary_women
+%
+,
+this
+is
+above    <y_axis_trend_up>_median_salary_women
+the
+NUMBER_scnd    <y_axis_Scnd_highest_val>_median_salary_women
+%
+in
+2010    <x_axis_label_Scnd_highest_value>_median_salary_women
+.
+In
+2005    <x_axis_label_3rd_highest_value>_median_salary_women
+the
+median    <topic_related_property>_median_salary_women
+was
+NUMBER_3rd    <y_axis_3rd_highest_val>_median_salary_women
+%
+and
+in
+2000    <x_axis_label_least_value>_median_salary_women
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+%
+.
+This
+shows
+an
+increase    <y_axis_trend_up>_median_salary_women
+every
+5    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+of
+5    <y_axis_inferred_value_add>_median_salary_women
+%
+.
+<end_of_desciption>_median_salary_women
+The
+graph
+shows
+that
+the
+median salaries of women    <topic>_median_salary_women
+has
+risen    <y_axis_trend_up>_median_salary_women
+each
+half decade    <x_axis_inferred_value>_median_salary_women
+,
+with
+2015    <x_axis_label_highest_value>_median_salary_women
+'
+s
+median    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+being
+15000    <y_axis_inferred_value_add>_median_salary_women
+higher    <y_axis_trend_up>_median_salary_women
+than
+in
+2000    <x_axis_label_least_value>_median_salary_women
+<end_of_desciption>_median_salary_women
+Women    <topic_related_object>_median_salary_women
+'
+s
+median    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+has
+been
+tranding    <y_axis_trend>_median_salary_women
+upwards    <y_axis_trend_up>_median_salary_women
+,
+rising    <y_axis_trend_up>_median_salary_women
+from
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+in
+2000    <x_axis_label_least_value>_median_salary_women
+to
+NUMBER_3rd    <y_axis_3rd_highest_val>_median_salary_women
+in
+2005    <x_axis_label_3rd_highest_value>_median_salary_women
+,
+NUMBER_scnd    <y_axis_Scnd_highest_val>_median_salary_women
+in
+2010    <x_axis_label_Scnd_highest_value>_median_salary_women
+,
+to
+NUMBER_highest    <y_axis_highest_value_val>_median_salary_women
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+<end_of_desciption>_median_salary_women
+This
+charts
+shows
+the
+average median salary of women per year    <topic>_median_salary_women
+in
+2000, 2005, 2010 and 2015    <x_axis_labels>_median_salary_women
+.
+The
+chart
+shows
+a
+trend    <y_axis_trend>_median_salary_women
+of
+increasing    <y_axis_trend_up>_median_salary_women
+average    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+of
+women    <topic_related_object>_median_salary_women
+.
+However it doesn't show how this relates to inflation    <interpretation>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+The
+median salary of women per year    <topic>_median_salary_women
+is
+gradually    <y_axis_trend>_median_salary_women
+and
+steadily    <y_axis_trend>_median_salary_women
+rising    <y_axis_trend_up>_median_salary_women
+every
+5    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+.
+In
+the
+last    <x_diff_first_last_numeric_label>_median_salary_women
+15    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+it
+has
+risen    <y_axis_trend_up>_median_salary_women
+15,000    <y_axis_inferred_value_add>_median_salary_women
+dollars    <y_axis_inferred_label>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+chart
+shows
+the
+median salary of women per year    <topic>_median_salary_women 
+.
+It
+shows
+that
+there
+has
+been
+quite   <y_axis_trend>_median_salary_women
+a
+small    <y_axis_trend>_median_salary_women
+increase    <y_axis_trend_up>_median_salary_women
+between    <x_axis_range_start>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+and    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+chart
+shows
+that
+the
+median salary for women    <topic>_median_salary_women
+has
+increased    <y_axis_trend_up>_median_salary_women
+continualy    <y_axis_trend>_median_salary_women
+since    <x_axis_period>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+,
+with
+the
+average    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+for
+women    <topic_related_object>_median_salary_women
+over    <y_axis_trend>_median_salary_women
+50,000    <y_axis_inferred_highest_value>_median_salary_women
+dollars    <y_axis_inferred_label>_median_salary_women
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+,
+compared    <y_x_comparison>_median_salary_women
+to
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+in
+2000    <x_axis_label_least_value>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+Chart
+shows
+the
+Median Salary of woman    <topic>_median_salary_women
+every
+5    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+between    <x_axis_range_start>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+to    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+The
+charts
+shows
+it
+has
+steadily    <y_axis_trend>_median_salary_women
+indreased    <y_axis_trend_up>_median_salary_women
+.
+In
+2000    <x_axis_label_least_value>_median_salary_women
+the
+salary    <y_axis>_median_salary_women
+was
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+,
+2005    <x_axis_label_3rd_highest_value>_median_salary_women
+it
+was
+42    <y_axis_inferred_3rd_highest_value>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+,
+2010    <x_axis_label_Scnd_highest_value>_median_salary_women
+was
+NUMBER_scnd    <y_axis_Scnd_highest_val>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+and
+finally    <final_label_left>_median_salary_women
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+it
+was
+52    <y_axis_inferred_highest_value>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+<end_of_desciption>_median_salary_women
+The
+median salary for women    <topic>_median_salary_women
+has
+risen    <y_axis_trend_up>_median_salary_women
+steadily    <y_axis_trend>_median_salary_women
+from    <x_axis_range_start>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+to    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+,
+with
+on
+average    <topic_related_property>_median_salary_women
+a
+$    <y_axis_inferred_label>_median_salary_women
+5,000    <y_axis_inferred_value_add>_median_salary_women
+increase    <y_axis_trend_up>_median_salary_women
+every
+5    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+graph
+shows
+the
+median annual salary of women    <topic>_median_salary_women
+in
+1000s    <y_axis_inferred_label>_median_salary_women
+of
+dollars    <y_axis_inferred_label>_median_salary_women
+every
+five    <x_axis_inferred_value>_median_salary_women
+years    <x_axis>_median_salary_women
+between    <x_axis_range_start>_median_salary_women
+the
+years    <x_axis>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+and    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+graph
+shows
+that
+from    <x_axis_range_start>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+-    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+the 
+median salary of women    <topic>_median_salary_women
+rose    <y_axis_trend_up>_median_salary_women
+consistently    <y_axis_trend>_median_salary_women
+from
+$    <y_axis_inferred_label>_median_salary_women
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+in
+2000    <x_axis_label_least_value>_median_salary_women
+to
+over
+$    <y_axis_inferred_label>_median_salary_women
+50,000    <y_axis_inferred_highest_value>_median_salary_women
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+<end_of_desciption>_median_salary_women
+This
+graph
+illustrates
+that
+the
+median salary for women    <topic>_median_salary_women
+has
+been
+increasing    <y_axis_trend_up>_median_salary_women
+at
+a
+constant rate    <y_axis_trend>_median_salary_women
+from
+the
+year    <x_axis>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+up
+to
+the
+year    <x_axis>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+chart
+shows
+median salary of women per year    <topic>_median_salary_women
+showing
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+salary    <y_axis>_median_salary_women
+median    <topic_related_property>_median_salary_women
+was
+over    <y_axis_trend>_median_salary_women
+$    <y_axis_inferred_label>_median_salary_women
+56,000    <y_axis_inferred_highest_value>_median_salary_women
+,
+followed    <order_Scnd>_median_salary_women
+by
+2010    <x_axis_label_Scnd_highest_value>_median_salary_women
+with
+$    <y_axis_inferred_label>_median_salary_women
+NUMBER_scnd    <y_axis_Scnd_highest_val>_median_salary_women
+,
+2005    <x_axis_label_3rd_highest_value>_median_salary_women
+with
+$    <y_axis_inferred_label>_median_salary_women
+44,000    <y_axis_inferred_3rd_highest_value>_median_salary_women
+and
+2000    <x_axis_label_least_value>_median_salary_women
+$    <y_axis_inferred_label>_median_salary_women
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+.
+as
+a
+rebut
+the
+graph
+shows
+an
+increase    <y_axis_trend_up>_median_salary_women
+in
+median    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+as
+time goes on    <x_axis_trend>_median_salary_women
+<end_of_desciption>_median_salary_women
+The
+average salary for woman    <topic>_median_salary_women
+has
+grown    <y_axis_trend_up>_median_salary_women
+since    <x_axis_period>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+by
+at
+least    <y_axis_trend>_median_salary_women
+10    <y_axis_inferred_value_add>_median_salary_women
+%
+<end_of_desciption>_median_salary_women
+This
+chart
+shows
+the
+median salary of women per year    <topic>_median_salary_women
+from    <x_axis_range_start>_median_salary_women
+the
+years    <x_axis>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+-    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+Over
+the
+years    <x_axis>_median_salary_women
+the
+median    <topic_related_property>_median_salary_women
+salary    <y_axis>_median_salary_women
+has
+increased    <y_axis_trend_up>_median_salary_women
+it
+was
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+in
+2000    <x_axis_label_least_value>_median_salary_women
+and
+is
+now
+56,000    <y_axis_inferred_highest_value>_median_salary_women
+in
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+graph
+presents
+the
+median salary of women    <topic>_median_salary_women
+from    <x_axis_range_start>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+to    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+Women    <topic_related_object>_median_salary_women
+'
+s
+earnings    <y_axis>_median_salary_women
+have
+been
+steadily    <y_axis_trend>_median_salary_women
+increasing    <y_axis_trend_up>_median_salary_women
+over this time    <x_axis_trend>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+The
+Median salary for women    <topic>_median_salary_women
+appears
+to
+increase    <y_axis_trend_up>_median_salary_women
+by
+1000    <y_axis_inferred_value_add>_median_salary_women
+every
+year    <x_axis>_median_salary_women
+.
+<end_of_desciption>_median_salary_women
+This
+graph
+shows
+how
+the
+median salary of women    <topic>_median_salary_women
+has
+changed
+over
+time
+.
+This
+is
+done
+by
+looking
+every    <x_axis_period>_median_salary_women
+half    <x_axis_inferred_value>_median_salary_women
+decade
+from    <x_axis_range_start>_median_salary_women
+the
+year    <x_axis>_median_salary_women
+2000    <x_axis_label_least_value>_median_salary_women
+to    <x_axis_range_end>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+.
+$    <y_axis_inferred_label>_median_salary_women
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+-
+2000    <x_axis_label_least_value>_median_salary_women
+\\n    <separator>_median_salary_women
+$    <y_axis_inferred_label>_median_salary_women
+42000    <y_axis_inferred_3rd_highest_value>_median_salary_women
+-
+2005    <x_axis_label_3rd_highest_value>_median_salary_women
+\\n    <separator>_median_salary_women
+$    <y_axis_inferred_label>_median_salary_women
+NUMBER_scnd    <y_axis_Scnd_highest_val>_median_salary_women
+-
+2010    <x_axis_label_Scnd_highest_value>_median_salary_women
+\\n    <separator>_median_salary_women
+$    <y_axis_inferred_label>_median_salary_women
+52000    <y_axis_inferred_highest_value>_median_salary_women
+-
+2015    <x_axis_label_highest_value>_median_salary_women
+<end_of_desciption>_median_salary_women
+2015    <x_axis_label_highest_value>_median_salary_women
+saw
+women    <topic_related_object>_median_salary_women
+median    <topic_related_property>_median_salary_women
+pay    <y_axis>_median_salary_women
+rise    <y_axis_trend_up>_median_salary_women
+to    
+53    <y_axis_inferred_highest_value>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+,
+from    <y_x_comparison_rest>_median_salary_women
+NUMBER_scnd    <y_axis_Scnd_highest_val>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+in
+2010    <x_axis_label_Scnd_highest_value>_median_salary_women
+.
+2005    <x_axis_label_3rd_highest_value>_median_salary_women
+it
+was
+at
+NUMBER_3rd    <y_axis_3rd_highest_val>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+from
+NUMBER_least    <y_axis_least_value_val>_median_salary_women
+k    <y_axis_inferred_label>_median_salary_women
+in
+2000    <x_axis_label_least_value>_median_salary_women
+,
+so
+you
+can
+see
+it
+has
+been
+rising    <y_axis_trend_up>_median_salary_women
+steadily    <y_axis_trend>_median_salary_women
+<end_of_desciption>_median_salary_women

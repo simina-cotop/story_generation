@@ -6,18 +6,20 @@ import os
 
 
 class DataGenerator(object):
-    scripts = ['bath', 'bicycle', 'bus', 'cake', 'flight', 'grocery', 'haircut', 'library', 'train', 'tree']
-    script_descriptions = {'bath': 'taking a bath',
-                           'bicycle': 'fixing a flat tire',
-                           'bus': 'taking a bus',
-                           'cake': 'baking a cake',
-                           'flight': 'taking a flight',
-                           'grocery': 'grocery shopping',
-                           'haircut': 'doing a haircut',
-                           'library': 'borrowing a book from library',
-                           'train': 'taking a train',
-                           'tree': 'planting a tree'}
-
+    #scripts = ['bath', 'bicycle', 'bus', 'cake', 'flight', 'grocery', 'haircut', 'library', 'train', 'tree']
+    #script_descriptions = {'bath': 'taking a bath',
+    #                       'bicycle': 'fixing a flat tire',
+    #                       'bus': 'taking a bus',
+    #                       'cake': 'baking a cake',
+    #                       'flight': 'taking a flight',
+    #                       'grocery': 'grocery shopping',
+    #                       'haircut': 'doing a haircut',
+    #                       'library': 'borrowing a book from library',
+    #                       'train': 'taking a train',
+    #                       'tree': 'planting a tree'}
+    scripts = ['gender_pay_gap', 'median_salary_women']
+    script_descriptions = {'gender_pay_gap': 'gender_pay_gap',
+                            'median_salary_women':'median_salary_women'}
     @staticmethod
     def generate_data(texts, seeds, delimiter='\t', output_file='exp_data.csv'):
         """
@@ -103,9 +105,11 @@ class DataGenerator(object):
         agenda = list()
         for token in story:
             if len(token) > 1:
-                if token[1].find('voking') != -1:
+                if token[1].find('topic') != -1:
                     script = [sc for sc in DataGenerator.scripts if token[1].find(sc) != -1][0]
                     break
+        #print("script here is :")
+        #print(script)            
         agenda.append('Story_Begin_' + script)
         labels = [token[1] for token in story if len(token) > 1]
         agenda.extend([label for label in labels if label in de2d])
@@ -149,7 +153,7 @@ for story in stories:
     script = ''
     for token in story:
         if len(token) > 1:
-            if token[1].find('voking') != -1:
+            if token[1].find('topic') != -1:
                 script = [sc for sc in DataGenerator.scripts if token[1].find(sc) != -1][0]
                 break
     if script not in story_dict:
@@ -167,8 +171,8 @@ Model8_dill_path = 'samples_binary_' + configurations.Config.Run_Index
 # model8 dill: texts, seeds. previously generated.
 # 4 texts for each seed, 2 random + 2 normal seeds for each script
 
-scripts = ['grocery']
-indices = {'grocery': [0, 2]}
+scripts = ['gender_pay_gap']
+indices = {'gender_pay_gap': [0, 2]}
 
 for script in scripts:
     for index in indices[script]:
