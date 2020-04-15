@@ -12,6 +12,7 @@ import copy
 import logging
 import arksKerasTools
 import AgendaGenerator
+from keras.utils.vis_utils import plot_model
 
 
 # Global Variables: data and dicts
@@ -75,6 +76,8 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
         for j in range(generation_length):#generation_length   20
             #print("*************************************************************************")
             x_seq_input_int = dataLoaders.word_to_int(x_context, dw2i)
+            #print ("x_context inside generation")
+            #print (x_context)
             x_seq_input = np.reshape(np.array(x_seq_input_int), newshape=(1, -1))
             e_p_context_input_int = dataLoaders.word_to_int(e_p_context, de2i)
             e_p_context_input = np.reshape(e_p_context_input_int, newshape=(1, -1))
@@ -97,11 +100,14 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
             if a_out[0][1] > a_out[0][0] and event_span >= minimal_span:
                 # sample event word
                 index_of_new_word = utils.temperature_sample(pred_distribution, temperature=Config.Crucial_temperature)
+                
+                #print("new_event_word=",di2w[index_of_new_word])
             else:
                 # sample normal word
                 index_of_new_word = utils.temperature_sample(pred_distribution, temperature=temperature)
 
             new_word = di2w[index_of_new_word]
+            # print("new=",new_word)
 
             a_outs.append(a_out)
             x_context.append(new_word)
@@ -163,15 +169,18 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
     return generated_sequence_s, a_list, e_p_histories, e_f_histories, len(seed.x_context), text_lists
 
 
-def plain_beam(model, seed, context_length=Config.Context_length, k=3):
+def plain_beam(model, seed, context_length=Config.Context_length, k=10):
     """
     plain beam search.
     :return text, seed pair
     """
     x_context = collections.deque(seed.x_context, maxlen=context_length)
+    print("x_context=", x_context)
     e_p_context = collections.deque(seed.e_p_context, maxlen=context_length)
+    print("e_p_context=", e_p_context)
     e_f_context = collections.deque(seed.e_f_context, maxlen=context_length)
-    #print("starting beam search")
+    print("e_f_context=", e_f_context)
+    print("starting beam search")
     # initialize agenda with beginning configs
     beam_agenda = list()
 
@@ -196,6 +205,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
                    'text': seed.x_context, 'log_prob': 0, 'terminate': False}
 
     beam_agenda.append(agenda_item)
+    print("beginning = ", beam_agenda)
     stop_1 = 0
     while True:
         # beam search.
@@ -215,15 +225,16 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
                                       aitem['a'], aitem['c']])
             # with the predicted a, run the model again to get output
             pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
-
             top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
+            print("k=",len(pred_distribution))
+            
             stop_3 = 0
             for index in top_k_indices:
                 cache_item = copy.deepcopy(aitem)
                 #print("inside second for")
                 new_word = di2w[index]
                 step_probability = pred_distribution[0][index]
-
+                #print("step_probability=",step_probability)
                 # update new item
                 cache_item['x'].append(index)
                 cache_item['epc'].append(de2i[seed.agenda[cache_item['epp']]])
@@ -242,7 +253,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
                     print('index error')
                 cache_item['text'].append(new_word)
                 cache_item['log_prob'] += np.log(step_probability)
-
+                #print("cache_item", cache_item['text'])
                 cache_agenda.append(cache_item)
                 stop_3 = stop_3 + 1
                 if (stop_3 > 10):
@@ -250,9 +261,25 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
             stop_2 = stop_2 + 1
             if (stop_2 > 10):
                 break
-        cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
-        beam_agenda = cache_agenda_sorted[-k:]
 
+        '''cache_list = []
+        for a in cache_agenda:
+            cache_list.append(a['text'])
+        print("cache_agenda_b", cache_list)'''
+        cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
+        '''cache_list = []
+        for a in cache_agenda_sorted:
+            cache_list.append(a['text'])
+        print("cache_agenda_a", cache_list)
+        cache_list = []
+        for a in beam_agenda:
+            cache_list.append(a['text'])
+        print("beam_agenda_b", cache_list)'''
+        beam_agenda = cache_agenda_sorted[-k:]
+        '''cache_list = []
+        for a in beam_agenda:
+            cache_list.append(a['text'])
+        print("beam_agenda_a", cache_list)'''
         # terminate search if termination conditions are met
         break_flag = False
         
@@ -271,7 +298,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
         if (stop_1 > 10):
             break
         #if break_flag is True:
-        
+
     #print("first while loop finished")
     # filter generated sequence to remove repititions
     # MAX_REPITITION_SPAN = 3
@@ -299,11 +326,11 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=3):
 
     # filter out the '+' in generated text.
     filtered_text = ' '.join(text).replace('+', ' ')
-    #print("*****************************************************")
-    #print ("filtered text is : ")
-    #print(filtered_text)
-    #print("*****************************************************")
-    #print("beam search finished")
+    print("*****************************************************")
+    print ("filtered text is : ")
+    print(filtered_text)
+    print("*****************************************************")
+    print("beam search finished")
     return filtered_text, seed
 
 
@@ -335,16 +362,16 @@ class SampleGeneration(keras.callbacks.Callback):
     def on_epoch_end(self, batch, logs=None):
         seq, a_list, e_p_histories, e_f_histories, seedlen, text_lists = \
             generate_sequences(self.model, seed=self.seed, generation_length=40, n_generation=1)
-        #print("text_lists inside on_epoch_end is : ")
-        #print(text_lists)
+        print("text_lists inside on_epoch_end is : ")
+        print(text_lists)
         self.samples.append(text_lists[0])
         seq, a_list, e_p_histories, e_f_histories, seedlen, text_lists = \
             generate_sequences(self.model, seed=Config.Sample_Seed_gender, generation_length=40, n_generation=1)
         self.samples.append(text_lists[0])
 
         #print()
-        #print(str(seq))
-        #print('seed=,', seq[0][:seedlen])
+        print(str(seq))
+        print('seed=,', seq[0][:seedlen])
         for i in range(len(a_list[0])):
             print(str(seq[0][i+seedlen]) + ': ' + str(a_list[0][i]) + ': ' + str(e_f_histories[0][i]))
 
@@ -480,7 +507,7 @@ def def_model():
     model = keras.models.Model(inputs=[x_context, e_p_context, e_f_context, e_f, e_p, a_t_star, c_gru_coef],
                                outputs=[output_distribution, a_t_from_model_output],
                                name='model5')
-
+    plot_model(model, to_file='model_plot2.png', show_shapes=True, show_layer_names=True)
     return model
 
 
@@ -570,11 +597,12 @@ def main():
     print(str(evaluation))
 
     # TODO ===================== Generate Sequences =======================
-    scripts = ['median_salary_women']#, 'median_salary_women']
+    #scripts = ['median_salary_women']#, 'median_salary_women']
+    scripts = ['gender_pay_gap']#, 'median_salary_women']
     seeds_path = 'seeds_binaries_' + Config.Run_Index
 
     # load seeds
-    seeds_dict = dict()
+    seeds_dict = dict() #SC: a dictionary of seed objects
     #if os.path.exists(seeds_path):
     #    seeds_dict = dill.load(open(seeds_path, 'rb'))
         
@@ -587,7 +615,11 @@ def main():
             generation_seeds.append(AgendaGenerator.Agenda.generate_random_seed(script, length= 15))
         seeds_dict[script] = generation_seeds
     #print("seed dictionary is : ")
-    #print(seeds_dict)
+    #gender = seeds_dict['gender_pay_gap']
+    #for i in range(len(gender)):
+    #    print("i=", i, gender[i].x_context, gender[i].e_p_context, gender[i].e_f_context)
+    #print(len(gender))
+    #raise Exception()
     dill.dump(seeds_dict, open(seeds_path, 'wb'))
 
     generation_path = 'generation_binaries_' + Config.Run_Index
@@ -603,8 +635,8 @@ def main():
             texts.append(texte), seeds.append(seede)
         generations[script] = texts, seeds
     print ("generations[script] is : ")
-    print(generations[script])
-    print("***********************************************************")
+    print(type(generations[script]))
+    #print("***********************************************************")
     dill.dump(generations, open(generation_path, 'wb'))
 
     with open(Config.Sample_path, 'w') as sample_out:
@@ -649,6 +681,7 @@ def random_hyper_search(index_list, opt_log_path):
         evaluation = model.evaluate(
             x=[x_val, e_p_context_val, e_f_context_val, e_f_val, e_p_val, a_val, c_gru_coef_val],
             y=[y_val, a_val])
+        print("eval=",evaluation)
         with open(opt_log_path, 'a') as log_out:
             # log index, hypers, val loss, p/r on a1.
             # metrics in evaluation by order: loss, main_loss, a_loss, main_acc, a_acc, a_f_0, a_f_1, a_r_1, a_p_1

@@ -3,7 +3,7 @@ import os
 
 class Config(object):
 
-    Run_Index = 'final_opt_round_2'
+    Run_Index = 'final_opt_round_10_beam10'
 
     # TODO: EXP
     Sample_binary_path = 'samples_binary_' + Run_Index
@@ -23,7 +23,7 @@ class Config(object):
     # for unix
     # LOG_DIR = r'./LOG'
     #Word2Vec_Google_Path = r'D:\data\GoogleNews-vectors-negative300.bin'
-    Word2Vec_Google_Path = r'C:\Users\Rudy-kh\Desktop\data\GoogleNews-vectors-negative300.bin'
+    Word2Vec_Google_Path = r'/home/simina/GoogleNews-vectors-negative300.bin'
     W2V_wrapper_path = os.path.join('.', 'w2v10')
 
     Effective_Scripts = [ 
@@ -110,14 +110,14 @@ class Config(object):
     Clipping_threshold = 1e10
     Early_stopping_patience = 1
     Loss_weight_on_a = 1.3
-    Max_train_epochs = 100
+    Max_train_epochs = 10
     # weights_on_cat_of_a_loss
     # wa =
     Weight_on_a1_cross_entropy = [1., 4]
     # TODO: end model hypers-------------------------------------------------------------------
     # TODO: Generation
     # lower temperature -> conservative
-    Temperature = .5
+    Temperature = .9
     Crucial_temperature = .01
     # the least number of tokens to generate before shifting events. should go well with **C_gru only** models.
     Minimal_event_span = 1
@@ -151,7 +151,8 @@ class Config(object):
     #x_context = 'after playing football with my friends , ' \
     #            'i was all sweaty and dirty , ' \
     #            'so i decided i should take a bath .'.split()
-    x_context = 'this shows gender pay gap'.split()
+    #x_context = 'this shows gender pay gap'.split()
+    x_context = 'the chart shows gender pay gap'.split()
     e_p_context = ['Story_Begin_gender_pay_gap'] * 22 + ['<topic>_gender_pay_gap\n']# ['<Evoking_gender_pay_gap>\n']
     #e_f_context = ['<Evoking_gender_pay_gap>\n'] * 22 #+ #['ScrEv_wash']
     e_f_context = ['<topic>_gender_pay_gap\n'] * 22 + ['<x_axis_label_Scnd_highest_value>\n']#+ #['ScrEv_wash']

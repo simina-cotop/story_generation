@@ -459,7 +459,7 @@ def word_frequencies(file_list):
     """
     result = event_counter_1
     for file in file_list:
-        file1 = open(file, 'r')
+        file1 = open(file, 'r', encoding='latin1')
     
         while True:
             line = file1.readline()
@@ -555,6 +555,7 @@ class Agenda(object):
                 if sample < np.power(min(count[event]/100, 1), temperature):
                     agenda.append(event)
         agenda.append('Story_End_' + script)
+        print("agenda = ", agenda)
         return agenda
 
     @staticmethod

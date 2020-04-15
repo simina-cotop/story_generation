@@ -1,0 +1,4716 @@
+=============== Script: gender_pay_gap ==============
+-- TEXT 0 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 1 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 2 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 3 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 4 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 5 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 6 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 7 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 8 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 9 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 10 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 11 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 12 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 13 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 14 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 15 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 16 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 17 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 18 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 19 ---
+the gender pay gap .
+ between
+ germany, spain and the uk .
+ .
+ .
+ this
+ .
+ .
+ this
+
+-- TEXT 20 ---
+the gender pay gap of
+ over 300 increase has
+ a
+ over 6 times
+ higher
+-- TEXT 21 ---
+the gender pay gap is
+ followed by
+ by
+ the
+ gender pay gap and
+ uk, spain and germany .
+ the
+
+-- TEXT 22 ---
+the gender pay gap as
+ a
+ percentage ,
+ ,
+ and
+ the
+ smallest representation at
+
+-- TEXT 23 ---
+the gender pay gap is
+ largest in
+ followed by
+ the
+ the
+ two
+ factors
+ with
+
+-- TEXT 24 ---
+the gender pay gap is
+ spent
+ in
+ the
+ least times
+ that
+ only has
+ %
+-- TEXT 25 ---
+the gender pay gap between
+ male and female workers
+ is
+ spent
+ and
+ finally number_least at
+ %
+-- TEXT 26 ---
+the gender pay gap is
+ followed by
+ by
+ over $ over $ number_least number_least
+-- TEXT 27 ---
+the gender pay gap at
+ number_highest % )
+ and
+ and
+ 6 % in
+ only
+-- TEXT 28 ---
+the gender pay gap of
+ over 300 compared with
+ number_scnd million dollars with
+ number_highest .
+
+-- TEXT 29 ---
+the gender pay gap is
+ in
+ the
+ uk in
+ at
+ the
+ lowest has
+ over
+-- TEXT 30 ---
+the gender pay gap of
+ over number_highest number_scnd % -
+ number_least at
+ $ 300
+-- TEXT 31 ---
+the gender pay gap is
+ in
+ the
+ uk with
+ spain is
+ compared to
+ with
+
+-- TEXT 32 ---
+the gender pay gap is
+ followed by
+ by
+ only only the
+ uk has
+ the
+
+-- TEXT 33 ---
+the gender pay gap varies
+ across
+ across
+ a
+ countries .
+ ,
+ and
+ number_least ,
+
+-- TEXT 34 ---
+the gender pay gap ,
+ compared with
+ with
+ number_least universities in
+ at
+ least each
+
+-- TEXT 35 ---
+the gender pay gap of
+ spain in
+ spain at
+ number_least % and
+ lastly gap
+-- TEXT 36 ---
+the gender pay gap at
+ number_highest % in
+ the
+ germany and
+ finally the
+ spain
+-- TEXT 37 ---
+the gender pay gap as
+ a
+ percentage ,
+ comparing
+ the
+ uk, spain an germany comparing
+ the
+ comparing
+
+-- TEXT 38 ---
+the gender pay gap is
+ in
+ at
+ number_highest in
+ the
+ least the
+ most popular
+
+-- TEXT 39 ---
+the gender pay gap in
+ germany with
+ 6 times
+ followed by
+ by
+ the
+ gap
+===============================
+epoch 0.0 . Sample:the chart shows gender pay gap % .
+ % .
+ % the
+ % .
+ % a
+ % .
+ % of
+ % .
+ % .
+ % number_scnd % .
+ % of
+ % ,
+ % .
+ % .
+ % .
+ % .
+ % .
+ % .
+ %
+epoch 0.5 . Sample:the chart shows gender pay gap % .
+ % .
+ % .
+ % of
+ % .
+ % in
+ % .
+ % .
+ % in
+ % financial groups % .
+ % people % number_least % in
+ % ,
+ % number_scnd % .
+ % number_highest %
+epoch 1.0 . Sample:the chart shows gender pay gap ,
+ % with
+ the
+ % of
+ the
+ % in
+ % .
+ the
+ % .
+ % .
+ % .
+ % of
+ % .
+ % .
+ the
+ % .
+ the
+ % .
+ the
+ % .
+ the
+ % .
+ the
+ % .
+ the
+
+epoch 1.5 . Sample:the chart shows gender pay gap and
+ % .
+ the
+ % of
+ the
+ % in
+ % .
+ the
+ % .
+ % .
+ % .
+ % in
+ % .
+ % shows
+ chart
+ ,
+ % of
+ the
+ % ,
+ % in
+ the
+ % .
+ the
+ % of
+ the
+
+epoch 2.0 . Sample:the chart shows gender pay gap .
+ the
+ highest the
+ highest .
+ the
+ highest the
+ highest the
+ highest the
+ highest number_scnd % of
+ the
+ highest the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+
+epoch 2.5 . Sample:the chart shows gender pay gap .
+ the
+ highest the
+ highest .
+ the
+ highest the
+ lowest the
+ highest the
+ highest number_scnd % of
+ the
+ highest the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+ the
+ highest .
+
+epoch 3.0 . Sample:the chart shows gender pay gap ,
+ the
+ most the
+ lowest .
+ the
+ lowest .
+ the
+ lowest the
+ lowest the
+ highest .
+ number_least % and
+ number_least % of
+ number_scnd % .
+ the
+ highest with
+ a
+ the
+ highest the
+ highest no degree .
+ the
+ highest .
+ the
+
+epoch 3.5 . Sample:the chart shows gender pay gap .
+ the
+ most the
+ lowest .
+ the
+ lowest .
+ the
+ lowest .
+ the
+ lowest % of
+ number_scnd number_least % and
+ number_least % of
+ number_scnd .
+ the
+ highest in
+ the
+ highest that
+ the
+ highest .
+ the
+ highest in
+ the
+ highest
+epoch 4.0 . Sample:the chart shows gender pay gap ,
+ the
+ most the
+ highest .
+ the
+ lowest ,
+ followed by
+ number_highest % and
+ number_least % and
+ number_least ,
+ followed by
+ the
+ highest .
+ the
+ highest .
+ a
+ the
+ highest .
+ over the
+ highest .
+ the
+ highest .
+
+epoch 4.5 . Sample:the chart shows gender pay gap ,
+ the
+ most the
+ highest .
+ the
+ lowest ,
+ followed at
+ number_highest % in
+ the
+ lowest % .
+ the
+ lowest the
+ lowest .
+ a
+ the
+ highest in
+ the
+ highest $ the
+ highest and
+ the
+ highest .
+ that
+ the
+ highest
+epoch 5.0 . Sample:the chart shows gender pay gap (
+ the
+ most the
+ lowest .
+ the
+ lowest by
+ number_scnd ,
+ followed by
+ number_highest % of
+ number_least % and
+ number_least % .
+ in
+ the
+ uk of
+ the
+ uk .
+ the
+ uk .
+ the
+ uk .
+ the
+ uk
+epoch 5.5 . Sample:the chart shows gender pay gap .
+ the
+ most the
+ lowest .
+ the
+ lowest the
+ lowest .
+ the
+ lowest % of
+ number_least % and
+ number_least % .
+ pay .
+ the
+ uk .
+ the
+ uk .
+ the
+ uk .
+ what subjects students choose to study .
+ asia .
+ is
+ the
+ uk
+epoch 6.0 . Sample:the chart shows gender pay gap in
+ the
+ highest the
+ uk .
+ the
+ uk by
+ number_scnd and
+ only number_least % and
+ number_least % and
+ number_least % and
+ insurance .
+ the
+ uk .
+ the
+ uk .
+ a
+ phd ,
+ followed by
+ the
+ uk .
+
+epoch 6.5 . Sample:the chart shows gender pay gap and
+ the
+ highest the
+ uk .
+ the
+ uk by
+ number_scnd and
+ only number_least % and
+ number_least % and
+ number_least % and
+ the
+ uk .
+ those
+ with
+ a
+ phd .
+ .
+ .
+ the
+ uk .
+ than
+ .
+ the
+
+epoch 7.0 . Sample:the chart shows gender pay gap at
+ the
+ largest the
+ uk is
+ the
+ uk by
+ spain in
+ the
+ lowest at
+ number_highest % and
+ number_least % and
+ medicine with
+ number_scnd .
+ has
+ .
+ .
+ .
+ .
+ .
+ a
+ phd .
+ the
+ uk .
+
+epoch 7.5 . Sample:the chart shows gender pay gap representation .
+ the
+ largest the
+ uk is
+ the
+ uk at
+ spain in
+ the
+ lowest at
+ number_highest % and
+ number_least % and
+ medicine and
+ finally africa .
+ the
+ uk .
+ the
+ uk .
+ the
+ uk .
+ those
+ with
+
+epoch 8.0 . Sample:the chart shows gender pay gap in
+ the
+ highest percentage of
+ the
+ uk is
+ followed by
+ spain and
+ germany has
+ the
+ lowest % of
+ number_least % and
+ the
+ lowest australia .
+ .
+ the
+ uk .
+ .
+ .
+ the
+ uk .
+
+epoch 8.5 . Sample:the chart shows gender pay gap in
+ the
+ highest percentage of
+ the
+ uk is
+ followed by
+ spain with
+ germany has
+ the
+ lowest % of
+ number_least % and
+ the
+ lowest .
+ the
+ uk .
+ the
+ uk .
+ the
+ uk .
+ that
+ .
+ .
+
+epoch 9.0 . Sample:the chart shows gender pay gap in
+ the
+ highest percentage of
+ the
+ chart
+ shows
+ the
+ uk ,
+ followed by
+ the
+ lowest % of
+ number_least % .
+ those
+ with
+ a
+ phd .
+ .
+ and
+ those
+ with
+ a
+ phd .
+ .
+ the
+ uk .
+ the
+ uk
+epoch 9.5 . Sample:the chart shows gender pay gap in
+ the
+ highest percentage of
+ the
+ chart
+ shows
+ the
+ uk in
+ the
+ lowest at
+ number_highest % of
+ number_least % and
+ australia with
+ a
+ phd .
+ the
+ uk .
+ those
+ .
+ that
+ .
+ the
+ uk .
+ .
+ the
+ uk
+epoch 10.0 . Sample:the chart shows gender pay gap in
+ the
+ highest percentage of
+ the
+ chart
+ shows
+ that
+ the
+ uk is
+ the
+ lowest % and
+ number_least % -
+ $ number_least % .
+ .
+ the
+ uk .
+ the
+ uk .
+ the
+ uk .
+ the
+ uk .
+ the
+
+epoch 10.5 . Sample:the chart shows gender pay gap in
+ the
+ highest percentage of
+ the
+ chart
+ shows
+ that
+ the
+ uk has
+ the
+ lowest at
+ number_highest % and
+ number_least % -
+ $ number_least % .
+ .
+ only .
+ .
+ average salary earnt by women .
+ the
+ uk .
+ .
+
+epoch 11.0 . Sample:the chart shows gender pay gap in
+ the
+ uk cause of
+ the
+ uk .
+ the
+ uk at
+ germany has
+ the
+ lowest gender pay gap at
+ number_highest % of
+ number_highest % -
+ $ number_least % .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 11.5 . Sample:the chart shows gender pay gap in
+ the
+ uk cause .
+ the
+ uk ,
+ followed by
+ spain ,
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_highest % and
+ the
+ years .
+ law firms .
+ the
+ uk .
+ .
+ the
+ lowest .
+
+epoch 12.0 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap with
+ no degree ,
+ followed by
+ spain at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least % and
+ the
+ years .
+ .
+ .
+ those
+ with
+ no degree .
+ .
+ those
+
+epoch 12.5 . Sample:the chart shows gender pay gap and
+ the
+ uk pay gap with
+ no degree .
+ the
+ uk at
+ germany only number_least at
+ number_highest % and
+ number_least % and
+ the
+ years .
+ .
+ the
+ uk .
+ the
+ uk .
+ it
+ .
+ those
+ with
+ .
+ .
+
+epoch 13.0 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap is
+ the
+ world by
+ spain with
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ number_least % -
+ $ number_least % .
+ .
+ .
+ .
+ .
+ .
+ those
+ with
+ a
+ phd
+epoch 13.5 . Sample:the chart shows gender pay gap with
+ a
+ phd pay gap .
+ germany is
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least % and
+ the
+ years .
+ .
+ .
+ that
+ .
+ .
+ .
+ .
+
+epoch 14.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ uk and
+ germany has
+ the
+ lowest % of
+ over number_least % and
+ the
+ years .
+ the
+ top 100 universities in each country .
+ .
+ .
+ .
+ .
+ .
+ those
+
+epoch 14.5 . Sample:the chart shows gender pay gap with
+ a
+ phd pay gap with
+ no degree ,
+ followed by
+ spain with
+ germany has
+ the
+ lowest % of
+ over number_least % and
+ the
+ years .
+ .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 15.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree ,
+ followed by
+ spain at
+ germany has
+ the
+ lowest at
+ number_highest % million by
+ number_least % and
+ the
+ years each
+ .
+ .
+ we
+ can
+ .
+ .
+ .
+
+epoch 15.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ uk (
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least % and
+ the
+ years .
+ .
+ .
+ .
+ .
+ .
+ .
+ it
+
+epoch 16.0 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap with
+ no degree ,
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least % and
+ the
+ years .
+ .
+ .
+ .
+ .
+ .
+ .
+ those
+
+epoch 16.5 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap in
+ the
+ world by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least % and
+ the
+ years .
+ .
+ .
+ those
+ with
+ no degree .
+ .
+ .
+ .
+
+epoch 17.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ next with
+ germany has
+ the
+ lowest the
+ way
+ being
+ compared to
+ over number_least % -
+ $ number_least -
+ number_least .
+ .
+ .
+ .
+ .
+ .
+
+epoch 17.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ next with
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ number_least % -
+ $ number_least -
+ number_least .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 18.0 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap ,
+ comparing
+ the
+ next with
+ spain at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least % -
+ $ bachelors in
+ 2005 .
+ .
+ .
+ .
+ .
+ .
+
+epoch 18.5 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap with
+ no degree .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % and
+ finally number_least % -
+ $ bachelors in
+ 2005 .
+ .
+ .
+ .
+ .
+ .
+
+epoch 19.0 . Sample:the chart shows gender pay gap in
+ the
+ uk pay gap with
+ a
+ much
+ continents ,
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % and
+ finally number_least % -
+ $ 10,000 are
+ africa and
+ both
+ .
+ those
+ with
+ .
+ .
+ .
+
+epoch 19.5 . Sample:the chart shows gender pay gap in
+ the
+ uk gender pay gap .
+ germany .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ followed by
+ number_least % -
+ $ 10,000 and
+ finally .
+ .
+ .
+ .
+ .
+ .
+
+epoch 20.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ then number_least % -
+ $ 10,000 are
+ africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 20.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap .
+ germany role
+ followed by
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ then number_least % -
+ $ 10,000 .
+ finally .
+ .
+ .
+ .
+ .
+ .
+
+epoch 21.0 . Sample:the chart shows gender pay gap in
+ the
+ highest pay gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % compared to
+ much number_least % -
+ $ 10,000 -
+ finally africa .
+ .
+ .
+ .
+ .
+ those
+ with
+
+epoch 21.5 . Sample:the chart shows gender pay gap in
+ the
+ highest pay gap in
+ uk, spain and germany .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least % -
+ $ 10,000 .
+ finally .
+ spending time with family   <x_axis_label_3rd_highest_value>
+ .
+ .
+ .
+ .
+ .
+
+epoch 22.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ just
+ number_scnd % -
+ 3 highlights
+ that
+ .
+ .
+ .
+ .
+ .
+ .
+ we
+ can
+ see
+
+epoch 22.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ just
+ number_scnd % -
+ 3 times
+ finally .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 23.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % and
+ finally number_least -
+ number_scnd % .
+ over 300 africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 23.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ the
+ uk being
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % ,
+ with
+ approximately number_least .
+ .
+ .
+ .
+ .
+ .
+
+epoch 24.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap in
+ uk, spain and germany .
+ the
+ uk is
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % of
+ over 300 africa .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 24.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % )
+ ,
+ there
+ is
+ africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 25.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ no degree .
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest % and
+ finally number_least % -
+ number_scnd % -
+ 3 times
+ finally .
+ .
+ .
+ .
+ .
+ .
+
+epoch 25.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap in
+ uk, spain and germany .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % -
+ 3 times
+ finally .
+ .
+ .
+ .
+ .
+ .
+
+epoch 26.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap is
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ then number_least -
+ number_scnd % for
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+
+epoch 26.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % and
+ finally number_least -
+ number_scnd % .
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+ .
+
+epoch 27.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % .
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 27.5 . Sample:the chart shows gender pay gap with
+ the
+ largest pay gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself ,
+ followed by
+ spain at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % .
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+ .
+
+epoch 28.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap is
+ between
+ germany, spain and the uk .
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % of
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+ .
+
+epoch 28.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % of
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 29.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % of
+ over 300 million dollar .
+ .
+ .
+ .
+ this
+ .
+ .
+ .
+
+epoch 29.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % ,
+ with
+ approximately masters .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 30.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap with
+ percentage   <y_axis>_gender_pay_gap
+ .
+ the
+ uk is
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % .
+ over 300 africa .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 30.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ male and female workers
+ is
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % ,
+ with
+ approximately phd .
+ .
+ .
+ .
+ .
+ .
+
+epoch 31.0 . Sample:the chart shows gender pay gap in
+ the
+ highest pay gap between
+ germany, spain and the uk .
+ the
+ uk at
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd % ,
+ with
+ approximately phd .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 31.5 . Sample:the chart shows gender pay gap in
+ the
+ highest pay gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ secondly   <order_scnd>_gender_pay_gap
+ .
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk has
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd % ,
+ with
+ approximately phd .
+ .
+
+epoch 32.0 . Sample:the chart shows gender pay gap ,
+ with
+ a
+ phd gender gap with
+ respect
+ .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least each
+ .
+ % in
+ the
+ graph
+ shows
+ that
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 32.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least ,
+ number_scnd % in
+ the
+ graph
+ represents
+ finally africa .
+ it
+ .
+ .
+ .
+ .
+
+epoch 33.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap with
+ percentage   <y_axis>_gender_pay_gap
+ .
+ the
+ next with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % ,
+ with
+ approximately phd .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 33.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap with
+ respect
+ .
+ the
+ next with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ number_least -
+ number_scnd % for
+ a
+ trend
+ .
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 34.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ number_least -
+ number_scnd % ,
+ with
+ approximately phd .
+ .
+ .
+ .
+ .
+
+epoch 34.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap in
+ uk, spain and germany .
+ the
+ uk (
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ number_least -
+ number_scnd % are
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+ .
+
+epoch 35.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk is
+ germany has
+ the
+ lowest at
+ number_highest % while $ number_least % -
+ number_scnd % in
+ the
+ graph
+ shows
+ that
+ .
+ .
+ .
+ .
+ .
+
+epoch 35.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least each
+ .
+ % in
+ the
+ graph
+ shows
+ that
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 36.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk (
+ germany has
+ the
+ lowest at
+ number_highest % compared to
+ much number_least -
+ number_scnd % ,
+ there
+ is
+ africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 36.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap in
+ uk, spain and germany .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % ,
+ there
+ is
+ africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 37.0 . Sample:the chart shows gender pay gap is
+ in
+ the
+ gender gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ secondly   <order_scnd>_gender_pay_gap
+ .
+ between
+ germany, spain and the uk .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ less at
+ number_least -
+ number_scnd % )
+ ,
+ there
+ is
+ africa
+epoch 37.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap in
+ uk, spain and germany .
+ the
+ uk is
+ then
+ has
+ the
+ way
+ being
+ compared to
+ much number_least -
+ number_scnd % ,
+ there
+ is
+ africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 38.0 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % in
+ the
+ graph
+ highlights
+ that
+ .
+ .
+ .
+ it
+ .
+ .
+ .
+
+epoch 38.5 . Sample:the chart shows gender pay gap in
+ the
+ largest pay gap between
+ germany, spain and the uk .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least million dollars with
+ number_scnd % in
+ the
+ greater that
+ finally africa .
+ .
+ .
+ .
+ .
+
+epoch 39.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % in
+ the
+ graph
+ highlights
+ that
+ .
+ .
+ .
+ .
+ .
+ .
+
+epoch 39.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least ,
+ number_scnd % in
+ the
+ graph
+ shows
+ that
+ .
+ it
+ .
+ .
+ .
+ .
+
+epoch 40.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least percent ,
+ number_scnd % ,
+ there
+ is
+ finally .
+ .
+ .
+ .
+ .
+
+epoch 40.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap with
+ percentage   <y_axis>_gender_pay_gap
+ .
+ the
+ uk at
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least at
+ number_scnd % ,
+ there
+ is
+ finally .
+ .
+ .
+ .
+ this
+ .
+ .
+
+epoch 41.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least ,
+ number_scnd % ,
+ there
+ is
+ at
+ number_least .
+ .
+ .
+ with
+ no degree .
+ .
+
+epoch 41.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk has
+ germany has
+ the
+ lowest of
+ number_highest % of
+ over number_least each
+ number_scnd % are
+ also
+ has
+ been
+ 10 %
+ .
+ .
+ the
+ other
+ .
+ .
+
+epoch 42.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % with
+ much number_least -
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ it
+ .
+ .
+
+epoch 42.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % with
+ much number_least -
+ number_scnd % .
+ it
+ has
+ finally africa .
+ .
+ .
+ .
+
+epoch 43.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk with
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % are
+ also
+ has
+ finally africa .
+ .
+ .
+ .
+
+epoch 43.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap with
+ no degree .
+ the
+ uk has
+ germany has
+ the
+ lowest at
+ number_highest % )
+ ,
+ less was
+ number_least ,
+ number_scnd % for
+ a
+ trend
+ .
+ .
+ .
+ .
+ .
+
+epoch 44.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ male and female workers
+ is
+ 2nd is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least -
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+ .
+ .
+
+epoch 44.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ male and female workers
+ is
+ 2nd ,
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least -
+ number_scnd % and
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+
+epoch 45.0 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least ,
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+ between
+ .
+ .
+
+epoch 45.5 . Sample:the chart shows gender pay gap in
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ uk with
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least (
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+ .
+ .
+ .
+
+epoch 46.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % )
+ and
+ finally number_least ,
+ number_scnd % also
+ has
+ been
+ increasing .
+ .
+ .
+
+epoch 46.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % for
+ a
+ trend
+ .
+ .
+ .
+ .
+
+epoch 47.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ the
+ table
+ shows
+ that
+ germany has
+ the
+ lowest at
+ number_highest % of
+ over number_least -
+ number_scnd % .
+ it
+ has
+ finally africa .
+ .
+ .
+
+epoch 47.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ the
+ table
+ shows
+ that
+ germany has
+ the
+ lowest at
+ number_highest % ,
+ less only
+ number_least -
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+
+epoch 48.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least -
+ number_scnd % .
+ it
+ is
+ finally africa .
+ .
+ .
+ .
+
+epoch 48.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least -
+ number_scnd % are
+ also
+ has
+ finally africa .
+ .
+ .
+ .
+
+epoch 49.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ the
+ uk (
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+ .
+
+epoch 49.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany ,
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd % compared to
+ over 300 million dollar .
+ the
+ two
+ factors
+ .
+
+epoch 50.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+ .
+
+epoch 50.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least only
+ number_scnd % ,
+ there
+ is
+ finally africa .
+ .
+ .
+ .
+
+epoch 51.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap with
+ percentage   <y_axis>_gender_pay_gap
+ .
+ the
+ uk and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least ,
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+ .
+
+epoch 51.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself .
+ comparing
+ the
+ uk, spain an germany .
+ the
+ uk with
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least % number_scnd -
+ number_scnd % ,
+ spending
+ than
+ africa .
+
+epoch 52.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least -
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 52.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least -
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 53.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap in
+ uk, spain and germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least each
+ .
+ % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 53.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 54.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ a
+ high gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 54.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 55.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 55.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany ,
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 56.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ table
+ shows
+ that
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 56.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ table
+ shows
+ that
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 57.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 which
+ has
+ been
+ increasing .
+ .
+ .
+ .
+
+epoch 57.5 . Sample:the chart shows gender pay gap in
+ the
+ uk .
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 58.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 58.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 59.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain with
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 59.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least ,
+ with
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 60.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least has
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 60.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least being
+ number_scnd % with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 61.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+ .
+
+epoch 61.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+ .
+
+epoch 62.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd .
+ % with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 62.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd .
+ % ,
+ spending
+ the
+ other
+ .
+ .
+ .
+ .
+
+epoch 63.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least -
+ number_scnd % ,
+ spending
+ the
+ other
+ .
+ .
+ .
+ .
+
+epoch 63.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap in
+ uk, spain and germany .
+ the
+ next with
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least -
+ number_scnd % but
+ only
+ attract
+ phd .
+ .
+ .
+ .
+
+epoch 64.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ then
+ only number_least ,
+ with
+ number_least on
+ number_scnd % are
+ also
+ has
+ steadily .
+ .
+ .
+ .
+
+epoch 64.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ then
+ only number_least ,
+ with
+ number_least % number_scnd with
+ number_scnd % at
+ over 300 million dollar .
+ .
+ .
+
+epoch 65.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ then
+ only number_least ,
+ with
+ number_least ,
+ number_scnd .
+ % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+ .
+
+epoch 65.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least each
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+
+epoch 66.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least -
+ number_scnd % are
+ also
+ has
+ steadily .
+ .
+ .
+ .
+
+epoch 66.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least -
+ number_scnd % there
+ is
+ more than
+ finally .
+ .
+ .
+ .
+
+epoch 67.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next with
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least ,
+ number_scnd % with
+ over 300 million dollar .
+ .
+ .
+
+epoch 67.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next with
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least % number_scnd number
+ -
+ number_scnd % at
+ over 300 million dollar .
+
+epoch 68.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ then
+ only number_least ,
+ with
+ number_least -
+ number_scnd % ,
+ spending
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+
+epoch 68.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap with
+ percentage   <y_axis>_gender_pay_gap
+ the
+ next highest
+ is
+ spain and
+ then
+ only number_least ,
+ with
+ number_least % -
+ number_scnd % ,
+ spending
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 69.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next with
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % ,
+ spending
+ over 300 million dollar .
+ .
+
+epoch 69.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least % number_scnd -
+ number_scnd .
+ % ,
+ spending
+ over 300 million dollar .
+
+epoch 70.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least at
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 70.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % of
+ over 300 million dollar .
+ .
+ .
+
+epoch 71.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 71.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % ,
+ spending
+ over
+ africa .
+ .
+ .
+ .
+
+epoch 72.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next with
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % ,
+ spending
+ the
+ other
+ .
+ .
+ .
+
+epoch 72.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % for
+ over 300 million dollar .
+ .
+ .
+
+epoch 73.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next spain spain spain spain with
+ spain and
+ then
+ only number_least ,
+ while number_least on
+ number_scnd by
+ 6 % more than
+ over 300
+epoch 73.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ germany, spain and the uk .
+ the
+ next is
+ spain and
+ then
+ only number_least ,
+ while number_least ,
+ number_scnd .
+ it
+ was
+ countries ,
+ spending
+ the
+ highest .
+ .
+ .
+ .
+
+epoch 74.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least only
+ number_scnd .
+ % (
+ over 300 million dollar .
+ .
+ it
+ .
+ .
+
+epoch 74.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least mdollars .
+ number_scnd .
+ % ,
+ spending
+ than
+ africa .
+ .
+ .
+
+epoch 75.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least ,
+ number_scnd % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 75.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least each
+ number_scnd % of
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 76.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least % number_scnd .
+ number_scnd % with
+ over 300 million dollar .
+ .
+ .
+
+epoch 76.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ with
+ number_least only
+ number_scnd % with
+ over 300 million dollar .
+ .
+ .
+
+epoch 77.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd -
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 77.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least each
+ number_scnd -
+ 6 at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 78.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ a
+ high gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % ,
+ spending
+ than
+ africa .
+ .
+ .
+ .
+
+epoch 78.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next with
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % ,
+ spending
+ than
+ africa .
+ .
+ .
+
+epoch 79.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany ,
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd .
+ % at
+ over 300 million dollar .
+ this
+ .
+ .
+ .
+
+epoch 79.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ number_least -
+ number_scnd .
+ % also
+ has
+ been
+ increasing .
+ .
+ .
+ .
+
+epoch 80.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least % number_scnd -
+ number_scnd .
+ % with
+ over 300 million dollar .
+ .
+
+epoch 80.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain at
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd -
+ 6 % with
+ over 300 million dollar .
+ .
+ .
+
+epoch 81.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ most with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+
+epoch 81.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 82.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least on
+ number_scnd .
+ % with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 82.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ table
+ shows
+ that
+ then
+ only number_least ,
+ while number_least about
+ number_scnd .
+ % and
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+
+epoch 83.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 83.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ uk than
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least % number_scnd .
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 84.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap .
+ however it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself in
+ uk, spain and germany .
+ the
+ next highest
+ is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % ,
+ spending
+ over
+ africa .
+ .
+
+epoch 84.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least have
+ number_scnd .
+ % for
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 85.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 85.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % ,
+ spending
+ equal
+ 56,000 .
+ .
+ .
+ .
+
+epoch 86.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ second spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % with
+ over 300 million dollar .
+ .
+ .
+ .
+ .
+
+epoch 86.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ second spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % at
+ over 300 million dollar .
+ .
+ .
+ this
+ .
+
+epoch 87.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ a
+ high gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least each
+ number_scnd .
+ % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 87.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd .
+ % ,
+ spending
+ over 300 million dollar .
+ .
+
+epoch 88.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ compared with
+ under number_least -
+ 6 % ,
+ spending
+ equal
+ 56,000 .
+ .
+ .
+ .
+
+epoch 88.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ less was
+ number_least -
+ 6 % at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 89.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % ,
+ spending
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 89.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain at
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % with
+ over 300 million dollar .
+ .
+ .
+
+epoch 90.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least cases
+ by
+ number_scnd % with
+ over 300 million dollar .
+ .
+ .
+
+epoch 90.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 91.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % at
+ over 300 million dollar .
+ this
+ .
+ .
+ .
+
+epoch 91.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % with
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 92.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least ,
+ then
+ lack of exercise at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 92.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least ,
+ then
+ lack of exercise at
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 93.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ a
+ high gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % at
+ over 300 million dollar .
+ .
+ .
+
+epoch 93.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ 6 % of
+ over 300 million dollar .
+ .
+ .
+ .
+
+epoch 94.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap being
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ smallest at
+ number_highest ,
+ while number_least -
+ number_scnd % also
+ has
+ over 300 million dollar .
+ .
+ .
+
+epoch 94.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap ,
+ comparing
+ the
+ uk, spain an germany .
+ the
+ next is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % at
+ over 300 million dollar .
+ .
+ .
+
+epoch 95.0 . Sample:the chart shows gender pay gap is
+ in
+ the
+ uk is
+ behind
+ with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ followed by
+ the
+ next is
+ the
+ and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least that
+ with
+ 6 % with
+ over 300
+epoch 95.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ the
+ next highest
+ is
+ the
+ and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least that
+ with
+ 6 % at
+ over 300 million dollar .
+ .
+
+epoch 96.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least each
+ .
+ with
+ 6 at
+ over 300 million dollar .
+ this
+ .
+ .
+ .
+
+epoch 96.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd % and
+ 6 % ,
+ spending
+ over 300 million dollar .
+ .
+
+epoch 97.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least % number_scnd ,
+ number_scnd % and
+ 6 % at
+ over 300 finally .
+ this
+
+epoch 97.5 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd % and
+ 6 % at
+ over 300 finally .
+ .
+ .
+
+epoch 98.0 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap with
+ uk, spain an germany .
+ the
+ next highest
+ is
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least -
+ number_scnd and
+ 6 % at
+ over 300 million dollar .
+ this
+ .
+ .
+
+epoch 98.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least have
+ number_scnd -
+ 6 % ,
+ there
+ is
+ more than
+ finally africa .
+ .
+
+epoch 99.0 . Sample:the chart shows gender pay gap in
+ the
+ uk has
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least number_scnd -
+ number_scnd % and
+ 6 % at
+ over 300 finally .
+ .
+
+epoch 99.5 . Sample:the chart shows gender pay gap in
+ the
+ uk with
+ the
+ largest gender gap between
+ male and female workers
+ is
+ followed by
+ spain and
+ germany has
+ the
+ lowest at
+ number_highest ,
+ while number_least ,
+ number_scnd % and
+ 6 % at
+ over 300 finally .
+ this
+ .
+ .
+

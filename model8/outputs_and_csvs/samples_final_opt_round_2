@@ -1,0 +1,683 @@
+=============== Script: median_salary_women ==============
+-- TEXT 0 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 1 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 2 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 3 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 4 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 5 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 6 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 7 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 8 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 9 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 10 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 11 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 12 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 13 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 14 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 15 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 16 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 17 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 18 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 19 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ highest the
+
+-- TEXT 20 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ most the
+ lowest
+-- TEXT 21 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ number_highest % % in
+
+-- TEXT 22 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ number_scnd % % %
+-- TEXT 23 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ number_highest %
+-- TEXT 24 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ % % .
+ number_least
+-- TEXT 25 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ the
+ most
+-- TEXT 26 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ most % and
+
+-- TEXT 27 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ lowest the
+
+-- TEXT 28 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ number_highest % ,
+
+-- TEXT 29 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ number_least % .
+
+-- TEXT 30 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ number_least % % of
+
+-- TEXT 31 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ % in
+ the
+ lowest
+-- TEXT 32 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ the
+ lowest the
+
+-- TEXT 33 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ number_scnd the
+ most
+-- TEXT 34 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ most the
+ most
+-- TEXT 35 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ most the
+ least
+-- TEXT 36 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ the
+ number_scnd % ,
+
+-- TEXT 37 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ the
+ most chart
+
+-- TEXT 38 ---
+the graph
+ shows
+ shows
+ the
+ chart
+ shows
+ that
+ number_highest % in
+ a
+
+-- TEXT 39 ---
+the graph
+ shows
+ shows
+ that
+ the
+ chart
+ shows
+ that
+ the
+ the
+ most
+===============================
+epoch 0.0 . Sample:this shows gender pay gap % of
+ % of
+ % graph
+ % in
+ % of
+ % is
+ % of
+ % of
+ % of
+ % of
+ % ,
+ % % of
+ % ,
+ % phd % of
+ % .
+ % .
+ %
+epoch 0.5 . Sample:this shows gender pay gap % of
+ % the
+ % and
+ % are
+ % has
+ % and
+ % of
+ % .
+ % in
+ % .
+ % % % of
+ % in
+ % number_least % .
+ % of
+ % and
+ % and
+
+epoch 1.0 . Sample:this shows gender pay gap and
+ % of
+ the
+ % of
+ % in
+ the
+ % of
+ % .
+ % .
+ the
+ number_scnd % of
+ % of
+ % of
+ % .
+ the
+ number_scnd % .
+ the
+ % .
+ the
+ % number_least % of
+ % ,
+ %
+epoch 1.5 . Sample:this shows gender pay gap .
+ the
+ % of
+ % of
+ % .
+ the
+ % in
+ the
+ % ,
+ % .
+ the
+ number_scnd % .
+ the
+ number_scnd % ,
+ % .
+ the
+ % of
+ % ,
+ % ,
+ % ,
+ % of
+ the
+ %
+epoch 2.0 . Sample:this shows gender pay gap and
+ the
+ most the
+ most the
+ most the
+ most the
+ most the
+ most the
+ number_scnd the
+ most % .
+ the
+ most the
+ most that
+ the
+ most are
+ ,
+ the
+ most the
+ most .
+ the
+ most .
+ the
+ most is
+ the
+
+epoch 2.5 . Sample:this shows gender pay gap ,
+ the
+ most the
+ most the
+ most has
+ the
+ most the
+ most the
+ number_scnd the
+ highest % .
+ the
+ most the
+ most the
+ most of
+ the
+ most with
+ the
+ most ,
+ the
+ most has
+ % .
+ the
+ most number_highest %
+epoch 3.0 . Sample:this shows gender pay gap .
+ the
+ most the
+ most ,
+ followed shows
+ the
+ most with
+ number_scnd the
+ most % of
+ number_least % of
+ the
+ most the
+ least ,
+ the
+ most shows
+ the
+ most .
+ the
+ most every
+ .
+ the
+ most .
+ the
+ most
+epoch 3.5 . Sample:this shows gender pay gap .
+ the
+ most the
+ most ,
+ followed shows
+ the
+ most is
+ the
+ least with
+ number_highest % of
+ number_least % of
+ the
+ most the
+ least .
+ the
+ most .
+ the
+ most are
+ .
+ the
+ most the
+ most popular
+ .
+ the
+
+epoch 4.0 . Sample:this shows gender pay gap ,
+ the
+ most the
+ uk .
+ the
+ lowest at
+ number_least and
+ number_least number_highest % of
+ number_highest number_least % of
+ the
+ lowest .
+ number_least .
+ the
+ most with
+ a
+ the
+ most are
+ ,
+ followed shows
+ the
+ most three has
+ the
+
+epoch 4.5 . Sample:this shows gender pay gap with
+ the
+ most the
+ uk .
+ the
+ lowest the
+ most and
+ number_least % of
+ number_highest number_least % ,
+ followed for
+ a
+ number_scnd % .
+ the
+ most is
+ the
+ most the
+ most .
+ the
+ most times
+ the
+ most .
+

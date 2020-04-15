@@ -33,7 +33,7 @@ def model_6_loader(script_list=Config.Effective_Scripts,
     text = list()
     events = list()
     for script in script_list:
-        with open(os.path.join(courpus_folder, script), 'r') as fin:
+        with open(os.path.join(courpus_folder, script), 'r', encoding='latin1') as fin:
             #print ("reading data")
             inline = fin.readline()
             inline = fin.readline()
@@ -246,8 +246,8 @@ def model_6_loader(script_list=Config.Effective_Scripts,
     e_f_context_int = np.zeros(np.shape(e_f_context))
     batch_size = np.shape(x)[0]
     
-    print("e_p_context shape is : ")
-    print(e_p_context)
+    #print("e_p_context shape is : ")
+    #print(e_p_context)
     for i in range(batch_size):
         for j in range(Config.Context_length):
             if x[i][j] in dict_word_to_int:
@@ -271,7 +271,7 @@ def model_6_loader(script_list=Config.Effective_Scripts,
         e_f_int[i] = dict_event_to_int[e_f[i]]
 
     y_int = keras.utils.to_categorical(y_int, num_classes=Config.Active_vocabulary_size)
-
+    print("x_int", x_int)
     # split data
     # shuffle
 
@@ -300,7 +300,9 @@ def model_6_loader(script_list=Config.Effective_Scripts,
     e_p_context_val = e_p_context_int[perm[int(batch_size * (1 - val_proportion)):]]
     e_f_context_val = e_f_context_int[perm[int(batch_size * (1 - val_proportion)):]]
     a_val = a_int[perm[int(batch_size * (1 - val_proportion)):]]
-
+    print("x_train=",type(x_train), x_train)
+    print("y_train=",type(y_train), y_train)
+    #raise Exception()
     return x_train, y_train, e_p_train, e_f_train, e_p_context_train, e_f_context_train, a_train, \
         x_val, y_val, e_p_val, e_f_val, e_p_context_val, e_f_context_val, a_val, \
         dict_int_to_word, dict_word_to_int, dict_int_to_event, dict_event_to_int, stories
