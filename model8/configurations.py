@@ -3,7 +3,7 @@ import os
 
 class Config(object):
 
-    Run_Index = 'final_opt_round_10_beam10'
+    Run_Index = 'outputs/final_opt_round_10_beam10'
 
     # TODO: EXP
     Sample_binary_path = 'samples_binary_' + Run_Index
