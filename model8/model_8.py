@@ -13,6 +13,10 @@ import logging
 import arksKerasTools
 import AgendaGenerator
 from keras.utils.vis_utils import plot_model
+from keras.layers import Input, Embedding, Dropout, Dense, GRU
+from keras.layers import concatenate
+from keras.layers.core import Reshape
+from keras.models import Model
 
 
 # Global Variables: data and dicts
@@ -425,59 +429,49 @@ def def_model():
     parameters in configurations.Config
     :returns the model, and the dictionaries
     """
-    #print ("inside def_model()")
     # input context x
-    x_context = keras.layers.Input(shape=[None, ], dtype='int32', name='x_context')
+    x_context = Input(shape=[None, ], dtype='int32', name='x_context')
     # event labels
-    e_p_context = keras.layers.Input(shape=[None, ], dtype='int32', name='e_p_context')
-    e_f_context = keras.layers.Input(shape=[None, ], dtype='int32', name='e_f_context')
-    e_p = keras.layers.Input(shape=[1, ], dtype='int32', name='e_p')
-    e_f = keras.layers.Input(shape=[1, ], dtype='int32', name='e_f')
-    a_t_star = keras.layers.Input(shape=[2, ], dtype='float32', name='a_t_star')
-    c_gru_coef = keras.layers.Input(shape=[1, ], dtype='float32', name='c_coef')
+    e_p_context = Input(shape=[None, ], dtype='int32', name='e_p_context')
+    e_f_context = Input(shape=[None, ], dtype='int32', name='e_f_context')
+    e_p = Input(shape=[1, ], dtype='int32', name='e_p')
+    e_f = Input(shape=[1, ], dtype='int32', name='e_f')
+    a_t_star = Input(shape=[2, ], dtype='float32', name='a_t_star')
+    c_gru_coef = Input(shape=[1, ], dtype='float32', name='c_coef')
 
     # embeddings
-    #print("Config.Active_vocabulary_size")
-    #print(Config.Active_vocabulary_size)
-    #print("Config.Input_Embedding_size")
-    #print(Config.Input_Embedding_size)
-    x_embedding_layer = keras.layers.Embedding(input_dim=8059, #Config.Active_vocabulary_size, 
+    x_embedding_layer = Embedding(input_dim=8059, #Config.Active_vocabulary_size, 
                                                output_dim=Config.Input_Embedding_size,
                                                weights=[w2v_matrix], trainable=True)
-    event_embedding_layer = keras.layers.Embedding(input_dim=Config.Event_vocabulary_size,
+    event_embedding_layer = Embedding(input_dim=Config.Event_vocabulary_size,
                                                    output_dim=Config.Event_embedding_size)
-    #print ("x_context is : ")
-    #x_context.reshape(112, 300)
-    #print (x_context.shape)
     
-
-
     x_seq_embedding = x_embedding_layer(x_context)
     e_p_context_embedding = event_embedding_layer(e_p_context)
     e_f_context_embedding = event_embedding_layer(e_f_context)
     e_p_embedding = event_embedding_layer(e_p)
     e_f_embedding = event_embedding_layer(e_f)
 
-    e_f_c = keras.layers.core.Reshape(target_shape=[Config.Event_embedding_size])(e_f_embedding)
-    e_p_c = keras.layers.core.Reshape(target_shape=[Config.Event_embedding_size])(e_p_embedding)
+    e_f_c = Reshape(target_shape=[Config.Event_embedding_size])(e_f_embedding)
+    e_p_c = Reshape(target_shape=[Config.Event_embedding_size])(e_p_embedding)
 
-    input_to_gru = keras.layers.concatenate([x_seq_embedding, e_p_context_embedding, e_f_context_embedding], axis=2)
+    input_to_gru = concatenate([x_seq_embedding, e_p_context_embedding, e_f_context_embedding], axis=2)
 
-    h_t = keras.layers.GRU(Config.RNN_size, dropout=Config.Dropout_rate, name='h_t')(input_to_gru)
+    h_t = GRU(Config.RNN_size, dropout=Config.Dropout_rate, name='h_t')(input_to_gru)
 
-    h_t_dropped = keras.layers.Dropout(rate=Config.Dropout_rate)(h_t)
+    h_t_dropped = Dropout(rate=Config.Dropout_rate)(h_t)
 
-    c_gru = keras.layers.Dense(Config.Event_embedding_size, name='c_gru')(h_t_dropped)
+    c_gru = Dense(Config.Event_embedding_size, name='c_gru')(h_t_dropped)
 
     # determining a
-    input_for_a = keras.layers.concatenate([h_t, e_f_c, e_p_c], axis=-1)
-    input_for_a_dropped = keras.layers.Dropout(rate=Config.Dropout_rate)(input_for_a)
+    input_for_a = concatenate([h_t, e_f_c, e_p_c], axis=-1)
+    input_for_a_dropped = Dropout(rate=Config.Dropout_rate)(input_for_a)
     # a_hidden = keras.layers.Dense(Config.A_hidden_size, activation='relu', name='a_hidden')(input_for_a_dropped)
     # a_hidden_dropped = keras.layers.core.Dropout(rate=Config.Dropout_rate)(a_hidden)
     # deep a
     # a_t_from_model_output = keras.layers.Dense(2, activation='softmax', name='a')(a_hidden_dropped)
     # shallow model
-    a_t_from_model_output = keras.layers.Dense(2, activation='softmax', name='a')(input_for_a_dropped)
+    a_t_from_model_output = Dense(2, activation='softmax', name='a')(input_for_a_dropped)
     # simplest model
     # a_t_from_model_output = keras.layers.Dense(2, activation='softmax', name='a')(h_t_dropped)
 
@@ -495,16 +489,15 @@ def def_model():
     ###
     # o_t_final = keras.layers.Add()([c_gru_weighted, o_t])
 
-    # o_t_final = c_gru
     o_t_final = c_gru
 
-    input_for_dist = keras.layers.concatenate([o_t_final, e_f_c, e_p_c], axis=-1)
-    input_for_dist_dropped = keras.layers.Dropout(rate=Config.Dropout_rate)(input_for_dist)
+    input_for_dist = concatenate([o_t_final, e_f_c, e_p_c], axis=-1)
+    input_for_dist_dropped = Dropout(rate=Config.Dropout_rate)(input_for_dist)
 
-    output_distribution = keras.layers.Dense(Config.Active_vocabulary_size,
+    output_distribution = Dense(Config.Active_vocabulary_size,
                                              activation='softmax', name='main')(input_for_dist_dropped)
 
-    model = keras.models.Model(inputs=[x_context, e_p_context, e_f_context, e_f, e_p, a_t_star, c_gru_coef],
+    model = Model(inputs=[x_context, e_p_context, e_f_context, e_f, e_p, a_t_star, c_gru_coef],
                                outputs=[output_distribution, a_t_from_model_output],
                                name='model5')
     plot_model(model, to_file='model_plot2.png', show_shapes=True, show_layer_names=True)
