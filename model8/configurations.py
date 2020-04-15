@@ -3,7 +3,7 @@ import os
 
 class Config(object):
 
-    Run_Index = 'test2'
+    Run_Index = 'test5'
     os.mkdir('outputs/' + Run_Index)
 
     # TODO: EXP
@@ -18,7 +18,7 @@ class Config(object):
     Checkpoint_path = 'ghost lol lol '
     Epsilon = 1e-12
     # thres for NORM clipping
-    CSV_log_path = r'.\log' + Run_Index + '.csv'
+    CSV_log_path = 'outputs/' + Run_Index + '/' + r'log' + Run_Index + '.csv'
     LOG_DIR = r'.\tbLOG'
     Sample_path = 'outputs/' + Run_Index + '/samples_' + Run_Index
     # for unix
