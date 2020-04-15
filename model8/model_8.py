@@ -599,7 +599,7 @@ def main():
     # TODO ===================== Generate Sequences =======================
     #scripts = ['median_salary_women']#, 'median_salary_women']
     scripts = ['gender_pay_gap']#, 'median_salary_women']
-    seeds_path = 'seeds_binaries_' + Config.Run_Index
+    seeds_path = 'outputs/' + Config.Run_Index + '/seeds_binaries_' + Config.Run_Index
 
     # load seeds
     seeds_dict = dict() #SC: a dictionary of seed objects
@@ -622,7 +622,7 @@ def main():
     #raise Exception()
     dill.dump(seeds_dict, open(seeds_path, 'wb'))
 
-    generation_path = 'generation_binaries_' + Config.Run_Index
+    generation_path = 'outputs/' + Config.Run_Index + '/generation_binaries_' + Config.Run_Index
 
     generations = dict()
 

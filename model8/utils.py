@@ -70,7 +70,7 @@ def read_hypers(types, lists, index):
     return return_hypers
 
 
-def load_hypers(path='hypers_' + Config.Run_Index, num_combinations=60):
+def load_hypers(path='outputs/' + Config.Run_Index + '/hypers_' + Config.Run_Index, num_combinations=60):
     # dropout, lr, clipnorm, batch_size, context_length, Event_embedding, rnn_size, a loss, a weight
     # round I
     # ranges = [[.2, .8], [-5., -3.], [0., 3.], [3., 10.], [5, 100], [6., 10.99], [6., 11.99], [1., 2.], [1., 6.]]

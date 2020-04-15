@@ -3,7 +3,8 @@ import os
 
 class Config(object):
 
-    Run_Index = 'outputs/final_opt_round_10_beam10'
+    Run_Index = 'test2'
+    os.mkdir('outputs/' + Run_Index)
 
     # TODO: EXP
     Sample_binary_path = 'samples_binary_' + Run_Index
@@ -19,7 +20,7 @@ class Config(object):
     # thres for NORM clipping
     CSV_log_path = r'.\log' + Run_Index + '.csv'
     LOG_DIR = r'.\tbLOG'
-    Sample_path = 'samples_' + Run_Index
+    Sample_path = 'outputs/' + Run_Index + '/samples_' + Run_Index
     # for unix
     # LOG_DIR = r'./LOG'
     #Word2Vec_Google_Path = r'D:\data\GoogleNews-vectors-negative300.bin'
@@ -110,7 +111,7 @@ class Config(object):
     Clipping_threshold = 1e10
     Early_stopping_patience = 1
     Loss_weight_on_a = 1.3
-    Max_train_epochs = 10
+    Max_train_epochs = 1
     # weights_on_cat_of_a_loss
     # wa =
     Weight_on_a1_cross_entropy = [1., 4]
