@@ -1,0 +1,660 @@
+=============== Script: gender_pay_gap ==============
+-- TEXT 0 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 1 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 2 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 3 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 4 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 5 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 6 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 7 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 8 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 9 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 10 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 11 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 12 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 13 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 14 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 15 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 16 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 17 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 18 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 19 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ uk .
+ the
+ uk
+-- TEXT 20 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ most
+-- TEXT 21 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ the
+
+-- TEXT 22 ---
+the chart
+ shows
+ the
+ the
+ chart
+ shows
+ the
+ most the
+ chart
+ that
+
+-- TEXT 23 ---
+the chart
+ shows
+ the
+ the
+ chart
+ shows
+ that
+ number_highest % of
+ and
+
+-- TEXT 24 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ lowest the
+ highest 20
+-- TEXT 25 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ that
+ number_highest number_highest
+-- TEXT 26 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ most the
+ lowest number_least
+-- TEXT 27 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ most the
+ lowest the
+
+-- TEXT 28 ---
+the chart
+ shows
+ the
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ shows
+ the
+
+-- TEXT 29 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ most the
+ highest lowest
+-- TEXT 30 ---
+the chart
+ shows
+ the
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ the
+ chart
+
+-- TEXT 31 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ uk
+-- TEXT 32 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ most the
+ lowest the
+
+-- TEXT 33 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ uk
+-- TEXT 34 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ the
+ most the
+ uk
+-- TEXT 35 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ number_least % of
+ the
+ number_scnd
+-- TEXT 36 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ the
+ the
+ most the
+ highest the
+
+-- TEXT 37 ---
+the chart
+ shows
+ the
+ the
+ chart
+ shows
+ that
+ the
+ most the
+ highest
+-- TEXT 38 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ number_scnd number_least % .
+ number_highest
+-- TEXT 39 ---
+the chart
+ shows
+ the
+ chart
+ shows
+ that
+ number_highest % of
+ % ,
+
+===============================
+epoch 0.0 . Sample:the chart shows gender pay gap % in
+ the
+ % of
+ % moderately % a
+ % .
+ % .
+ % ,
+ % .
+ % ,
+ % .
+ % .
+ % of
+ % in
+ % .
+ % .
+ % in
+ % .
+ % gap %
+epoch 0.5 . Sample:the chart shows gender pay gap % number_least % with
+ % ,
+ % a
+ % .
+ % number_scnd % the
+ % of
+ % .
+ % .
+ % number_scnd % .
+ % of
+ % .
+ % of
+ % in
+ % of
+ % .
+ % number_highest
+epoch 1.0 . Sample:the chart shows gender pay gap .
+ the
+ number_scnd the
+ % of
+ the
+ number_scnd the
+ % with
+ the
+ number_scnd % .
+ % of
+ % of
+ the
+ number_scnd % of
+ the
+ number_scnd % of
+ % of
+ % of
+ % of
+ % .
+ the
+ number_scnd % ,
+
+epoch 1.5 . Sample:the chart shows gender pay gap the
+ number_scnd the
+ % ,
+ the
+ number_scnd the
+ number_scnd % in
+ the
+ number_scnd % )
+ and
+ % of
+ % of
+ % of
+ % of
+ % in
+ the
+ number_scnd % ,
+ % of
+ the
+ number_scnd % of
+ % of
+ the
+
+epoch 2.0 . Sample:the chart shows gender pay gap has
+ the
+ lowest are
+ that
+ the
+ most the
+ lowest the
+ lowest the
+ lowest the
+ % of
+ number_least % of
+ the
+ lowest the
+ lowest % by
+ the
+ lowest is
+ the
+ lowest at
+ % .
+ the
+ lowest the
+ lowest at
+ %
+epoch 2.5 . Sample:the chart shows gender pay gap ,
+ the
+ most the
+ lowest ,
+ the
+ lowest the
+ lowest the
+ lowest % of
+ number_least % in
+ the
+ lowest the
+ lowest .
+ the
+ lowest top   <topic_related_property>
+ .
+ the
+ lowest .
+ the
+ lowest percentage and
+ number_scnd the
+ lowest at
+ % .
+
+epoch 3.0 . Sample:the chart shows gender pay gap .
+ the
+ highest the
+ highest in
+ the
+ highest the
+ highest the
+ highest % of
+ number_least % and
+ number_least % of
+ number_least % )
+ ,
+ the
+ highest .
+ the
+ highest are
+ that
+ the
+ highest .
+ the
+ highest continent .
+ the
+
+epoch 3.5 . Sample:the chart shows gender pay gap .
+ the
+ highest the
+ highest on
+ the
+ highest the
+ highest the
+ highest % of
+ number_least % and
+ number_least % in
+ number_least % .
+ the
+ highest .
+ the
+ highest at
+ the
+ highest with
+ a
+ the
+ highest women .
+ the
+ highest
+epoch 4.0 . Sample:the chart shows gender pay gap .
+ the
+ most the
+ uk .
+ the
+ uk of
+ the
+ uk ,
+ the
+ lowest % of
+ number_scnd number_least % of
+ the
+ uk .
+ number_least % .
+ the
+ most between .
+ the
+ most .
+ the
+ most at
+ number_least .
+ the
+
+epoch 4.5 . Sample:the chart shows gender pay gap is
+ the
+ most the
+ uk .
+ the
+ uk by
+ the
+ uk .
+ the
+ lowest % .
+ number_scnd number_least % spend time with family in
+ the
+ uk are
+ number_least % .
+ the
+ most .
+ the
+ most .
+ the
+ most that
+ the
+ most is
+

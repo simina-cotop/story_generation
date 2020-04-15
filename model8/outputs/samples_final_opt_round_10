@@ -1,0 +1,843 @@
+=============== Script: gender_pay_gap ==============
+-- TEXT 0 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 1 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 2 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 3 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 4 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 5 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 6 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 7 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 8 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 9 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 10 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 11 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 12 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 13 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 14 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 15 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 16 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 17 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 18 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 19 ---
+the gender pay gap is
+ the
+ gender pay gap .
+ .
+ the
+ uk .
+ .
+ .
+
+-- TEXT 20 ---
+the gender pay gap is
+ the
+ chart
+ shows
+ that
+ the
+ lowest at
+ % %
+-- TEXT 21 ---
+the gender pay gap is
+ the
+ chart
+ shows
+ that
+ the
+ lowest number_least % of
+
+-- TEXT 22 ---
+the gender pay gap is
+ the
+ gender pay gap at
+ number_least % % in
+ $ number_least
+-- TEXT 23 ---
+the gender pay gap is
+ the
+ gender pay gap is
+ the
+ most popular
+ % of
+ number_highest
+-- TEXT 24 ---
+the gender pay gap is
+ the
+ gender pay gap the
+ chart
+ shows
+ that
+ number_least % in
+
+-- TEXT 25 ---
+the gender pay gap is
+ the
+ gender pay gap chart
+ shows
+ the
+ chart
+ shows
+ that
+ a
+
+-- TEXT 26 ---
+the gender pay gap is
+ the
+ gender pay gap is
+ the
+ uk has
+ the
+ least %
+-- TEXT 27 ---
+the gender pay gap is
+ the
+ gender pay gap is
+ the
+ most percentage in
+ the
+ uk
+-- TEXT 28 ---
+the gender pay gap is
+ the
+ gender pay gap the
+ uk has
+ the
+ number_scnd % and
+
+-- TEXT 29 ---
+the gender pay gap is
+ the
+ gender pay gap is
+ number_highest % % in
+ the
+ uk
+-- TEXT 30 ---
+the gender pay gap is
+ the
+ chart
+ shows
+ the
+ uk at
+ number_scnd % at
+
+-- TEXT 31 ---
+the gender pay gap is
+ the
+ gender pay gap chart
+ shows
+ the
+ percentage .
+ the
+ uk
+-- TEXT 32 ---
+the gender pay gap is
+ the
+ chart
+ shows
+ that
+ a
+ over over $ $
+-- TEXT 33 ---
+the gender pay gap is
+ the
+ gender pay gap chart
+ shows
+ the
+ chart
+ shows
+ the
+ number_least
+-- TEXT 34 ---
+the gender pay gap is
+ the
+ gender pay gap chart
+ shows
+ the
+ percentage .
+ the
+ percentage
+-- TEXT 35 ---
+the gender pay gap is
+ the
+ gender pay gap is
+ the
+ uk has
+ has
+ the
+ largest
+-- TEXT 36 ---
+the gender pay gap is
+ the
+ gender pay gap the
+ chart
+ shows
+ the
+ chart
+ shows
+ that
+
+-- TEXT 37 ---
+the gender pay gap is
+ the
+ chart
+ shows
+ that
+ number_highest % number_highest % of
+
+-- TEXT 38 ---
+the gender pay gap is
+ the
+ chart
+ shows
+ the
+ chart
+ shows
+ that
+ the
+ lowest
+-- TEXT 39 ---
+the gender pay gap is
+ the
+ gender pay gap is
+ the
+ uk has
+ the
+ least has
+
+===============================
+epoch 0.0 . Sample:the chart shows gender pay gap .
+ % .
+ % africa .
+ % 2000 % .
+ % .
+ % 2015 .
+ % .
+ % .
+ % ,
+ % .
+ % by
+ % going out .
+ % .
+ % followed .
+ % and
+ % .
+ % a
+ %
+epoch 0.5 . Sample:the chart shows gender pay gap .
+ % .
+ % how young people spend their evenings % shows 
+ .
+ % .
+ % .
+ % represented
+ .
+ % .
+ % by
+ % despite the title at the bottom saying countries in
+ % .
+ % however it doesn't show how this relates to inflation young % the
+ % the
+ % spend time with family .
+ % .
+ % 2000 % 2010
+epoch 1.0 . Sample:the chart shows gender pay gap graph
+ in
+ % .
+ the
+ % in
+ % .
+ % up
+ equally
+ spend time with family you expect africa to be last due to poverty and lack of access to education. is
+ the
+ % .
+ the
+ % .
+ % .
+ % .
+ % represents
+ the
+ % .
+ % shows
+ breaks
+ subjects .
+ % likely
+ represented
+ between
+ .
+
+epoch 1.5 . Sample:the chart shows gender pay gap of
+ % in
+ the
+ % in
+ % caused
+ % about
+ the
+ % .
+ % .
+ the
+ % .
+ % .
+ % .
+ % their
+ % spend
+ .
+ % no degree the female representation in various employment sectors .
+ % 3 woman unimportant
+ higher education turn
+ .
+ % just
+
+epoch 2.0 . Sample:the chart shows gender pay gap shows
+ the
+ most the
+ uk .
+ the
+ uk of
+ the
+ most watching tv .
+ the
+ most subjects .
+ number_least % of
+ the
+ uk with
+ number_scnd % insurance .
+ the
+ most opt
+ shows
+ .
+ the
+ most stem .
+ the
+ most women has
+
+epoch 2.5 . Sample:the chart shows gender pay gap ,
+ the
+ most the
+ uk is
+ the
+ uk ,
+ the
+ most chart
+ shows
+ the
+ most % .
+ number_scnd number_least % .
+ the
+ uk .
+ number_scnd % ,
+ the
+ most seems
+ of
+ the
+ most 20 .
+ the
+ most staff in each university department that are women has
+
+epoch 3.0 . Sample:the chart shows gender pay gap with
+ the
+ highest the
+ uk between
+ .
+ the
+ uk ,
+ followed are
+ the
+ highest % are
+ number_least % of
+ the
+ uk % and
+ number_least .
+ the
+ highest have
+ with
+ a
+ the
+ highest spending
+ .
+ the
+ highest spend time with their families by
+ the
+
+epoch 3.5 . Sample:the chart shows gender pay gap ,
+ the
+ highest the
+ uk with
+ a
+ uk shows
+ the
+ uk universities at
+ the
+ highest % 50,000 with
+ number_least % of
+ the
+ uk financial number_least % see
+ chart
+ by
+ the
+ highest ,
+ the
+ highest .
+ the
+ highest with
+ a
+ the
+
+epoch 4.0 . Sample:the chart shows gender pay gap .
+ the
+ uk the
+ uk moderately .
+ the
+ uk in
+ the
+ uk (
+ number_highest % of
+ number_least % of
+ the
+ uk )
+ with
+ number_least % in
+ the
+ uk with
+ a
+ the
+ uk .
+ the
+ uk ,
+ followed by
+ the
+ uk
+epoch 4.5 . Sample:the chart shows gender pay gap are
+ the
+ uk the
+ uk .
+ the
+ uk at
+ number_least .
+ the
+ uk % of
+ number_least % of
+ the
+ uk represented
+ with
+ number_least million .
+ the
+ uk as
+ financial groups at
+ the
+ uk shows
+ the
+ uk spent
+ than
+ .
+ the
+ uk
+epoch 5.0 . Sample:the chart shows gender pay gap cause of
+ the
+ most the
+ uk is
+ the
+ uk by
+ the
+ uk .
+ the
+ lowest % of
+ number_least % of
+ the
+ lowest at
+ number_least in
+ the
+ lowest )
+ .
+ spain .
+ that
+ and
+ the
+ lowest an
+ .
+ spending time with family   <x_axis_label_3rd_highest_value>
+ has
+ tech
+epoch 5.5 . Sample:the chart shows gender pay gap is
+ the
+ most the
+ uk and
+ literature 62,000 read a book ,
+ followed by
+ the
+ uk has
+ the
+ lowest % of
+ number_least % of
+ the
+ lowest at
+ number_least being
+ a
+ most .
+ spending time with family   <x_axis_label_3rd_highest_value>
+ to
+ no degree (
+ the
+ lowest falling of
+ salaries with
+
+epoch 6.0 . Sample:the chart shows gender pay gap is
+ the
+ most the
+ uk of
+ the
+ uk by
+ the
+ uk .
+ the
+ highest % compared to
+ number_least % of
+ the
+ uk at
+ number_least % watch tv .
+ the
+ highest .
+ a
+ highest where
+ .
+ the
+ highest stem .
+ in
+
+epoch 6.5 . Sample:the chart shows gender pay gap and
+ the
+ most the
+ uk of
+ the
+ uk .
+ the
+ uk at
+ the
+ highest % of
+ number_highest number_least % of
+ the
+ uk and
+ australia third .
+ more per
+ .
+ only .
+ bachelor no degree than
+ .
+ chart
+ shows
+ the
+
+epoch 7.0 . Sample:the chart shows gender pay gap is
+ the
+ uk popular
+ has
+ read a book .
+ the
+ uk money in
+ the
+ uk with
+ a
+ lowest at
+ number_highest in
+ number_least % and
+ australia this may be because there is less emphasis placed on encouraging women into stem subjects, and there are and underrepresentation of women in this area .
+ 2015 .
+ software engineers with
+ a
+ phd has
+ the
+ uk .
+ the
+ uk .
+ bsc
+epoch 7.5 . Sample:the chart shows gender pay gap is
+ the
+ uk popular
+ on
+ the
+ uk than
+ the
+ uk is
+ germany and
+ the
+ lowest % in
+ number_least % and
+ australia a
+ finally africa .
+ countries .
+ £
+ salaries .
+ the
+ uk .
+ what subjects students choose to study .
+ the
+ uk .
+ philosophy
+epoch 8.0 . Sample:the chart shows gender pay gap in
+ the
+ uk popular
+ in
+ the
+ chart
+ ,
+ followed by
+ spain at
+ germany in
+ the
+ lowest % less %
+ ,
+ then number_scnd % and
+ australia popular
+ and
+ australia .
+ varies
+ .
+ bachelor .
+ germany .
+ activity
+ earn
+ the
+ lowest
+epoch 8.5 . Sample:the chart shows gender pay gap in
+ the
+ uk popular
+ .
+ the
+ chart
+ shows
+ the
+ uk and
+ germany at
+ the
+ lowest % -
+ number_scnd number_least % and
+ australia young 100 people countries .
+ this
+ chart
+ shows
+ can
+ compares
+ .
+ on
+ .
+ the
+ lowest .
+
+epoch 9.0 . Sample:the chart shows gender pay gap to
+ the
+ uk popular
+ gap are
+ gap between
+ germany, spain and the uk .
+ the
+ uk represented
+ with
+ a
+ lowest at
+ % ,
+ number_least % and
+ lastly africa .
+ phd .
+ law .
+ 5 .
+ least have
+ .
+ the
+ uk '
+ .
+ america
+epoch 9.5 . Sample:the chart shows gender pay gap to
+ the
+ uk popular
+ continent of
+ the
+ uk median salary of software engineers with respect to their degrees ,
+ followed by
+ spain represented
+ to
+ germany with
+ the
+ lowest % ,
+ number_least % and
+ australia in
+ europe and
+ we
+ can
+ .
+ the
+ uk with
+ a
+ phd only .
+ those
+
