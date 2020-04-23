@@ -38,7 +38,7 @@ earn
 much
 more    <y_axis_trend_up>
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 The
 chart
 shows
@@ -68,7 +68,7 @@ behind    <y_axis_trend_down>
 Phd    <x_axis_label_highest_value>_median_salary_se
 but shows more studies are needed for higher salaries    <interpretation>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 Those
 who
 have
@@ -84,7 +84,7 @@ those    <x_axis_labels_rest>_median_salary_se
 who
 do
 not
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 There
 is
 an
@@ -117,7 +117,7 @@ approximately    <y_axis_approx>_median_salary_se
 10    <y_axis_inferred_value_mul>_median_salary_se
 %
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 The
 median salary of software engineers with respect to their degrees    <topic>_median_salary_se
 is
@@ -175,7 +175,7 @@ of
 NUMBER_highest    <y_axis_highest_value_val>_median_salary_se
 %    <y_axis>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 shows
 that
@@ -209,7 +209,7 @@ masters    <x_axis_label_Scnd_highest_value>_median_salary_se
 degree    <x_axis>_median_salary_se
 -
 therefore we can take from this graph that the higher the level of education, the higher the salary Software Engineers earn per year    <interpretation>_median_salary_se
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 The
 table
 shows
@@ -268,7 +268,7 @@ NUMBER_least    <y_axis_least_value_val>_median_salary_se
 on
 average    <topic_related_property>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 charts
 shows
 the
@@ -306,7 +306,7 @@ these
 average
 earnings
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 graph
 shows
@@ -346,7 +346,7 @@ PHd    <x_axis_label_highest_value>_median_salary_se
 .
 Education increases earning potential    <interpretation>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 The
 graphs
 shows
@@ -361,8 +361,8 @@ there
 is
 an
 approximately    <y_axis_approx>_median_salary_se
-Â
-£
+ï¿½
+ï¿½
 20,000    <y_axis_inferred_value_add>_median_salary_se
 salary    <y_axis>_median_salary_se
 difference
@@ -381,8 +381,8 @@ but
 only
 an
 approximate    <y_axis_approx>_median_salary_se
-Â
-£
+ï¿½
+ï¿½
 10,000    <y_axis_inferred_value_add>_median_salary_se
 difference
 between    <x_axis_comparison>_median_salary_se
@@ -394,7 +394,7 @@ and
 those
 without    <x_axis_label_least_value>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 chart
 shows
@@ -416,7 +416,7 @@ degrees    <x_axis>_median_salary_se
 .
 The chart demonstrates that the higher the degree, the more money earned on average    <interpretation>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 chart
 shows
@@ -463,7 +463,7 @@ those
 with
 no degree    <x_axis_label_least_value>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 Students
 who
 have
@@ -482,7 +482,7 @@ those
 with
 no degree    <x_axis_label_least_value>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 graph
 shows
@@ -541,7 +541,7 @@ of
 $    <y_axis_inferred_label>_median_salary_se
 NUMBER_least    <y_axis_least_value_val>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 graph
 shows
@@ -612,7 +612,7 @@ NUMBER_least    <y_axis_least_value_val>_median_salary_se
 per
 year
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 graph
 shows
@@ -637,7 +637,7 @@ and
 finally    <final_label_left>_median_salary_se
 no degree    <x_axis_label_least_value>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 this
 chart
 shows
@@ -668,7 +668,7 @@ no degree    <x_axis_label_least_value>_median_salary_se
 30,000    <y_axis_inferred_least_value>_median_salary_se
 .
 showing that evidence indicates that the high education you have completed the higher your wage salary will be     <interpretation>_median_salary_se
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 The
 higher    <x_axis_trend_up>_median_salary_se
 level
@@ -678,7 +678,7 @@ the
 higher    <y_axis_trend_up>
 the
 salary    <y_axis>_median_salary_se
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 chart
 displays
@@ -715,7 +715,7 @@ earn
 34,000    <y_axis_inferred_least_value>_median_salary_se
 .
 This corresponds with what you would expect that those with a better education and more knowledge earn more    <interpretation>_median_salary_se
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 This
 graph
 plots
@@ -748,7 +748,7 @@ PhD    <x_axis_label_highest_value>_median_salary_se
 holders
 do
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 Software engineers    <topic_related_object>_median_salary_se
 who
 achieved
@@ -767,7 +767,7 @@ a
 higher    <y_axis_trend_up>
 salary    <y_axis>_median_salary_se
 .
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 The
 average salary of a software engineer base on their level    <topic>_median_salary_se
 .
@@ -793,7 +793,7 @@ $    <y_axis_inferred_label>_median_salary_se
 NUMBER_least    <y_axis_least_value_val>_median_salary_se
 for
 No degree    <x_axis_label_least_value>_median_salary_se
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se
 63    <y_axis_inferred_highest_value>_median_salary_se
 k    <y_axis_inferred_label>_median_salary_se
 is
@@ -825,4 +825,4 @@ NUMBER_least    <y_axis_least_value_val>_median_salary_se
 k    <y_axis_inferred_label>_median_salary_se
 with
 no degree    <x_axis_label_least_value>_median_salary_se
-<end_of_desciption>_median_salary_se
+<end_of_description>_median_salary_se

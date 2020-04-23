@@ -22,7 +22,7 @@ are
 slowly    <y_axis_trend>
 increasing    <y_axis_trend_up>
 .
-<end_of_desciption>
+<end_of_description>
 The
 chart
 shows
@@ -45,7 +45,7 @@ about
 a
 year    <x_axis>
 .
-<end_of_desciption>
+<end_of_description>
 The
 salary    <y_axis>
 of
@@ -53,7 +53,7 @@ woman    <topic_related_object>
 has
 gone up    <y_axis_trend_up>
 year on year    <x_axis_trend>
-<end_of_desciption>
+<end_of_description>
 The
 median salary of women    <topic>_median_salary_women
 grows    <y_axis_trend_up>
@@ -71,7 +71,7 @@ years    <x_axis>
 .
 A  logical conclusion would be a few decades ago women did nover , this would not be a reality    <interpretation>
 .
-<end_of_desciption>
+<end_of_description>
 This
 graph
 represents
@@ -127,7 +127,7 @@ of
 5    <y_axis_inferred_value_add>
 %
 .
-<end_of_desciption>
+<end_of_description>
 The
 graph
 shows
@@ -151,7 +151,7 @@ higher    <y_axis_trend_up>
 than
 in
 2000    <x_axis_label_least_value>
-<end_of_desciption>
+<end_of_description>
 Women    <topic_related_object>
 '
 s
@@ -180,7 +180,7 @@ to
 NUMBER_highest    <y_axis_highest_value_val>
 in
 2015    <x_axis_label_highest_value>
-<end_of_desciption>
+<end_of_description>
 This
 charts
 shows
@@ -203,7 +203,7 @@ women    <topic_related_object>
 .
 However it doesn't show how this relates to inflation    <interpretation>
 .
-<end_of_desciption>
+<end_of_description>
 The
 median salary of women per year    <topic>_median_salary_women
 is
@@ -226,7 +226,7 @@ risen    <y_axis_trend_up>
 15,000    <y_axis_inferred_value_add>
 dollars    <y_axis_inferred_label>
 .
-<end_of_desciption>
+<end_of_description>
 This
 chart
 shows
@@ -248,7 +248,7 @@ between    <x_axis_range_start>
 and    <x_axis_range_end>
 2015    <x_axis_label_highest_value>
 .
-<end_of_desciption>
+<end_of_description>
 This
 chart
 shows
@@ -279,7 +279,7 @@ NUMBER_least    <y_axis_least_value_val>
 in
 2000    <x_axis_label_least_value>
 .
-<end_of_desciption>
+<end_of_description>
 Chart
 shows
 the
@@ -326,7 +326,7 @@ it
 was
 52    <y_axis_inferred_highest_value>
 k    <y_axis_inferred_label>
-<end_of_desciption>
+<end_of_description>
 The
 median salary for women    <topic>_median_salary_women
 has
@@ -348,7 +348,7 @@ every
 5    <x_axis_inferred_value>
 years    <x_axis>
 .
-<end_of_desciption>
+<end_of_description>
 This
 graph
 shows
@@ -368,7 +368,7 @@ years    <x_axis>
 and    <x_axis_range_end>
 2015    <x_axis_label_highest_value>
 .
-<end_of_desciption>
+<end_of_description>
 This
 graph
 shows
@@ -392,7 +392,7 @@ $    <y_axis_inferred_label>
 50,000    <y_axis_inferred_highest_value>
 in
 2015    <x_axis_label_highest_value>
-<end_of_desciption>
+<end_of_description>
 This
 graph
 illustrates
@@ -415,7 +415,7 @@ the
 year    <x_axis>
 2015    <x_axis_label_highest_value>
 .
-<end_of_desciption>
+<end_of_description>
 chart
 shows
 median salary of women per year    <topic>_median_salary_women
@@ -458,7 +458,7 @@ median    <topic_related_property>
 salary    <y_axis>
 as
 time goes on    <x_axis_trend>
-<end_of_desciption>
+<end_of_description>
 The
 average salary for woman    <topic>_median_salary_women
 has
@@ -470,7 +470,7 @@ at
 least    <y_axis_trend>
 10    <y_axis_inferred_value_add>
 %
-<end_of_desciption>
+<end_of_description>
 This
 chart
 shows
@@ -503,7 +503,7 @@ now
 in
 2015    <x_axis_label_highest_value>
 .
-<end_of_desciption>
+<end_of_description>
 This
 graph
 presents
@@ -524,7 +524,7 @@ steadily    <y_axis_trend>
 increasing    <y_axis_trend_up>
 over this time    <x_axis_trend>
 .
-<end_of_desciption>
+<end_of_description>
 The
 Median salary for women    <topic>_median_salary_women
 appears
@@ -535,7 +535,7 @@ by
 every
 year    <x_axis>
 .
-<end_of_desciption>
+<end_of_description>
 This
 graph
 shows
@@ -581,7 +581,7 @@ $    <y_axis_inferred_label>
 52000    <y_axis_inferred_highest_value>
 -
 2015    <x_axis_label_highest_value>
-<end_of_desciption>
+<end_of_description>
 2015    <x_axis_label_highest_value>
 saw
 women    <topic_related_object>
@@ -619,4 +619,4 @@ has
 been
 rising    <y_axis_trend_up>
 steadily    <y_axis_trend>
-<end_of_desciption>
+<end_of_description>

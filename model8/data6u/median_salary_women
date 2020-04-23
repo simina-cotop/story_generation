@@ -22,7 +22,7 @@ are
 slowly    <y_axis_trend>_median_salary_women
 increasing    <y_axis_trend_up>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 chart
 shows
@@ -45,7 +45,7 @@ about
 a
 year    <x_axis>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 salary    <y_axis>_median_salary_women
 of
@@ -53,7 +53,7 @@ woman    <topic_related_object>_median_salary_women
 has
 gone up    <y_axis_trend_up>_median_salary_women
 year on year    <x_axis_trend>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 median salary of women    <topic>_median_salary_women
 grows    <y_axis_trend_up>_median_salary_women
@@ -71,7 +71,7 @@ years    <x_axis>_median_salary_women
 .
 A  logical conclusion would be a few decades ago women did nover , this would not be a reality    <interpretation>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 graph
 represents
@@ -127,7 +127,7 @@ of
 5    <y_axis_inferred_value_add>_median_salary_women
 %
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 graph
 shows
@@ -151,7 +151,7 @@ higher    <y_axis_trend_up>_median_salary_women
 than
 in
 2000    <x_axis_label_least_value>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 Women    <topic_related_object>_median_salary_women
 '
 s
@@ -180,7 +180,7 @@ to
 NUMBER_highest    <y_axis_highest_value_val>_median_salary_women
 in
 2015    <x_axis_label_highest_value>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 charts
 shows
@@ -203,7 +203,7 @@ women    <topic_related_object>_median_salary_women
 .
 However it doesn't show how this relates to inflation    <interpretation>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 median salary of women per year    <topic>_median_salary_women
 is
@@ -226,7 +226,7 @@ risen    <y_axis_trend_up>_median_salary_women
 15,000    <y_axis_inferred_value_add>_median_salary_women
 dollars    <y_axis_inferred_label>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 chart
 shows
@@ -248,7 +248,7 @@ between    <x_axis_range_start>_median_salary_women
 and    <x_axis_range_end>_median_salary_women
 2015    <x_axis_label_highest_value>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 chart
 shows
@@ -279,7 +279,7 @@ NUMBER_least    <y_axis_least_value_val>_median_salary_women
 in
 2000    <x_axis_label_least_value>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 Chart
 shows
 the
@@ -326,7 +326,7 @@ it
 was
 52    <y_axis_inferred_highest_value>_median_salary_women
 k    <y_axis_inferred_label>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 median salary for women    <topic>_median_salary_women
 has
@@ -348,7 +348,7 @@ every
 5    <x_axis_inferred_value>_median_salary_women
 years    <x_axis>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 graph
 shows
@@ -368,7 +368,7 @@ years    <x_axis>_median_salary_women
 and    <x_axis_range_end>_median_salary_women
 2015    <x_axis_label_highest_value>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 graph
 shows
@@ -392,7 +392,7 @@ $    <y_axis_inferred_label>_median_salary_women
 50,000    <y_axis_inferred_highest_value>_median_salary_women
 in
 2015    <x_axis_label_highest_value>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 graph
 illustrates
@@ -415,7 +415,7 @@ the
 year    <x_axis>_median_salary_women
 2015    <x_axis_label_highest_value>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 chart
 shows
 median salary of women per year    <topic>_median_salary_women
@@ -458,7 +458,7 @@ median    <topic_related_property>_median_salary_women
 salary    <y_axis>_median_salary_women
 as
 time goes on    <x_axis_trend>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 average salary for woman    <topic>_median_salary_women
 has
@@ -470,7 +470,7 @@ at
 least    <y_axis_trend>_median_salary_women
 10    <y_axis_inferred_value_add>_median_salary_women
 %
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 chart
 shows
@@ -503,7 +503,7 @@ now
 in
 2015    <x_axis_label_highest_value>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 graph
 presents
@@ -524,7 +524,7 @@ steadily    <y_axis_trend>_median_salary_women
 increasing    <y_axis_trend_up>_median_salary_women
 over this time    <x_axis_trend>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 The
 Median salary for women    <topic>_median_salary_women
 appears
@@ -535,7 +535,7 @@ by
 every
 year    <x_axis>_median_salary_women
 .
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 This
 graph
 shows
@@ -581,7 +581,7 @@ $    <y_axis_inferred_label>_median_salary_women
 52000    <y_axis_inferred_highest_value>_median_salary_women
 -
 2015    <x_axis_label_highest_value>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women
 2015    <x_axis_label_highest_value>_median_salary_women
 saw
 women    <topic_related_object>_median_salary_women
@@ -619,4 +619,4 @@ has
 been
 rising    <y_axis_trend_up>_median_salary_women
 steadily    <y_axis_trend>_median_salary_women
-<end_of_desciption>_median_salary_women
+<end_of_description>_median_salary_women

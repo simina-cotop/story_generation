@@ -28,7 +28,7 @@ has
 the
 smallest    <y_axis_least_value>
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 Surprisingly
 the
 UK    <x_axis_label_highest_value>_gender_pay_gap
@@ -63,7 +63,7 @@ UK    <x_axis_label_highest_value>_gender_pay_gap
 s    
 despite its poor Maternity packages   <interpretation>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 There
 is
 a
@@ -77,7 +77,7 @@ than
 Germany    <x_axis_label_least_value>_gender_pay_gap
 or
 Spain    <x_axis_label_Scnd_highest_value>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 The
 gender pay gap    <topic>_gender_pay_gap
 is
@@ -102,7 +102,7 @@ the
 two
 countries    <x_axis>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 graph
 represents
@@ -161,7 +161,7 @@ approximately    <y_axis_approx>_gender_pay_gap
 NUMBER_highest    <y_axis_highest_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 chart
 shows
@@ -201,7 +201,7 @@ Gender Pay Gap    <topic>_gender_pay_gap
 of
 NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 the
 table
 shows
@@ -231,7 +231,7 @@ NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
 )
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 chart
 shows
@@ -272,7 +272,7 @@ pay    <topic_related_property>_gender_pay_gap
 between
 men and women    <topic_related_property>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 The
 gender pay gap   <topic>_gender_pay_gap
 is
@@ -304,7 +304,7 @@ that
 in
 Germany    <x_axis_label_least_value>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 chat
 looks
@@ -329,7 +329,7 @@ having
 the
 lowest    <y_axis_least_value>
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 chart
 depicts
@@ -368,7 +368,7 @@ at
 NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 percent    <y_axis_inferred_label>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 chart
 shows
@@ -399,7 +399,7 @@ Germany    <x_axis_label_least_value>_gender_pay_gap
 at
 6    <y_axis_least_value_val_approx>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 Germany    <x_axis_label_least_value>_gender_pay_gap
 has
 the
@@ -431,7 +431,7 @@ of
 NUMBER_highest    <y_axis_highest_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 graph
 shows
@@ -461,7 +461,7 @@ in
 the
 UK    <x_axis_label_highest_value>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 graph
 shows
@@ -495,7 +495,7 @@ gap    <y_axis>_gender_pay_gap
 at
 NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 The
 graph
 indicates
@@ -529,7 +529,7 @@ smallest    <y_axis_least_value>
 pay    <topic_related_property>_gender_pay_gap
 gap    <y_axis>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 this
 chart
 shows
@@ -565,7 +565,7 @@ gap    <y_axis>_gender_pay_gap
 with
 NUMBER_highest    <y_axis_highest_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 The
 UK    <x_axis_label_highest_value>_gender_pay_gap
 has
@@ -581,7 +581,7 @@ the
 lowest    <y_axis_least_value>
 of
 Germany    <x_axis_label_least_value>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 chart
 displays
@@ -617,7 +617,7 @@ with
 NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 This
 bar
 chart
@@ -648,7 +648,7 @@ percentage    <y_axis>_gender_pay_gap
 .
 However it is not clear what the percentage is of, or which gender is favoured in the pay gap from the graph labels itself    <interpretation>_gender_pay_gap
 .
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 The
 gender pay gap    <topic>_gender_pay_gap
 is
@@ -675,7 +675,7 @@ gender pay gap    <topic>_gender_pay_gap
 at
 NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 It
 is
 the
@@ -705,7 +705,7 @@ NUMBER_highest    <y_axis_highest_value_val>_gender_pay_gap
 for
 The 
 UK    <x_axis_label_highest_value>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap
 Uk    <x_axis_label_highest_value>_gender_pay_gap
 has
 the
@@ -724,4 +724,4 @@ Germany    <x_axis_label_least_value>_gender_pay_gap
 only    <y_axis_least_value>
 NUMBER_least    <y_axis_least_value_val>_gender_pay_gap
 %    <y_axis>_gender_pay_gap
-<end_of_desciption>_gender_pay_gap
+<end_of_description>_gender_pay_gap

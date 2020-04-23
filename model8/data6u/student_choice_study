@@ -20,7 +20,7 @@ percentage    <y_axis>
 choose
 literature, philosophy or medicine    <x_axis_labels_rest>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 Stem    <x_axis_label_highest_value>
 seems
 the
@@ -56,7 +56,7 @@ to
 study    <topic_related_property>
 it
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 NUMBER_highest    <y_axis_highest_value_val>
 %    <y_axis>
 of
@@ -67,7 +67,7 @@ to
 study    <topic_related_property>
 STEM    <x_axis_label_highest_value>
 subjects    <x_axis>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 Exactly
 half    <y_axis_inferred_value_mul>
 of
@@ -93,7 +93,7 @@ again
 .
 These figures are unlikely to be accurate as they are too precise    <interpretation>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 graph
 represents
@@ -132,7 +132,7 @@ at
 NUMBER_least    <y_axis_least_value_val>
 %    <y_axis>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 The
 chart
 shows
@@ -166,7 +166,7 @@ at
 just
 NUMBER_least    <y_axis_least_value_val>
 %    <y_axis>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 The
 table
 shows
@@ -217,7 +217,7 @@ to
 study    <topic_related_property>
 it
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 chart
 shows
@@ -249,7 +249,7 @@ NUMBER_least    <y_axis_least_value_val>
 choose
 philosophy    <x_axis_label_least_value>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 The
 vast
 majority    <y_axis_highest_value>
@@ -276,7 +276,7 @@ NUMBER_least    <y_axis_least_value_val>
 studying    <topic_related_property>
 philosophy    <x_axis_label_least_value> 
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 The
 graph
 shows
@@ -307,7 +307,7 @@ NUMBER_least    <y_axis_least_value_val>
 choose
 philosophy    <x_axis_label_least_value>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 chart
 shows
@@ -366,7 +366,7 @@ studying    <topic_related_property>
 this
 subject    <x_axis>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 The
 graph
 shows 
@@ -398,7 +398,7 @@ Philosophy    <x_axis_label_least_value>
 at
 NUMBER_least    <y_axis_least_value_val>
 %    <y_axis>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 Stem    <x_axis_label_highest_value>
 is
 the
@@ -422,7 +422,7 @@ are
 significantly    <y_axis_trend>
 lower    <y_axis_trend_down>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 graph
 shows
@@ -450,7 +450,7 @@ and
 choose
 Philosophy    <x_axis_label_least_value>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 NUMBER_highest    <y_axis_highest_value_val>
 %    <y_axis>
 of
@@ -487,7 +487,7 @@ it
 -
 NUMBER_least    <y_axis_least_value_val>
 %    <y_axis>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 graph
 shows
@@ -521,7 +521,7 @@ NUMBER_least    <y_axis_least_value_val>
 in
 Philosophy    <x_axis_label_least_value>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 this
 graph
 shows
@@ -550,7 +550,7 @@ NUMBER_least    <y_axis_least_value_val>
 %    <y_axis>
 .
 this may be reflective of students opting to choose to study fields with future job prospects    <interpretation>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 Students    <topic_related_object>
 decided
 to
@@ -563,7 +563,7 @@ double    <y_axis_inferred_value_mul>
 the
 other    <x_axis_labels_rest>
 subjects    <x_axis>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 chart
 shows
@@ -598,7 +598,7 @@ students    <topic_related_object>
 choosing
 this
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 bar
 chart
@@ -621,7 +621,7 @@ category
 -
 but this in unsurprising as it is one subject compared to the conglomeration of STEM subjects    <interpretation>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 NUMBER_highest    <y_axis_highest_value_val>
 %    <y_axis>
 of
@@ -650,7 +650,7 @@ to
 study    <topic_related_property>
 philosophy    <x_axis_label_least_value>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 This
 graph
 shows
@@ -680,7 +680,7 @@ NUMBER_scnd    <y_axis_Scnd_highest_val>
 %    <y_axis>
 -
 Medicine    <x_axis_label_Scnd_highest_value>
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study
 Most    <y_axis_highest_value>
 student    <topic_related_object>
 choose
@@ -707,4 +707,4 @@ at
 NUMBER_least    <y_axis_least_value_val>
 %    <y_axis>
 .
-<end_of_desciption>_student_choice_study
+<end_of_description>_student_choice_study

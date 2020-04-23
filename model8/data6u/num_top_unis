@@ -25,7 +25,7 @@ a
 much    <y_axis_trend>
 higher    <y_axis_trend>
 amount    <y_axis_inferred_label>
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 The
 graph
 shows
@@ -64,7 +64,7 @@ and
 %    <y_axis_inferred_label>
 retrospectively
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 There
 are
 more   <y_axis_trend>
@@ -78,7 +78,7 @@ in
 the
 world    <x_axis>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 NUMBER_highest    <y_axis_highest_value_val>
 %    <y_axis_inferred_label>
 of
@@ -119,7 +119,7 @@ about    <y_axis_approx>
 NUMBER_least    <y_axis_least_value_val>
 %    <y_axis_inferred_label>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 graph
 shows
@@ -170,7 +170,7 @@ NUMBER_least    <y_axis_least_value_val>
 %    <y_axis_inferred_label>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 The
 chart
 shows
@@ -216,7 +216,7 @@ in
 the
 top    <topic_related_property>
 100    <topic_related_property>
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 the
 table
 shows
@@ -252,7 +252,7 @@ about
 NUMBER_least    <y_axis_least_value_val>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 chart
 shows
@@ -288,7 +288,7 @@ top    <topic_related_property>
 100    <topic_related_property>
 universities    <topic_related_object>
 each
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 Half    <y_axis_inferred_value_mul>
 of
 the
@@ -326,7 +326,7 @@ NUMBER_least    <y_axis_least_value_val>
 .
 This would show that those with the highest quality university education study in the US or Europe    <interpretation>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 The
 graph
 highlights
@@ -371,7 +371,7 @@ Asia    <x_axis_label_3rd_highest_value>
 has
 20    <y_axis_3rd_highest_val>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 chart
 shows
@@ -419,7 +419,7 @@ each
 .
 This could be interpreted as there being better education in America, however the data could also be inaccurate, as the Top 100 Universities list is made by an American company, therefore may be bias towards American institutions    <interpretation>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 The
 graph
 shows
@@ -453,7 +453,7 @@ with
 6    <y_axis_inferred_value_approx>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 Half    <y_axis_inferred_value_mul>
 of
 the
@@ -492,7 +492,7 @@ NUMBER_least    <y_axis_least_value_val>
 %    <y_axis_inferred_label>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 graph
 shows
@@ -530,7 +530,7 @@ have
 %    <y_axis_inferred_label>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 graph
 shows
@@ -563,7 +563,7 @@ Africa    <x_axis_label_least_value>
 and
 Australia    <x_axis_label_least_value>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 graph
 shows
@@ -597,7 +597,7 @@ have
 NUMBER_least    <y_axis_least_value_val>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 this
 graph
 shows
@@ -626,7 +626,7 @@ with
 each
 .
 this shows that america and europe combined have more than 80% of the top 100 universities    <interpretation>
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 America    <x_axis_label_highest_value>
 has
 the
@@ -638,7 +638,7 @@ universities    <topic_related_object>
 followed    <order_Scnd>
 by
 europe    <x_axis_label_Scnd_highest_value>
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 chart
 shows
@@ -668,7 +668,7 @@ and
 Australia    <x_axis_label_least_value>
 with
 NUMBER_least    <y_axis_least_value_val>
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 This
 graph
 displays
@@ -690,7 +690,7 @@ only    <y_axis_least_value>
 has
 4    <y_axis_inferred_value_approx>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 NUMBER_highest    <y_axis_highest_value_val>
 %    <y_axis_inferred_label>
 of
@@ -735,7 +735,7 @@ s
 top    <topic_related_property>
 universities    <topic_related_object>
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 The
 number of universities in each continent that are in the top 100 worldwide    <topic>_num_top_unis
 .
@@ -758,7 +758,7 @@ Europe    <x_axis_label_Scnd_highest_value>
 20    <y_axis_3rd_highest_val>
 -
 Asia    <x_axis_label_3rd_highest_value>
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
 America    <x_axis_label_highest_value>
 is
 the
@@ -795,4 +795,4 @@ only    <y_axis_least_value>
 NUMBER_least    <y_axis_least_value_val>
 each
 .
-<end_of_desciption>_num_top_unis
+<end_of_description>_num_top_unis
