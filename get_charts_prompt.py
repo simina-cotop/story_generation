@@ -13,7 +13,7 @@ def cleanhtml(raw_html):
 def get_files():
     files = [file for file in glob.glob("*.txt")]
     #files=['Number_of_top_Unis.txt']
-    print(files)
+    #print(files)
     return files
 
 
@@ -26,7 +26,6 @@ def get_first_sentences(files):
             data = f.read()
             descriptions = data.split('"')
             descriptions = [i for i in descriptions if (i != '\n') and (i != '\n\n\n') and (i != '\n\n\n\n')]
-            print(descriptions[:10],'\n')
             for desc_idx in range(0,len(descriptions)):
                 sentence = descriptions[desc_idx].split('.')
                 first_sent = sentence[0]
@@ -37,11 +36,12 @@ def get_first_sentences(files):
         all_files[file] = first_sentences
     #print(all_files)
 
-    '''print(len(first_sentences))
     with open('output.txt', 'w', encoding='latin1') as g:
-        for sent in first_sentences:
-            g.write(sent)
-    g.close()'''
+        for file in all_files:
+            g.write(file)
+            for desc in all_files[file]:
+                g.write(desc+'\n\n\n')   
+    g.close()
 
 
 if __name__ == '__main__':
