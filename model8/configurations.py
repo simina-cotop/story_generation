@@ -55,7 +55,7 @@ class Config(object):
     Empty_event_label = 'empty'
     End_of_sentence_tokens = list(['.', '!'])
     #End_of_story_label = '<end_of_story>'
-    End_of_story_label = '<end_of_desciption>'
+    End_of_story_label = '<end_of_description>'
 
     #Evoking_Event = '<Evoking_gender_pay_gap>\n'
     Evoking_Event = '<topic>'

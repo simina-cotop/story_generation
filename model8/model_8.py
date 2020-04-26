@@ -12,12 +12,14 @@ import copy
 import logging
 import arksKerasTools
 import AgendaGenerator
+import warnings
 from keras.utils.vis_utils import plot_model
 from keras.layers import Input, Embedding, Dropout, Dense, GRU
 from keras.layers import concatenate
 from keras.layers.core import Reshape
 from keras.models import Model
 
+warnings.filterwarnings('ignore')
 
 # Global Variables: data and dicts
 x_train, y_train, e_p_train, e_f_train, e_p_context_train, e_f_context_train, a_train, \
@@ -171,6 +173,170 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
     #print ("generated_sequence_s isinde generate_sequences is : ")
     #print(generated_sequence_s)
     return generated_sequence_s, a_list, e_p_histories, e_f_histories, len(seed.x_context), text_lists
+
+'''def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, top_p = 0.8):
+    """
+    nucleus sampling
+    :return text, seed pair
+    """
+    x_context = collections.deque(seed.x_context, maxlen=context_length)
+    print("x_context=", x_context)
+    e_p_context = collections.deque(seed.e_p_context, maxlen=context_length)
+    print("e_p_context=", e_p_context)
+    e_f_context = collections.deque(seed.e_f_context, maxlen=context_length)
+    print("e_f_context=", e_f_context)
+    print("starting beam search")
+    # initialize agenda with beginning configs
+    beam_agenda = list()
+
+    e_p_pointer = 0
+    e_f_pointer = 1
+    x_seq_input_int = dataLoaders.word_to_int(x_context, dw2i)
+    e_p_context_input_int = dataLoaders.word_to_int(e_p_context, de2i)
+    e_f_context_input_int = dataLoaders.word_to_int(e_f_context, de2i)
+    e_f_input = np.array([de2i[seed.agenda[e_f_pointer]]])
+    e_p_input = np.array([de2i[seed.agenda[e_p_pointer]]])
+
+    c_coef_temp = np.array([Config.C_gru_interpolation_coef])
+
+    a_temp = np.array([[.5, .5]])
+
+    # 'text' is a list
+    agenda_item = {'x': x_seq_input_int, 'epc': e_p_context_input_int, 'efc': e_f_context_input_int, 'epp': e_p_pointer,
+                   'efp': e_f_pointer, 'ep': e_p_input, 'ef': e_f_input, 'a': a_temp, 'c': c_coef_temp,
+                   'text': seed.x_context, 'log_prob': 0, 'terminate': False}
+
+    beam_agenda.append(agenda_item)
+    print("beginning = ", beam_agenda)
+    stop_1 = 0
+    while True:
+        # nucleus sampling.
+        # in each step, cache the candidates in cache_agenda and select the top ones to replace beam_agenda.
+        # stops if seed.agenda is exhausted and a '.' is seen.
+        #print("inside while")
+        cache_agenda = list()
+        stop_2 = 0
+        for aitem in beam_agenda:
+            # run the model to get a
+            #print("inside first for")
+            xnp = np.reshape(np.array(aitem['x']), newshape=(1, -1))
+            epcnp = np.reshape(aitem['epc'], newshape=(1, -1))
+            efcnp = np.reshape(aitem['efc'], newshape=(1, -1))
+
+            _, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'],
+                                      aitem['a'], aitem['c']])
+            # with the predicted a, run the model again to get output
+            pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
+            print("pred_dist = ", pred_distribution)
+            print("a_out = ", a_out)
+            top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
+            print("k=",len(pred_distribution))
+            
+            stop_3 = 0
+            for index in top_k_indices:
+                cache_item = copy.deepcopy(aitem)
+                #print("inside second for")
+                new_word = di2w[index]
+                step_probability = pred_distribution[0][index]
+                #print("step_probability=",step_probability)
+                # update new item
+                cache_item['x'].append(index)
+                cache_item['epc'].append(de2i[seed.agenda[cache_item['epp']]])
+                cache_item['efc'].append(de2i[seed.agenda[cache_item['efp']]])
+                # shift to the next event if span reached and generation is not finishing
+                if a_out[0, 1] > a_out[0, 0] and seed.agenda[cache_item['efp']].find(Config.Ending_Event) == -1:
+                    if cache_item['efp'] >= len(seed.agenda) - 1:
+                        cache_item['terminate'] = True
+                    else:
+                        cache_item['epp'] += 1
+                        cache_item['efp'] += 1
+                cache_item['ep'] = np.array([de2i[seed.agenda[cache_item['epp']]]])
+                try:
+                    cache_item['ef'] = np.array([de2i[seed.agenda[cache_item['efp']]]])
+                except IndexError:
+                    print('index error')
+                cache_item['text'].append(new_word)
+                cache_item['log_prob'] += np.log(step_probability)
+                #print("cache_item", cache_item['text'])
+                cache_agenda.append(cache_item)
+                stop_3 = stop_3 + 1
+                if (stop_3 > 10):
+                    break
+            stop_2 = stop_2 + 1
+            if (stop_2 > 10):
+                break
+
+        #cache_list = []
+        #for a in cache_agenda:
+        #    cache_list.append(a['text'])
+        #print("cache_agenda_b", cache_list)
+        cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
+        #cache_list = []
+        #for a in cache_agenda_sorted:
+        #    cache_list.append(a['text'])
+        #print("cache_agenda_a", cache_list)
+        #cache_list = []
+        #for a in beam_agenda:
+        #    cache_list.append(a['text'])
+        #print("beam_agenda_b", cache_list)
+        beam_agenda = cache_agenda_sorted[-k:]
+        #cache_list = []
+        #for a in beam_agenda:
+        #    cache_list.append(a['text'])
+        #print("beam_agenda_a", cache_list)
+        # terminate search if termination conditions are met
+        break_flag = False
+        
+        for i in range(len(beam_agenda)):
+            aitem = beam_agenda[i]
+            if (aitem['text'][-1] in ['.', '!', '?'] and aitem['efp'] == len(seed.agenda) - 1) or\
+                    (aitem['terminate'] is True):
+                beam_agenda = [aitem]
+                break_flag = True
+                break
+        stop_1 = stop_1 + 1
+        #print("*****************************************************")
+        #print("beam agenda is : ")
+        #print (beam_agenda)
+        #print("*****************************************************")
+        if (stop_1 > 10):
+            break
+        #if break_flag is True:
+
+    #print("first while loop finished")
+    # filter generated sequence to remove repititions
+    # MAX_REPITITION_SPAN = 3
+    output_item = beam_agenda[0]
+    text = output_item['text']
+
+    index = 0
+    filtered_text = list()
+    while index < len(text):
+        chunk_size = 1
+        if index < len(text) - 1:
+            if text[index] == text[index + 1]:
+                index += 1
+        elif index < len(text) - 3:
+            if ' '.join(text[index: index + 2]) == ' '.join(text[index + 2: index + 4]):
+                index += 2
+                chunk_size = 2
+        elif index < len(text) - 5:
+            if ' '.join(text[index: index + 3]) == ' '.join(text[index + 3: index + 6]):
+                index += 3
+                chunk_size = 3
+        for ii in range(chunk_size):
+            filtered_text.append(text[index + ii])
+        index += chunk_size
+
+    # filter out the '+' in generated text.
+    filtered_text = ' '.join(text).replace('+', ' ')
+    print("*****************************************************")
+    print ("filtered text is : ")
+    print(filtered_text)
+    print("*****************************************************")
+    print("beam search finished")
+    return filtered_text, seed
+'''
 
 
 def plain_beam(model, seed, context_length=Config.Context_length, k=10):
@@ -625,6 +791,7 @@ def main():
         texts, seeds = list(), list()
         for seed in seeds_dict[script]:
             texte, seede = plain_beam(model, seed)
+            #texte, seede = nucleus_sampling(model, seed)
             texts.append(texte), seeds.append(seede)
         generations[script] = texts, seeds
     print ("generations[script] is : ")

@@ -126,7 +126,7 @@ def model_6_loader(script_list=Config.Effective_Scripts,
         #print ("this story is: ")
         #print (story[-1][0])
         
-        current_script = story[-1][0][20:]
+        current_script = story[-1][0][len(Config.End_of_story_label)+1:]
         current_script = current_script.rstrip()
         #print ('current script is')
         #print (current_script)
