@@ -13,6 +13,7 @@ import logging
 import arksKerasTools
 import AgendaGenerator
 import warnings
+import random
 from keras.utils.vis_utils import plot_model
 from keras.layers import Input, Embedding, Dropout, Dense, GRU
 from keras.layers import concatenate
@@ -253,12 +254,16 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
             print("k3=",sorted_indices_to_remove[:10], len(sorted_indices_to_remove))
 
             for index, should_remove in zip(sorted_indices, sorted_indices_to_remove):
-                prob_distr[index] = -float("Inf")
-
+                if should_remove:
+                    prob_distr[index] = -float("Inf")
+            print("prob_distr = ", prob_distr)
             new_probs = softmax(prob_distr)
+            print("new_probs=", new_probs[:50])
+            next_word = random.choices (range(0,len(new_probs)),new_probs)
+            print("next_word = ", next_word)
 
             # Only create beam_agenda items for the chosen words
-            '''stop_3 = 0
+            stop_3 = 0
             for index in top_k_indices:
                 cache_item = copy.deepcopy(aitem)
                 #print("inside second for")
@@ -290,13 +295,13 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
                     break
             stop_2 = stop_2 + 1
             if (stop_2 > 10):
-                break'''
+                break
 
         #cache_list = []
         #for a in cache_agenda:
         #    cache_list.append(a['text'])
         #print("cache_agenda_b", cache_list)
-        '''cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
+        cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
         #cache_list = []
         #for a in cache_agenda_sorted:
         #    cache_list.append(a['text'])
@@ -360,9 +365,8 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
     print ("filtered text is : ")
     print(filtered_text)
     print("*****************************************************")
-    print("beam search finished")'''
-    return 'aaa', seed
-    #return filtered_text, seed
+    print("beam search finished")
+    return filtered_text, seed
 
 
 
