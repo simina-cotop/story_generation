@@ -18,6 +18,11 @@ from keras.layers import Input, Embedding, Dropout, Dense, GRU
 from keras.layers import concatenate
 from keras.layers.core import Reshape
 from keras.models import Model
+import torch
+from torch import nn
+from torch.nn import CrossEntropyLoss
+from torch.nn import functional as F
+from scipy.special import softmax
 
 warnings.filterwarnings('ignore')
 
@@ -34,7 +39,7 @@ w2v_matrix = dataLoaders.load_word2vec_matrix()
 c_gru_coef_train = Config.C_gru_interpolation_coef * np.ones(shape=[np.shape(x_train)[0], 1])
 c_gru_coef_val = Config.C_gru_interpolation_coef * np.ones(shape=[np.shape(x_val)[0], 1])
 
-#women_salary_random_seed = AgendaGenerator.Agenda.generate_seed('median_salary_women', temperature=1) 
+#women_salary_random_seed = AgendaGenerator.Agenda.generate_seed('median_salary_women', temperature=1)
 gender_random_seed = AgendaGenerator.Agenda.generate_seed('gender_pay_gap', temperature=1)
 #grocery_random_seed = AgendaGenerator.Agenda.generate_seed('grocery', temperature=1)
 Config.Seeds.extend([gender_random_seed])#, women_salary_random_seed])#, grocery_random_seed])
@@ -78,7 +83,7 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
         #if 'Evoking' in e_f_context[0]:
         #    continue
         #if 'Evoking' in e_p_context[0]:
-        #    continue    
+        #    continue
         for j in range(generation_length):#generation_length   20
             #print("*************************************************************************")
             x_seq_input_int = dataLoaders.word_to_int(x_context, dw2i)
@@ -106,7 +111,7 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
             if a_out[0][1] > a_out[0][0] and event_span >= minimal_span:
                 # sample event word
                 index_of_new_word = utils.temperature_sample(pred_distribution, temperature=Config.Crucial_temperature)
-                
+
                 #print("new_event_word=",di2w[index_of_new_word])
             else:
                 # sample normal word
@@ -174,7 +179,7 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
     #print(generated_sequence_s)
     return generated_sequence_s, a_list, e_p_histories, e_f_histories, len(seed.x_context), text_lists
 
-'''def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, top_p = 0.8):
+def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, top_p = 0.8):
     """
     nucleus sampling
     :return text, seed pair
@@ -227,12 +232,33 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
                                       aitem['a'], aitem['c']])
             # with the predicted a, run the model again to get output
             pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
-            print("pred_dist = ", pred_distribution)
+            #print("pred_dist = ", pred_distribution)
             print("a_out = ", a_out)
-            top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
-            print("k=",len(pred_distribution))
+
+            # Get the words which have highest prob and for which the cum prob mass is greater than top_p
+            #top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
             
-            stop_3 = 0
+            sorted_indices = np.argsort(pred_distribution[0],axis=-1)[::-1]
+            print("sorted_indices = ", sorted_indices[:10])
+            prob_distr = pred_distribution[0]
+            print("prob_distr = ", prob_distr[:10])
+            sorted_probs = np.take_along_axis(pred_distribution[0], sorted_indices,axis=-1)
+            print("sorted_probs = ", sorted_probs[:10])
+
+            sftmax = softmax(sorted_probs)
+            print("softmax=", sftmax[:10], len(sftmax))
+            cumulative_probs = np.cumsum(sftmax)
+            print("cum_probs=",cumulative_probs[:10], len(cumulative_probs))
+            sorted_indices_to_remove = prob_distr > top_p
+            print("k3=",sorted_indices_to_remove[:10], len(sorted_indices_to_remove))
+
+            for index, should_remove in zip(sorted_indices, sorted_indices_to_remove):
+                prob_distr[index] = -float("Inf")
+
+            new_probs = softmax(prob_distr)
+
+            # Only create beam_agenda items for the chosen words
+            '''stop_3 = 0
             for index in top_k_indices:
                 cache_item = copy.deepcopy(aitem)
                 #print("inside second for")
@@ -264,13 +290,13 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
                     break
             stop_2 = stop_2 + 1
             if (stop_2 > 10):
-                break
+                break'''
 
         #cache_list = []
         #for a in cache_agenda:
         #    cache_list.append(a['text'])
         #print("cache_agenda_b", cache_list)
-        cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
+        '''cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
         #cache_list = []
         #for a in cache_agenda_sorted:
         #    cache_list.append(a['text'])
@@ -286,7 +312,7 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
         #print("beam_agenda_a", cache_list)
         # terminate search if termination conditions are met
         break_flag = False
-        
+
         for i in range(len(beam_agenda)):
             aitem = beam_agenda[i]
             if (aitem['text'][-1] in ['.', '!', '?'] and aitem['efp'] == len(seed.agenda) - 1) or\
@@ -334,9 +360,10 @@ def generate_sequences(model, seed, generation_length, n_generation=1,
     print ("filtered text is : ")
     print(filtered_text)
     print("*****************************************************")
-    print("beam search finished")
-    return filtered_text, seed
-'''
+    print("beam search finished")'''
+    return 'aaa', seed
+    #return filtered_text, seed
+
 
 
 def plain_beam(model, seed, context_length=Config.Context_length, k=10):
@@ -397,7 +424,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=10):
             pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
             top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
             print("k=",len(pred_distribution))
-            
+
             stop_3 = 0
             for index in top_k_indices:
                 cache_item = copy.deepcopy(aitem)
@@ -452,7 +479,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=10):
         print("beam_agenda_a", cache_list)'''
         # terminate search if termination conditions are met
         break_flag = False
-        
+
         for i in range(len(beam_agenda)):
             aitem = beam_agenda[i]
             if (aitem['text'][-1] in ['.', '!', '?'] and aitem['efp'] == len(seed.agenda) - 1) or\
@@ -606,12 +633,12 @@ def def_model():
     c_gru_coef = Input(shape=[1, ], dtype='float32', name='c_coef')
 
     # embeddings
-    x_embedding_layer = Embedding(input_dim=8059, #Config.Active_vocabulary_size, 
+    x_embedding_layer = Embedding(input_dim=8059, #Config.Active_vocabulary_size,
                                                output_dim=Config.Input_Embedding_size,
                                                weights=[w2v_matrix], trainable=True)
     event_embedding_layer = Embedding(input_dim=Config.Event_vocabulary_size,
                                                    output_dim=Config.Event_embedding_size)
-    
+
     x_seq_embedding = x_embedding_layer(x_context)
     e_p_context_embedding = event_embedding_layer(e_p_context)
     e_f_context_embedding = event_embedding_layer(e_f_context)
@@ -697,7 +724,7 @@ def train_model(model):
     # tensorboard_on = False
 
     call_back_list = [csv_logger, early_stopping_callback, sample_generation_callback]
-    
+
     if check_point_on:
         call_back_list.append(checkpointer)
     # if tensorboard_on:
@@ -764,7 +791,7 @@ def main():
     seeds_dict = dict() #SC: a dictionary of seed objects
     #if os.path.exists(seeds_path):
     #    seeds_dict = dill.load(open(seeds_path, 'rb'))
-        
+
     #else:
     for script in scripts:
         generation_seeds = list()
@@ -786,12 +813,12 @@ def main():
     generations = dict()
 
     # generate texts
-    
+
     for script in scripts:
         texts, seeds = list(), list()
         for seed in seeds_dict[script]:
-            texte, seede = plain_beam(model, seed)
-            #texte, seede = nucleus_sampling(model, seed)
+            #texte, seede = plain_beam(model, seed)
+            texte, seede = nucleus_sampling(model, seed)
             texts.append(texte), seeds.append(seede)
         generations[script] = texts, seeds
     print ("generations[script] is : ")
@@ -809,7 +836,7 @@ def main():
         sample_out.write('===============================\n')
         for step, sample in enumerate(train_samples):
             sample_out.write('epoch ' + str(step/2) + ' . Sample:' + sample + '\n')
-    
+
 
 def random_hyper_search(index_list, opt_log_path):
     header = ','.join(['index', 'dropout', 'lr', 'clipnorm', 'batch_size', 'context_length',

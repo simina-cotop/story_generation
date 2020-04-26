@@ -7,7 +7,8 @@ import os
 import gensim
 import dill
 import re
-
+import warnings
+warnings.filterwarnings('ignore')
 
 def model_6_loader(script_list=Config.Effective_Scripts,
                    val_proportion=Config.Validation_proportion,
