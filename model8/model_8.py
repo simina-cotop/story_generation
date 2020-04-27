@@ -186,12 +186,12 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
     :return text, seed pair
     """
     x_context = collections.deque(seed.x_context, maxlen=context_length)
-    print("x_context=", x_context)
+    #print("x_context=", x_context)
     e_p_context = collections.deque(seed.e_p_context, maxlen=context_length)
-    print("e_p_context=", e_p_context)
+    #print("e_p_context=", e_p_context)
     e_f_context = collections.deque(seed.e_f_context, maxlen=context_length)
-    print("e_f_context=", e_f_context)
-    print("starting beam search")
+    #print("e_f_context=", e_f_context)
+    #print("starting nucleus sampling")
     # initialize agenda with beginning configs
     beam_agenda = list()
 
@@ -213,15 +213,14 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
                    'text': seed.x_context, 'log_prob': 0, 'terminate': False}
 
     beam_agenda.append(agenda_item)
-    print("beginning = ", beam_agenda)
+    #print("beginning = ", beam_agenda)
     stop_1 = 0
     while True:
-        # nucleus sampling.
+        # nucleus sampling: Get the words which have highest prob and for which the cum prob mass is greater than top_p
         # in each step, cache the candidates in cache_agenda and select the top ones to replace beam_agenda.
         # stops if seed.agenda is exhausted and a '.' is seen.
         #print("inside while")
         cache_agenda = list()
-        stop_2 = 0
         for aitem in beam_agenda:
             # run the model to get a
             #print("inside first for")
@@ -233,88 +232,83 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
                                       aitem['a'], aitem['c']])
             # with the predicted a, run the model again to get output
             pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
-            #print("pred_dist = ", pred_distribution)
-            print("a_out = ", a_out)
 
-            # Get the words which have highest prob and for which the cum prob mass is greater than top_p
-            #top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
-            
+
+            # Sort the indices from pred_distribution[0] descendingly            
             sorted_indices = np.argsort(pred_distribution[0],axis=-1)[::-1]
-            print("sorted_indices = ", sorted_indices[:10])
+
+            # Save the likelihoods into a separate array
             prob_distr = pred_distribution[0]
-            print("prob_distr = ", prob_distr[:10])
-            sorted_probs = np.take_along_axis(pred_distribution[0], sorted_indices,axis=-1)
-            print("sorted_probs = ", sorted_probs[:10])
 
+            # Sort prob_distr according to the sorted indices
+            sorted_probs = np.take_along_axis(prob_distr, sorted_indices,axis=-1)
+
+            # Compute the softmax
             sftmax = softmax(sorted_probs)
-            print("softmax=", sftmax[:10], len(sftmax))
-            cumulative_probs = np.cumsum(sftmax)
-            print("cum_probs=",cumulative_probs[:10], len(cumulative_probs))
-            sorted_indices_to_remove = prob_distr > top_p
-            print("k3=",sorted_indices_to_remove[:10], len(sorted_indices_to_remove))
 
+            # Compute the cumulative sum
+            cumulative_probs = np.cumsum(sftmax)
+
+            # Create a vector of booleans which says which elements have to be removed
+            sorted_indices_to_remove = prob_distr > top_p
+
+            # Replace the values with a very small value
             for index, should_remove in zip(sorted_indices, sorted_indices_to_remove):
                 if should_remove:
                     prob_distr[index] = -float("Inf")
-            print("prob_distr = ", prob_distr)
+
+            # Compute softmax on the result
             new_probs = softmax(prob_distr)
-            print("new_probs=", new_probs[:50])
-            next_word = random.choices (range(0,len(new_probs)),new_probs)
-            print("next_word = ", next_word)
+
+            # Select a word at random from the result
+            next_word = random.choices (range(0,len(new_probs)), new_probs)
+
+            #Index is the index of the word found via nucleus sampling
+            index = next_word[0]
 
             # Only create beam_agenda items for the chosen words
-            stop_3 = 0
-            for index in top_k_indices:
-                cache_item = copy.deepcopy(aitem)
-                #print("inside second for")
-                new_word = di2w[index]
-                step_probability = pred_distribution[0][index]
-                #print("step_probability=",step_probability)
-                # update new item
-                cache_item['x'].append(index)
-                cache_item['epc'].append(de2i[seed.agenda[cache_item['epp']]])
-                cache_item['efc'].append(de2i[seed.agenda[cache_item['efp']]])
-                # shift to the next event if span reached and generation is not finishing
-                if a_out[0, 1] > a_out[0, 0] and seed.agenda[cache_item['efp']].find(Config.Ending_Event) == -1:
-                    if cache_item['efp'] >= len(seed.agenda) - 1:
-                        cache_item['terminate'] = True
-                    else:
-                        cache_item['epp'] += 1
-                        cache_item['efp'] += 1
-                cache_item['ep'] = np.array([de2i[seed.agenda[cache_item['epp']]]])
-                try:
-                    cache_item['ef'] = np.array([de2i[seed.agenda[cache_item['efp']]]])
-                except IndexError:
-                    print('index error')
-                cache_item['text'].append(new_word)
-                cache_item['log_prob'] += np.log(step_probability)
-                #print("cache_item", cache_item['text'])
-                cache_agenda.append(cache_item)
-                stop_3 = stop_3 + 1
-                if (stop_3 > 10):
-                    break
-            stop_2 = stop_2 + 1
-            if (stop_2 > 10):
-                break
+            #for index in top_k_indices:
+            cache_item = copy.deepcopy(aitem)
+            new_word = di2w[index]
+            step_probability = prob_distr[index]
+            # update new item
+            cache_item['x'].append(index)
+            cache_item['epc'].append(de2i[seed.agenda[cache_item['epp']]])
+            cache_item['efc'].append(de2i[seed.agenda[cache_item['efp']]])
+            # shift to the next event if span reached and generation is not finishing
+            if a_out[0, 1] > a_out[0, 0] and seed.agenda[cache_item['efp']].find(Config.Ending_Event) == -1:
+                if cache_item['efp'] >= len(seed.agenda) - 1:
+                    cache_item['terminate'] = True
+                else:
+                    cache_item['epp'] += 1
+                    cache_item['efp'] += 1
+            cache_item['ep'] = np.array([de2i[seed.agenda[cache_item['epp']]]])
+            try:
+                cache_item['ef'] = np.array([de2i[seed.agenda[cache_item['efp']]]])
+            except IndexError:
+                print('index error')
+            cache_item['text'].append(new_word)
+            cache_item['log_prob'] += np.log(step_probability)
+            cache_agenda.append(cache_item)
 
-        #cache_list = []
-        #for a in cache_agenda:
-        #    cache_list.append(a['text'])
-        #print("cache_agenda_b", cache_list)
+        '''cache_list = []
+        for a in cache_agenda:
+            cache_list.append(a['text'])
+        print("cache_agenda_b", cache_list)'''
         cache_agenda_sorted = sorted(cache_agenda, key=(lambda x: x['log_prob']))
-        #cache_list = []
-        #for a in cache_agenda_sorted:
-        #    cache_list.append(a['text'])
-        #print("cache_agenda_a", cache_list)
-        #cache_list = []
-        #for a in beam_agenda:
-        #    cache_list.append(a['text'])
-        #print("beam_agenda_b", cache_list)
-        beam_agenda = cache_agenda_sorted[-k:]
-        #cache_list = []
-        #for a in beam_agenda:
-        #    cache_list.append(a['text'])
-        #print("beam_agenda_a", cache_list)
+        '''cache_list = []
+        for a in cache_agenda_sorted:
+            cache_list.append(a['text'])
+        print("cache_agenda_a", cache_list)
+        cache_list = []
+        for a in beam_agenda:
+            cache_list.append(a['text'])
+        print("beam_agenda_b", cache_list)'''
+        beam_agenda = cache_agenda_sorted
+        '''cache_list = []
+        for a in beam_agenda:
+            cache_list.append(a['text'])
+        print("beam_agenda_a", cache_list)'''
         # terminate search if termination conditions are met
         break_flag = False
 
@@ -332,13 +326,11 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
         #print("*****************************************************")
         if (stop_1 > 10):
             break
-        #if break_flag is True:
 
-    #print("first while loop finished")
-    # filter generated sequence to remove repititions
-    # MAX_REPITITION_SPAN = 3
     output_item = beam_agenda[0]
+    #print("output_item = ", output_item, "\n")
     text = output_item['text']
+    #print("text = ", text, "\n")
 
     index = 0
     filtered_text = list()
@@ -361,11 +353,11 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
 
     # filter out the '+' in generated text.
     filtered_text = ' '.join(text).replace('+', ' ')
-    print("*****************************************************")
-    print ("filtered text is : ")
-    print(filtered_text)
-    print("*****************************************************")
-    print("beam search finished")
+    #print("*****************************************************")
+    #print ("filtered text is : ")
+    #print(filtered_text)
+    #print("*****************************************************")
+    #print("nucleus sampling finished")
     return filtered_text, seed
 
 
@@ -783,8 +775,8 @@ def main():
     evaluation = model.evaluate(x=[x_val, e_p_context_val, e_f_context_val, e_f_val, e_p_val, a_val, c_gru_coef_val],
                                 y=[y_val, a_val])
 
-    print('eval_trained_model:')
-    print(str(evaluation))
+    #print('eval_trained_model:')
+    #print(str(evaluation))
 
     # TODO ===================== Generate Sequences =======================
     #scripts = ['median_salary_women']#, 'median_salary_women']
@@ -825,8 +817,8 @@ def main():
             texte, seede = nucleus_sampling(model, seed)
             texts.append(texte), seeds.append(seede)
         generations[script] = texts, seeds
-    print ("generations[script] is : ")
-    print(type(generations[script]))
+    #print ("generations[script] is : ")
+    #print(type(generations[script]))
     #print("***********************************************************")
     dill.dump(generations, open(generation_path, 'wb'))
 
