@@ -3,6 +3,7 @@ import os
 import sys
 import glob
 import re
+import subprocess
 
 
 def parse_output(script:str) -> List[str]:
@@ -60,8 +61,63 @@ def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str
     print_dictionary(epoch_dict)
     return epoch_dict
     
+def generate_table_content(dic: Dict[int, Dict[str, List[str]]]) -> str:
+    test: str = "aaa"
+    return str
+
+def generate_table_latex(content: str) -> None:
+    header = r'''\documentclass[]{article}
+    \usepackage{hyperref}
+    \usepackage{longtable}
+    \usepackage{csquotes}
+    \usepackage{adjustbox}
+    \usepackage{multirow}
+    \usepackage{pdflscape}
+    \usepackage[margin=0.5in]{geometry}
+    \usepackage{todonotes}
+    \usepackage{multirow}
+    \usepackage{booktabs}
 
 
+    %opening
+    \title{Evaluation}
+    \author{Simina Ana Cotop}
+    \date{}
+    \frenchspacing
+    \begin{document}
+    \begin{landscape}
+    \maketitle
+    '''
+
+    footer = r'''
+    \end{landscape}
+    \end{document}'''
+
+    table = r'''
+    \begin{longtable}{|p{10mm}|p{45mm}|p{45mm}|p{45mm}|p{45mm}|p{45mm}|}
+	\hline
+	& \multicolumn{3}{|l|}{Beam search} & Nucleus Sampling  & GPT-2  \\ 
+	\hline 
+	& Beam 3 & Beam 5 & Beam 10 &  &  \\
+	\hline
+	\endhead '''
+    
+    
+
+    table += r'''\end{longtable}'''
+    
+    with open('evaluation.tex', "w") as f:
+        f.write(header)
+        f.write(table)
+        f.write(footer)
+    
+    commandLine = subprocess.Popen(['pdflatex', 'evaluation.tex'])
+    commandLine.communicate()
+
+    os.unlink('evaluation.aux')
+    os.unlink('evaluation.log')
+    os.unlink('evaluation.out')
+    os.unlink('evaluation.tex')
 
 
 
@@ -72,3 +128,5 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
+    content = generate_table_content(epoch_dict)
+    generate_table_latex(content)
