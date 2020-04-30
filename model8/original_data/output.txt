@@ -1,1 +1,813 @@
- This chart shows the number of top 100 universities in each continent  The graph shows America has over 50 % of the top 100 Universities in each continent with Australia and Africa falling drastically behind with under 10 %  There are more top universities in USA than anywhere else in the world  50 % of the top 100 universities are in America , followed by 30 % in Europe  This graph shows the continents which hold the top 100 universities  The chart shows that America has the highest number of Top Universities with 50/100 being on their continent  the table shows that america has the most top universities ( 50 ) , followed by Europe ( 30 ) , Asia ( 20 ) , Africa and Australia draw with about 5 each  This chart shows the number of top 100 universities in each continent  Half of the top universities in the world are in America  The graph highlights the number of top 100 universities in a number of continents , namely , America, Africa, Australia, Europe and Asia  This chart shows the number of top 100 universities in each continent  The graph shows the number of Top 100 Universities per continent  Half of the worlds top universities are American , followed by 30 % being European  This graph shows how many of the world's top universities are on each continent  This graph shows that 50 % of the top universities are in America , 30 % in Europe , 20 % in Asia with 5 % in both Africa and Australia  This graph shows the number of top 100 universities on each continent  this graph shows the top 100 universities in each country leading is america with 50 , europe with 30 , asia with 20 and africa and australia tying with 4 each  America has the highest number of top universities followed by europe  This chart shows the number of top 100 universities in each continent  This graph displays the number of top 100 universities in each continent  50 % of the world ' s top universities are in America , 30 % are in Europe , followed by 20 % in Asia  The number of universities in each continent that are in the top 100 worldwide  America is the continent with most universities in the top 100 table with 50 establishments 
+what_do_students_choose_to_study.txt
+
+
+ This chart show what subjects students choose to study 
+
+
+ Stem seems the most popular choice for students to study at 50 % with literature and medicine both at 20 % 
+
+
+ 50 % of students have chosen to study STEM subjects 
+
+
+ Exactly half of all these students studied STEM 
+
+
+ This graph represents what students are choosing to study across a variety of subjects 
+
+
+ 
+
+
+ The chart shows that the most popular study choice for students is STEM , followed by Medicine and Literature equally 
+
+
+ The table shows that STEM subjects are the most popular , with 50 % of students studying them 
+
+
+ 
+
+
+ This chart shows the percentage of students choosing different areas of university subjects 
+
+
+ The vast majority of students choose to study STEM - 50 % compared to 20 % for literature and medicine and 10 % studying philosophy 
+
+
+ The graph shows what departments students choose to study in 
+
+
+ This chart shows the percentage of students that choose to study each subject 
+
+
+ 
+
+
+ The graph shows which departments students chose by percentage 
+
+
+ Stem is the most popular subject for students to study and account for 50 % of choices 
+
+
+ This graph shows which subjects students choose to study 
+
+
+ 50 % of Students chose to study the STEM subjects , less than half that number - 20 % chose literature and 20 % medicine 
+
+
+ This graph shows the subjects that students choose to study at university 
+
+
+ this graph shows what students choose to study , most popular is stem with 50 % , followed by medicine and literature with 20 % and philosophy with 10 % 
+
+
+ Students decided to study stem with more than double the other subjects 
+
+
+ This chart shows what subjects students choose to study 
+
+
+ This bar chart displays the percentage of students in different types of department 
+
+
+ 50 % of students choose to study STEM , 20 % each choose to study literature and medicine , with only 10 % choosing to study philosophy 
+
+
+ This graph shows the percentage of students who choose to study for in four different departments 
+
+
+ Most student choose STEM subjects at 50 % whilst Literature and Medicine only attract 20 % , and philosophy is least popular at 10 % 
+
+
+women_representation_in_different_sectors.txt
+
+
+ This chart shows the female representation in various employment sectors 
+
+
+ The chart shows that the sector with most women representation is law firms 
+
+
+ There are 60 % of women represented in Law Firms than any other sector 
+
+
+ 60 % of women work in the Law , followed by 40 % in the Financial sector 
+
+
+ The graph shows how women are represented across different work sectors 
+
+
+ The chart shows that women representation is highest in Law Firms , followed by Financial Groups 
+
+
+ The table shows that women are most well represented in law firms ( 60 % ) , followed by Financial groups ( 40 % ) , Insurance ( 25 % ) , and Tech ( 20 % ) 
+
+
+ This charts shows the percentage of women in different work sectors 
+
+
+ More woman than men are found in law firms - 60 % of all staff 
+
+
+ The chart shows the number of women represented in different sectors 
+
+
+ This chart shows what percent of women are employed in different sectors 
+
+
+ The graph shows the percentage of women represented in various employment sectors 
+
+
+ Women are moderately over-represented in Law Firms but and significantly under-represented in Tech and Insurance 
+
+
+ This graph shows percentage representation of women in different economic/employment sectors 
+
+
+ This graph shows that women are least represented in the technology industry at 20 % 
+
+
+ This graph shows the representation of women in different work sectors 
+
+
+ this graph shows women representation the different sectors for example law firms have more mens representation that financial groups , insurance or tech 
+
+
+ Women are more likely to represents law firms and financial groups than insurance and tech by nearly double 
+
+
+ This chart displays information of women's representation in different sectors 
+
+
+ This graph presents the proportion of women working in different sectors 
+
+
+ Law firms are made up of 60 % women and financial groups are made up of 40 % women 
+
+
+ This graph shows the percentage of women in the workforce in different sectors of industry 
+
+
+ Largest representation of women at 60 % in law sectors , then financial groups at 45 % , insurance at 25 % and Tech at only 20 % 
+
+
+
+
+
+women_representation_in_different_departments.txt
+
+
+ This chart shows the female representation in various university departments 
+
+
+ Literature has the highest women representation in university departments with 70 % however maths has only 10 % , a rather large difference 
+
+
+ 70 % of women are represented in the Literature department of universities 
+
+
+ The majority of women work in Literature departments at 70 % 
+
+
+ The graph shows how women are represented within different departments across a university 
+
+
+ The chart shows how woman representation is highest in the Literature and Arts departments of university 
+
+
+ The table shows women are most well represented in university Literature department ( 70 % ) , followed by Arts ( 60 % ) , Engineering ( 30 % ) , Computer science ( 20 % ) and maths ( 10 % ) 
+
+
+ The chart shows the percentage of women in different university departments 
+
+
+ Women are represented in their highest figures in literature ( 70 % of students ) and the arts ( 60 % of students ) 
+
+
+ The graph shows the percentage of women represented in various university departments 
+
+
+ This chart demonstrates how many women are in each university department 
+
+
+ This graph shows the percentage of women per University Department 
+
+
+ Women are represented well in the arts and literature , but are significantly under-represented in Computer Science, Maths and Engineering 
+
+
+ This graph shows percentages of women in different university departments 
+
+
+ Women are most represented in the literature department at 70 % in university , this is closely followed by Arts at 60 % 
+
+
+ This graphs shows female representation across university departments 
+
+
+ this chart shows women representation in different university departments showing that 70 % of those who work in literature are woman , 60 % in arts , 30 % engineering , 20 % in computer science and 10 mathematics 
+
+
+ Women are more likely to work in the arts and literature in university departments compared to mathematics and computer science 
+
+
+ This shows the representation of women in various university departments 
+
+
+ This bar chart displays the proportion of women in different university departments 
+
+
+ The highest representation of women across university departments is in literature at 70 % , followed closely by 60 % in Arts 
+
+
+ This shows the percentage of staff in each university department that are women 
+
+
+ University departments consist 70 % women in the literature field , arts have 60 % , engineering 30 % , computer science 20 % but the mathematics has only 10 % women in the department 
+
+
+
+
+
+what_causes_obesity.txt
+
+
+ The chart shows what causes obesity 
+
+
+ Fast food is the major cause of obesity at 60 % with lack of exercise at 10 % but genetics is 30 % of leading causes 
+
+
+ 60 % of fast food causes obesity 
+
+
+ 
+
+
+ Fast food is the major cause of obesity at 60 % 
+
+
+ 
+
+
+ The chart represents what the main causes of obesity are and the bar chart shows the following 3 areas 
+
+
+ The chat shows that Fast Food is twice as likely as Genetics to cause obesity 
+
+
+ 
+
+
+ The table shows that the leading cause of Obesity is Fast food ( 60 % ) , followed by Genetics ( 30 % ) and finally lack of exercise ( 10 % ) 
+
+
+ This chart shows causes of obesity by percentage 
+
+
+ Fast food is the highest cause of obesity with 60 % of cases 
+
+
+ 
+
+
+ This graph highlights the causes of obesity 
+
+
+ This chart shows that fast food is the most likely cause of obesity on average , followed by genetic factors , and is least likely to be caused by lack of exercise 
+
+
+ Graph shows the causes of Obesity by percentage 
+
+
+ 
+
+
+ The primary cause of obesity is over-consumption of fast food with 60 % of obesity cases being related to this type of diet 
+
+
+ This is a graph showing different causes of obesity 
+
+
+ This graph shows that 60 % of obesity is caused by fast food 
+
+
+ This graphs illustrates the causes of obesity 
+
+
+ this graph shows the causes of obesity , the greatest contributer is fast food with 60 % follows by genetic factors with 30 % and lack of exercise making up the remaining 10 % 
+
+
+ Fast food is the highest factors in causing obesity 
+
+
+ This chart displays causes of obesity 
+
+
+ 
+
+
+ This graph shows three potential causes of obesity , and breaks down their relative contribution 
+
+
+ 
+
+
+ Fast food is the leading cause of obesity at 60 % , followed by genetics at 30 % and a lack of exercise at 10 % 
+
+
+ This graph shows what causes obesity or is a factor in someone becoming obese 
+
+
+ Fast food causes 60 % of obesity , genetic predisposiion some 30 % whilst lack of exercise contributes the other 10 % 
+
+
+
+
+
+gender_pay_gap.txt
+
+
+ This chart shows the gender pay gap between Germany, Spain and the UK 
+
+
+ Surprisingly the UK has the largest gap in gender pay at 15 % while Germany has a mere 5 % gap 
+
+
+ There is a wider pay gap in the UK than Germany or Spain 
+
+
+ The gender pay gap is greatest by about 10 % in the UK than in Germany 
+
+
+ This graph represents how the gender pay gap varies across several European countries 
+
+
+ This chart shows that the biggest Gender Pay Gap is in the UK with a percentage of over 14 
+
+
+ 
+
+
+ the table shows that the UK has the biggest gender pay gap ( 13 % ) , followed by spain ( 10 % ) and Germany ( 5 % ) 
+
+
+ This chart shows the gender pay gap , by percentage between Germany, Spain and the UK 
+
+
+ The gender pay gap is much higher in the UK than in Germany and Spain 
+
+
+ This chat looks at the percentage gender pay gap in UK, Spain and Germany 
+
+
+ 
+
+
+ This chart depicts the gender pay gap in three different countries : Germany, Spain and the UK 
+
+
+ This chart shows the gender pay gap of 3 countries 
+
+
+ Germany has the lowest gender payback of just 5 % 
+
+
+ This graph shows a gender pay gap in Germany, Spain and the UK 
+
+
+ This graph shows that the gender pay gap is largest in the UK at over 14 % , the next highest is Spain at 10 % 
+
+
+ The graph indicates the gender pay gap as a percentage , comparing the UK, Spain an Germany 
+
+
+ 
+
+
+ this chart shows the gender pay gap across 3 european countries , the lowest pay gap being germany with 5 % , spain with 10 percent and the uk having the biggest pay gap with 15 % 
+
+
+ The UK has the highest gender pay gap which is more than double the lowest of Germany 
+
+
+ This chart displays the gender pay gap in 3 countries 
+
+
+ This bar chart shows the gender pay gap in three countries , ; Germany, Span and the UK 
+
+
+ The gender pay gap is highest in the UK at 15 % , followed by Spain at 10 % 
+
+
+ It is the percentage difference in pay between men and women in 3 different countries 
+
+
+ Uk has the largest gender pay gap at 15 % whilst Spain is 10 % and Germany only 5 % 
+
+
+
+
+
+how_do_young_people_spend_their_evenings.txt
+
+
+ This chart shows how young people spend their evenings 
+
+
+ Most young people spend their evening watching TV at 40 % doing this compared with 30 % going out 
+
+
+ 
+
+
+ Most young people spend their evenings watching tv 
+
+
+ 
+
+
+ A high percentage of young people watch TV ( 40 % ) ; this figure presumably applies to pre-internet days 
+
+
+ This graph represents how young people spend their leisure time in the evenings 
+
+
+ The chart shows that the majority of young people spend their evenings watching TV 
+
+
+ 
+
+
+ the table shows that 40 % of young people watch tv in the evenings , 30 % go out , 20 % spend their evening with family , and 10 % read a book 
+
+
+ This chart shows how young people spend their evenings by percentage 
+
+
+ 40 % of young people spend their evenings watching TV , with going out close behind on 30 % 
+
+
+ 
+
+
+ This graphs shows how young people spend their evenings 
+
+
+ 
+
+
+ This chart demonstrates how young people spend their evenings 
+
+
+ 
+
+
+ The chart shows what young people do in the evenings 
+
+
+ 
+
+
+ Watching TV and Going out are the most popular evening activities for young people 
+
+
+ 
+
+
+ This graph shows how young people spend their evenings 
+
+
+ 
+
+
+ This shows that young people spend 40 % of their evenings watching TV , followed by 30 % going out 
+
+
+ 
+
+
+ This graph shows how young people spend their evenings 
+
+
+ 
+
+
+ this graph shows how young people spend their evenings , most young people ( 40 % ) choose watching television , followed by going out ( 30 % ) , spending time with family ( 20 % ) or reading ( 10 % ) 
+
+
+ Young people are more likely to watch tv and go out rather than read a book 
+
+
+ This graph shows the activities young people undertake in the evenings 
+
+
+ This bar chart shows how young people spend their evenings 
+
+
+ 40 % of young people spend their evenings watching tv , 30 % prefer to go out , 20 % spend time with family and only 10 % choose to spend time reading a book in the evenings 
+
+
+ 
+
+
+ The percentage of young people who spend their evening doing different activities 
+
+
+ Watching TV is how 40 % young people spend their evenings , 30 % go out , 20 % spend time with family and 10 % read a book 
+
+
+median_salary_per_year_for_se_with_respect_to_their_degrees.txt
+
+
+ This chart shows the average annual salary for software engineers relative to their degree 
+
+
+ The chart shows that with a PhD degree Software engineers earn the highest with over 20000 more than no degrees and bachelor 
+
+
+ Those who have a PHD do well in terms of salary than those who do not 
+
+
+ There is an equal increase between engineers ' salaries from Batchelor through Master to PhD 
+
+
+ The median salary of software engineers with respect to their degrees is shown as follows 
+
+
+ This shows that Software Engineers with PhDs earn more than their counterparts 
+
+
+ The table shows that Software engineers with PhDs earn the most , earning a median salary of over $60,000 
+
+
+This charts shows the average median salary per year for software engineers with respect to their degree type 
+
+
+ This graph shows a trend that the higher the qualifications held by software engineer , the greater the salary they receive 
+
+
+ The graphs shows the median salary of software engineers with respect to their degree 
+
+
+ This chart shows that software engineers who have a PhD degree earn more money than software engineers with lesser degrees 
+
+
+ This chart shows the Median Salary of Software Engineers by degree level 
+
+
+ Students who have completed Bachelor , Masters and PhD courses earn significantly more than those with no degree 
+
+
+ This graph shows the median annual salary in $1000s for software engineers with respect to their original degree 
+
+
+ This graph shows that the median salary a software engineer earns increases as the level of their degree rises 
+
+
+ This graph shows the median salary for Software Engineers dependant on degree level 
+
+
+ this chart shows median salary per year for software engineers with respect in their degree , those with a Phd look to earn over 60,000 , followed by masters with 50,000 \\n bachelors with over 40,000 and no degree 30,000 
+
+
+ The higher level of education the higher the salary 
+
+
+ This chart displays the median salary per year of software engineers depending on their degree 
+
+
+ This graph plots the median salary for software engineers split by their level of qualifications 
+
+
+ 
+
+
+ Software engineers who achieved a higher degree of further education and higher degree qualification earn a higher salary 
+
+
+ The average salary of a software engineer base on their level 
+
+
+ 63 k is median salary for software engineers who have a PhD , 56 k for a masters , 44 k for a bachelor degree , but only 35 k with no degree 
+
+
+
+
+
+example_Median_salary_of_women.txt
+
+
+ This shows the average salary earnt by women between the years of 2000 and 2015 
+
+
+ The chart shows every 5 years the median salary of women is rising by about 2 - 3 % a year 
+
+
+ The salary of woman has gone up year on year 
+
+
+ The median salary of women grows at a cost rate of approximately $ 5,000 per 5 years 
+
+
+ This graph represents the median salary of women from the years 2000 - 2015 
+
+
+ The graph shows that the median salaries of women has risen each half decade , with 2015 ' s median salary being 15000 higher than in 2000 
+
+
+ Women ' s median salary has been tranding upwards , rising from 40,000 in 2000 to 45,000 in 2005 , 50,000 in 2010 , to 55,000 in 2015 
+
+
+ This charts shows the average median salary of women per year in 2000, 2005, 2010 and 2015 
+
+
+ The median salary of women per year is gradually and steadily rising every 5 years 
+
+
+ This chart shows the median salary of women per year 
+
+
+ This chart shows that the median salary for women has increased continualy since 2000 , with the average salary for women over 50,000 dollars in 2015 , compared to 40,000 in 2000 
+
+
+ Chart shows the Median Salary of woman every 5 years between 2000 to 2015 
+
+
+ The median salary for women has risen steadily from 2000 to 2015 , with on average a $ 5,000 increase every 5 years 
+
+
+ This graph shows the median annual salary of women in 1000s of dollars every five years between the years 2000 and 2015 
+
+
+ This graph shows that from 2000 - 2015 the median salary of women rose consistently from $ 40,000 in 2000 to over $ 50,000 in 2015 
+
+
+ This graph illustrates that the median salary for women has been increasing at a constant rate from the year 2000 up to the year 2015 
+
+
+ chart shows median salary of women per year showing in 2015 salary median was over $ 56,000 , followed by 2010 with $ 50,000 , 2005 with $ 44,000 and 2000 $ 40,000 
+
+
+ The average salary for woman has grown since 2000 by at least 10 % 
+
+
+ This chart shows the median salary of women per year from the years 2000 - 2015 
+
+
+ This graph presents the median salary of women from 2000 to 2015 
+
+
+ The Median salary for women appears to increase by 1000 every year 
+
+
+ This graph shows how the median salary of women has changed over time 
+
+
+ 2015 saw women median pay rise to 53 k , from 50 k in 2010 
+
+
+
+
+
+Number_of_top_Unis.txt This chart shows the number of top 100 universities in each continent 
+
+
+ The graph shows America has over 50 % of the top 100 Universities in each continent with Australia and Africa falling drastically behind with under 10 % 
+
+
+ There are more top universities in USA than anywhere else in the world 
+
+
+ 50 % of the top 100 universities are in America , followed by 30 % in Europe 
+
+
+ This graph shows the continents which hold the top 100 universities 
+
+
+ The chart shows that America has the highest number of Top Universities with 50/100 being on their continent 
+
+
+ the table shows that america has the most top universities ( 50 ) , followed by Europe ( 30 ) , Asia ( 20 ) , Africa and Australia draw with about 5 each 
+
+
+ This chart shows the number of top 100 universities in each continent 
+
+
+ Half of the top universities in the world are in America 
+
+
+ The graph highlights the number of top 100 universities in a number of continents , namely , America, Africa, Australia, Europe and Asia 
+
+
+ This chart shows the number of top 100 universities in each continent 
+
+
+ The graph shows the number of Top 100 Universities per continent 
+
+
+ Half of the worlds top universities are American , followed by 30 % being European 
+
+
+ This graph shows how many of the world's top universities are on each continent 
+
+
+ This graph shows that 50 % of the top universities are in America , 30 % in Europe , 20 % in Asia with 5 % in both Africa and Australia 
+
+
+ This graph shows the number of top 100 universities on each continent 
+
+
+ this graph shows the top 100 universities in each country leading is america with 50 , europe with 30 , asia with 20 and africa and australia tying with 4 each 
+
+
+ America has the highest number of top universities followed by europe 
+
+
+ This chart shows the number of top 100 universities in each continent 
+
+
+ This graph displays the number of top 100 universities in each continent 
+
+
+ 50 % of the world ' s top universities are in America , 30 % are in Europe , followed by 20 % in Asia 
+
+
+ The number of universities in each continent that are in the top 100 worldwide 
+
+
+ America is the continent with most universities in the top 100 table with 50 establishments 
+
+
+Money_spent_on_higher_education.txt This chart shows how much money is spent on Higher Education in 2010 in various countries 
+
+
+ Asia is the country spending the most on higher education at over 300 million dollars but Africa only spend 50 million dollars 
+
+
+ more money was spent in Asia on higher education in 2010 
+
+
+ Africa spends the least amount at 50 Mdollars 
+
+
+ Money spent on higher education across several continents in the year 2010 
+
+
+ The chart shows that there is more money spent on Higher Education in Asia than North America, Europe and Africa 
+
+
+ The chart shows that Asia spends the most on higher education , spending over $ 300 million , North America is 2nd , spending $ 200 million 
+
+
+ This chart shows the money spent on higher education in million dollars in 2010 
+
+
+ Asia spends a much higher amount on higher education than other continents 
+
+
+ The graph shows us the amount of money various continents spent on higher education in 2010 
+
+
+ This chart shows how much money is spend (in millions of dollars) on higher education in different continents 
+
+
+ This charts shows the Money (per million dollars) spent on Higher Education in 2010 across different continents 
+
+
+ Asia spends significantly more money on education than North America, Europe and Africa 
+
+
+ This graph shows the amounts spent on Higher Education in 2010 in different regions 
+
+
+ This graph shows that Asia spent the most money on higher education in 2010 at over $ 300 million dollar , followed by North America and then Europe 
+
+
+ This graphs compares higher education spending between North America, Europe, Asia and Africa 
+
+
+ this graph shows money spent on high educating in the year 2010 with the leading expenditure being asia with over 300 million dollar follows by north america was 200,000 dollars , the UK with 100,000 and africa with 50,000 dollars 
+
+
+ In Asia they ' re more likely to spend money on higher education compared to other continents 
+
+
+ This chart shows the amount of dollars (millions) that was spent on higher education in different continents 
+
+
+ This graph presents money spent on higher education in the year 2010 by different continents 
+
+
+ in 2010 Asia spent a significant amount of money on higher education , especially when compared to Europe and Africa 
+
+
+ This shows the money spent on higher education in 2010 by different continents , despite the title at the bottom saying countries 
+
+
+ 325 Million dollars spent on HE in 2010 in Asia , 200 in North America , 100 in Europe but only 50 million in Africa 
+
+
+
+
+
