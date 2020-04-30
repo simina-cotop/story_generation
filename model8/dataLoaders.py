@@ -272,7 +272,7 @@ def model_6_loader(script_list=Config.Effective_Scripts,
         e_f_int[i] = dict_event_to_int[e_f[i]]
 
     y_int = keras.utils.to_categorical(y_int, num_classes=Config.Active_vocabulary_size)
-    print("x_int", x_int)
+    #print("x_int", x_int)
     # split data
     # shuffle
 
@@ -301,8 +301,8 @@ def model_6_loader(script_list=Config.Effective_Scripts,
     e_p_context_val = e_p_context_int[perm[int(batch_size * (1 - val_proportion)):]]
     e_f_context_val = e_f_context_int[perm[int(batch_size * (1 - val_proportion)):]]
     a_val = a_int[perm[int(batch_size * (1 - val_proportion)):]]
-    print("x_train=",type(x_train), x_train)
-    print("y_train=",type(y_train), y_train)
+    #print("x_train=",type(x_train), x_train)
+    #print("y_train=",type(y_train), y_train)
     #raise Exception()
     return x_train, y_train, e_p_train, e_f_train, e_p_context_train, e_f_context_train, a_train, \
         x_val, y_val, e_p_val, e_f_val, e_p_context_val, e_f_context_val, a_val, \

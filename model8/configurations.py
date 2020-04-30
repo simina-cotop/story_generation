@@ -1,9 +1,11 @@
 import os
+import warnings
+warnings.filterwarnings('ignore')
 
 
 class Config(object):
 
-    Run_Index = 'test5'
+    Run_Index = 'gender_pay_gap_nucleus_10epochs'
     os.mkdir('outputs/' + Run_Index)
 
     # TODO: EXP
@@ -107,7 +109,16 @@ class Config(object):
     Clipping_threshold = 1e10
     Early_stopping_patience = 1
     Loss_weight_on_a = 1.3
-    Max_train_epochs = 1
+
+
+
+    Max_train_epochs = 10
+
+
+
+
+
+
     # weights_on_cat_of_a_loss
     # wa =
     Weight_on_a1_cross_entropy = [1., 4]
@@ -143,7 +154,7 @@ class Config(object):
             self.script = [s for s in self.scripts if self.agenda[0].find(s) != -1][0]
 
     #x_context = 'this shows gender pay gap'.split()
-    x_context = 'the chart shows gender pay gap'.split()
+    x_context = 'this chart shows gender pay gap'.split()
     e_p_context = ['Story_Begin_gender_pay_gap'] * 22 + ['<topic>_gender_pay_gap\n']# ['<Evoking_gender_pay_gap>\n']
     #e_f_context = ['<Evoking_gender_pay_gap>\n'] * 22 #+ #['ScrEv_wash']
     e_f_context = ['<topic>_gender_pay_gap\n'] * 22 + ['<x_axis_label_Scnd_highest_value>\n']#+ #['ScrEv_wash']

@@ -362,18 +362,18 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
 
 
 
-def plain_beam(model, seed, context_length=Config.Context_length, k=10):
+def plain_beam(model, seed, context_length=Config.Context_length, k=3):
     """
     plain beam search.
     :return text, seed pair
     """
     x_context = collections.deque(seed.x_context, maxlen=context_length)
-    print("x_context=", x_context)
+    #print("x_context=", x_context)
     e_p_context = collections.deque(seed.e_p_context, maxlen=context_length)
-    print("e_p_context=", e_p_context)
+    #print("e_p_context=", e_p_context)
     e_f_context = collections.deque(seed.e_f_context, maxlen=context_length)
-    print("e_f_context=", e_f_context)
-    print("starting beam search")
+    #print("e_f_context=", e_f_context)
+    #print("starting beam search")
     # initialize agenda with beginning configs
     beam_agenda = list()
 
@@ -398,7 +398,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=10):
                    'text': seed.x_context, 'log_prob': 0, 'terminate': False}
 
     beam_agenda.append(agenda_item)
-    print("beginning = ", beam_agenda)
+    #print("beginning = ", beam_agenda)
     stop_1 = 0
     while True:
         # beam search.
@@ -419,7 +419,7 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=10):
             # with the predicted a, run the model again to get output
             pred_distribution, a_out = model.predict([xnp, epcnp, efcnp, aitem['ef'], aitem['ep'], a_out, aitem['c']])
             top_k_indices = np.argsort(pred_distribution[0])[-k:][::-1]
-            print("k=",len(pred_distribution))
+            #print("k=",len(pred_distribution))
 
             stop_3 = 0
             for index in top_k_indices:
@@ -519,11 +519,11 @@ def plain_beam(model, seed, context_length=Config.Context_length, k=10):
 
     # filter out the '+' in generated text.
     filtered_text = ' '.join(text).replace('+', ' ')
-    print("*****************************************************")
-    print ("filtered text is : ")
-    print(filtered_text)
-    print("*****************************************************")
-    print("beam search finished")
+    #print("*****************************************************")
+    #print ("filtered text is : ")
+    #print(filtered_text)
+    #print("*****************************************************")
+    #print("beam search finished")
     return filtered_text, seed
 
 
