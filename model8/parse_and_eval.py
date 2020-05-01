@@ -62,10 +62,20 @@ def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str
     return epoch_dict
     
 def generate_table_content(dic: Dict[int, Dict[str, List[str]]]) -> str:
-    test: str = "aaa"
-    return str
+    row: str = 
 
-def generate_table_latex(content: str) -> None:
+    for ep in dic:
+        row_head: str = str(ep) + ' epochs &'
+        row_values: List[int] = []
+        for el in dic[ep]:
+            l = dic[ep][el]
+            row_values.append(len(l))
+
+    row_middle = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
+    row += row_head + row_middle
+    return row
+
+def generate_table_latex(script:str, content: str) -> None:
     header = r'''\documentclass[]{article}
     \usepackage{hyperref}
     \usepackage{longtable}
@@ -94,15 +104,19 @@ def generate_table_latex(content: str) -> None:
     \end{document}'''
 
     table = r'''
-    \begin{longtable}{|p{10mm}|p{45mm}|p{45mm}|p{45mm}|p{45mm}|p{45mm}|}
+    \begin{longtable}{|p{17mm}|p{45mm}|p{45mm}|p{45mm}|p{45mm}|}
 	\hline
-	& \multicolumn{3}{|l|}{Beam search} & Nucleus Sampling  & GPT-2  \\ 
+    \multicolumn{5}{|l|}{Script: '''
+    table += script.replace("_", "\_")
+    table += r''' } \\
 	\hline 
-	& Beam 3 & Beam 5 & Beam 10 &  &  \\
+    & \multicolumn{3}{|l|}{Beam search} & Nucleus Sampling   \\ 
+	\hline 
+	& Beam 3 & Beam 5 & Beam 10 &  \\
 	\hline
 	\endhead '''
     
-    
+    table += content
 
     table += r'''\end{longtable}'''
     
@@ -129,4 +143,4 @@ if __name__ == '__main__':
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
     content = generate_table_content(epoch_dict)
-    generate_table_latex(content)
+    generate_table_latex(script, content)
