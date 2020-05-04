@@ -1,10 +1,12 @@
 from typing import List, Dict, Tuple
+from dataclasses import dataclass
 import os
 import sys
 import glob
 import re
 import subprocess
-from dataclasses import dataclass
+import numpy as np
+
 
 @dataclass(init=False)
 class Description:
@@ -82,7 +84,7 @@ def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str
                         for el in nnew_data:
                             nnewer_data.append(Description(el))
                     epoch_dict[epoch]['nucleus']= nnewer_data
-    print_dictionary(epoch_dict)
+    #print_dictionary(epoch_dict)
     return epoch_dict
     
 # Example of a table row without any evaluation measures    
@@ -109,16 +111,35 @@ def generate_eval_annotations(dic: Dict[int, Dict[str, List[Description]]]) -> s
         row_head: str = str(ep) + ' epochs &'
         row_values: List[Tuple[int,int]] = []
         for el in dic[ep]:
+
             annotation_counter: int = 0
             description_list: List[Description] = dic[ep][el]
+            annotations = np.zeros(10, dtype='int')
+            # Count how many texts contain annotations
             for description in description_list:
-                if "<" in description.text:
-                    #print(description.text,'\n\n')
+                if description.number_of_annotations != 0:
                     annotation_counter += 1
-            row_values.append((annotation_counter, description.length))
-    #print(row_values)
-    row_middle = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
-    row += row_head + row_middle
+                    annotations[description.number_of_annotations] += 1
+            row_values.append((annotation_counter, len(description_list)))
+
+            # Count how many annotations each text has 
+            annotations_str: str = ""
+            for an_idx in range(0,len(annotations)):
+                if annotations[an_idx] != 0:
+                    annotations_str += str(an_idx) + " " + str(annotations[an_idx]) + " "
+            print(annotations)        
+            print(annotations_str) 
+            print(row_values)
+            print('\n\n')
+
+        if annotations_str != "":
+            row_middle: str = annotations_str + "\\newline"
+        else:
+            row_middle: str = "\\newline"
+        row_end: str = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
+        
+        row += row_head + row_middle + row_end
+        print(row)
     return row
 
 # Generate the latex table with the results
@@ -190,4 +211,4 @@ if __name__ == '__main__':
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
     content = generate_eval_annotations(epoch_dict)
-    #generate_table_latex(script, content)
+    generate_table_latex(script, content)
