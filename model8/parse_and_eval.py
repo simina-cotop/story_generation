@@ -1,3 +1,5 @@
+from __future__ import annotations
+from collections import OrderedDict
 from typing import List, Dict, Tuple
 from dataclasses import dataclass
 import os
@@ -30,16 +32,15 @@ class Description:
         return f"{self.length} {self.text} {self.number_of_annotations}\n"
 
         
-
-
 # Get list of the folders which contain the results
 def parse_output(script: str) -> List[str]:
     dirs = os.listdir("outputs")
     dirs_script = [d for d in dirs if script in d]
     return dirs_script
 
+
 # Print the results dictionary
-def print_dictionary(dic: Dict[int, Dict[str, List[Description]]]) -> None:
+def print_dictionary(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> None:
     for ep in dic:
         print("ep=",ep)
         for beam, l in dic[ep].items():
@@ -48,11 +49,21 @@ def print_dictionary(dic: Dict[int, Dict[str, List[Description]]]) -> None:
                 print(desc)
         print('\n')
 
-# Parse all the output files and save the data in a dictionary
-def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str]) -> Dict[int, Dict[str, List[Description]]]:
-    epoch_dict: Dict[int, Dict[str, List[Description]]] = {}
+
+def init_dict(epochs: List[int], beams: List[str]) -> OrderedDict[int, OrderedDict[str, List[Description]]]:
+    test_dict: OrderedDict[int, OrderedDict[str, List[Description]]] = OrderedDict()
     for epoch in epochs:
-        epoch_dict[epoch] = {}
+        test_dict[epoch] = OrderedDict()
+        for beam in beams:
+            test_dict[epoch][beam] = []
+        test_dict[epoch]['nucleus'] = []
+    return test_dict
+
+
+# Parse all the output files and save the data in a dictionary
+def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str]) -> OrderedDict[int, OrderedDict[str, List[Description]]]:
+    epoch_dict = init_dict(epochs, beams)
+    for epoch in epochs:
         epoch_folders: List[str] = [fol for fol in script_folders if str(epoch) + 'epochs' in fol]
         for beam in beams:
             for current_folder in epoch_folders:
@@ -88,7 +99,7 @@ def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str
     return epoch_dict
     
 # Example of a table row without any evaluation measures    
-def generate_table_content(dic: Dict[int, Dict[str, List[Description]]]) -> str:
+def generate_table_content(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
     row: str = ""
 
     for ep in dic:
@@ -104,41 +115,45 @@ def generate_table_content(dic: Dict[int, Dict[str, List[Description]]]) -> str:
 
 # Generate evaluation measure to be added to table
 # 1. If annotations appear in the generated text
-def generate_eval_annotations(dic: Dict[int, Dict[str, List[Description]]]) -> str:
+def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
     row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
 
+    # For each epoch
     for ep in dic:
-        row_head: str = str(ep) + ' epochs &'
+        row_head: str = r'''\multirow{3}{*}{ '''+ str(ep) + ' epochs} &'
         row_values: List[Tuple[int,int]] = []
-        for el in dic[ep]:
+        all_annotations: List[str] = []
+        # dic[ep]: OrderedDict[str, List[Description]]
+        # algo: keys in dic[ep], i.e. either beam+number or nucleus
+        for algo in dic[ep]:
+                annotation_counter: int = 0
+                description_list: List[Description] = dic[ep][algo]
+                # Index: number of annotations; values: how many descriptions in description_list have that number of annotations
+                annotations: List[int] = np.zeros(10, dtype='int')
+                
 
-            annotation_counter: int = 0
-            description_list: List[Description] = dic[ep][el]
-            annotations = np.zeros(10, dtype='int')
-            # Count how many texts contain annotations
-            for description in description_list:
-                if description.number_of_annotations != 0:
-                    annotation_counter += 1
-                    annotations[description.number_of_annotations] += 1
-            row_values.append((annotation_counter, len(description_list)))
+                # Count how many texts contain annotations
+                for description in description_list:
+                    print(description)
+                    if description.number_of_annotations != 0:
+                        annotation_counter += 1
+                        # Count how many annotations each text has 
+                        annotations[description.number_of_annotations] += 1
+                    
+                    # Turn the results into strings
+                    annotations_str: str = ""
+                    for an_idx in range(0,len(annotations)):
+                        if annotations[an_idx] != 0:
+                            annotations_str += "Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " "
+                    print("annon=", annotations)        
+                    print("annon_str=",annotations_str)
 
-            # Count how many annotations each text has 
-            annotations_str: str = ""
-            for an_idx in range(0,len(annotations)):
-                if annotations[an_idx] != 0:
-                    annotations_str += str(an_idx) + " " + str(annotations[an_idx]) + " "
-            print(annotations)        
-            print(annotations_str) 
-            print(row_values)
-            print('\n\n')
+                all_annotations.append(annotations_str)
+                row_values.append((annotation_counter, len(description_list)))
 
-        if annotations_str != "":
-            row_middle: str = annotations_str + "\\newline"
-        else:
-            row_middle: str = "\\newline"
-        row_end: str = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
-        
-        row += row_head + row_middle + row_end
+        row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
+        row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
+        row += row_head + row_middle +  row_end
         print(row)
     return row
 
@@ -172,7 +187,7 @@ def generate_table_latex(script:str, content: str) -> None:
     \end{document}'''
 
     table = r'''
-    \begin{longtable}{|p{17mm}|p{45mm}|p{45mm}|p{45mm}|p{45mm}|}
+    \begin{longtable}{|p{20mm}|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
 	\hline
     \multicolumn{5}{|l|}{Script: '''
     table += script.replace("_", "\_")
