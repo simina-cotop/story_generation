@@ -10,32 +10,43 @@ from dataclasses import dataclass
 class Description:
     text: str
     length: int
+    number_of_annotations: int
 
     def __init__(self: "Description", text: str) -> None:
         super().__init__()
         
         self.text = text.replace('\n', ' ')
-        self.length = len(text.split())
+        splitted_text = self.text.split()
+        self.length = len(splitted_text)
+        counter = 0
+        for word in splitted_text:
+            if "<" in word:
+                counter += 1
+        self.number_of_annotations = counter
 
     def __str__(self: "Description") -> str:
-        return f"{self.length} {self.text}\n\n"
+        return f"{self.length} {self.text} {self.number_of_annotations}\n"
+
+        
 
 
-def parse_output(script:str) -> List[str]:
+# Get list of the folders which contain the results
+def parse_output(script: str) -> List[str]:
     dirs = os.listdir("outputs")
     dirs_script = [d for d in dirs if script in d]
     return dirs_script
 
+# Print the results dictionary
 def print_dictionary(dic: Dict[int, Dict[str, List[Description]]]) -> None:
     for ep in dic:
-        print("ep=",ep,'\n')
+        print("ep=",ep)
         for beam, l in dic[ep].items():
-            print("beam=",beam,'\n')
+            print("beam=",beam)
             for desc in l:
                 print(desc)
-            print('\n\n')
-        print('\n\n')
+        print('\n')
 
+# Parse all the output files and save the data in a dictionary
 def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str]) -> Dict[int, Dict[str, List[Description]]]:
     epoch_dict: Dict[int, Dict[str, List[Description]]] = {}
     for epoch in epochs:
@@ -71,25 +82,27 @@ def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str
                         for el in nnew_data:
                             nnewer_data.append(Description(el))
                     epoch_dict[epoch]['nucleus']= nnewer_data
-
     print_dictionary(epoch_dict)
     return epoch_dict
     
-def generate_table_content(dic: Dict[int, Dict[str, List[str]]]) -> str:
+# Example of a table row without any evaluation measures    
+def generate_table_content(dic: Dict[int, Dict[str, List[Description]]]) -> str:
     row: str = ""
 
     for ep in dic:
         row_head: str = str(ep) + ' epochs &'
         row_values: List[int] = []
         for el in dic[ep]:
-            l = dic[ep][el]
+            l: List[Description] = dic[ep][el]
             row_values.append(len(l))
 
     row_middle = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
     row += row_head + row_middle
     return row
 
-def generate_eval_annotations(dic: Dict[int, Dict[str, List[str]]]) -> str:
+# Generate evaluation measure to be added to table
+# 1. If annotations appear in the generated text
+def generate_eval_annotations(dic: Dict[int, Dict[str, List[Description]]]) -> str:
     row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
 
     for ep in dic:
@@ -97,17 +110,18 @@ def generate_eval_annotations(dic: Dict[int, Dict[str, List[str]]]) -> str:
         row_values: List[Tuple[int,int]] = []
         for el in dic[ep]:
             annotation_counter: int = 0
-            description_list: List[str] = dic[ep][el]
+            description_list: List[Description] = dic[ep][el]
             for description in description_list:
-                if "<" in description:
+                if "<" in description.text:
+                    #print(description.text,'\n\n')
                     annotation_counter += 1
-            row_values.append((annotation_counter, len(description)))
-
+            row_values.append((annotation_counter, description.length))
+    #print(row_values)
     row_middle = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
     row += row_head + row_middle
     return row
 
-
+# Generate the latex table with the results
 def generate_table_latex(script:str, content: str) -> None:
     header = r'''\documentclass[]{article}
     \usepackage{hyperref}
@@ -175,5 +189,5 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
-    #content = generate_eval_annotations(epoch_dict)
+    content = generate_eval_annotations(epoch_dict)
     #generate_table_latex(script, content)
