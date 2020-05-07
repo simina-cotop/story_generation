@@ -13,17 +13,19 @@ import numpy as np
 @dataclass(init=False)
 class Description:
     text: str
+    splitted_text: List[str]
     length: int
+
     number_of_annotations: int
 
     def __init__(self: "Description", text: str) -> None:
         super().__init__()
         
         self.text = text.replace('\n', ' ')
-        splitted_text = self.text.split()
-        self.length = len(splitted_text)
+        self.splitted_text = self.text.split()
+        self.length = len(self.splitted_text)
         counter = 0
-        for word in splitted_text:
+        for word in self.splitted_text:
             if "<" in word:
                 counter += 1
         self.number_of_annotations = counter
@@ -58,6 +60,12 @@ def init_dict(epochs: List[int], beams: List[str]) -> OrderedDict[int, OrderedDi
             test_dict[epoch][beam] = []
         test_dict[epoch]['nucleus'] = []
     return test_dict
+
+
+def get_description_list(dic: OrderedDict[int, OrderedDict[str, List[Description]]], epoch: int, beam: str) -> List[Description]:
+    inner_dic: OrderedDict[str, List[Description]] = dic[epoch]
+    description_list: List[Description] = inner_dic[beam]
+    return description_list        
 
 
 # Parse all the output files and save the data in a dictionary
@@ -120,7 +128,8 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
 
     # For each epoch
     for ep in dic:
-        row_head: str = r'''\multirow{3}{*}{ '''+ str(ep) + ' epochs} &'
+        #row_head: str = r'''\multirow{2}{*}{ '''+ str(ep) + ' epochs} &'
+        row_head: str = str(ep) + ' epochs &'
         row_values: List[Tuple[int,int]] = []
         all_annotations: List[str] = []
         # dic[ep]: OrderedDict[str, List[Description]]
@@ -141,24 +150,76 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
                         annotations[description.number_of_annotations] += 1
                     
                     # Turn the results into strings
-                    annotations_str: str = ""
+                    annotations_str: List[str] = []
                     for an_idx in range(0,len(annotations)):
                         if annotations[an_idx] != 0:
-                            annotations_str += "Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " "
-                    print("annon=", annotations)        
-                    print("annon_str=",annotations_str)
+                            annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
 
-                all_annotations.append(annotations_str)
+                all_annotations.append("\\newline ".join(annotations_str))
                 row_values.append((annotation_counter, len(description_list)))
 
         row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
         row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
-        row += row_head + row_middle +  row_end
-        print(row)
+        row += row_head + row_middle  + row_end
     return row
 
+
+def count_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> None:
+    windows = [2, 3, 4]
+    #for ep in dic:
+    #    for algo in dic[ep]:
+    list_of_descriptions: List[Description] = get_description_list(dic, 100, '3')
+    for description in list_of_descriptions:
+        for window in windows:
+            sliced_desc = [description.splitted_text[x:x+window] for x in range(0, len(description.splitted_text),window)]
+            for el in sliced_desc:
+        
+    print("desc", desc_list)
+
+
+# 2. Count how many repetitions appear in the texts
+def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
+    row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
+
+    # For each epoch
+    for ep in dic:
+        row_head: str = str(ep) + ' epochs &'
+        row_values: List[Tuple[int,int]] = []
+        all_annotations: List[str] = []
+        # dic[ep]: OrderedDict[str, List[Description]]
+        # algo: keys in dic[ep], i.e. either beam+number or nucleus
+        for algo in dic[ep]:
+                annotation_counter: int = 0
+                description_list: List[Description] = dic[ep][algo]
+                # Index: number of annotations; values: how many descriptions in description_list have that number of annotations
+                annotations: List[int] = np.zeros(10, dtype='int')
+                
+
+                # Count how many texts contain annotations
+                for description in description_list:
+                    print(description)
+                    if description.number_of_annotations != 0:
+                        annotation_counter += 1
+                        # Count how many annotations each text has 
+                        annotations[description.number_of_annotations] += 1
+                    
+                    # Turn the results into strings
+                    annotations_str: List[str] = []
+                    for an_idx in range(0,len(annotations)):
+                        if annotations[an_idx] != 0:
+                            annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
+
+                all_annotations.append("\\newline ".join(annotations_str))
+                row_values.append((annotation_counter, len(description_list)))
+
+        row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
+        row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
+        row += row_head + row_middle  + row_end
+    return row
+
+
 # Generate the latex table with the results
-def generate_table_latex(script:str, content: str) -> None:
+def generate_table_latex(script:str, annons: str, repetitions: str) -> None:
     header = r'''\documentclass[]{article}
     \usepackage{hyperref}
     \usepackage{longtable}
@@ -199,7 +260,8 @@ def generate_table_latex(script:str, content: str) -> None:
 	\hline
 	\endhead '''
     
-    table += content
+    table += annons
+    table += repetitions
 
     table += r'''\end{longtable}'''
     
@@ -225,5 +287,7 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
-    content = generate_eval_annotations(epoch_dict)
-    generate_table_latex(script, content)
+    annons = generate_eval_annotations(epoch_dict)
+    count_repetitions(epoch_dict)
+    #repetitions = generate_eval_repetitions(epoch_dict)
+    #generate_table_latex(script, annons, repetitions)
