@@ -15,8 +15,8 @@ import numpy as np
 class Description:
     text: str
     splitted_text: List[str]
+    no_stops_text : List[str]
     length: int
-
     number_of_annotations: int
 
     def __init__(self: "Description", text: str) -> None:
@@ -24,6 +24,7 @@ class Description:
         
         self.text = text.replace('\n', ' ')
         self.splitted_text = self.text.split()
+        self.no_stops_text = [t for t in self.splitted_text if t not in stopwords.words('english')]
         self.length = len(self.splitted_text)
         counter = 0
         for word in self.splitted_text:
@@ -219,8 +220,8 @@ def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Descri
     return row
 
 # Create a dictionary of chart category : actual values 
-def parse_chart_info(script: str) -> Dict[str, str]:
-    chart_info : Dict[str, str] = {}
+def parse_chart_info(script: str) -> Tuple[Dict[str, List[str]],List[str]]:
+    chart_info : Dict[str, List[str]] = {}
     with open("charts_info/" + "info_" + script + ".txt") as f:
         data = f.read()
     lines = data.split("\n")
@@ -230,21 +231,33 @@ def parse_chart_info(script: str) -> Dict[str, str]:
     lines = lines[1:]
     for line in lines:
         aux = line.split(" : ")
-        chart_info[aux[0]] = aux[1]
+        processed_aux: str = aux[1].lower()
+        processed_aux = processed_aux.split(", ")
+        chart_info[aux[0]] = processed_aux
     #print("d=",chart_info)
-    return chart_info
 
-def count_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], chrt_inf: Dict[str, str]) -> None:
-    list_of_descriptions: List[Description] = get_description_list(dic, 20, '10')
+    # Store the values
+    chart_actual_values = []
+    for value in chart_info.values():
+        for el in value:
+            chart_actual_values.append(el)
+    print("c=",chart_actual_values)
+    return chart_info, chart_actual_values
+
+def count_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], chrt_inf: Dict[str, List[str]], chrt_vals: List[str], scr: List[str]) -> None:
+    
+    list_of_descriptions: List[Description] = get_description_list(dic, 200, '10')
+
+    #TODO: remove the slicing of the list
     list_of_descriptions = list_of_descriptions[0:1]
     print(list_of_descriptions)
-    chart_actual_values = [value for value in chrt_inf.values()]
-    print("c=",chart_actual_values)
+
     for description in list_of_descriptions:
-        no_stops = [t for t in description.text if t not in stopwords.words('english')]
-        print("desc=", description.text, no_stops)
-        for word in description.splitted_text:
-            if word not in chart_actual_values:
+        print("desc=", description.text, description.no_stops_text)
+        no_punc_desc = [word for word in description.no_stops_text if word.isalpha()]
+        print("desc2=", no_punc_desc)
+        for word in no_punc_desc:
+            if word not in chrt_vals and word not in scr:
                 print("w=",word)
 
 
@@ -354,6 +367,7 @@ def generate_table_latex(script:str, annons: str, repetitions: str) -> None:
 
 if __name__ == '__main__':
     script: str = sys.argv[1]
+    proc_script: List[str] = script.split("_")
     epochs: List[int] = [10, 20, 50, 100, 200]
     beams: List[str] = ['3', '5', '10']
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
@@ -362,7 +376,7 @@ if __name__ == '__main__':
     #annons = generate_eval_annotations(epoch_dict)
     #count_repetitions(epoch_dict)
     #repetitions = generate_eval_repetitions(epoch_dict)
-    chrt_inf = parse_chart_info(script)
-    count_extra_info(epoch_dict, chrt_inf)
+    chrt_inf, chrt_vals = parse_chart_info(script)
+    count_extra_info(epoch_dict, chrt_inf, chrt_vals, proc_script)
     #extra_info = generate_eval_extra_info(epoch_dict)
     #generate_table_latex(script, annons, repetitions)
