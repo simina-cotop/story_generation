@@ -1,0 +1,23 @@
+Women Representation in Different Sectors
+x categories : Financial Groups, Tech, Insurance, Law Firms
+y values : 40, 20, 25, 60
+x major ticks : Financial Groups, Tech, Insurance, Law Firms
+y major ticks : 0, 10, 20, 30, 40, 50, 60
+y axis unit : Percentage
+x axis name : Sector
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  Law Firms-Financial Groups-20	 Law Firms-Insurance-35	 Law Firms-Tech-40	 Financial Groups-Insurance-15	 Financial Groups-Tech-20	 Insurance-Tech-5	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  Law Firms-Financial Groups-1	 Law Firms-Insurance-2	 Law Firms-Tech-3	 Financial Groups-Insurance-1	 Financial Groups-Tech-2	 Insurance-Tech-1	
+pairs_float :  Law Firms-Financial Groups-1.5	 Law Firms-Insurance-2.4	 Law Firms-Tech-3.0	 Financial Groups-Insurance-1.6	 Financial Groups-Tech-2.0	 Insurance-Tech-1.25	
+pairs_float_reverse :  Financial Groups-Law Firms-0.67	 Insurance-Law Firms-0.42	 Tech-Law Firms-0.33	 Insurance-Financial Groups-0.62	 Tech-Financial Groups-0.5	 Tech-Insurance-0.8	
+category count : 4
+x_order_info 
+x_is_ordered : False
+x_order : empty_list
+order : None
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : empty_list

@@ -1,0 +1,23 @@
+Money Spent on Higher Education in Year 2010
+x categories : North America, Europe, Asia, Africa
+y values : 200, 100, 320, 50
+x major ticks : North America, Europe, Asia, Africa
+y major ticks : 0, 50, 100, 150, 200, 250, 300
+y axis unit :  (Million Dollar)
+x axis name : Country
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  Asia-North America-120	 Asia-Europe-220	 Asia-Africa-270	 North America-Europe-100	 North America-Africa-150	 Europe-Africa-50	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  Asia-North America-1	 Asia-Europe-3	 Asia-Africa-6	 North America-Europe-2	 North America-Africa-4	 Europe-Africa-2	
+pairs_float :  Asia-North America-1.6	 Asia-Europe-3.2	 Asia-Africa-6.4	 North America-Europe-2.0	 North America-Africa-4.0	 Europe-Africa-2.0	
+pairs_float_reverse :  North America-Asia-0.62	 Europe-Asia-0.31	 Africa-Asia-0.16	 Europe-North America-0.5	 Africa-North America-0.25	 Africa-Europe-0.5	
+category count : 4
+x_order_info 
+x_is_ordered : False
+x_order : empty_list
+order : None
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : empty_list

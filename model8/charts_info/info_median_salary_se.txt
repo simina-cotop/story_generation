@@ -1,0 +1,24 @@
+Median Salary Per Year For Software Engineers with Respect to their Degree
+x categories : Bachelor, Master, PhD, No Degree
+y values : 45, 55, 65, 35
+x major ticks : Bachelor, Master, PhD, No Degree
+y major ticks : 0, 10, 20, 30, 40, 50, 60
+y axis unit : Salary(1000$)
+x axis name : Degree
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  PhD-Master-10	 PhD-Bachelor-20	 PhD-No Degree-30	 Master-Bachelor-10	 Master-No Degree-20	 Bachelor-No Degree-10	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  PhD-Master-1	 PhD-Bachelor-1	 PhD-No Degree-1	 Master-Bachelor-1	 Master-No Degree-1	 Bachelor-No Degree-1	
+pairs_float :  PhD-Master-1.18	 PhD-Bachelor-1.44	 PhD-No Degree-1.86	 Master-Bachelor-1.22	 Master-No Degree-1.57	 Bachelor-No Degree-1.29	
+pairs_float_reverse :  Master-PhD-0.85	 Bachelor-PhD-0.69	 No Degree-PhD-0.54	 Bachelor-Master-0.82	 No Degree-Master-0.64	 No Degree-Bachelor-0.78	
+category count : 4
+x_order_info 
+x_is_ordered : True
+x_order : No Degree Bachelor Master PhD 
+order : ascending
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : 3, 5, 4, 5, 5, 5, 6, 5
+slope of regression line : 9.998000399920015

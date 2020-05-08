@@ -1,0 +1,23 @@
+Number of Top 100 Universities in Each Continent
+x categories : America, Africa, Australia, Europe, Asia
+y values : 50, 5, 5, 30, 20
+x major ticks : America, Africa, Australia, Europe, Asia
+y major ticks : 0, 10, 20, 30, 40, 50
+y axis unit : Number of University
+x axis name : Country
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  America-Europe-20	 America-Asia-30	 America-Australia-45	 America-Africa-45	 Europe-Asia-10	 Europe-Australia-25	 Europe-Africa-25	 Asia-Australia-15	 Asia-Africa-15	 Australia-Africa-0	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  America-Europe-1	 America-Asia-2	 America-Australia-10	 America-Africa-10	 Europe-Asia-1	 Europe-Australia-6	 Europe-Africa-6	 Asia-Australia-4	 Asia-Africa-4	 Australia-Africa-1	
+pairs_float :  America-Europe-1.67	 America-Asia-2.5	 America-Australia-10.0	 America-Africa-10.0	 Europe-Asia-1.5	 Europe-Australia-6.0	 Europe-Africa-6.0	 Asia-Australia-4.0	 Asia-Africa-4.0	 Australia-Africa-1.0	
+pairs_float_reverse :  Europe-America-0.6	 Asia-America-0.4	 Australia-America-0.1	 Africa-America-0.1	 Asia-Europe-0.67	 Australia-Europe-0.17	 Africa-Europe-0.17	 Australia-Asia-0.25	 Africa-Asia-0.25	 Africa-Australia-1.0	
+category count : 5
+x_order_info 
+x_is_ordered : False
+x_order : empty_list
+order : None
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : empty_list

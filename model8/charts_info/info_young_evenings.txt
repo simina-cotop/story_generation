@@ -1,0 +1,23 @@
+How do Young People Spend their Evenings
+x categories : Watching TV, Spend Time With Family, Reading a Book, Going Out
+y values : 40, 20, 10, 30
+x major ticks : Watching TV, Spend Time With Family, Reading a Book, Going Out
+y major ticks : 0, 10, 20, 30, 40
+y axis unit : Percentage of People
+x axis name : 
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  Watching TV-Going Out-10	 Watching TV-Spend Time With Family-20	 Watching TV-Reading a Book-30	 Going Out-Spend Time With Family-10	 Going Out-Reading a Book-20	 Spend Time With Family-Reading a Book-10	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  Watching TV-Going Out-1	 Watching TV-Spend Time With Family-2	 Watching TV-Reading a Book-4	 Going Out-Spend Time With Family-1	 Going Out-Reading a Book-3	 Spend Time With Family-Reading a Book-2	
+pairs_float :  Watching TV-Going Out-1.33	 Watching TV-Spend Time With Family-2.0	 Watching TV-Reading a Book-4.0	 Going Out-Spend Time With Family-1.5	 Going Out-Reading a Book-3.0	 Spend Time With Family-Reading a Book-2.0	
+pairs_float_reverse :  Going Out-Watching TV-0.75	 Spend Time With Family-Watching TV-0.5	 Reading a Book-Watching TV-0.25	 Spend Time With Family-Going Out-0.67	 Reading a Book-Going Out-0.33	 Reading a Book-Spend Time With Family-0.5	
+category count : 4
+x_order_info 
+x_is_ordered : False
+x_order : empty_list
+order : None
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : empty_list

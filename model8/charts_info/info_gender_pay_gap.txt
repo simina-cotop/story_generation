@@ -1,0 +1,23 @@
+Gender Pay Gap
+x categories : Germany, Spain, UK
+y values : 5, 10, 15
+x major ticks : Germany, Spain, UK
+y major ticks : 0, 2, 4, 6, 8, 10, 12, 14
+y axis unit : Percentage
+x axis name : Country
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  UK-Spain-5	 UK-Germany-10	 Spain-Germany-5	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  UK-Spain-1	 UK-Germany-3	 Spain-Germany-2	
+pairs_float :  UK-Spain-1.5	 UK-Germany-3.0	 Spain-Germany-2.0	
+pairs_float_reverse :  Spain-UK-0.67	 Germany-UK-0.33	 Germany-Spain-0.5	
+category count : 3
+x_order_info 
+x_is_ordered : False
+x_order : empty_list
+order : None
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : empty_list

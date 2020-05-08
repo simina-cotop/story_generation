@@ -1,0 +1,23 @@
+What do Students choose to study?
+x categories : STEM, Literature, Philosophy, Medicine
+y values : 50, 20, 10, 20
+x major ticks : STEM, Literature, Philosophy, Medicine
+y major ticks : 0, 10, 20, 30, 40, 50
+y axis unit : Percentage
+x axis name : Deparment
+differences ADD 
+label : <y_axis_inferred_value_add>
+pairs :  STEM-Medicine-30	 STEM-Literature-30	 STEM-Philosophy-40	 Medicine-Literature-0	 Medicine-Philosophy-10	 Literature-Philosophy-10	
+differences MUL 
+label : <y_axis_inferred_value_mul>
+pairs_int :  STEM-Medicine-2	 STEM-Literature-2	 STEM-Philosophy-5	 Medicine-Literature-1	 Medicine-Philosophy-2	 Literature-Philosophy-2	
+pairs_float :  STEM-Medicine-2.5	 STEM-Literature-2.5	 STEM-Philosophy-5.0	 Medicine-Literature-1.0	 Medicine-Philosophy-2.0	 Literature-Philosophy-2.0	
+pairs_float_reverse :  Medicine-STEM-0.4	 Literature-STEM-0.4	 Philosophy-STEM-0.2	 Literature-Medicine-1.0	 Philosophy-Medicine-0.5	 Philosophy-Literature-0.5	
+category count : 4
+x_order_info 
+x_is_ordered : False
+x_order : empty_list
+order : None
+x_is_temporal : False
+x_is_ratio : False
+y_order_as_x : empty_list
