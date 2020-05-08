@@ -2,6 +2,7 @@ from __future__ import annotations
 from collections import OrderedDict
 from typing import List, Dict, Tuple
 from dataclasses import dataclass
+from nltk.corpus import stopwords
 import os
 import sys
 import glob
@@ -163,18 +164,18 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
         row += row_head + row_middle  + row_end
     return row
 
-
+# TODO: give the list of descriptions as argument instead of the whole dictionary
 def count_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> None:
-    windows = [2, 3, 4]
+    windows = [1, 2, 3, 4]
     #for ep in dic:
     #    for algo in dic[ep]:
     list_of_descriptions: List[Description] = get_description_list(dic, 100, '3')
     for description in list_of_descriptions:
         for window in windows:
             sliced_desc = [description.splitted_text[x:x+window] for x in range(0, len(description.splitted_text),window)]
-            for el in sliced_desc:
-        
-    print("desc", desc_list)
+            print(sliced_desc)
+            #for el in sliced_desc:
+    print("desc", list_of_descriptions)
 
 
 # 2. Count how many repetitions appear in the texts
@@ -216,6 +217,77 @@ def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Descri
         row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
         row += row_head + row_middle  + row_end
     return row
+
+# Create a dictionary of chart category : actual values 
+def parse_chart_info(script: str) -> Dict[str, str]:
+    chart_info : Dict[str, str] = {}
+    with open("charts_info/" + "info_" + script + ".txt") as f:
+        data = f.read()
+    lines = data.split("\n")
+    # Kick out all the non-label info (for now)
+    lines = lines[:7]
+    # Kick out the title
+    lines = lines[1:]
+    for line in lines:
+        aux = line.split(" : ")
+        chart_info[aux[0]] = aux[1]
+    #print("d=",chart_info)
+    return chart_info
+
+def count_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], chrt_inf: Dict[str, str]) -> None:
+    list_of_descriptions: List[Description] = get_description_list(dic, 20, '10')
+    list_of_descriptions = list_of_descriptions[0:1]
+    print(list_of_descriptions)
+    chart_actual_values = [value for value in chrt_inf.values()]
+    print("c=",chart_actual_values)
+    for description in list_of_descriptions:
+        no_stops = [t for t in description.text if t not in stopwords.words('english')]
+        print("desc=", description.text, no_stops)
+        for word in description.splitted_text:
+            if word not in chart_actual_values:
+                print("w=",word)
+
+
+# 3. Count how much information appears in the description that is not in the chart
+def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
+    row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
+
+    # For each epoch
+    for ep in dic:
+        row_head: str = str(ep) + ' epochs &'
+        row_values: List[Tuple[int,int]] = []
+        all_annotations: List[str] = []
+        # dic[ep]: OrderedDict[str, List[Description]]
+        # algo: keys in dic[ep], i.e. either beam+number or nucleus
+        for algo in dic[ep]:
+                annotation_counter: int = 0
+                description_list: List[Description] = dic[ep][algo]
+                # Index: number of annotations; values: how many descriptions in description_list have that number of annotations
+                annotations: List[int] = np.zeros(10, dtype='int')
+                
+
+                # Count how many texts contain annotations
+                for description in description_list:
+                    print(description)
+                    if description.number_of_annotations != 0:
+                        annotation_counter += 1
+                        # Count how many annotations each text has 
+                        annotations[description.number_of_annotations] += 1
+                    
+                    # Turn the results into strings
+                    annotations_str: List[str] = []
+                    for an_idx in range(0,len(annotations)):
+                        if annotations[an_idx] != 0:
+                            annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
+
+                all_annotations.append("\\newline ".join(annotations_str))
+                row_values.append((annotation_counter, len(description_list)))
+
+        row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
+        row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
+        row += row_head + row_middle  + row_end
+    return row
+
 
 
 # Generate the latex table with the results
@@ -287,7 +359,10 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
-    annons = generate_eval_annotations(epoch_dict)
-    count_repetitions(epoch_dict)
+    #annons = generate_eval_annotations(epoch_dict)
+    #count_repetitions(epoch_dict)
     #repetitions = generate_eval_repetitions(epoch_dict)
+    chrt_inf = parse_chart_info(script)
+    count_extra_info(epoch_dict, chrt_inf)
+    #extra_info = generate_eval_extra_info(epoch_dict)
     #generate_table_latex(script, annons, repetitions)
