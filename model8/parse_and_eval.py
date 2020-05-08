@@ -1,6 +1,6 @@
 from __future__ import annotations
 from collections import OrderedDict
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Set
 from dataclasses import dataclass
 from nltk.corpus import stopwords
 import os
@@ -8,16 +8,25 @@ import sys
 import glob
 import re
 import subprocess
+import spacy
 import numpy as np
+
+
+nlp = spacy.load('en')
 
 
 @dataclass(init=False)
 class Description:
     text: str
     splitted_text: List[str]
-    no_stops_text : List[str]
+    no_stops_text: List[str]
+    no_punc_desc: List[str]
     length: int
     number_of_annotations: int
+    delexi: List[str]
+    ner_text: List[str]
+    extra_info: List[str]
+    
 
     def __init__(self: "Description", text: str) -> None:
         super().__init__()
@@ -25,16 +34,46 @@ class Description:
         self.text = text.replace('\n', ' ')
         self.splitted_text = self.text.split()
         self.no_stops_text = [t for t in self.splitted_text if t not in stopwords.words('english')]
+        self.no_punc_desc = [word for word in self.no_stops_text if word.isalpha()]
         self.length = len(self.splitted_text)
         counter = 0
         for word in self.splitted_text:
             if "<" in word:
                 counter += 1
         self.number_of_annotations = counter
+        self.delexi = []
+        self.ner_text = []
+        self.extra_info = []
 
     def __str__(self: "Description") -> str:
         return f"{self.length} {self.text} {self.number_of_annotations}\n"
 
+    def count_delexicalizations(self: "Description") -> None:
+        delexicalization: List[str] = ["NUMBER_HIGHEST", "NUMBER_LEAST", "NUMBER_SCND", "NUMBER_3RD", "NUMBER_4TH", "X_AXIS_HIGHEST", "X_AXIS_LEAST", "X_AXIS_SCND", "X_AXIS_3RD", "X_AXIS_4TH"]
+        delexicalization_lower: List[str] = [word.lower() for word in delexicalization]
+
+        # Check if delexicalization words appear
+        for word in self.no_stops_text:
+            if word in delexicalization or word in delexicalization_lower:
+                self.delexi.append(word)
+
+    def count_ners(self: "Description", chrt_vals: List[str]) -> None:
+        # For each description get the named entities
+        ner = nlp(self.text)
+        entities = ner.ents
+        # Check which of those do not appear in the chart and save them (the extra ones)
+        for entity in entities:
+            #self.ner_text.append(entity.text)
+            if entity.text not in chrt_vals:
+                self.ner_text.append(entity.text)
+
+    # Step 3: check if the script appears (TODO: or anything else that was not caught before)
+    def count_extra_info(self: "Description", scr: str) -> None:
+        for word in self.no_punc_desc:
+            if word not in scr:
+                self.extra_info.append(word)
+        
+        
         
 # Get list of the folders which contain the results
 def parse_output(script: str) -> List[str]:
@@ -245,66 +284,59 @@ def parse_chart_info(script: str) -> Tuple[Dict[str, List[str]],List[str]]:
     return chart_info, chart_actual_values
 
 def count_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], chrt_inf: Dict[str, List[str]], chrt_vals: List[str], scr: List[str]) -> None:
-    
-    list_of_descriptions: List[Description] = get_description_list(dic, 200, '10')
+    list_of_descriptions: List[Description] = get_description_list(dic, 50, '3')
+
 
     #TODO: remove the slicing of the list
-    list_of_descriptions = list_of_descriptions[0:1]
-    print(list_of_descriptions)
-
-    for description in list_of_descriptions:
-        print("desc=", description.text, description.no_stops_text)
-        no_punc_desc = [word for word in description.no_stops_text if word.isalpha()]
-        print("desc2=", no_punc_desc)
-        for word in no_punc_desc:
-            if word not in chrt_vals and word not in scr:
-                print("w=",word)
+    list_of_descriptions = list_of_descriptions[20:22]
+    
 
 
 # 3. Count how much information appears in the description that is not in the chart
 def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
-    row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
+    row: str = r'''
+        \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
+        \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
+    '''
 
     # For each epoch
     for ep in dic:
         row_head: str = str(ep) + ' epochs &'
         row_values: List[Tuple[int,int]] = []
-        all_annotations: List[str] = []
-        # dic[ep]: OrderedDict[str, List[Description]]
+        delexi_result: List[str] = []
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
-                annotation_counter: int = 0
+                print("algo=", algo)
                 description_list: List[Description] = dic[ep][algo]
                 # Index: number of annotations; values: how many descriptions in description_list have that number of annotations
-                annotations: List[int] = np.zeros(10, dtype='int')
-                
-
+                print("len=", len(description_list))
+                # 1. Delexicalization
+                delexi_counter: int = 0
+                # Set of strings for ALL descriptions
+                all_delexis: Set[str] = set()
                 # Count how many texts contain annotations
                 for description in description_list:
-                    print(description)
-                    if description.number_of_annotations != 0:
-                        annotation_counter += 1
-                        # Count how many annotations each text has 
-                        annotations[description.number_of_annotations] += 1
-                    
-                    # Turn the results into strings
-                    annotations_str: List[str] = []
-                    for an_idx in range(0,len(annotations)):
-                        if annotations[an_idx] != 0:
-                            annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
+                    description.count_delexicalizations()
+                    #print(description)
+                    if description.delexi != []:
+                        delexi_counter += 1
+                        for el_delexi in description.delexi:
+                            print("here2")
+                            all_delexis.add(el_delexi)
+                        print("all_delexi=", all_delexis, delexi_counter)
 
-                all_annotations.append("\\newline ".join(annotations_str))
-                row_values.append((annotation_counter, len(description_list)))
+                # Turn the results into strings
+                delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
+                print("res=",delexi_result)
 
-        row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
-        row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
-        row += row_head + row_middle  + row_end
+        row_end: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
+        row += row_head + row_end
     return row
 
 
 
 # Generate the latex table with the results
-def generate_table_latex(script:str, annons: str, repetitions: str) -> None:
+def generate_table_latex(script:str, annons: str, extra_info: str) -> None:
     header = r'''\documentclass[]{article}
     \usepackage{hyperref}
     \usepackage{longtable}
@@ -346,7 +378,8 @@ def generate_table_latex(script:str, annons: str, repetitions: str) -> None:
 	\endhead '''
     
     table += annons
-    table += repetitions
+    #table += repetitions
+    table += extra_info
 
     table += r'''\end{longtable}'''
     
@@ -373,10 +406,11 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
-    #annons = generate_eval_annotations(epoch_dict)
+    annons = generate_eval_annotations(epoch_dict)
     #count_repetitions(epoch_dict)
     #repetitions = generate_eval_repetitions(epoch_dict)
     chrt_inf, chrt_vals = parse_chart_info(script)
-    count_extra_info(epoch_dict, chrt_inf, chrt_vals, proc_script)
-    #extra_info = generate_eval_extra_info(epoch_dict)
-    #generate_table_latex(script, annons, repetitions)
+    #count_extra_info(epoch_dict, chrt_inf, chrt_vals, proc_script)
+    extra_info = generate_eval_extra_info(epoch_dict)
+    #generate_table_latex(script, annons, repetitions,extra_info)
+    generate_table_latex(script, annons, extra_info)
