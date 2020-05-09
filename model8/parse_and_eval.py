@@ -13,6 +13,8 @@ import numpy as np
 
 
 nlp = spacy.load('en')
+delexicalization: List[str] = ["NUMBER_HIGHEST", "NUMBER_LEAST", "NUMBER_SCND", "NUMBER_3RD", "NUMBER_4TH", "X_AXIS_HIGHEST", "X_AXIS_LEAST", "X_AXIS_SCND", "X_AXIS_3RD", "X_AXIS_4TH"]
+delexicalization_lower: List[str] = [word.lower() for word in delexicalization]
 
 
 @dataclass(init=False)
@@ -25,7 +27,6 @@ class Description:
     number_of_annotations: int
     delexi: List[str]
     ner_text: List[str]
-    extra_info: List[str]
     
 
     def __init__(self: "Description", text: str) -> None:
@@ -43,15 +44,11 @@ class Description:
         self.number_of_annotations = counter
         self.delexi = []
         self.ner_text = []
-        self.extra_info = []
 
     def __str__(self: "Description") -> str:
         return f"{self.length} {self.text} {self.number_of_annotations}\n"
 
     def count_delexicalizations(self: "Description") -> None:
-        delexicalization: List[str] = ["NUMBER_HIGHEST", "NUMBER_LEAST", "NUMBER_SCND", "NUMBER_3RD", "NUMBER_4TH", "X_AXIS_HIGHEST", "X_AXIS_LEAST", "X_AXIS_SCND", "X_AXIS_3RD", "X_AXIS_4TH"]
-        delexicalization_lower: List[str] = [word.lower() for word in delexicalization]
-
         # Check if delexicalization words appear
         for word in self.no_stops_text:
             if word in delexicalization or word in delexicalization_lower:
@@ -63,15 +60,21 @@ class Description:
         entities = ner.ents
         # Check which of those do not appear in the chart and save them (the extra ones)
         for entity in entities:
-            #self.ner_text.append(entity.text)
-            if entity.text not in chrt_vals:
+            added: bool = True
+            for delexi in delexicalization_lower:
+                if delexi in entity.text:
+                    added = False
+                    break
+            if entity.text in chrt_vals:
+                added = False 
+            if ("<" in entity.text) or (">" in entity.text):
+                added = False
+            if added == True:        
                 self.ner_text.append(entity.text)
 
-    # Step 3: check if the script appears (TODO: or anything else that was not caught before)
-    def count_extra_info(self: "Description", scr: str) -> None:
-        for word in self.no_punc_desc:
-            if word not in scr:
-                self.extra_info.append(word)
+
+
+
         
         
         
@@ -184,7 +187,7 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
 
                 # Count how many texts contain annotations
                 for description in description_list:
-                    print(description)
+                    #print(description)
                     if description.number_of_annotations != 0:
                         annotation_counter += 1
                         # Count how many annotations each text has 
@@ -258,79 +261,112 @@ def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Descri
         row += row_head + row_middle  + row_end
     return row
 
-# Create a dictionary of chart category : actual values 
-def parse_chart_info(script: str) -> Tuple[Dict[str, List[str]],List[str]]:
-    chart_info : Dict[str, List[str]] = {}
-    with open("charts_info/" + "info_" + script + ".txt") as f:
-        data = f.read()
-    lines = data.split("\n")
-    # Kick out all the non-label info (for now)
-    lines = lines[:7]
-    # Kick out the title
-    lines = lines[1:]
-    for line in lines:
-        aux = line.split(" : ")
-        processed_aux: str = aux[1].lower()
-        processed_aux = processed_aux.split(", ")
-        chart_info[aux[0]] = processed_aux
-    #print("d=",chart_info)
-
-    # Store the values
-    chart_actual_values = []
-    for value in chart_info.values():
-        for el in value:
-            chart_actual_values.append(el)
-    print("c=",chart_actual_values)
-    return chart_info, chart_actual_values
-
-def count_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], chrt_inf: Dict[str, List[str]], chrt_vals: List[str], scr: List[str]) -> None:
-    list_of_descriptions: List[Description] = get_description_list(dic, 50, '3')
 
 
-    #TODO: remove the slicing of the list
-    list_of_descriptions = list_of_descriptions[20:22]
+def get_training_data_info() -> Tuple[Dict[str, Dict[str, List[str]]], Dict[str, List[str]]]:
+    os.chdir('charts_info')
+
+    training_data_info: Dict[str, Dict[str, List[str]]] = {}
+    training_data_values: Dict[str, List[str]] = {}
     
+    files = [file for file in glob.glob("*.txt")]
+    for fil in files:
+        training_data_info[fil] = {}
+        training_data_values[fil] = []
+
+
+    for chart_file in training_data_info:
+        chart_info : Dict[str, List[str]] = {}
+        chart_actual_values: List[str] = []
+        with open(chart_file,'r') as f:
+            data = f.read()
+        lines = data.split("\n")
+        # Kick out all the non-label info (for now)
+        lines = lines[:7]
+        # Kick out the title
+        lines = lines[1:]
+        for line in lines:
+            aux = line.split(" : ")
+            # Category
+            processed_aux: str = aux[1].lower()
+            # Actual values
+            processed_aux = processed_aux.split(", ")
+            chart_info[aux[0]] = processed_aux
+        # Save only the values in a list
+        for value in chart_info.values():
+            for el in value:
+                chart_actual_values.append(el)
+        training_data_info[chart_file] = chart_info
+        training_data_values[chart_file] = chart_actual_values
+    
+    # Print dictionaries
+    '''for chart_file in training_data_info:
+        print(chart_file)
+        for key,val in training_data_info[chart_file].items():
+            print(key, val)
+        print(training_data_values[chart_file])
+        print("\n")
+    print("\n\n")'''
+
+    return training_data_info, training_data_values
+
+    
+# Step 3: check if the script appears (TODO: or anything else that was not caught before)
+'''def count_extra_info(desc: Description, scr: str) -> None:
+    for word in desc.no_punc_desc:
+        if word not in scr:
+            extra_info.append(word)'''
 
 
 # 3. Count how much information appears in the description that is not in the chart
-def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
+def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], script: List[str], chrt_vals: List[str]) -> str:
     row: str = r'''
         \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
         \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
+        \multicolumn{5}{|l|}{\textbf{2. NER}  } \\ \hline
     '''
 
     # For each epoch
     for ep in dic:
+        print("ep=", ep)
         row_head: str = str(ep) + ' epochs &'
-        row_values: List[Tuple[int,int]] = []
         delexi_result: List[str] = []
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
                 print("algo=", algo)
                 description_list: List[Description] = dic[ep][algo]
-                # Index: number of annotations; values: how many descriptions in description_list have that number of annotations
-                print("len=", len(description_list))
-                # 1. Delexicalization
+                #print("len=", len(description_list))
+
                 delexi_counter: int = 0
+                ner_counter: int = 0
                 # Set of strings for ALL descriptions
                 all_delexis: Set[str] = set()
-                # Count how many texts contain annotations
+                all_ners: Set[str] = set()
+                
                 for description in description_list:
-                    description.count_delexicalizations()
-                    #print(description)
+
+                    # 1. Count how many texts contain delexicalizations
+                    '''description.count_delexicalizations()
                     if description.delexi != []:
                         delexi_counter += 1
                         for el_delexi in description.delexi:
-                            print("here2")
                             all_delexis.add(el_delexi)
-                        print("all_delexi=", all_delexis, delexi_counter)
+                        #print("all_delexi=", all_delexis, delexi_counter)'''
+
+                    # 2. Count NERs
+                    description.count_ners(chrt_vals)
+                    if description.ner_text != []:
+                        ner_counter += 1
+                        for el_ner in description.ner_text:
+                            all_ners.add(el_ner)
+                        print("all_ners=", all_ners, ner_counter)
 
                 # Turn the results into strings
-                delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
-                print("res=",delexi_result)
+                #delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
+                #print("res=",delexi_result)
 
-        row_end: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
-        row += row_head + row_end
+        #row_delexi: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
+        #row += row_head + row_delexi
     return row
 
 
@@ -401,6 +437,7 @@ def generate_table_latex(script:str, annons: str, extra_info: str) -> None:
 if __name__ == '__main__':
     script: str = sys.argv[1]
     proc_script: List[str] = script.split("_")
+    info_script = "info_" + script + ".txt"
     epochs: List[int] = [10, 20, 50, 100, 200]
     beams: List[str] = ['3', '5', '10']
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
@@ -409,8 +446,11 @@ if __name__ == '__main__':
     annons = generate_eval_annotations(epoch_dict)
     #count_repetitions(epoch_dict)
     #repetitions = generate_eval_repetitions(epoch_dict)
-    chrt_inf, chrt_vals = parse_chart_info(script)
-    #count_extra_info(epoch_dict, chrt_inf, chrt_vals, proc_script)
-    extra_info = generate_eval_extra_info(epoch_dict)
+    training_data_inf, training_data_vals = get_training_data_info()
+    chrt_inf = training_data_inf[info_script]
+    chrt_vals = training_data_vals[info_script]
+    print("chrt_inf", chrt_inf)
+    print("chrt_vals", chrt_vals)
+    #extra_info = generate_eval_extra_info(epoch_dict, proc_script, chrt_vals)
     #generate_table_latex(script, annons, repetitions,extra_info)
-    generate_table_latex(script, annons, extra_info)
+    #generate_table_latex(script, annons, extra_info)
