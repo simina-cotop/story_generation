@@ -307,19 +307,30 @@ def get_training_data_info() -> Tuple[Dict[str, Dict[str, List[str]]], Dict[str,
         print(training_data_values[chart_file])
         print("\n")
     print("\n\n")'''
-
+    os.chdir('..')
     return training_data_info, training_data_values
 
     
 # Step 3: check if the script appears (TODO: or anything else that was not caught before)
-'''def count_extra_info(desc: Description, scr: str) -> None:
+def count_extra_info(info_script: str, all_chrt_vals: Dict[str, List[str]], desc: Description) -> Tuple[int, bool, List[str]]:
+    counter_wrong_info: int = 0
+    wrong_info: List[str] = []
+    has_wrong_info: bool = False
+    # If description.text in other_script.description.text -> print and count
     for word in desc.no_punc_desc:
-        if word not in scr:
-            extra_info.append(word)'''
+        for chart_file in all_chrt_vals:
+            if chart_file != info_script:
+                if word in all_chrt_vals[chart_file] and word not in all_chrt_vals[info_script]:
+                    #print("vals=", all_chrt_vals[info_script])
+                    #print("w=", word)
+                    counter_wrong_info += 1
+                    has_wrong_info = True
+                    wrong_info.append(word)
+    return counter_wrong_info, has_wrong_info, wrong_info
 
 
 # 3. Count how much information appears in the description that is not in the chart
-def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], script: List[str], chrt_vals: List[str]) -> str:
+def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> str:
     row: str = r'''
         \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
         \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
@@ -331,6 +342,7 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
         print("ep=", ep)
         row_head: str = str(ep) + ' epochs &'
         delexi_result: List[str] = []
+        wrong_info_result: List[str] = []
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
                 print("algo=", algo)
@@ -339,9 +351,11 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
 
                 delexi_counter: int = 0
                 ner_counter: int = 0
+                wrong_info_counter: int = 0
                 # Set of strings for ALL descriptions
                 all_delexis: Set[str] = set()
                 all_ners: Set[str] = set()
+                all_wrong_info: Set[str] = set()
                 
                 for description in description_list:
 
@@ -354,19 +368,30 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                         #print("all_delexi=", all_delexis, delexi_counter)'''
 
                     # 2. Count NERs
-                    description.count_ners(chrt_vals)
+                    '''description.count_ners(chrt_vals)
                     if description.ner_text != []:
                         ner_counter += 1
                         for el_ner in description.ner_text:
                             all_ners.add(el_ner)
-                        print("all_ners=", all_ners, ner_counter)
-
+                        print("all_ners=", all_ners, ner_counter)'''
+                    # 2. Count the extra information    
+                    counter_wrong_info, has_wong_info, wrong_info = count_extra_info(info_script, all_chrt_vals, description)
+                    if has_wong_info == True:
+                        wrong_info_counter += 1
+                    for info in wrong_info:
+                        all_wrong_info.add(info)
+                print(all_wrong_info)
                 # Turn the results into strings
                 #delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
                 #print("res=",delexi_result)
-
+                wrong_info_result.append("There are " + str(wrong_info_counter) + " wrong words: " + ", ".join(el for el in all_wrong_info))
+                print("res=",wrong_info_result)
         #row_delexi: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
+        print("HERE\n")
+        row_wrong_info: str = " & ".join(x for x in wrong_info_result) + "\\\\ \\hline \n"
         #row += row_head + row_delexi
+        row += row_head + row_wrong_info
+        print(row)
     return row
 
 
@@ -447,10 +472,11 @@ if __name__ == '__main__':
     #count_repetitions(epoch_dict)
     #repetitions = generate_eval_repetitions(epoch_dict)
     training_data_inf, training_data_vals = get_training_data_info()
-    chrt_inf = training_data_inf[info_script]
-    chrt_vals = training_data_vals[info_script]
+    chrt_inf: Dict[str, List[str]] = training_data_inf[info_script]
+    chrt_vals: List[str] = training_data_vals[info_script]
     print("chrt_inf", chrt_inf)
     print("chrt_vals", chrt_vals)
-    #extra_info = generate_eval_extra_info(epoch_dict, proc_script, chrt_vals)
+    #extra_info = count_extra_info(script, chrt_inf, chrt_vals)
+    extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
     #generate_table_latex(script, annons, repetitions,extra_info)
-    #generate_table_latex(script, annons, extra_info)
+    generate_table_latex(script, annons, extra_info)
