@@ -521,7 +521,7 @@ def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: 
 
 
     %opening
-    \title{Evaluation}
+    \title{Evaluation Appendix}
     \author{Simina Ana Cotop}
     \date{}
     \frenchspacing
