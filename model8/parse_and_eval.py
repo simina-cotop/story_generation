@@ -477,13 +477,38 @@ def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
     plt.bar(range(2, (num_algos+1)*num_epoch, num_algos+1), all_vals['10'], label="Beam 10")
     plt.bar(range(3, (num_algos+1)*num_epoch, num_algos+1), all_vals['nucleus'], label="Nucleus Sampling")
 
-    plt.ylim(0, 20)
+    plt.ylim(0, 40)
     plt.xlabel("Epochs")
-    plt.ylabel("Number of delexicalization symbols")
+    plt.ylabel("Number of descriptions containing any delexicalization symbol")
     plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
     plt.title(f"Delexicalization")
     plt.legend()
     plt.savefig("delexi.png", bbox_inches="tight")
+
+def plot_wrong_info(wrong_info: OrderedDict[int, List[Tuple[str, int]]]) -> None:
+    plt.clf()
+    #print(delexis)
+    all_vals: OrderedDict[str, List[int]] = OrderedDict()
+
+    for key, values in delexis.items():
+        for val in values:
+            all_vals.setdefault(val[0], []).append(val[1])
+    #print("all_vals=", all_vals)
+    num_epoch = len(all_vals['3'])
+    num_algos = len(all_vals)
+    plt.bar(range(0, (num_algos+1)*num_epoch, num_algos+1), all_vals['3'], label="Beam 3")
+    plt.bar(range(1, (num_algos+1)*num_epoch, num_algos+1), all_vals['5'], label="Beam 5")
+    plt.bar(range(2, (num_algos+1)*num_epoch, num_algos+1), all_vals['10'], label="Beam 10")
+    plt.bar(range(3, (num_algos+1)*num_epoch, num_algos+1), all_vals['nucleus'], label="Nucleus Sampling")
+
+    plt.ylim(0, 40)
+    plt.xlabel("Epochs")
+    plt.ylabel("Number of descriptions containing any delexicalization symbol")
+    plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
+    plt.title(f"Delexicalization")
+    plt.legend()
+    plt.savefig("delexi.png", bbox_inches="tight")
+
 
 if __name__ == '__main__':
     script: str = sys.argv[1]
@@ -505,5 +530,6 @@ if __name__ == '__main__':
     #extra_info = count_extra_info(script, chrt_inf, chrt_vals)
     row_extra_info, delexis, extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
     plot_delexi(delexis)
+    plot_wrong_info(extra_info)
     #generate_table_latex(script, annons, repetitions,extra_info)
     #generate_table_latex(script, annons, row_extra_info)
