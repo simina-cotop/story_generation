@@ -3,6 +3,8 @@ from collections import OrderedDict
 from typing import List, Dict, Tuple, Set, Iterable
 from dataclasses import dataclass
 from nltk.corpus import stopwords
+from pprint import pprint
+from matplotlib_venn import venn3
 import os
 import sys
 import glob
@@ -11,6 +13,7 @@ import subprocess
 import spacy
 import numpy as np
 import matplotlib.pyplot as plt
+from copy import deepcopy
 
 
 nlp = spacy.load('en')
@@ -75,10 +78,6 @@ class Description:
 
 
 
-
-        
-        
-        
 # Get list of the folders which contain the results
 def parse_output(script: str) -> List[str]:
     dirs = os.listdir("outputs")
@@ -211,58 +210,159 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
         row += row_head + row_middle  + row_end
     return row, annotations_per_config
 
-# TODO: give the list of descriptions as argument instead of the whole dictionary
-def count_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> None:
-    windows = [1, 2, 3, 4]
-    #for ep in dic:
-    #    for algo in dic[ep]:
-    list_of_descriptions: List[Description] = get_description_list(dic, 100, '3')
-    for description in list_of_descriptions:
-        for window in windows:
-            sliced_desc = [description.splitted_text[x:x+window] for x in range(0, len(description.splitted_text),window)]
-            print(sliced_desc)
-            #for el in sliced_desc:
-    print("desc", list_of_descriptions)
+def count_repetitions(desc_no_stops_init: List[str], desc_with_stops_init: List[str]) -> Tuple[Dict[str, int], bool, bool, bool, bool]:
+    has_repetitions: bool =  False
+    no_gaps_counter: bool = False
+    gaps_counter: bool = False
+    stop_words_punc_counter: bool = False
+    all_reps: Dict[str, int] = {} 
+    no_gaps_reps: Dict[str, int] = {} 
+    stop_word_reps: Dict[str, int] = {} 
+
+    desc_no_stops = deepcopy(desc_no_stops_init)
+    # Forward-pass, not counting gaps
+    DUMMY: str = ''
+    results_no_gaps: str = ''
+    for window_size in range(1, 4):
+        for i in range(len(desc_no_stops)+1-window_size-window_size):
+            # s is the original window
+            s = desc_no_stops[i:i+window_size]
+            if DUMMY in s:
+                continue
+            offset = 0
+            count = 0
+            for j in range(i+window_size, len(desc_no_stops)+1-window_size):
+                # s2 is the window s is compared to
+                s2 = desc_no_stops[j:j+window_size]
+                #print(window_size, s == s2, s, s2)
+                if s == s2:
+                    desc_no_stops[j:j+window_size] = [DUMMY] * window_size
+                    count += 1
+                else:
+                    break
+            if count > 0:
+                results_no_gaps += f"Found '{' '.join(s)}' repeated {count} times\n"
+                no_gaps_counter = True
+                all_reps[' '.join(s)] = count
+                no_gaps_reps[' '.join(s)] = count
+                desc_no_stops[i:i+window_size] = [DUMMY] * window_size
+    #print("no_gaps=", len(results_no_gaps))
+
+    desc_with_stops = deepcopy(desc_with_stops_init)
+    results_stop_words: str = ''
+    for window_size in range(1, 4):
+        for i in range(len(desc_with_stops)+1-window_size-window_size):
+            # s is the original window
+            s = desc_with_stops[i:i+window_size]
+            if DUMMY in s:
+                continue
+            offset = 0
+            count = 0
+            for j in range(i+window_size, len(desc_with_stops)+1-window_size):
+                # s2 is the window s is compared to
+                s2 = desc_with_stops[j:j+window_size]
+                #print(window_size, s == s2, s, s2)
+                if s == s2:
+                    desc_with_stops[j:j+window_size] = [DUMMY] * window_size
+                    count += 1
+                else:
+                    break
+            if count > 0:
+                results_stop_words += f"Found '{' '.join(s)}' repeated {count} times\n"
+                all_reps[' '.join(s)] = count
+                stop_word_reps[' '.join(s)] = count
+                desc_with_stops[i:i+window_size] = [DUMMY] * window_size
+    stop_words_punc_counter = len(set(stop_word_reps.keys()) - set(no_gaps_reps.keys())) > 0
+
+    # Backward-pass, counting gaps
+    desc_no_stops = deepcopy(desc_no_stops_init)
+    results_gaps: str = ''
+    for window_size in range(5, 0, -1):
+        for i in range(len(desc_no_stops)+1-window_size-window_size):
+            # s is the original window
+            s = desc_no_stops[i:i+window_size]
+            if DUMMY in s:
+                continue
+            offset = 0
+            count = 0
+            for j in range(i+window_size+1, len(desc_no_stops)+1-window_size):
+                # s2 is the window s is compared to
+                s2 = desc_no_stops[j:j+window_size]
+                #print(window_size, s == s2, s, s2)
+                if s == s2:
+                    desc_no_stops[j:j+window_size] = [DUMMY] * window_size
+                    count += 1
+            if count > 0:
+                results_gaps += f"Found '{' '.join(s)}' repeated {count} times\n"
+                # Count stop words and punctuation repetitions
+                gaps_counter = True
+                all_reps[' '.join(s)] = count
+                desc_no_stops[i:i+window_size] = [DUMMY] * window_size
+
+    print("==>", results_gaps)
+    #return results_no_gaps, results_gaps
+    #print("gaps=",len(results_gaps), results_gaps)
+    has_repetitions = no_gaps_counter or gaps_counter or stop_words_punc_counter
+    return all_reps, has_repetitions, no_gaps_counter, gaps_counter, stop_words_punc_counter
 
 
 # 2. Count how many repetitions appear in the texts
 def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
-    row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
+    row: str = r'''\multicolumn{5}{|l|}{\textbf{Repetitions}  } \\ \hline'''
 
     # For each epoch
     for ep in dic:
+        print("ep=", ep)
         row_head: str = str(ep) + ' epochs &'
         row_values: List[Tuple[int,int]] = []
-        all_annotations: List[str] = []
+        all_reps: List[str] = []
         # dic[ep]: OrderedDict[str, List[Description]]
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
-                annotation_counter: int = 0
+                print("algo=", algo)
+                reps_counter: int = 0
+                no_gaps_counter: int = 0
+                gaps_counter: int = 0
+                stop_words_punc_counter: int = 0
                 description_list: List[Description] = dic[ep][algo]
-                # Index: number of annotations; values: how many descriptions in description_list have that number of annotations
-                annotations: List[int] = np.zeros(10, dtype='int')
-                
 
+                venn_counters: Dict[str, int] = {}
+                
                 # Count how many texts contain annotations
                 for description in description_list:
-                    print(description)
-                    if description.number_of_annotations != 0:
-                        annotation_counter += 1
-                        # Count how many annotations each text has 
-                        annotations[description.number_of_annotations] += 1
-                    
-                    # Turn the results into strings
-                    annotations_str: List[str] = []
-                    for an_idx in range(0,len(annotations)):
-                        if annotations[an_idx] != 0:
-                            annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
+                    all_repetitions, has_repetitions, no_gaps, gaps, stop_words_punc = count_repetitions(description.no_punc_desc, description.splitted_text)
+                    #pprint(all_reps)
+                    if has_repetitions == True:
+                        reps_counter += 1
+                    if no_gaps == True:    
+                        no_gaps_counter += 1
+                    if gaps == True: 
+                        gaps_counter += 1 
+                    if stop_words_punc == True:
+                        stop_words_punc_counter += 1
 
-                all_annotations.append("\\newline ".join(annotations_str))
-                row_values.append((annotation_counter, len(description_list)))
+                    # Update venn
+                    idx = f"{int(no_gaps)}{int(gaps)}{int(stop_words_punc)}"
+                    venn_counters[idx] = venn_counters.get(idx, 0) + 1
+                
+                plt.rcParams["figure.figsize"] = [3, 3]
+                plt.clf()
+                venn3(venn_counters, set_labels=("No Gaps" if no_gaps_counter > 0 else "", "With Gaps" if gaps_counter > 0 else "", "Stops/Punc" if stop_words_punc_counter > 0 else ""))
+                # plt.title(f"Algo {algo} Epoch {ep}")
+                plt.savefig(f"/tmp/venn-algo-{algo}-epoch-{ep}.pdf", bbbox_inches="tight")
 
-        row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
-        row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
-        row += row_head + row_middle  + row_end
+                reps_str: List[str] = [
+                    str(no_gaps_counter) + " description(s) without gaps",
+                    str(gaps_counter) + " description(s) with gaps",
+                    str(stop_words_punc_counter) + " description(s) with stop words and punctuation"
+                ]
+                # all_reps.append("\\newline ".join(reps_str))
+                all_reps.append(f"\\includegraphics[width=45mm]{{/tmp/venn-algo-{algo}-epoch-{ep}.pdf}}")
+                row_values.append((reps_counter, len(description_list)))
+
+        row_middle: str = " & ".join(x for x in all_reps) + "\\\\ \\hline \n"
+        row_end: str = " & " +  " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
+        row += row_head + row_middle + row_end
     return row
 
 
@@ -406,7 +506,7 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
 
 
 # Generate the latex table with the results
-def generate_table_latex(script:str, annons: str, extra_info: str) -> None:
+def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: str) -> None:
     header = r'''\documentclass[]{article}
     \usepackage{hyperref}
     \usepackage{longtable}
@@ -448,7 +548,7 @@ def generate_table_latex(script:str, annons: str, extra_info: str) -> None:
 	\endhead '''
     
     table += annons
-    #table += repetitions
+    table += repetitions
     table += extra_info
 
     table += r'''\end{longtable}'''
@@ -572,16 +672,15 @@ if __name__ == '__main__':
     epoch_dict = get_dictionary(script_folders, epochs, beams)
     annons, annotations_per_config = generate_eval_annotations(epoch_dict)
     #count_repetitions(epoch_dict)
-    #repetitions = generate_eval_repetitions(epoch_dict)
+    repetitions = generate_eval_repetitions(epoch_dict)
     training_data_inf, training_data_vals = get_training_data_info()
     chrt_inf: Dict[str, List[str]] = training_data_inf[info_script]
     chrt_vals: List[str] = training_data_vals[info_script]
-    print("chrt_inf", chrt_inf)
-    print("chrt_vals", chrt_vals)
+    #print("chrt_inf", chrt_inf)
+    #print("chrt_vals", chrt_vals)
     #extra_info = count_extra_info(script, chrt_inf, chrt_vals)
     row_extra_info, delexis, extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
     plot_delexi(delexis)
     plot_wrong_info(extra_info)
     plot_annotations(annotations_per_config)
-    #generate_table_latex(script, annons, repetitions,extra_info)
-    #generate_table_latex(script, annons, row_extra_info)
+    generate_table_latex(script, annons, repetitions,row_extra_info)
