@@ -1,6 +1,6 @@
 from __future__ import annotations
 from collections import OrderedDict
-from typing import List, Dict, Tuple, Set
+from typing import List, Dict, Tuple, Set, Iterable
 from dataclasses import dataclass
 from nltk.corpus import stopwords
 import os
@@ -168,8 +168,10 @@ def generate_table_content(dic: OrderedDict[int, OrderedDict[str, List[Descripti
 
 # Generate evaluation measure to be added to table
 # 1. If annotations appear in the generated text
-def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
+def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> Tuple[str, Dict[int, Dict[str, List[int]]]]:
     row: str = r'''\multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline'''
+    # epochs, algorithm, List with index being annotation count and value being the count of descriptions
+    annotations_per_config: Dict[int, Dict[str, List[int]]] = {}
 
     # For each epoch
     for ep in dic:
@@ -193,12 +195,13 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
                         annotation_counter += 1
                         # Count how many annotations each text has 
                         annotations[description.number_of_annotations] += 1
-                    
-                    # Turn the results into strings
-                    annotations_str: List[str] = []
-                    for an_idx in range(0,len(annotations)):
-                        if annotations[an_idx] != 0:
-                            annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
+                annotations_per_config.setdefault(ep, {})[algo] = annotations
+
+                # Turn the results into strings
+                annotations_str: List[str] = []
+                for an_idx in range(0,len(annotations)):
+                    if annotations[an_idx] != 0:
+                        annotations_str.append("Texts with " + str(an_idx) + " annotation(s): " + str(annotations[an_idx]) + " ")
 
                 all_annotations.append("\\newline ".join(annotations_str))
                 row_values.append((annotation_counter, len(description_list)))
@@ -206,7 +209,7 @@ def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Descri
         row_middle: str = " & ".join(x for x in all_annotations) + "\\\\ \\hline \n"
         row_end: str = " & " + " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
         row += row_head + row_middle  + row_end
-    return row
+    return row, annotations_per_config
 
 # TODO: give the list of descriptions as argument instead of the whole dictionary
 def count_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> None:
@@ -331,13 +334,14 @@ def count_extra_info(info_script: str, all_chrt_vals: Dict[str, List[str]], desc
 
 
 # 3. Count how much information appears in the description that is not in the chart
-def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> Tuple[str, OrderedDict[int, List[Tuple[str, int]]], Set[str]]:
+def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> Tuple[str, OrderedDict[int, List[Tuple[str, int]]], OrderedDict[int, List[Tuple[str, int]]]]:
     row: str = r'''
         \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
         \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
         \multicolumn{5}{|l|}{\textbf{2. Wrong information}  } \\ \hline
     '''
     all_delexi_counts: OrderedDict[int, List[Tuple[str, int]]] = OrderedDict()
+    all_wrong_info_counts: OrderedDict[int, List[Tuple[str, int]]] = OrderedDict()
     # For each epoch
     for ep in dic:
         #print("ep=", ep)
@@ -345,6 +349,7 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
         delexi_result: List[str] = []
         wrong_info_result: List[str] = []
         all_delexi_counts[ep] = []
+        all_wrong_info_counts[ep] = []
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
                 #print("algo=", algo)
@@ -384,6 +389,7 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                 #print(all_wrong_info)
 
                 all_delexi_counts[ep].append((algo, delexi_counter))
+                all_wrong_info_counts[ep].append((algo, wrong_info_counter))
                 #print("all=", all_delexi_counts)
                 # Turn the results into strings
                 delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
@@ -395,7 +401,7 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
         row_wrong_info: str = " & ".join(x for x in wrong_info_result) + "\\\\ \\hline \n"
         row += row_head + row_delexi + row_head + row_wrong_info
         #print(row)
-    return row, all_delexi_counts, all_wrong_info
+    return row, all_delexi_counts, all_wrong_info_counts
 
 
 
@@ -483,14 +489,14 @@ def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
     plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
     plt.title(f"Delexicalization")
     plt.legend()
-    plt.savefig("delexi.png", bbox_inches="tight")
+    plt.savefig("delexi.pdf", bbox_inches="tight")
 
 def plot_wrong_info(wrong_info: OrderedDict[int, List[Tuple[str, int]]]) -> None:
     plt.clf()
     #print(delexis)
     all_vals: OrderedDict[str, List[int]] = OrderedDict()
 
-    for key, values in delexis.items():
+    for key, values in wrong_info.items():
         for val in values:
             all_vals.setdefault(val[0], []).append(val[1])
     #print("all_vals=", all_vals)
@@ -503,11 +509,56 @@ def plot_wrong_info(wrong_info: OrderedDict[int, List[Tuple[str, int]]]) -> None
 
     plt.ylim(0, 40)
     plt.xlabel("Epochs")
-    plt.ylabel("Number of descriptions containing any delexicalization symbol")
+    plt.ylabel("Number of descriptions containing words from the training data")
     plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
-    plt.title(f"Delexicalization")
+    plt.title(f"Wrong information")
     plt.legend()
-    plt.savefig("delexi.png", bbox_inches="tight")
+    plt.savefig("wrong_info.pdf", bbox_inches="tight")
+
+def plot_annotations(annotations_per_config: Dict[int, Dict[str, List[int]]]) -> None:
+    plt.clf()
+
+    all_vals: Dict[str, Dict[int, List[int]]] = {}
+    for epoch, values in annotations_per_config.items():
+        for algo, vals in values.items():
+            all_vals.setdefault(algo, {})[epoch] = np.cumsum([0] + vals)
+
+    max_annotations = len(next(iter(next(iter(all_vals.values())).values())))
+    num_epoch = len(next(iter(all_vals.values())))
+    num_algos = len(all_vals)
+    colors = ["r", "g", "b", "orange"]
+    hatches = [" ", "//", "\\\\", "*", "-", "o", "|", "O"]
+
+    for i in range(1, min(max_annotations, len(hatches)+1)):
+        def plot_bar(values: Iterable[List[int]], offset: int, idx: int, label: str) -> None:
+            bottom = np.array([x[idx-1] for x in values])
+            value = np.array([x[idx] for x in values])
+            height = value-bottom
+            args = {}
+            if idx == 1:
+                args["label"] = label
+            plt.bar(
+                range(offset, (num_algos+1)*num_epoch, num_algos+1),
+                height=height,
+                bottom = bottom,
+                color = colors[offset],
+                alpha = .5 if idx % 2 == 0 else 1,
+                hatch = hatches[idx-1],
+                **args
+            )
+
+        plot_bar(all_vals['3'].values(), 0, i, "Beam 3")
+        plot_bar(all_vals['5'].values(), 1, i, "Beam 5")
+        plot_bar(all_vals['10'].values(), 2, i, "Beam 10")
+        plot_bar(all_vals['nucleus'].values(), 3, i, "Nucleus Sampling")
+
+    plt.ylim(0, 40)
+    plt.xlabel("Epochs")
+    plt.ylabel("Number of annotations")
+    plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
+    plt.title(f"Annotations")
+    plt.legend()
+    plt.savefig("annotations.pdf", bbox_inches="tight")
 
 
 if __name__ == '__main__':
@@ -519,7 +570,7 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
-    annons = generate_eval_annotations(epoch_dict)
+    annons, annotations_per_config = generate_eval_annotations(epoch_dict)
     #count_repetitions(epoch_dict)
     #repetitions = generate_eval_repetitions(epoch_dict)
     training_data_inf, training_data_vals = get_training_data_info()
@@ -531,5 +582,6 @@ if __name__ == '__main__':
     row_extra_info, delexis, extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
     plot_delexi(delexis)
     plot_wrong_info(extra_info)
+    plot_annotations(annotations_per_config)
     #generate_table_latex(script, annons, repetitions,extra_info)
     #generate_table_latex(script, annons, row_extra_info)
