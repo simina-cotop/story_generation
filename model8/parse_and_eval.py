@@ -10,6 +10,7 @@ import re
 import subprocess
 import spacy
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 nlp = spacy.load('en')
@@ -330,22 +331,23 @@ def count_extra_info(info_script: str, all_chrt_vals: Dict[str, List[str]], desc
 
 
 # 3. Count how much information appears in the description that is not in the chart
-def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> str:
+def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> Tuple[str, OrderedDict[int, List[Tuple[str, int]]], Set[str]]:
     row: str = r'''
         \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
         \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
-        \multicolumn{5}{|l|}{\textbf{2. NER}  } \\ \hline
+        \multicolumn{5}{|l|}{\textbf{2. Wrong information}  } \\ \hline
     '''
-
+    all_delexi_counts: OrderedDict[int, List[Tuple[str, int]]] = OrderedDict()
     # For each epoch
     for ep in dic:
-        print("ep=", ep)
+        #print("ep=", ep)
         row_head: str = str(ep) + ' epochs &'
         delexi_result: List[str] = []
         wrong_info_result: List[str] = []
+        all_delexi_counts[ep] = []
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
-                print("algo=", algo)
+                #print("algo=", algo)
                 description_list: List[Description] = dic[ep][algo]
                 #print("len=", len(description_list))
 
@@ -358,14 +360,13 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                 all_wrong_info: Set[str] = set()
                 
                 for description in description_list:
-
                     # 1. Count how many texts contain delexicalizations
-                    '''description.count_delexicalizations()
+                    description.count_delexicalizations()
                     if description.delexi != []:
                         delexi_counter += 1
                         for el_delexi in description.delexi:
                             all_delexis.add(el_delexi)
-                        #print("all_delexi=", all_delexis, delexi_counter)'''
+                        #print("all_delexi=", all_delexis, delexi_counter)
 
                     # 2. Count NERs
                     '''description.count_ners(chrt_vals)
@@ -380,19 +381,21 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                         wrong_info_counter += 1
                     for info in wrong_info:
                         all_wrong_info.add(info)
-                print(all_wrong_info)
+                #print(all_wrong_info)
+
+                all_delexi_counts[ep].append((algo, delexi_counter))
+                #print("all=", all_delexi_counts)
                 # Turn the results into strings
-                #delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
+                delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
                 #print("res=",delexi_result)
                 wrong_info_result.append("There are " + str(wrong_info_counter) + " wrong words: " + ", ".join(el for el in all_wrong_info))
-                print("res=",wrong_info_result)
-        #row_delexi: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
-        print("HERE\n")
+                #print("res=",wrong_info_result)
+        row_delexi: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
+        #print("HERE\n")
         row_wrong_info: str = " & ".join(x for x in wrong_info_result) + "\\\\ \\hline \n"
-        #row += row_head + row_delexi
-        row += row_head + row_wrong_info
-        print(row)
-    return row
+        row += row_head + row_delexi + row_head + row_wrong_info
+        #print(row)
+    return row, all_delexi_counts, all_wrong_info
 
 
 
@@ -458,6 +461,29 @@ def generate_table_latex(script:str, annons: str, extra_info: str) -> None:
     os.unlink('evaluation.tex')
 
 
+def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
+    plt.clf()
+    #print(delexis)
+    all_vals: OrderedDict[str, List[int]] = OrderedDict()
+
+    for key, values in delexis.items():
+        for val in values:
+            all_vals.setdefault(val[0], []).append(val[1])
+    #print("all_vals=", all_vals)
+    num_epoch = len(all_vals['3'])
+    num_algos = len(all_vals)
+    plt.bar(range(0, (num_algos+1)*num_epoch, num_algos+1), all_vals['3'], label="Beam 3")
+    plt.bar(range(1, (num_algos+1)*num_epoch, num_algos+1), all_vals['5'], label="Beam 5")
+    plt.bar(range(2, (num_algos+1)*num_epoch, num_algos+1), all_vals['10'], label="Beam 10")
+    plt.bar(range(3, (num_algos+1)*num_epoch, num_algos+1), all_vals['nucleus'], label="Nucleus Sampling")
+
+    plt.ylim(0, 20)
+    plt.xlabel("Epochs")
+    plt.ylabel("Number of delexicalization symbols")
+    plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
+    plt.title(f"Delexicalization")
+    plt.legend()
+    plt.savefig("delexi.png", bbox_inches="tight")
 
 if __name__ == '__main__':
     script: str = sys.argv[1]
@@ -477,6 +503,7 @@ if __name__ == '__main__':
     print("chrt_inf", chrt_inf)
     print("chrt_vals", chrt_vals)
     #extra_info = count_extra_info(script, chrt_inf, chrt_vals)
-    extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
+    row_extra_info, delexis, extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
+    plot_delexi(delexis)
     #generate_table_latex(script, annons, repetitions,extra_info)
-    generate_table_latex(script, annons, extra_info)
+    #generate_table_latex(script, annons, row_extra_info)
