@@ -585,10 +585,10 @@ def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
 
     plt.ylim(0, 40)
     plt.xlabel("Epochs")
-    plt.ylabel("Number of descriptions containing any delexicalization symbol")
+    plt.ylabel("Number of delexicalization symbols")
     plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
     plt.title(f"Delexicalization")
-    plt.legend()
+    plt.legend(prop={'size': 8})
     plt.savefig("delexi.pdf", bbox_inches="tight")
 
 def plot_wrong_info(wrong_info: OrderedDict[int, List[Tuple[str, int]]]) -> None:
@@ -657,7 +657,7 @@ def plot_annotations(annotations_per_config: Dict[int, Dict[str, List[int]]]) ->
     plt.ylabel("Number of annotations")
     plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
     plt.title(f"Annotations")
-    plt.legend()
+    plt.legend(prop={'size': 8})
     plt.savefig("annotations.pdf", bbox_inches="tight")
 
 
