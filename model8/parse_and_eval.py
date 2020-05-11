@@ -349,15 +349,15 @@ def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Descri
                 plt.clf()
                 venn3(venn_counters, set_labels=("No Gaps" if no_gaps_counter > 0 else "", "With Gaps" if gaps_counter > 0 else "", "Stops/Punc" if stop_words_punc_counter > 0 else ""))
                 # plt.title(f"Algo {algo} Epoch {ep}")
-                plt.savefig(f"/tmp/venn-algo-{algo}-epoch-{ep}.pdf", bbbox_inches="tight")
+                plt.savefig(f"venn-algo-{algo}-epoch-{ep}.pdf", bbbox_inches="tight")
 
                 reps_str: List[str] = [
                     str(no_gaps_counter) + " description(s) without gaps",
                     str(gaps_counter) + " description(s) with gaps",
                     str(stop_words_punc_counter) + " description(s) with stop words and punctuation"
                 ]
-                # all_reps.append("\\newline ".join(reps_str))
-                all_reps.append(f"\\includegraphics[width=45mm]{{/tmp/venn-algo-{algo}-epoch-{ep}.pdf}}")
+                all_reps.append("\\newline ".join(reps_str))
+                #all_reps.append(f"\\includegraphics[width=45mm]{{/tmp/venn-algo-{algo}-epoch-{ep}.pdf}}")
                 row_values.append((reps_counter, len(description_list)))
 
         row_middle: str = " & ".join(x for x in all_reps) + "\\\\ \\hline \n"
@@ -561,10 +561,10 @@ def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: 
     commandLine = subprocess.Popen(['pdflatex', 'evaluation.tex'])
     commandLine.communicate()
 
-    os.unlink('evaluation.aux')
-    os.unlink('evaluation.log')
-    os.unlink('evaluation.out')
-    os.unlink('evaluation.tex')
+    #os.unlink('evaluation.aux')
+    #os.unlink('evaluation.log')
+    #os.unlink('evaluation.out')
+    #os.unlink('evaluation.tex')
 
 
 def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
@@ -609,10 +609,10 @@ def plot_wrong_info(wrong_info: OrderedDict[int, List[Tuple[str, int]]]) -> None
 
     plt.ylim(0, 40)
     plt.xlabel("Epochs")
-    plt.ylabel("Number of descriptions containing words from the training data")
+    plt.ylabel("Number of descriptions with info from training data")
     plt.xticks(np.arange(num_algos/2-.5, (num_algos+1)*num_epoch, num_algos+1), ["10", "20", "50", "100", "200"])
-    plt.title(f"Wrong information")
-    plt.legend()
+    plt.title(f"Information from training data")
+    plt.legend(prop={'size': 8})
     plt.savefig("wrong_info.pdf", bbox_inches="tight")
 
 def plot_annotations(annotations_per_config: Dict[int, Dict[str, List[int]]]) -> None:
