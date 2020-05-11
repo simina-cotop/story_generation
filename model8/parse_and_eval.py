@@ -435,9 +435,11 @@ def count_extra_info(info_script: str, all_chrt_vals: Dict[str, List[str]], desc
 
 # 3. Count how much information appears in the description that is not in the chart
 def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> Tuple[str, OrderedDict[int, List[Tuple[str, int]]], OrderedDict[int, List[Tuple[str, int]]]]:
-    row: str = r'''
+    row_one: str = r'''
         \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
         \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
+    '''
+    row_two: str = r'''
         \multicolumn{5}{|l|}{\textbf{2. Wrong information}  } \\ \hline
     '''
     all_delexi_counts: OrderedDict[int, List[Tuple[str, int]]] = OrderedDict()
@@ -492,15 +494,17 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                 all_wrong_info_counts[ep].append((algo, wrong_info_counter))
                 #print("all=", all_delexi_counts)
                 # Turn the results into strings
-                delexi_result.append("There are " + str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
+                delexi_result.append(str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
                 #print("res=",delexi_result)
-                wrong_info_result.append("There are " + str(wrong_info_counter) + " wrong words: " + ", ".join(el for el in all_wrong_info))
+                wrong_info_result.append(str(wrong_info_counter) + " wrong words: " + ", ".join(el for el in all_wrong_info))
                 #print("res=",wrong_info_result)
         row_delexi: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
         #print("HERE\n")
         row_wrong_info: str = " & ".join(x for x in wrong_info_result) + "\\\\ \\hline \n"
-        row += row_head + row_delexi + row_head + row_wrong_info
+        row_one += row_head + row_delexi 
+        row_two += row_head + row_wrong_info
         #print(row)
+    row: str = row_one + row_two
     return row, all_delexi_counts, all_wrong_info_counts
 
 
