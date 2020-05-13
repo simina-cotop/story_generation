@@ -362,7 +362,7 @@ def nucleus_sampling(model, seed, context_length=Config.Context_length, k=10, to
 
 
 
-def plain_beam(model, seed, context_length=Config.Context_length, k=3):
+def plain_beam(model, seed, context_length=Config.Context_length, k=10):
     """
     plain beam search.
     :return text, seed pair
@@ -813,8 +813,8 @@ def main():
     for script in scripts:
         texts, seeds = list(), list()
         for seed in seeds_dict[script]:
-            #texte, seede = plain_beam(model, seed)
-            texte, seede = nucleus_sampling(model, seed)
+            texte, seede = plain_beam(model, seed)
+            #texte, seede = nucleus_sampling(model, seed)
             texts.append(texte), seeds.append(seede)
         generations[script] = texts, seeds
     #print ("generations[script] is : ")

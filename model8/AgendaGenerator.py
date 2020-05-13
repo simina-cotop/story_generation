@@ -391,8 +391,8 @@ class Agenda(object):
         count = Agenda.event_counter[script]
         #print (count)
         agenda = list()
-        print("script inside generate_agenda is : ")
-        print(script)
+        #print("script inside generate_agenda is : ")
+        #print(script)
         agenda.append('Story_Begin_' + script )
         agenda.append('<topic>_' + script + '\n' )
         for segment in dfa:
@@ -401,7 +401,7 @@ class Agenda(object):
                 if sample < np.power(min(count[event]/100, 1), temperature):
                     agenda.append(event)
         agenda.append('Story_End_' + script)
-        print("agenda = ", agenda)
+        #print("agenda = ", agenda)
         return agenda
 
     @staticmethod

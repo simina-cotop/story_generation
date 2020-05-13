@@ -5,7 +5,7 @@ warnings.filterwarnings('ignore')
 
 class Config(object):
 
-    Run_Index = 'gender_pay_gap_nucleus_10epochs'
+    Run_Index = 'gender_pay_gap_beam_10_200epochs_test'
     os.mkdir('outputs/' + Run_Index)
 
     # TODO: EXP
@@ -112,7 +112,7 @@ class Config(object):
 
 
 
-    Max_train_epochs = 10
+    Max_train_epochs = 200
 
 
 

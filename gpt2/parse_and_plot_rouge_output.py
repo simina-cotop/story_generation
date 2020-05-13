@@ -61,7 +61,8 @@ def plot_rouge(rouge_results: RougeResults) -> None:
         plt.xlabel("Original Sentence (left SUX / right L)")
         plt.ylabel("Rouge Score")
         plt.title(f"Rouge Score for Chart {chart_name}")
-        plt.savefig(f"boxplot{chart_name}.png", bbox_inches="tight")
+        #plt.savefig(f"boxplot{chart_name}.png", bbox_inches="tight")
+        plt.savefig(f"boxplot{chart_name}.pdf", bbox_inches="tight")
 
     plt.clf()
 
@@ -79,7 +80,8 @@ def plot_rouge(rouge_results: RougeResults) -> None:
     plt.xlabel("Chart (left SUX / right L)")
     plt.ylabel("Rouge Score")
     plt.title(f"Rouge Scores")
-    plt.savefig(f"boxplots.png", bbox_inches="tight")
+    #plt.savefig(f"boxplots.png", bbox_inches="tight")
+    plt.savefig(f"boxplots.pdf", bbox_inches="tight")
 
 if __name__ == "__main__":
     rouge_results = parse_output_files()
