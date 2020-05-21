@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from nltk.corpus import stopwords
 from pprint import pprint
 from matplotlib_venn import venn3
+from hunspell import Hunspell
 import os
 import sys
 import glob
@@ -17,6 +18,8 @@ from copy import deepcopy
 
 
 nlp = spacy.load('en')
+h = Hunspell()
+
 delexicalization: List[str] = ["NUMBER_HIGHEST", "NUMBER_LEAST", "NUMBER_SCND", "NUMBER_3RD", "NUMBER_4TH", "X_AXIS_HIGHEST", "X_AXIS_LEAST", "X_AXIS_SCND", "X_AXIS_3RD", "X_AXIS_4TH"]
 delexicalization_lower: List[str] = [word.lower() for word in delexicalization]
 
@@ -31,6 +34,7 @@ class Description:
     number_of_annotations: int
     delexi: List[str]
     ner_text: List[str]
+    misspellings: List[str]
     
 
     def __init__(self: "Description", text: str) -> None:
@@ -48,6 +52,7 @@ class Description:
         self.number_of_annotations = counter
         self.delexi = []
         self.ner_text = []
+        self.misspellings = [word for word in self.no_punc_desc if h.spell(word) == False]
 
     def __str__(self: "Description") -> str:
         return f"{self.length} {self.text} {self.number_of_annotations}\n"
@@ -106,12 +111,6 @@ def init_dict(epochs: List[int], beams: List[str]) -> OrderedDict[int, OrderedDi
     return test_dict
 
 
-def get_description_list(dic: OrderedDict[int, OrderedDict[str, List[Description]]], epoch: int, beam: str) -> List[Description]:
-    inner_dic: OrderedDict[str, List[Description]] = dic[epoch]
-    description_list: List[Description] = inner_dic[beam]
-    return description_list        
-
-
 # Parse all the output files and save the data in a dictionary
 def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str]) -> OrderedDict[int, OrderedDict[str, List[Description]]]:
     epoch_dict = init_dict(epochs, beams)
@@ -150,21 +149,6 @@ def get_dictionary(script_folders: List[str], epochs: List[int], beams: List[str
     #print_dictionary(epoch_dict)
     return epoch_dict
     
-# Example of a table row without any evaluation measures    
-def generate_table_content(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
-    row: str = ""
-
-    for ep in dic:
-        row_head: str = str(ep) + ' epochs &'
-        row_values: List[int] = []
-        for el in dic[ep]:
-            l: List[Description] = dic[ep][el]
-            row_values.append(len(l))
-
-    row_middle = " & ".join(str(x) for x in row_values) + "\\\\ \\hline \n"
-    row += row_head + row_middle
-    return row
-
 # Generate evaluation measure to be added to table
 # 1. If annotations appear in the generated text
 def generate_eval_annotations(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> Tuple[str, Dict[int, Dict[str, List[int]]]]:
@@ -246,7 +230,6 @@ def count_repetitions(desc_no_stops_init: List[str], desc_with_stops_init: List[
                 all_reps[' '.join(s)] = count
                 no_gaps_reps[' '.join(s)] = count
                 desc_no_stops[i:i+window_size] = [DUMMY] * window_size
-    #print("no_gaps=", len(results_no_gaps))
 
     desc_with_stops = deepcopy(desc_with_stops_init)
     results_stop_words: str = ''
@@ -261,7 +244,6 @@ def count_repetitions(desc_no_stops_init: List[str], desc_with_stops_init: List[
             for j in range(i+window_size, len(desc_with_stops)+1-window_size):
                 # s2 is the window s is compared to
                 s2 = desc_with_stops[j:j+window_size]
-                #print(window_size, s == s2, s, s2)
                 if s == s2:
                     desc_with_stops[j:j+window_size] = [DUMMY] * window_size
                     count += 1
@@ -288,7 +270,6 @@ def count_repetitions(desc_no_stops_init: List[str], desc_with_stops_init: List[
             for j in range(i+window_size+1, len(desc_no_stops)+1-window_size):
                 # s2 is the window s is compared to
                 s2 = desc_no_stops[j:j+window_size]
-                #print(window_size, s == s2, s, s2)
                 if s == s2:
                     desc_no_stops[j:j+window_size] = [DUMMY] * window_size
                     count += 1
@@ -299,9 +280,6 @@ def count_repetitions(desc_no_stops_init: List[str], desc_with_stops_init: List[
                 all_reps[' '.join(s)] = count
                 desc_no_stops[i:i+window_size] = [DUMMY] * window_size
 
-    print("==>", results_gaps)
-    #return results_no_gaps, results_gaps
-    #print("gaps=",len(results_gaps), results_gaps)
     has_repetitions = no_gaps_counter or gaps_counter or stop_words_punc_counter
     return all_reps, has_repetitions, no_gaps_counter, gaps_counter, stop_words_punc_counter
 
@@ -366,7 +344,7 @@ def generate_eval_repetitions(dic: OrderedDict[int, OrderedDict[str, List[Descri
     return row
 
 
-
+# 3. Check how much information from the training data appears
 def get_training_data_info() -> Tuple[Dict[str, Dict[str, List[str]]], Dict[str, List[str]]]:
     os.chdir('charts_info')
 
@@ -377,7 +355,6 @@ def get_training_data_info() -> Tuple[Dict[str, Dict[str, List[str]]], Dict[str,
     for fil in files:
         training_data_info[fil] = {}
         training_data_values[fil] = []
-
 
     for chart_file in training_data_info:
         chart_info : Dict[str, List[str]] = {}
@@ -403,19 +380,11 @@ def get_training_data_info() -> Tuple[Dict[str, Dict[str, List[str]]], Dict[str,
         training_data_info[chart_file] = chart_info
         training_data_values[chart_file] = chart_actual_values
     
-    # Print dictionaries
-    '''for chart_file in training_data_info:
-        print(chart_file)
-        for key,val in training_data_info[chart_file].items():
-            print(key, val)
-        print(training_data_values[chart_file])
-        print("\n")
-    print("\n\n")'''
     os.chdir('..')
     return training_data_info, training_data_values
 
     
-# Step 3: check if the script appears (TODO: or anything else that was not caught before)
+# 4: check if the script appears (TODO: or anything else that was not caught before)
 def count_extra_info(info_script: str, all_chrt_vals: Dict[str, List[str]], desc: Description) -> Tuple[int, bool, List[str]]:
     counter_wrong_info: int = 0
     wrong_info: List[str] = []
@@ -425,15 +394,12 @@ def count_extra_info(info_script: str, all_chrt_vals: Dict[str, List[str]], desc
         for chart_file in all_chrt_vals:
             if chart_file != info_script:
                 if word in all_chrt_vals[chart_file] and word not in all_chrt_vals[info_script]:
-                    #print("vals=", all_chrt_vals[info_script])
-                    #print("w=", word)
                     counter_wrong_info += 1
                     has_wrong_info = True
                     wrong_info.append(word)
     return counter_wrong_info, has_wrong_info, wrong_info
 
 
-# 3. Count how much information appears in the description that is not in the chart
 def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Description]]], info_script: str, all_chrt_vals: Dict[str, List[str]]) -> Tuple[str, OrderedDict[int, List[Tuple[str, int]]], OrderedDict[int, List[Tuple[str, int]]]]:
     row_one: str = r'''
         \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
@@ -446,7 +412,6 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
     all_wrong_info_counts: OrderedDict[int, List[Tuple[str, int]]] = OrderedDict()
     # For each epoch
     for ep in dic:
-        #print("ep=", ep)
         row_head: str = str(ep) + ' epochs &'
         delexi_result: List[str] = []
         wrong_info_result: List[str] = []
@@ -454,9 +419,7 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
         all_wrong_info_counts[ep] = []
         # algo: keys in dic[ep], i.e. either beam+number or nucleus
         for algo in dic[ep]:
-                #print("algo=", algo)
                 description_list: List[Description] = dic[ep][algo]
-                #print("len=", len(description_list))
 
                 delexi_counter: int = 0
                 ner_counter: int = 0
@@ -473,7 +436,6 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                         delexi_counter += 1
                         for el_delexi in description.delexi:
                             all_delexis.add(el_delexi)
-                        #print("all_delexi=", all_delexis, delexi_counter)
 
                     # 2. Count NERs
                     '''description.count_ners(chrt_vals)
@@ -488,29 +450,68 @@ def generate_eval_extra_info(dic: OrderedDict[int, OrderedDict[str, List[Descrip
                         wrong_info_counter += 1
                     for info in wrong_info:
                         all_wrong_info.add(info)
-                #print(all_wrong_info)
 
                 all_delexi_counts[ep].append((algo, delexi_counter))
                 all_wrong_info_counts[ep].append((algo, wrong_info_counter))
-                #print("all=", all_delexi_counts)
                 # Turn the results into strings
                 delexi_result.append(str(delexi_counter) + " delexcalization symbols: " + ", ".join(el.replace("_", "\_") for el in all_delexis))
-                #print("res=",delexi_result)
                 wrong_info_result.append(str(wrong_info_counter) + " wrong words: " + ", ".join(el for el in all_wrong_info))
-                #print("res=",wrong_info_result)
         row_delexi: str = " & ".join(x for x in delexi_result) + "\\\\ \\hline \n"
-        #print("HERE\n")
         row_wrong_info: str = " & ".join(x for x in wrong_info_result) + "\\\\ \\hline \n"
         row_one += row_head + row_delexi 
         row_two += row_head + row_wrong_info
-        #print(row)
     row: str = row_one + row_two
     return row, all_delexi_counts, all_wrong_info_counts
+
+# 5. Check how many misspelled words appear
+def generate_eval_misspellings(dic: OrderedDict[int, OrderedDict[str, List[Description]]]) -> str:
+    row: str = r'''\multicolumn{5}{|l|}{\textbf{Misspelled words}}\\ \hline'''
+    all_miss_counts: OrderedDict[int, List[Tuple[str, int]]] = OrderedDict()
+
+    # For each epoch
+    for ep in dic:
+        row_head: str = str(ep) + ' epochs &'
+        row_values: List[Tuple[int,int]] = []
+        miss_result: List[str] = []
+        all_miss_counts[ep] = []
+        # dic[ep]: OrderedDict[str, List[Description]]
+        # algo: keys in dic[ep], i.e. either beam+number or nucleus
+        for algo in dic[ep]:
+                description_list: List[Description] = dic[ep][algo]
+                misspellings_counter: int = 0
+                all_misspellings: Set[str] = set()
+
+                # Count how many texts contain annotations
+                for description in description_list:
+                    description.count_ners(chrt_vals)
+                    if len(description.misspellings) != 0:
+                        misspellings_counter += 1
+                        for el_miss in description.misspellings:
+                            if el_miss not in description.ner_text:
+                                if "<" and ">" not in el_miss:
+                                    print("HEEEERREE\n\n")
+                                    if "%" in el_miss:
+                                        all_misspellings.add(el_miss.replace("%", "\%"))
+                                    elif "$" in el_miss:
+                                        all_misspellings.add(el_miss.replace("$", "\$"))
+                                    elif "\\" in el_miss:
+                                        all_misspellings.add(el_miss.replace("\\", "\\\\"))
+                                    else:
+                                        all_misspellings.add(el_miss)
+
+
+                all_miss_counts[ep].append((algo, misspellings_counter))
+                # Turn the results into strings
+                miss_result.append(str(misspellings_counter) + " misspelled words: " + ", ".join(el.replace("_", "\_") for el in all_misspellings))
+        row_miss: str = " & ".join(x for x in miss_result) + "\\\\ \\hline \n"
+        row += row_head + row_miss
+        print(row)
+    return row
 
 
 
 # Generate the latex table with the results
-def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: str) -> None:
+def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: str, misspellings:str) -> None:
     header = r'''\documentclass[]{article}
     \usepackage{hyperref}
     \usepackage{longtable}
@@ -554,6 +555,7 @@ def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: 
     table += annons
     table += repetitions
     table += extra_info
+    table += misspellings
 
     table += r'''\end{longtable}'''
     
@@ -573,13 +575,11 @@ def generate_table_latex(script:str, annons: str, repetitions: str, extra_info: 
 
 def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
     plt.clf()
-    #print(delexis)
     all_vals: OrderedDict[str, List[int]] = OrderedDict()
 
     for key, values in delexis.items():
         for val in values:
             all_vals.setdefault(val[0], []).append(val[1])
-    #print("all_vals=", all_vals)
     num_epoch = len(all_vals['3'])
     num_algos = len(all_vals)
     plt.bar(range(0, (num_algos+1)*num_epoch, num_algos+1), all_vals['3'], label="Beam 3")
@@ -597,13 +597,11 @@ def plot_delexi(delexis: OrderedDict[int, List[Tuple[str, int]]]) -> None:
 
 def plot_wrong_info(wrong_info: OrderedDict[int, List[Tuple[str, int]]]) -> None:
     plt.clf()
-    #print(delexis)
     all_vals: OrderedDict[str, List[int]] = OrderedDict()
 
     for key, values in wrong_info.items():
         for val in values:
             all_vals.setdefault(val[0], []).append(val[1])
-    #print("all_vals=", all_vals)
     num_epoch = len(all_vals['3'])
     num_algos = len(all_vals)
     plt.bar(range(0, (num_algos+1)*num_epoch, num_algos+1), all_vals['3'], label="Beam 3")
@@ -674,17 +672,17 @@ if __name__ == '__main__':
     # TODO: give a list of scripts as argument, and call each of the following functions on each script
     script_folders = parse_output(script)
     epoch_dict = get_dictionary(script_folders, epochs, beams)
+
     annons, annotations_per_config = generate_eval_annotations(epoch_dict)
-    #count_repetitions(epoch_dict)
     repetitions = generate_eval_repetitions(epoch_dict)
     training_data_inf, training_data_vals = get_training_data_info()
     chrt_inf: Dict[str, List[str]] = training_data_inf[info_script]
     chrt_vals: List[str] = training_data_vals[info_script]
-    #print("chrt_inf", chrt_inf)
-    #print("chrt_vals", chrt_vals)
-    #extra_info = count_extra_info(script, chrt_inf, chrt_vals)
     row_extra_info, delexis, extra_info = generate_eval_extra_info(epoch_dict, info_script, training_data_vals)
+    misspellings = generate_eval_misspellings(epoch_dict)
+    generate_table_latex(script, annons, repetitions, row_extra_info, misspellings)
+
     plot_delexi(delexis)
     plot_wrong_info(extra_info)
     plot_annotations(annotations_per_config)
-    generate_table_latex(script, annons, repetitions,row_extra_info)
+    
