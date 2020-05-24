@@ -25,14 +25,13 @@ SelfRougeResults = Dict[Tuple[str, int], SelfConfiguration] # str is for algo, i
 #CHART_chart_SENTENCE_sent_ROUGE-L.csv
 def parse_output_files() -> GPT2RougeResults:
     rouge_results: GPT2RougeResults = {}
-    os.chdir('../summarizer-master/rouge/')
     for chart_idx in range(0,10):
         chart: GPT2Chart = {}
         for sentence_idx in range(0,23):
-            with open("CHART_" + str(chart_idx) + "_SENTENCE_" + str(sentence_idx) + "_ROUGE-SUX.csv", "r") as f:
+            with open("../summarizer-master/rouge/gpt2_results_OUTPUTS/CHART_" + str(chart_idx) + "_SENTENCE_" + str(sentence_idx) + "_ROUGE-SUX.csv", "r") as f:
                 reader = csv.DictReader(f)
                 rouge_sux = [RougeValues(float(row["recall"]), float(row["precision"]), float(row["f-score"])) for row in reader]
-            with open("CHART_" + str(chart_idx) + "_SENTENCE_" + str(sentence_idx) + "_ROUGE-L.csv", "r") as f:
+            with open("../summarizer-master/rouge/gpt2_results_OUTPUTS/CHART_" + str(chart_idx) + "_SENTENCE_" + str(sentence_idx) + "_ROUGE-L.csv", "r") as f:
                 reader = csv.DictReader(f)
                 rouge_l = [RougeValues(float(row["recall"]), float(row["precision"]), float(row["f-score"])) for row in reader]
             sentence: GPT2Sentence = {idx: (a, b) for idx, (a, b) in enumerate(zip(rouge_sux, rouge_l))}
@@ -44,14 +43,14 @@ def parse_output_files() -> GPT2RougeResults:
 # CHART_BEAM5_20EPOCHS_ROUGE-SUX.csv 
 # CHART_BEAM5_20EPOCHS_ROUGE-L.csv 
 def parse_output_files_self() -> SelfRougeResults:
-    os.chdir('../summarizer-master/rouge/')
+    #os.chdir('../summarizer-master/rouge/')
     rouge_results: SelfRougeResults = {}
     for algo in ['BEAM3', 'BEAM5', 'BEAM10', 'NUCLEUS']:
         for epoch in [10, 20, 50, 100, 200]:
-            with open(f"CHART_{algo}_{epoch}EPOCHS_ROUGE-SUX.csv", "r") as f:
+            with open(f"../summarizer-master/rouge/CHART_{algo}_{epoch}EPOCHS_ROUGE-SUX.csv", "r") as f:
                 reader = csv.DictReader(f)
                 rouge_sux = [RougeValues(float(row["recall"]), float(row["precision"]), float(row["f-score"])) for row in reader]
-            with open(f"CHART_{algo}_{epoch}EPOCHS_ROUGE-L.csv", "r") as f:
+            with open(f"../summarizer-master/rouge/CHART_{algo}_{epoch}EPOCHS_ROUGE-L.csv", "r") as f:
                 reader = csv.DictReader(f)
                 rouge_l = [RougeValues(float(row["recall"]), float(row["precision"]), float(row["f-score"])) for row in reader]
             sentence: SelfConfiguration = {idx: (a, b) for idx, (a, b) in enumerate(zip(rouge_sux, rouge_l))}
@@ -100,11 +99,12 @@ def plot_rouge_gpt2(rouge_results: GPT2RougeResults) -> None:
     plt.xlabel("Chart (left SUX / right L)")
     plt.ylabel("Rouge Score")
     plt.title(f"Rouge Scores")
-    #plt.savefig(f"boxplots.png", bbox_inches="tight")
     plt.savefig(f"boxplots.pdf", bbox_inches="tight")
 
+    
 
-def plot_rouge_self(rouge_results: SelfRougeResults) -> None:
+# Generate plot for Rouge-SUX
+def plot_rouge_self_sux(rouge_results: SelfRougeResults, gpt_rouge_results: GPT2RougeResults) -> None:
     def accessor(x: RougeValues) -> float:
         return x.fscore
 
@@ -116,67 +116,53 @@ def plot_rouge_self(rouge_results: SelfRougeResults) -> None:
     for (key,values) in data_per_algo.items():
         values.sort(key=lambda x: x[0])
 
-    # Clear any existing plot data
-    plt.clf()
-
     colors = ["pink", "lightblue", "lightgreen", "wheat"]
 
-    # Entries are sorted, such that all algo are in order
-    for offset, (algo, data) in enumerate(natsorted(data_per_algo.items())):
-        epochs = [epoch for epoch, _vals in data]
-        vals = [[accessor(val[0]) for val in values.values()] for _epoch, values in data]
-        positions = list(range(offset, len(data)*(len(data_per_algo)+1), len(data_per_algo)+1))
-        print(len(vals), len(positions))
-        labels = [f"{algo.replace('BEAM', 'B').replace('NUCLEUS', 'NS')}\nEp{epoch}" for epoch in epochs]
-        bplots = plt.boxplot(vals,
-            # x positions
-            positions=positions,
-            # x labels
-            labels=labels,
-            # for coloring
-            patch_artist=True
-        )
-        for box in bplots['boxes']:
-            box.set_facecolor(colors[offset])
+    for rouge_index, rouge_type in [(0, "SUX"), (1, "L")]:
+        # Clear any existing plot data
+        plt.clf()
+        # Entries are sorted, such that all algo are in order
+        for offset, (algo, data) in enumerate(natsorted(data_per_algo.items())):
+            epochs = [epoch for epoch, _vals in data]
+            vals = [[accessor(val[rouge_index]) for val in values.values()] for _epoch, values in data]
+            positions = list(range(offset, len(data)*(len(data_per_algo)+1), len(data_per_algo)+1))
+            if offset == 1:
+                labels = [f"{algo.replace('BEAM', 'B').replace('NUCLEUS', 'NS')}\n {epoch} Epochs " for epoch in epochs]
+            else:
+                labels = [f"{algo.replace('BEAM', 'B').replace('NUCLEUS', 'NS')}" for epoch in epochs]
+            bplots = plt.boxplot(vals,
+                # x positions
+                positions=positions,
+                # x labels
+                labels=labels,
+                # for coloring
+                patch_artist=True
+            )
+            for box in bplots['boxes']:
+                box.set_facecolor(colors[offset])
 
-        # plt.vlines(len(vals), 0, 1)
+        gpt_positions = (len(data_per_algo) + 1) * len(next(iter(data_per_algo.values())))
+        vals2 = [accessor(values[rouge_index]) for sentences in gpt_rouge_results[4].values() for values in sentences.values()]
+        plt.boxplot([vals2, []], positions=[gpt_positions, -100], labels=["GPT-2", ""])
+        
+        if rouge_index == 0:
+            plt.ylim(0, 0.4)
+            plt.vlines(gpt_positions-1, 0, 0.4)
+        else:
+            plt.ylim(0, 0.7)
+            plt.vlines(gpt_positions-1, 0, 0.7)
+        plt.xlim(left=-0.5)
+        plt.xlabel("Algorithm and epoch configuration")
+        plt.ylabel(f"ROUGE-{rouge_type} Score")
+        plt.title(f"ROUGE-{rouge_type} Score for the gender_pay_gap chart")
+        plt.savefig(f"ROUGE-{rouge_type}_boxplot.pdf", bbox_inches="tight")
+        #plt.savefig("/tmp/123tmp_boxplot.pdf", bbox_inches="tight")
 
-        # vals = [[accessor(values[1]) for values in sentence.values()] for sentence in chart.values()]
-        # positions = list(map(lambda x: x+len(vals)+1, chart.keys()))
-        # plt.boxplot(vals, positions=positions, labels=list(map(str, chart.keys())))
-
-    plt.ylim(0, 0.4)
-    plt.xlabel("Original Sentence")
-    plt.ylabel("Rouge-L Score")
-    plt.title("Rouge Score for Chart gender pay gap")
-    # plt.legend()
-    #plt.savefig(f"boxplot{chart_name}.png", bbox_inches="tight")
-    plt.savefig("123tmp_boxplot.pdf", bbox_inches="tight")
-    plt.savefig("/tmp/123tmp_boxplot.pdf", bbox_inches="tight")
-
-    # plt.clf()
-
-    # vals = [[accessor(values[0]) for sentence in chart.values() for values in sentence.values()] for chart in rouge_results.values()]
-    # positions = list(rouge_results.keys())
-    # plt.boxplot(vals, positions=positions, labels=list(map(str, rouge_results.keys())))
-
-    # plt.vlines(len(vals), 0, 1)
-
-    # vals = [[accessor(values[1]) for sentence in chart.values() for values in sentence.values()] for chart in rouge_results.values()]
-    # positions = list(map(lambda x: x+len(vals)+1, rouge_results.keys()))
-    # plt.boxplot(vals, positions=positions, labels=list(map(str, rouge_results.keys())))
-
-    # plt.ylim(0, 0.6)
-    # plt.xlabel("Chart (left SUX / right L)")
-    # plt.ylabel("Rouge Score")
-    # plt.title(f"Rouge Scores")
-    # #plt.savefig(f"boxplots.png", bbox_inches="tight")
-    # plt.savefig(f"boxplots.pdf", bbox_inches="tight")
-
+    
 
 if __name__ == "__main__":
-    #rouge_results = parse_output_files()
+    gpt_rouge_results = parse_output_files()
     self_rouge_results = parse_output_files_self()
     #plot_rouge_gpt2(rouge_results)
-    plot_rouge_self(self_rouge_results)
+    plot_rouge_self_sux(self_rouge_results, gpt_rouge_results)
 
