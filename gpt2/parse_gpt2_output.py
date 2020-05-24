@@ -46,11 +46,12 @@ def parse_algo_file(filename:str, algo_file_name_part: str, epoch: str) -> List[
         data: str = f.read()
         # Remove the epoch-related information
         data = data.split('===============================')[0]
-        new_data: List[str] = re.split('\n-- TEXT [\d]* ---\n', data)
+        new_data: List[str] = re.split('\n-- TEXT [\d]+ ---\n', data)
         # Remove script name
         new_data = new_data[1:]
         # Remove '\n'
         for el in new_data:
+            el = re.sub(r"\s+", " ", el)
             newer_data.append(el)
     return newer_data
 
