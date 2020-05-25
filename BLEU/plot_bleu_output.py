@@ -10,14 +10,14 @@ from run_and_plot_bleu import create_bleu_output
 plt.rcParams["figure.figsize"] = [15, 10]
 
 # Some type aliases for better readability
-#GPT2Sentence = Dict[int, Tuple[RougeValues, RougeValues]] # int: 0->9
-#GPT2Chart = Dict[int, GPT2Sentence] # int: 0->22
-#GPT2RougeResults = Dict[int, GPT2Chart] # int: 0->9
+GPT2Sentence = List[Tuple[int, float]] # int: 0->9
+GPT2Chart = Dict[int, GPT2Sentence] # int: 0->22
+GPT2Results = Dict[int, GPT2Chart] # int: 0->9
 
 BleuConfig = List[Tuple[int, float]] # int: 0 -> 39
 BleuResults = Dict[Tuple[str, int], BleuConfig] # str is for algo, int is for epoch
 
-bleu_results = create_bleu_output()
+bleu_results, gpt_bleu_results = create_bleu_output()
 
 
 
@@ -73,13 +73,11 @@ def plot_bleu_algos(bleu_results: BleuResults) -> None:
     # aggregate the data based on algo, such that each algo can have a single color for all epochs
     data_per_algo :Dict[str, List[Tuple[int, BleuConfig]]]= {}
     for (algo, epoch), value in bleu_results.items():
-        if algo=='beam3' and epoch==10:
-            print(algo,epoch,value)
         data_per_algo.setdefault(algo, list()).append((epoch, value))
     # sort the inner lists of the data_per_algo
     for (key,values) in data_per_algo.items():
         values.sort(key=lambda x: x[0])
-    print(data_per_algo)
+    #print(data_per_algo)
 
 
     colors = ["pink", "lightblue", "lightgreen", "wheat"]
@@ -107,16 +105,13 @@ def plot_bleu_algos(bleu_results: BleuResults) -> None:
             box.set_facecolor(colors[offset])
 
         # GPT-related 
-        #gpt_positions = (len(data_per_algo) + 1) * len(next(iter(data_per_algo.values())))
-        #vals2 = [accessor(values[rouge_index]) for sentences in gpt_rouge_results[4].values() for values in sentences.values()]
-        #plt.boxplot([vals2, []], positions=[gpt_positions, -100], labels=["GPT-2", ""])
+        gpt_positions = (len(data_per_algo) + 1) * len(next(iter(data_per_algo.values())))
+        vals2 = [values[1] for sentences in gpt_bleu_results[4].values() for values in sentences]
+        plt.boxplot([vals2, []], positions=[gpt_positions, 0], labels=["GPT-2", ""])
+        
         plt.ylim(0, 100)
-        '''if rouge_index == 0:
-            plt.ylim(0, 0.4)
-            plt.vlines(gpt_positions-1, 0, 0.4)
-        else:
-            plt.ylim(0, 0.7)
-            plt.vlines(gpt_positions-1, 0, 0.7)'''
+        plt.vlines(gpt_positions-1, -1, 100)
+        
         #plt.xlim(left=-0.5)
         plt.ylim(bottom=-1)
         plt.xlabel("Algorithm and epoch configuration")
