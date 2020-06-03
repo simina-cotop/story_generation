@@ -1,0 +1,798 @@
+''
+This
+chart
+shows
+the
+number of top 100 universities in each continent    <topic>
+.
+We
+can
+see
+that
+both
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+have
+a
+very    <y_axis_trend> 
+small    <y_axis_trend>
+amount    <y_axis_inferred_label>
+whilst    <y_x_comparison_rest>
+Asia, Europe and America    <x_axis_labels_rest>
+have
+a
+much    <y_axis_trend>
+higher    <y_axis_trend>
+amount    <y_axis_inferred_label>
+<end_of_description>
+The
+graph
+shows
+America    <x_axis_label_highest_value>
+has
+over    <y_axis_approx>
+50    <y_axis_highest_value_val>
+%    <y_axis_inferred_label>
+of
+the
+top   <topic_related_property>
+100    <topic_related_property>
+Universities    <topic_related_object>
+in
+each
+continent    <x_axis>
+with
+Australia    <x_axis_label_least_value>
+and
+Africa    <x_axis_label_least_value>
+falling    <y_axis_trend>
+drastically   <y_axis_trend>
+behind    <y_axis_trend>
+with
+under    <y_axis_approx>
+10    <y_axis_inferred_value_approx>
+%    <y_axis_inferred_label>
+.
+Europe    <x_axis_label_Scnd_highest_value>
+and
+Asia    <x_axis_label_3rd_highest_value>
+have
+30    <y_axis_Scnd_highest_val>
+and
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+retrospectively
+.
+<end_of_description>
+There
+are
+more   <y_axis_trend>
+top   <topic_related_property>
+universities    <topic_related_object>
+in
+USA    <x_axis_label_highest_value>
+than
+anywhere else    <x_axis_labels_rest>
+in
+the
+world    <x_axis>
+.
+<end_of_description>
+50    <y_axis_highest_value_val>
+%    <y_axis_inferred_label>
+of
+the
+top    <topic_related_property>
+100    <topic_related_property>
+universities    <topic_related_object>
+are
+in
+America    <x_axis_label_highest_value>
+,
+followed    <order_Scnd>
+by
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+in
+Europe    <x_axis_label_Scnd_highest_value>
+.
+Asia    <x_axis_label_3rd_highest_value>
+is
+close   <y_axis_trend>
+to
+the
+European   <x_axis_label_Scnd_highest_value>
+figure    <y_axis_inferred_label>
+at
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+.
+Australia    <x_axis_label_least_value>
+and
+Africa    <x_axis_label_least_value>
+are
+similarly    <y_axis_trend>
+low    <y_axis_least_value>
+at
+about    <y_axis_approx>
+5/6    <y_axis_least_value_val>
+%    <y_axis_inferred_label>
+.
+<end_of_description>
+This
+graph
+shows
+the
+continents which hold the top 100 universities    <topic>
+.
+America    <x_axis_label_highest_value>
+shows
+the
+highest    <y_axis_highest_value>
+at
+50    <y_axis_highest_value_val>
+%     <y_axis_inferred_label>
+of
+top     <topic_related_property>
+universities     <topic_related_object>
+.
+This
+is
+followed    <order_Scnd>
+by
+the
+next   <order_Scnd>
+top   <topic_related_property>
+100   <topic_related_property>
+being
+at
+30    <y_axis_highest_value_val>
+%    <y_axis_inferred_label>
+in
+Europe    <x_axis_label_Scnd_highest_value>
+.
+Asia    <x_axis_label_3rd_highest_value>
+comes
+in
+at
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+and
+Africa    <x_axis_label_least_value>
+and
+Australia   <x_axis_label_least_value>
+come
+in
+equally    <y_axis_trend>
+at
+5    <y_axis_least_value_val>
+%    <y_axis_inferred_label>
+each
+.
+<end_of_description>
+The
+chart
+shows
+that
+America    <x_axis_label_highest_value>
+has
+the
+highest    <y_axis_highest_value>
+number    <y_axis_inferred_label>
+of
+Top    <topic_related_property>
+Universities     <topic_related_object>
+with
+50/100    <y_axis_highest_value_val>
+being
+on
+their
+continent     <x_axis>
+.
+Europe    <x_axis_label_Scnd_highest_value>
+holds
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+of
+the
+top    <topic_related_property>
+universities    <topic_related_object>
+,
+followed    <order_3rd>
+by
+Asia    <x_axis_label_3rd_highest_value>
+with
+20    <y_axis_3rd_highest_val>
+.
+Australia    <x_axis_label_least_value>
+and
+Africa    <x_axis_label_least_value>
+both
+have
+5    <y_axis_least_value_val>
+universities    <topic_related_object>
+in
+the
+top    <topic_related_property>
+100    <topic_related_property>
+<end_of_description>
+the
+table
+shows
+that
+America    <x_axis_label_highest_value>
+has
+the
+most    <y_axis_highest_value>
+top    <topic_related_property>
+universities    <topic_related_object>
+(
+50    <y_axis_highest_value_val>
+)
+,
+followed    <y_x_comparison_rest>
+by
+Europe    <x_axis_label_Scnd_highest_value>
+(
+30    <y_axis_Scnd_highest_val>
+)
+,
+Asia    <x_axis_label_3rd_highest_value>
+(
+20    <y_axis_3rd_highest_val>
+)
+,
+Africa   <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+draw    <y_axis_trend>
+with
+about
+5    <y_axis_least_value_val>
+each
+.
+<end_of_description>
+This
+chart
+shows
+the
+number of top 100 universities in each continent    <topic>
+.
+There
+are 
+50    <y_axis_highest_value_val>
+in
+the
+American    <x_axis_label_highest_value>
+continent    <x_axis>
+,
+30    <y_axis_Scnd_highest_val>
+in
+Europe    <x_axis_label_Scnd_highest_value>
+and
+20    <y_axis_3rd_highest_val>
+in
+Asia    <x_axis_label_3rd_highest_value>
+.
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+show
+has
+having
+5    <y_axis_least_value_val>
+of
+the
+top    <topic_related_property>
+100    <topic_related_property>
+universities    <topic_related_object>
+each
+<end_of_description>
+Half    <y_axis_inferred_value_mul>
+of
+the
+top   <topic_related_property>
+universities    <topic_related_object>
+in
+the
+world    <x_axis>
+are
+in
+America    <x_axis_label_highest_value>
+.
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+are
+in
+Europe   <x_axis_label_Scnd_highest_value>
+.
+Asia, Africa and Australia    <x_axis_labels_rest>   
+have
+fewer    <y_axis_trend>
+.
+Asia    <x_axis_label_3rd_highest_value>
+with
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+and
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+both 
+with
+5    <y_axis_least_value_val>
+%    <y_axis_inferred_label>
+.
+This would show that those with the highest quality university education study in the US or Europe    <interpretation>
+.
+<end_of_description>
+The
+graph
+highlights
+the
+number of top 100 universities in a number of continents    <topic>
+,
+namely
+,
+America, Africa, Australia, Europe and Asia    <x_axis_labels>
+.
+It
+shows
+that
+America    <x_axis_label_highest_value>
+has
+the
+highest    <y_axis_highest_value>
+number    <y_axis_inferred_label>
+of
+top    <topic_related_property>
+100    <topic_related_property>
+universities    <topic_related_object>
+with
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+having
+equally
+the
+least    <y_axis_least_value>
+.
+Europe    <x_axis_label_Scnd_highest_value>
+had
+30    <y_axis_Scnd_highest_val>
+of
+the
+top    <topic_related_property>
+100    <topic_related_property>
+universities    <topic_related_object>
+and
+Asia    <x_axis_label_3rd_highest_value>
+has
+20    <y_axis_3rd_highest_val>
+.
+<end_of_description>
+This
+chart
+shows
+the
+number of top 100 universities in each continent    <topic>
+.
+America    <x_axis_label_highest_value>
+has
+the
+most    <y_axis_highest_value>
+top    <topic_related_property>
+100    <topic_related_property>
+universities     <topic_related_object>
+at
+50    <y_axis_highest_value_val>
+,
+while    <y_x_comparison_rest>
+Europe    <x_axis_label_Scnd_highest_value>
+is
+2nd    <order_Scnd>
+at
+30    <y_axis_Scnd_highest_val>
+and
+Asia    <x_axis_label_3rd_highest_value>
+3rd    <order_3rd>
+at
+20    <y_axis_3rd_highest_val>
+.
+Australia    <x_axis_label_least_value>
+and
+Africa    <x_axis_label_least_value>
+have
+the
+lowest    <y_axis_least_value>
+number    <y_axis_inferred_label>
+of
+universities    <topic_related_object>
+in
+the
+top    <topic_related_property>
+100    <topic_related_property>
+at
+5    <y_axis_least_value_val>
+each
+.
+This could be interpreted as there being better education in America, however the data could also be inaccurate, as the Top 100 Universities list is made by an American company, therefore may be bias towards American institutions    <interpretation>
+.
+<end_of_description>
+The
+graph
+shows
+the
+number of Top 100 Universities per continent    <topic>
+.
+America    <x_axis_label_highest_value>
+has
+the
+most   <y_axis_highest_value>
+at
+50    <y_axis_highest_value_val>
+,
+Europe    <x_axis_label_Scnd_highest_value>
+second    <order_Scnd>
+with
+30    <y_axis_Scnd_highest_val>
+,
+then    <order_3rd>
+Asia   <x_axis_label_3rd_highest_value>
+with
+20    <y_axis_3rd_highest_val>
+and
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+are
+joint    <y_axis_trend>
+last    <y_axis_least_value>
+with
+6    <y_axis_inferred_value_approx>
+each
+.
+<end_of_description>
+Half    <y_axis_inferred_value_mul>
+of
+the
+worlds    <x_axis>
+top    <topic_related_property>
+universities    <topic_related_object>
+are
+American    <x_axis_label_highest_value>
+,
+followed    <order_Scnd>
+by
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+being
+European    <x_axis_label_Scnd_highest_value>
+.
+Asia    <x_axis_label_3rd_highest_value>
+contributes
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+of
+the
+top    <topic_related_property>
+universities    <topic_related_object>
+and
+African    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+contribute
+the
+lowest    <y_axis_least_value>
+amount    <y_axis_inferred_label>
+with
+just
+5    <y_axis_least_value_val>
+%    <y_axis_inferred_label>
+each
+.
+<end_of_description>
+This
+graph
+shows
+how many of the world's top universities are on each continent    <topic>
+.
+Half    <y_axis_inferred_value_mul>
+of
+them
+are
+in
+America    <x_axis_label_highest_value>
+.
+Europe    <x_axis_label_Scnd_highest_value>
+comes
+next    <order_Scnd>
+with
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+,
+followed    <order_3rd>
+by
+Asia    <x_axis_label_3rd_highest_value>
+with
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+.
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+(
+the country    <interpretation> 
+)
+have
+3    <y_axis_inferred_value_approx>
+%    <y_axis_inferred_label>
+each
+.
+<end_of_description>
+This
+graph
+shows
+that
+50    <y_axis_highest_value_val>
+%    <y_axis_inferred_label>
+of
+the
+top    <topic_related_property>
+universities    <topic_related_object>
+are
+in
+America    <x_axis_label_highest_value>
+,
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+in
+Europe    <x_axis_label_Scnd_highest_value>
+,
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+in
+Asia    <x_axis_label_3rd_highest_value>
+with
+5    <y_axis_least_value_val>
+%    <y_axis_inferred_label>
+in
+both
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+.
+<end_of_description>
+This
+graph
+shows
+the
+number of top 100 universities on each continent    <topic>
+.
+America    <x_axis_label_highest_value>
+has
+the
+highest    <y_axis_highest_value>
+number    <y_axis_inferred_label>
+with
+50    <y_axis_highest_value_val>
+,
+Europe    <x_axis_label_Scnd_highest_value>
+is
+next    <order_Scnd>
+with
+30    <y_axis_Scnd_highest_val>
+,
+Asia    <x_axis_label_3rd_highest_value>
+follows    <order_3rd>
+with
+20    <y_axis_3rd_highest_val>
+and
+then    <order_4th>
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+have
+5    <y_axis_least_value_val>
+each
+.
+<end_of_description>
+this
+graph
+shows
+the
+top 100 universities in each country    <topic>
+leading    <y_axis_highest_value>
+is
+America    <x_axis_label_highest_value>
+with
+50    <y_axis_highest_value_val>
+,
+Europe    <x_axis_label_Scnd_highest_value>
+with
+30    <y_axis_Scnd_highest_val>
+,
+Asia    <x_axis_label_3rd_highest_value>
+with
+20    <y_axis_3rd_highest_val>
+and
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+tying    <y_axis_trend>
+with
+4    <y_axis_inferred_value_approx>
+each
+.
+this shows that America and Europe combined have more than 80% of the top 100 universities    <interpretation>
+<end_of_description>
+America    <x_axis_label_highest_value>
+has
+the
+highest    <y_axis_highest_value>
+number    <y_axis_inferred_label>
+of
+top    <topic_related_property>
+universities    <topic_related_object>
+followed    <order_Scnd>
+by
+Europe    <x_axis_label_Scnd_highest_value>
+<end_of_description>
+This
+chart
+shows
+the
+number of top 100 universities in each continent    <topic>
+.
+America    <x_axis_label_highest_value>
+leads    <y_axis_highest_value>
+the
+way
+with
+50    <y_axis_highest_value_val>
+universities    <topic_related_object>
+,
+then    <order_Scnd>
+Europe    <x_axis_label_Scnd_highest_value>
+with
+30    <y_axis_Scnd_highest_val>
+,
+Asia    <x_axis_label_3rd_highest_value>
+with
+20    <y_axis_3rd_highest_val>
+and
+both
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+with
+5    <y_axis_least_value_val>
+<end_of_description>
+This
+graph
+displays
+the
+number of top 100 universities in each continent    <topic>
+.
+The data presumably comes from a ranking source but this information is not provided    <interpretation>
+.
+America    <x_axis_label_highest_value>
+has
+half    <y_axis_inferred_value_mul>
+the
+top    <topic_related_property>
+universities    <topic_related_object>
+,
+while    <y_x_comparison>
+Africa    <x_axis_label_least_value>
+only    <y_axis_least_value>
+has
+4    <y_axis_inferred_value_approx>
+.
+<end_of_description>
+50    <y_axis_highest_value_val>
+%    <y_axis_inferred_label>
+of
+the
+world    <x_axis>
+'
+s
+top    <topic_related_property>
+universities    <topic_related_object>
+are
+in
+America    <x_axis_label_highest_value>
+,
+30    <y_axis_Scnd_highest_val>
+%    <y_axis_inferred_label>
+are
+in
+Europe    <x_axis_label_Scnd_highest_value>
+,
+followed    <order_3rd>
+by
+20    <y_axis_3rd_highest_val>
+%    <y_axis_inferred_label>
+in
+Asia    <x_axis_label_3rd_highest_value>
+.
+Africa    <x_axis_label_least_value>
+and
+Australia    <x_axis_label_least_value>
+are
+each
+only    <y_axis_least_value>
+home
+to
+5    <y_axis_least_value_val>
+%    <y_axis_inferred_label>
+of
+the
+world    <x_axis>
+'
+s
+top    <topic_related_property>
+universities    <topic_related_object>
+.
+<end_of_description>
+The
+number of universities in each continent that are in the top 100 worldwide    <topic>
+.
+50    <y_axis_highest_value_val>
+-
+America    <x_axis_label_highest_value>
+\\n    <separator>
+5    <y_axis_least_value_val>
+-
+Africa    <x_axis_label_least_value>
+\\n    <separator>
+5    <y_axis_least_value_val>
+-
+Australia    <x_axis_label_least_value>
+\\n    <separator>
+30    <y_axis_Scnd_highest_val>
+-
+Europe    <x_axis_label_Scnd_highest_value>
+\\n    <separator>
+20    <y_axis_3rd_highest_val>
+-
+Asia    <x_axis_label_3rd_highest_value>
+<end_of_description>
+America    <x_axis_label_highest_value>
+is
+the
+continent    <x_axis>
+with
+most    <y_axis_highest_value>
+universities    <topic_related_object>
+in
+the
+top    <topic_related_property>
+100    <topic_related_property>
+table
+with
+50    <y_axis_highest_value_val>
+establishments    <y_axis_inferred_label>
+.
+Europe    <x_axis_label_Scnd_highest_value>
+comes
+next    <order_Scnd>
+with
+30    <y_axis_Scnd_highest_val>
+establishments    <y_axis_inferred_label>
+,
+Asia    <x_axis_label_3rd_highest_value>
+has
+20    <y_axis_3rd_highest_val>
+,
+whilst    <y_x_comparison_rest>
+Australia    <x_axis_label_least_value>
+and
+Africa    <x_axis_label_least_value>
+have
+only    <y_axis_least_value>
+5    <y_axis_least_value_val>
+each
+.
+<end_of_description>
