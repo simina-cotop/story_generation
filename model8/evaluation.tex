@@ -1,0 +1,73 @@
+\documentclass[]{article}
+    \usepackage{hyperref}
+    \usepackage{longtable}
+    \usepackage{csquotes}
+    \usepackage{adjustbox}
+    \usepackage{multirow}
+    \usepackage{pdflscape}
+    \usepackage[margin=0.5in]{geometry}
+    \usepackage{todonotes}
+    \usepackage{multirow}
+    \usepackage{booktabs}
+
+
+    %opening
+    \title{Evaluation Appendix}
+    \author{Simina Ana Cotop}
+    \date{}
+    \frenchspacing
+    \begin{document}
+    \begin{landscape}
+    \maketitle
+    
+    \begin{longtable}{|p{20mm}|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	\hline
+    \multicolumn{5}{|l|}{Script: gender\_pay\_gap } \\
+	\hline 
+    & \multicolumn{3}{|l|}{Beam search} & Nucleus Sampling   \\ 
+	\hline 
+	& Beam 3 & Beam 5 & Beam 10 &  \\
+	\hline
+	\endhead \multicolumn{5}{|l|}{\textbf{Annotations}  } \\ \hline10 epochs & &  &  & Texts with 1 annotation(s): 15 \newline Texts with 2 annotation(s): 6 \newline Texts with 3 annotation(s): 1 \\ \hline 
+ & (0, 40) & (0, 40) & (0, 40) & (22, 40)\\ \hline 
+20 epochs & &  &  & Texts with 1 annotation(s): 14 \newline Texts with 2 annotation(s): 5 \\ \hline 
+ & (0, 40) & (0, 40) & (0, 40) & (19, 40)\\ \hline 
+50 epochs & & Texts with 1 annotation(s): 1 \newline Texts with 2 annotation(s): 20  & Texts with 1 annotation(s): 1 \newline Texts with 2 annotation(s): 20  & Texts with 1 annotation(s): 12 \newline Texts with 2 annotation(s): 4 \newline Texts with 3 annotation(s): 3 \\ \hline 
+ & (0, 40) & (21, 40) & (21, 40) & (19, 40)\\ \hline 
+100 epochs & &  & Texts with 1 annotation(s): 14 \newline Texts with 2 annotation(s): 1 \newline Texts with 3 annotation(s): 2  & Texts with 1 annotation(s): 14 \newline Texts with 2 annotation(s): 1 \newline Texts with 3 annotation(s): 2 \\ \hline 
+ & (0, 40) & (0, 40) & (17, 40) & (17, 40)\\ \hline 
+200 epochs &Texts with 1 annotation(s): 22  & Texts with 1 annotation(s): 2  & Texts with 1 annotation(s): 1  & Texts with 1 annotation(s): 21 \newline Texts with 2 annotation(s): 4 \\ \hline 
+ & (22, 40) & (2, 40) & (1, 40) & (25, 40)\\ \hline 
+\multicolumn{5}{|l|}{\textbf{Repetitions}  } \\ \hline10 epochs &7 description(s) without gaps\newline 5 description(s) with gaps\newline 40 description(s) with stop words and punctuation & 0 description(s) without gaps\newline 2 description(s) with gaps\newline 38 description(s) with stop words and punctuation & 7 description(s) without gaps\newline 5 description(s) with gaps\newline 40 description(s) with stop words and punctuation & 1 description(s) without gaps\newline 13 description(s) with gaps\newline 1 description(s) with stop words and punctuation\\ \hline 
+ & (40, 40) & (39, 40) & (40, 40) & (13, 40)\\ \hline 
+20 epochs &39 description(s) without gaps\newline 39 description(s) with gaps\newline 27 description(s) with stop words and punctuation & 15 description(s) without gaps\newline 15 description(s) with gaps\newline 31 description(s) with stop words and punctuation & 4 description(s) without gaps\newline 5 description(s) with gaps\newline 27 description(s) with stop words and punctuation & 0 description(s) without gaps\newline 16 description(s) with gaps\newline 0 description(s) with stop words and punctuation\\ \hline 
+ & (40, 40) & (40, 40) & (34, 40) & (16, 40)\\ \hline 
+50 epochs &12 description(s) without gaps\newline 12 description(s) with gaps\newline 31 description(s) with stop words and punctuation & 27 description(s) without gaps\newline 30 description(s) with gaps\newline 36 description(s) with stop words and punctuation & 27 description(s) without gaps\newline 30 description(s) with gaps\newline 36 description(s) with stop words and punctuation & 0 description(s) without gaps\newline 19 description(s) with gaps\newline 1 description(s) with stop words and punctuation\\ \hline 
+ & (40, 40) & (40, 40) & (40, 40) & (20, 40)\\ \hline 
+100 epochs &0 description(s) without gaps\newline 3 description(s) with gaps\newline 40 description(s) with stop words and punctuation & 37 description(s) without gaps\newline 16 description(s) with gaps\newline 24 description(s) with stop words and punctuation & 1 description(s) without gaps\newline 15 description(s) with gaps\newline 3 description(s) with stop words and punctuation & 1 description(s) without gaps\newline 15 description(s) with gaps\newline 3 description(s) with stop words and punctuation\\ \hline 
+ & (40, 40) & (40, 40) & (17, 40) & (17, 40)\\ \hline 
+200 epochs &7 description(s) without gaps\newline 8 description(s) with gaps\newline 40 description(s) with stop words and punctuation & 6 description(s) without gaps\newline 7 description(s) with gaps\newline 39 description(s) with stop words and punctuation & 5 description(s) without gaps\newline 6 description(s) with gaps\newline 40 description(s) with stop words and punctuation & 0 description(s) without gaps\newline 17 description(s) with gaps\newline 1 description(s) with stop words and punctuation\\ \hline 
+ & (40, 40) & (39, 40) & (40, 40) & (17, 40)\\ \hline 
+
+        \multicolumn{5}{|l|}{\textbf{Extra or wrong information}  } \\ \hline
+        \multicolumn{5}{|l|}{\textbf{1. Delexicalization}  } \\ \hline
+    10 epochs &10 delexcalization symbols: number\_least, number\_scnd, number\_highest & 16 delexcalization symbols: number\_least, number\_scnd, number\_highest & 10 delexcalization symbols: number\_least, number\_scnd, number\_highest & 5 delexcalization symbols: number\_least, number\_highest\\ \hline 
+20 epochs &7 delexcalization symbols: number\_least, number\_scnd, number\_highest & 12 delexcalization symbols: number\_least, number\_scnd, number\_highest & 15 delexcalization symbols: number\_least, number\_scnd, number\_highest & 3 delexcalization symbols: number\_least, number\_scnd, number\_highest\\ \hline 
+50 epochs &8 delexcalization symbols: number\_least, number\_scnd, number\_highest & 8 delexcalization symbols: number\_least, number\_scnd, number\_highest & 8 delexcalization symbols: number\_least, number\_scnd, number\_highest & 0 delexcalization symbols: \\ \hline 
+100 epochs &11 delexcalization symbols: number\_least, number\_scnd, number\_highest & 1 delexcalization symbols: number\_scnd & 1 delexcalization symbols: number\_highest & 1 delexcalization symbols: number\_highest\\ \hline 
+200 epochs &7 delexcalization symbols: number\_least, number\_scnd, number\_highest & 4 delexcalization symbols: number\_least, number\_scnd & 6 delexcalization symbols: number\_least, number\_highest & 3 delexcalization symbols: number\_highest\\ \hline 
+
+        \multicolumn{5}{|l|}{\textbf{2. Wrong information}  } \\ \hline
+    10 epochs &0 wrong words:  & 21 wrong words: phd, arts & 0 wrong words:  & 30 wrong words: degree, master, africa, australia, departments, sector, asia, stem, engineering, mathematics, insurance, europe, philosophy, year, bachelor, literature, genetic, medicine\\ \hline 
+20 epochs &0 wrong words:  & 2 wrong words: asia, tech & 0 wrong words:  & 24 wrong words: degree, asia, africa, america, departments, engineering, mathematics, medicine, europe, philosophy, year, bachelor, genetic, stem\\ \hline 
+50 epochs &1 wrong words: africa & 1 wrong words: tech & 1 wrong words: tech & 26 wrong words: degree, america, africa, australia, departments, sector, mathematics, europe, philosophy, year, medicine, stem\\ \hline 
+100 epochs &0 wrong words:  & 21 wrong words: philosophy, literature & 23 wrong words: asia, america, australia, degree, departments, africa, master, stem, engineering, mathematics, europe, philosophy, year, bachelor, phd, genetic, medicine & 23 wrong words: asia, america, australia, degree, departments, africa, master, stem, engineering, mathematics, europe, philosophy, year, bachelor, phd, genetic, medicine\\ \hline 
+200 epochs &1 wrong words: america & 1 wrong words: africa & 3 wrong words: philosophy, africa, year & 23 wrong words: asia, america, africa, degree, departments, stem, engineering, mathematics, europe, philosophy, year, bachelor, literature, medicine\\ \hline 
+\multicolumn{5}{|l|}{\textbf{Misspelled words}}\\ \hline10 epochs &6 misspelled words: germany, uk & 30 misspelled words: phd, spain, germany, uk & 6 misspelled words: germany, uk & 17 misspelled words: africa, spain, gdp, european, germany, uk, earnt, indreased, pc\\ \hline 
+20 epochs &3 misspelled words: spain, germany, uk & 8 misspelled words: spain, germany, uk & 23 misspelled words: spain, germany, uk & 20 misspelled words: america, africa, spain, gdp, mdollars, tv, chosing, european, germany, continualy, favoured, uk, usa, tranding\\ \hline 
+50 epochs &4 misspelled words: africa, spain, germany, uk & 4 misspelled words: spain, uk & 4 misspelled words: spain, uk & 18 misspelled words: america, africa, spain, continualy, bsc, germany, predisposiion, nover, uk, batchelor, pc\\ \hline 
+100 epochs &6 misspelled words: spain, germany, uk & 3 misspelled words: spain, uk & 22 misspelled words: america, spain, gdp, african, continualy, tv, bsc, germany, uk, earnt, batchelor, phds & 22 misspelled words: america, spain, gdp, african, continualy, tv, bsc, germany, uk, earnt, batchelor, phds\\ \hline 
+200 epochs &11 misspelled words: tv, spain, germany, uk & 10 misspelled words: spain, germany, uk & 11 misspelled words: spain, germany, uk & 20 misspelled words: africa, spain, gdp, tv, bsc, favoured, germany, earnt, europe, uk, indreased, batchelor, pc\\ \hline 
+\end{longtable}
+    \end{landscape}
+    \end{document}
