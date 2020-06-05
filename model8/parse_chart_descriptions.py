@@ -24,15 +24,12 @@ def parse_info_files_per_chart(chart_file: str) -> List[str]:
             inline = inline.replace("\n", "")
             assert(inline != '')
             # Split on the spaces
-            if '    ' in inline:
-                splited_inline = inline.split('    ')
+            splited_inline = inline.split(' <')
 
-                # If we have annotated lines
-                if (len(splited_inline) == 2):
-                    assert(splited_inline[1] != '')
-                    all_chart_descriptions.setdefault(idx, list()).append(splited_inline[0])
-            else:
-                all_chart_descriptions.setdefault(idx, list()).append(inline)
+            # If we have annotated lines
+            if (len(splited_inline) == 2):
+                assert(splited_inline[1] != '')
+                all_chart_descriptions.setdefault(idx, list()).append(splited_inline[0].strip(' '))
                 
             if inline == '<end_of_description>':
                     idx += 1
