@@ -29,10 +29,13 @@ def parse_info_files_per_chart(chart_file: str) -> Dict[int, List[Tuple[str,str]
         while inline != '':
             # Remove the \n from the strings
             inline = inline.replace("\n", "")
+            assert(inline != '')
             # Split on the spaces
             splited_inline = inline.split('    ')
+
             # If we have annotated lines
             if (len(splited_inline) == 2):
+                assert(splited_inline[1] != '')
                 chart_descriptions.setdefault(idx, list()).append((splited_inline[0], splited_inline[1]))
             
             if inline == '<end_of_description>':
@@ -41,7 +44,7 @@ def parse_info_files_per_chart(chart_file: str) -> Dict[int, List[Tuple[str,str]
             else:
                 inline = fin.readline()
                 
-    pprint(chart_descriptions)
+    #pprint(chart_descriptions)
     #print(idx)
     
     return chart_descriptions
@@ -52,7 +55,10 @@ def turn_dict_into_opt_b(chart_descs: Dict[int, List[Tuple[str,str]]]) -> Dict[i
         chart_infos.setdefault(idx, {})
         for el in val:
             proc_idx = el[1].lstrip(" <").rstrip("> ")
-            chart_infos[idx].setdefault(proc_idx, set()).add(el[0])
+            assert(proc_idx != '')
+            chart_infos[idx].setdefault(proc_idx, set())
+            if el[0].lower() not in chart_infos[idx][proc_idx]:
+                chart_infos[idx][proc_idx].add(el[0])
     pprint(chart_infos)
     return chart_infos
 
@@ -123,43 +129,41 @@ def generate_files_opt_b(chart_infos: Dict[int, Dict[str, Set[str]]]) -> List[st
                 # Store that one element
                 element: str = list(elems)[0]
                 all_words_in_element: List[str] = element.split(" ")
-                # If element contains one word
-                '''if len(all_words_in_element) == 1:
-                    chart_line += f"{dict_idx}_1:{element}\t"
-                else:'''
+                # Iterate over the words in a sentence and output them
                 for word_idx, word in enumerate(all_words_in_element):
                     chart_line += f"{dict_idx}_{word_idx+1}:{word}\t"
             else: # The set has more than one element
                 for set_idx, el in enumerate(elems):
                     all_words_in_element: List[str] = el.split(" ")    
-                    # If each element consists of only ONE word
-                    '''if len(all_words_in_element) == 1:
-                        chart_line += f"{dict_idx}_{set_idx+1}:{el}\t" 
-                    else: # if the line contains more than one word
-                    '''
+                    # Iterate over the words in a sentence and output them
                     for widx, wel in enumerate(all_words_in_element):
                         chart_line += f"{dict_idx}_{widx+1}:{wel}\t" 
-
         chart_line += "\n"
         all_chart_lines.append(chart_line)
-    for idx, el in enumerate(all_chart_lines):
-        print(idx, el, "\n")
+    #for idx, el in enumerate(all_chart_lines):
+    #    print(idx, el, "\n")
     return all_chart_lines
 
 
-#TODO: add list of no_delexi data files
 if __name__ == "__main__":
     all_charts = ['info_gender_pay_gap.txt', 'info_median_salary_women.txt', 'info_num_top_unis.txt', 'info_student_choice_study.txt', 'info_women_work_sector.txt', 'info_median_salary_se.txt', 'info_money_spent_he.txt', 'info_obesity.txt', 'info_women_study_departments.txt',  'info_young_evenings.txt']
     #all_charts = ['info_gender_pay_gap.txt']
-    no_delexi_charts=['women_representation_in_different_sectors.txt']
-    chart_descs = parse_info_files_per_chart(no_delexi_charts[0])
-    #print(chart_descs)
-    #chart_infos_a = turn_dict_into_opt_a(chart_descs)
-    chart_infos_b = turn_dict_into_opt_b(chart_descs)
-    generate_files_opt_b(chart_infos_b)
-    '''with open('chartsopt1.box', 'w') as g:
-        for chart in all_charts:
-            xcat, yvals, diffadd, diffmul = parse_info_files_all_charts(chart)
-            chart_line = generate_files(xcat, yvals, diffadd, diffmul)
-            g.write(chart_line)'''
 
+    no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
+    
+    
+    with open('chartsoptb.box', 'w') as g:
+        for chart in no_delexi_charts:
+
+            chart_descs = parse_info_files_per_chart(chart)
+
+            #print(chart_descs)
+            #chart_infos_a = turn_dict_into_opt_a(chart_descs)
+
+            chart_infos_b = turn_dict_into_opt_b(chart_descs)
+            chart_lines_b = generate_files_opt_b(chart_infos_b)
+
+            #xcat, yvals, diffadd, diffmul = parse_info_files_all_charts(chart)
+            #chart_line = generate_files_opt_b(xcat, yvals, diffadd, diffmul)
+
+            g.write(''.join(chart_lines_b))
