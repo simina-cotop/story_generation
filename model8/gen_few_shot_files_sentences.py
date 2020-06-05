@@ -1,5 +1,5 @@
-# Generate input files for the chartsopt2 domain, from the training data, i.e. chart descriptions given by humans
-# including descriptions of the bars as sentences
+# Generate input files for the chartsopta and chartsoptb domains, from the training data, i.e. chart descriptions given by humans
+# including descriptions of the bars as annotated information
 
 from typing import List, Dict, Tuple, NamedTuple, Set
 import matplotlib.pyplot as plt
@@ -166,4 +166,4 @@ if __name__ == "__main__":
             #xcat, yvals, diffadd, diffmul = parse_info_files_all_charts(chart)
             #chart_line = generate_files_opt_b(xcat, yvals, diffadd, diffmul)
 
-            g.write(''.join(chart_lines_b))
+            g.write(''.join(chart_lines_b)+'\n\n')
