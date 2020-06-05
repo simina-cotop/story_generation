@@ -588,7 +588,7 @@ women    <topic_related_object>
 median    <topic_related_property>
 pay    <y_axis>
 rise    <y_axis_trend_up>
-to    
+to
 53    <y_axis_inferred_highest_value>
 k    <y_axis_inferred_label>
 ,

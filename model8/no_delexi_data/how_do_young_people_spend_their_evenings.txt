@@ -643,7 +643,6 @@ the
 evenings    <topic_related_object>
 <end_of_description>
 The percentage of young people who spend their evening doing different activities   <topic>
-
 .
 \\n    <separator>
 \\n    <separator>

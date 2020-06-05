@@ -2,7 +2,7 @@
 This
 chart   
 shows
-the     
+the
 average annual salary for software engineers relative to their degree    <topic>
 .
 We
@@ -11,7 +11,7 @@ see
 that
 those
 who
-have    
+have
 no degree    <x_axis_label_least_value>
 have
 a
