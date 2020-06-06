@@ -5,7 +5,6 @@ from typing import List, Dict, Tuple, NamedTuple, Set
 import matplotlib.pyplot as plt
 import os
 import glob
-import csv
 import re
 from pprint import pprint
 
@@ -159,7 +158,7 @@ if __name__ == "__main__":
 
 
 #TODO: uncomment this when I am done generating chartsopta
-    with open('chartsoptb.box', 'w') as g:
+    with open(os.path.join('chartsoptb/original_data/','chartsoptb.box'), 'w') as g:
         for chart in no_delexi_charts:
             chart_descs = parse_info_files_per_chart(chart)
             #print(chart_descs)
@@ -169,9 +168,9 @@ if __name__ == "__main__":
 
             g.write(''.join(chart_lines_b))
 
-            with open('train.box', 'w') as train:
-                with open('test.box', 'w') as test:
-                    with open('valid.box', 'w') as valid:
+            with open(os.path.join('chartsoptb/original_data/','train.box'), 'w') as train:
+                with open(os.path.join('chartsoptb/original_data/','test.box'), 'w') as test:
+                    with open(os.path.join('chartsoptb/original_data/','valid.box'), 'w') as valid:
                         for line_idx, chart_line in enumerate(chart_lines_b):
                             if line_idx in list(range(17)):
                                 #print("train=", desc_idx)

@@ -53,15 +53,15 @@ if __name__ == "__main__":
     #no_delexi_charts = ['women_representation_in_different_sectors.txt']
     
     
-    with open('chartsoptb.summary', 'w') as g:
+    with open(os.path.join('chartsoptb/original_data/','chartsoptb.summary'), 'w') as g:
         for chart in no_delexi_charts:
             chart_descs = parse_info_files_per_chart(chart)
             for desc in chart_descs:
                 g.write(desc + "\n")
     
-    with open('train.summary', 'w') as train:
-        with open('test.summary', 'w') as test:
-            with open('valid.summary', 'w') as valid:
+    with open(os.path.join('chartsoptb/original_data/','train.summary'), 'w') as train:
+        with open(os.path.join('chartsoptb/original_data/','test.summary'), 'w') as test:
+            with open(os.path.join('chartsoptb/original_data/','valid.summary'), 'w') as valid:
                 for chart in no_delexi_charts:
                     chart_descs = parse_info_files_per_chart(chart)
                     for desc_idx, desc in enumerate(chart_descs):
