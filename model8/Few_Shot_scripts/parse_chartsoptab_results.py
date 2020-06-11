@@ -22,7 +22,7 @@ def bleu_score(labels_file, predictions_path):
             stderr=subprocess.STDOUT)
         bleu_out = bleu_out.decode("utf-8")
         bleu_score = re.search(r"BLEU = (.+?),", bleu_out).group(1)
-        print(bleu_score)
+        #print(bleu_score)
         return float(bleu_score)
 
     except subprocess.CalledProcessError as error:
@@ -31,7 +31,6 @@ def bleu_score(labels_file, predictions_path):
         tf.logging.warning(
             "{} script returned non-zero exit code: {}".format(bleu_script, msg))
       return None
-
 
 
 def get_gold_text() -> List[str]:
@@ -47,8 +46,7 @@ def get_gold_text() -> List[str]:
     return all_chart_descs
 
 
-def bleu_gold_chartsopta() -> List[List[float]]:
-    bleu_results: List[List[float]] = []
+def generate_gold_files() -> None:
     all_chart_descs = get_gold_text()
 
     # Split the original chart descriptions in 10 chunks (one chunk per chart), each chunk having 23 descriptions
@@ -66,6 +64,9 @@ def bleu_gold_chartsopta() -> List[List[float]]:
             i += 23
             j += 23   
 
+
+def bleu_gold_chartsopta() -> List[List[float]]:
+    bleu_results: List[List[float]] = []
     # Compare 10 original descriptions with only one generated one at a time
     path_to_gen: str = '/mnt/Backup/simina/output_new_folder/20200607003751/chartsopta/results/loads/3/valid/'
     for orig_idx in range(10):
@@ -74,39 +75,89 @@ def bleu_gold_chartsopta() -> List[List[float]]:
             gen_idx = orig_idx * 3 + gen_idx
             interm_results.append(bleu_score(f'desc_chart_{orig_idx}', f'{path_to_gen}valid_pred_summary_{gen_idx}'))
         bleu_results.append(interm_results)
+    #pprint(bleu_results)
+    return bleu_results
+
+def bleu_gold_chartsoptb() -> List[List[float]]:
+    bleu_results: List[List[float]] = []
+    # Compare 10 original descriptions with only one generated one at a time
+    path_to_gen: str = '/mnt/Backup/simina/output_new_folder/inference_only_20200607120443/chartsoptb/results/test/'
+    for orig_idx in range(10):
+        interm_results: List[float] = []
+        for gen_idx in range(0,3):
+            gen_idx = orig_idx * 3 + gen_idx
+            interm_results.append(bleu_score(f'desc_chart_{orig_idx}', f'{path_to_gen}test_pred_summary_{gen_idx}'))
+        bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
 
+
+
 def plot_bleu_gold_chartsopta(results: List[List[float]]) -> None:
+    plt.clf()
     bars1: List[float] = []
     bars2: List[float] = []
     bars3: List[float] = []
     for chart_list in results:
-        bars1.append(chart_list[0]+1)
-        bars2.append(chart_list[1]+1)
-        bars3.append(chart_list[2]+1)
+        bars1.append(chart_list[0])
+        bars2.append(chart_list[1])
+        bars3.append(chart_list[2])
     
     barWidth = 0.25
     # Set position of bar on X axis
     r1 = np.arange(len(bars1))
     r2 = [x + barWidth for x in r1]
     r3 = [x + barWidth for x in r2]
-
+    plt.figure(figsize=(8, 4.5))
     plt.bar(r1, bars1, width=barWidth, edgecolor='white', label='Sentence1')
     plt.bar(r2, bars2, width=barWidth, edgecolor='white', label='Sentence2')
     plt.bar(r3, bars3, width=barWidth, edgecolor='white', label='Sentence3')
     plt.legend()
     plt.xlabel('Charts')
-    #plt.xticks([r + barWidth * 3 for r in range(len(bars1))], ['Chart1', 'Chart2', 'Chart3', 'Chart4', 'Chart5','Chart6', 'Chart7', 'Chart8', 'Chart9', 'Chart10'])
     plt.xticks(r1+3*barWidth/3., ['Chart1', 'Chart2', 'Chart3', 'Chart4', 'Chart5','Chart6', 'Chart7', 'Chart8', 'Chart9', 'Chart10'])
-    plt.xlim(0-(0.7-3*barWidth/2),len(bars1)-(0.7-3*barWidth/2))
+    plt.xlim(0-(0.4-3*barWidth/2),len(bars1)-(0.4-3*barWidth/2))
  
+    plt.ylabel(f"BLEU Score")
+    plt.title(f"BLEU Score for OptA Representation")
+    plt.savefig("blue_opta.pdf", bbox_inches="tight")
+
+
+def plot_bleu_gold_chartsoptb(results: List[List[float]]) -> None:
+    plt.clf()
+    
+    bars1: List[float] = []
+    bars2: List[float] = []
+    bars3: List[float] = []
+    for chart_list in results:
+        bars1.append(chart_list[0])
+        bars2.append(chart_list[1])
+        bars3.append(chart_list[2])
+    
+    barWidth = 0.25
+    # Set position of bar on X axis
+    r1 = np.arange(len(bars1))
+    r2 = [x + barWidth for x in r1]
+    r3 = [x + barWidth for x in r2]
+    plt.figure(figsize=(8, 4.5))
+    plt.bar(r1, bars1, width=barWidth, edgecolor='white', label='Sentence1')
+    plt.bar(r2, bars2, width=barWidth, edgecolor='white', label='Sentence2')
+    plt.bar(r3, bars3, width=barWidth, edgecolor='white', label='Sentence3')
+    plt.legend()
+    plt.xlabel('Charts')
+    plt.xticks(r1+3*barWidth/3., ['Chart1', 'Chart2', 'Chart3', 'Chart4', 'Chart5','Chart6', 'Chart7', 'Chart8', 'Chart9', 'Chart10'])
+    plt.xlim(0-(0.6-3*barWidth/2),len(bars1)-(0.6-3*barWidth/2))
+    
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for OptB Representation")
     plt.savefig("blue_optb.pdf", bbox_inches="tight")
 
 
+
 if __name__ == '__main__':
-    res = bleu_gold_chartsopta()
-    plot_bleu_gold_chartsopta(res)
-    #parse_chartsoptb()
+    generate_gold_files()
+
+    res_opta = bleu_gold_chartsopta()
+    plot_bleu_gold_chartsopta(res_opta)
+
+    res_optb = bleu_gold_chartsoptb()
+    plot_bleu_gold_chartsoptb(res_optb)
