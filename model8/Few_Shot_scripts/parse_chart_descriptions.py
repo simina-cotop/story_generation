@@ -48,12 +48,68 @@ def parse_info_files_per_chart(chart_file: str) -> List[str]:
     return final_chart_descriptions
 
 
+def turn_chart_info_files_into_sentences(chart_file: str) -> List[str]:
+    all_chart_descriptions: Dict[int, Dict[int, List[str]]] = {}
+    final_chart_descriptions: List[str] = []
+
+    # idx: description index
+    idx: int = 0
+
+    with open("../no_delexi_data/" + chart_file, 'r') as fin:
+        inline = fin.readline() # Reads ''
+        inline = fin.readline()
+
+        # sent_idx: sentence index
+        sent_idx: int = 0
+
+        # While we did not reach the end of the file        
+        while inline != '':
+            all_chart_descriptions.setdefault(idx, {})
+
+            # Remove the \n from the strings
+            inline = inline.replace("\n", "")
+            assert(inline != '')
+            # Split on the spaces
+            splited_inline = inline.split(' <')
+            
+            # If we have annotated lines
+            assert(splited_inline[0] != '')
+            if splited_inline[0] != '<end_of_description>':
+                all_chart_descriptions[idx].setdefault(sent_idx, list()).append(splited_inline[0].strip(' '))
+
+            # If we found a dot, we need to start a new sentence
+            if inline == '.':
+                sent_idx += 1
+                
+            if inline == '<end_of_description>':
+                    idx += 1
+            inline = fin.readline()
+    #print(all_chart_descriptions)
+
+    #pprint(all_chart_descriptions)
+    # all_sentences: Dict[int, List[str]]
+    for idx, all_sentences in all_chart_descriptions.items():
+        for sent_idx, sent in all_sentences.items():
+            desc_str: str = ' '.join(sent)
+            desc_str = desc_str.replace('<end_of_description>','')
+            desc_str = desc_str.replace(" .", ".")
+            desc_str = desc_str.replace(" %", "%")
+            desc_str = desc_str.replace("( ", "(")
+            desc_str = desc_str.replace(" )", ")")
+            final_chart_descriptions.append(desc_str)
+    #for idx, el in enumerate(final_chart_descriptions):
+    #    print(idx, el, '\n')
+    #print(len(final_chart_descriptions))
+    return final_chart_descriptions
+
+
+
 if __name__ == "__main__":
-    no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
-    #no_delexi_charts = ['women_representation_in_different_sectors.txt']
+    #no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
+    no_delexi_charts = ['women_representation_in_different_sectors.txt']
+    descs = turn_chart_info_files_into_sentences(no_delexi_charts[0])
     
-    
-    with open(os.path.join('chartsoptb/original_data/','chartsoptb.summary'), 'w') as g:
+    '''with open(os.path.join('chartsoptb/original_data/','chartsoptb.summary'), 'w') as g:
         for chart in no_delexi_charts:
             chart_descs = parse_info_files_per_chart(chart)
             for desc in chart_descs:
@@ -73,4 +129,4 @@ if __name__ == "__main__":
                             #print("test=", desc_idx)
                         elif desc_idx in list(range(20,23)):
                             #print("valid=", desc_idx)
-                            valid.write(desc + "\n")
+                            valid.write(desc + "\n")'''
