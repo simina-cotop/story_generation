@@ -115,7 +115,7 @@ def generate_files_opt_b(chart_infos: Dict[int, Dict[str, Set[str]]]) -> List[st
     #    print(idx, el, "\n")
     return all_chart_lines
 
-def write_to_file_opta(no_delexi_charts: List[str]):
+def write_to_file_opta(no_delexi_charts: List[str]) -> None:
     with open(os.path.join('chartsopta/original_data/','chartsopta.box'), 'w') as g:
         with open(os.path.join('chartsopta/original_data/','train.box'), 'w') as train:
             with open(os.path.join('chartsopta/original_data/','test.box'), 'w') as test:
@@ -142,7 +142,7 @@ def write_to_file_opta(no_delexi_charts: List[str]):
                                 valid.write(chart_line)
 
 
-def write_to_file_optb(no_delexi_charts: List[str]):
+def write_to_file_optb(no_delexi_charts: List[str]) -> None:
     with open(os.path.join('chartsoptb/original_data/','chartsoptb.box'), 'w') as g:
         with open(os.path.join('chartsoptb/original_data/','train.box'), 'w') as train:
             with open(os.path.join('chartsoptb/original_data/','test.box'), 'w') as test:
@@ -169,10 +169,10 @@ def write_to_file_optb(no_delexi_charts: List[str]):
                                 valid.write(chart_line)
 
 
-def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int, List[Tuple[str,str]]]], Dict[int, List[Tuple[str,str]]]]:
+def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int, List[Tuple[str,str]]]], Dict[int, Dict[int, List[Tuple[str,str]]]]]:
     # chart_descriptions[0] = {0: List[(law firms, <x_axis_label_highest_value>),(highest, <y_axis_highest_value>)], 1:List[()],...}
     chart_descriptions: Dict[int, Dict[int, List[Tuple[str,str]]]] = {}
-    reversed_chart_descriptions: Dict[int, List[Tuple[str,str]]] = {}
+    reversed_chart_descriptions: Dict[int, Dict[int, List[Tuple[str,str]]]] = {}
 
     # idx: description index
     idx: int = 0
@@ -181,12 +181,16 @@ def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int,
         
         inline = fin.readline() # Reads ''
         inline = fin.readline()
+        
+        # sent_idx: sentence index
+        sent_idx: int = 0
+
         # While we did not reach the end of the file        
-        sent_idx:int = 0
         while inline != '':
             
-            # Initialize the dictionary corresponding to the first description
             chart_descriptions.setdefault(idx, {})
+            reversed_chart_descriptions.setdefault(idx, {})
+
             inline = inline.replace("\n", "")
             assert(inline != '')
             # Split on the spaces
@@ -196,8 +200,9 @@ def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int,
             if (len(splited_inline) == 2):
                 assert(splited_inline[1] != '')
                 chart_descriptions[idx].setdefault(sent_idx, list()).append((splited_inline[0].strip(' '), splited_inline[1].rstrip("> ")))
-                #reversed_chart_descriptions.setdefault(idx, list()).append((splited_inline[1].rstrip("> "), splited_inline[0].strip(' ')))
+                reversed_chart_descriptions[idx].setdefault(sent_idx, list()).append((splited_inline[1].rstrip("> "), splited_inline[0].strip(' ')))
 
+            # If we found a dot, we need to start a new sentence
             if inline == '.':
                 sent_idx += 1
             
@@ -208,10 +213,64 @@ def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int,
             else:
                 inline = fin.readline()
                 
-    pprint(chart_descriptions)
-    #print(idx)
+    #pprint(chart_descriptions)
+    #pprint(reversed_chart_descriptions)
     
     return chart_descriptions, reversed_chart_descriptions
+
+def generate_files_sent_a(reversed_chart_descs: Dict[int, Dict[int, List[Tuple[str,str]]]]) -> List[str]:
+    all_chart_lines: List[str] = []
+    global_counter: int = 1
+    
+    # idx: int, all_vals: Dict[int, List[Tuple[str,str]]]
+    for idx, all_vals in reversed_chart_descs.items():
+        for sent_idx, all_sents in all_vals.items():
+            chart_line: str = ""
+            # dict_idx: int, elems: Tuple[str,str]
+            for dict_idx, elems in enumerate(all_sents):
+                all_words_in_element: List[str] = elems[1].split(" ")
+                # Iterate over the words in a sentence and output them
+                for word_idx, word in enumerate(all_words_in_element):
+                    chart_line += f"{elems[0]}_{word_idx+1}:{word}\t"
+                    
+            chart_line = chart_line.rstrip('\t')
+            chart_line += "\n"
+            all_chart_lines.append(chart_line)
+    '''for idx, el in enumerate(all_chart_lines):
+        pprint(reversed_chart_descs[idx])
+        print(idx, el, "\n\n\n")'''
+    return all_chart_lines
+
+
+#TODO: also need to change the original summaries files
+def write_to_file_chartssenta(no_delexi_charts: List[str]) -> None:
+    with open(os.path.join('chartssenta/original_data/','chartssenta.box'), 'w') as g:
+        with open(os.path.join('chartssenta/original_data/','train.box'), 'w') as train:
+            with open(os.path.join('chartssenta/original_data/','test.box'), 'w') as test:
+                with open(os.path.join('chartssenta/original_data/','valid.box'), 'w') as valid:
+        
+                    for chart in no_delexi_charts:
+
+                        chart_descs, reversed_chart_descs = turn_chart_info_into_sentences(chart)
+                        #print(chart_descs)
+
+                        # chart_lines_senta : all the sentences belonging to chart `chart`
+                        chart_lines_senta = generate_files_sent_a(reversed_chart_descs)
+                        len_all_chart_sentences = len(chart_lines_senta)
+                        print("len=", len_all_chart_sentences)
+                        g.write(''.join(chart_lines_senta))
+
+                        for line_idx, chart_line in enumerate(chart_lines_senta):
+                            if line_idx in list(range(5)):
+                                test.write(chart_line)
+                                #print("test=", line_idx)
+                            elif line_idx in list(range(5,10)):
+                                #print("valid=", line_idx)
+                                valid.write(chart_line)
+                            elif line_idx in list(range(10,len_all_chart_sentences)):
+                                #print("train=", line_idx)
+                                train.write(chart_line)
+                            
 
 
 
@@ -227,8 +286,12 @@ if __name__ == "__main__":
     ##write_to_file_optb(no_delexi_charts)
 
     #Create chartssenta files
-    turn_chart_info_into_sentences(no_delexi_charts[0])
-
+    '''chart_descs, reversed_chart_descs = turn_chart_info_into_sentences(no_delexi_charts[0])
+    with open('test.txt', 'w') as g:
+        chart_lines_senta = generate_files_sent_a(reversed_chart_descs)
+        g.write(''.join(chart_lines_senta))
+    #pprint(chart_lines_senta)'''
+    write_to_file_chartssenta(no_delexi_charts)
     #Create chartssentb files
         
 
