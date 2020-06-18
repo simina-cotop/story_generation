@@ -615,7 +615,7 @@ category
 is
 STEM    <x_axis_label_highest_value>
 .
-It is unclear where other departments like History or Social Science fit
+It is unclear where other departments like History or Social Science fit    <interpretation>
 .
 Philosophy    <x_axis_label_least_value>
 is
