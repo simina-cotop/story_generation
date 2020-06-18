@@ -242,7 +242,6 @@ def generate_files_sent_a(reversed_chart_descs: Dict[int, Dict[int, List[Tuple[s
     return all_chart_lines
 
 
-#TODO: also need to change the original summaries files
 def write_to_file_chartssenta(no_delexi_charts: List[str]) -> None:
     with open(os.path.join('chartssenta/original_data/','chartssenta.box'), 'w') as g:
         with open(os.path.join('chartssenta/original_data/','train.box'), 'w') as train:
@@ -262,8 +261,8 @@ def write_to_file_chartssenta(no_delexi_charts: List[str]) -> None:
 
                         for line_idx, chart_line in enumerate(chart_lines_senta):
                             if line_idx in list(range(5)):
-                                test.write(chart_line)
                                 #print("test=", line_idx)
+                                test.write(chart_line)
                             elif line_idx in list(range(5,10)):
                                 #print("valid=", line_idx)
                                 valid.write(chart_line)
@@ -276,8 +275,8 @@ def write_to_file_chartssenta(no_delexi_charts: List[str]) -> None:
 
 if __name__ == "__main__":
 
-    #no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
-    no_delexi_charts = ['women_representation_in_different_sectors.txt']
+    no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
+    #no_delexi_charts = ['women_representation_in_different_sectors.txt']
    
     # Create opta files
     ##write_to_file_opta(no_delexi_charts)

@@ -97,24 +97,20 @@ def turn_chart_info_files_into_sentences(chart_file: str) -> List[str]:
             desc_str = desc_str.replace("( ", "(")
             desc_str = desc_str.replace(" )", ")")
             final_chart_descriptions.append(desc_str)
-    #for idx, el in enumerate(final_chart_descriptions):
-    #    print(idx, el, '\n')
-    #print(len(final_chart_descriptions))
+    '''for idx, el in enumerate(final_chart_descriptions):
+        print(idx, el, '\n')
+    print(len(final_chart_descriptions))'''
     return final_chart_descriptions
 
-
-
-if __name__ == "__main__":
-    #no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
-    no_delexi_charts = ['women_representation_in_different_sectors.txt']
-    descs = turn_chart_info_files_into_sentences(no_delexi_charts[0])
-    
-    '''with open(os.path.join('chartsoptb/original_data/','chartsoptb.summary'), 'w') as g:
+def create_chartsoptb_summary(no_delexi_charts: List[str]) -> None:
+    with open(os.path.join('chartsoptb/original_data/','chartsoptb.summary'), 'w') as g:
         for chart in no_delexi_charts:
             chart_descs = parse_info_files_per_chart(chart)
             for desc in chart_descs:
                 g.write(desc + "\n")
-    
+
+
+def create_chartsoptb_files(no_delexi_charts: List[str]) -> None:
     with open(os.path.join('chartsoptb/original_data/','train.summary'), 'w') as train:
         with open(os.path.join('chartsoptb/original_data/','test.summary'), 'w') as test:
             with open(os.path.join('chartsoptb/original_data/','valid.summary'), 'w') as valid:
@@ -129,4 +125,56 @@ if __name__ == "__main__":
                             #print("test=", desc_idx)
                         elif desc_idx in list(range(20,23)):
                             #print("valid=", desc_idx)
-                            valid.write(desc + "\n")'''
+                            valid.write(desc + "\n")
+
+
+
+def create_chartssenta_summary(no_delexi_charts: List[str]) -> None:
+    with open(os.path.join('chartssenta/original_data/','chartssenta.summary'), 'w') as g:
+        for chart in no_delexi_charts:
+            chart_descs = turn_chart_info_files_into_sentences(chart)
+            for desc in chart_descs:
+                g.write(desc + "\n")
+
+def create_chartssenta_files(no_delexi_charts: List[str]) -> None:
+    with open(os.path.join('chartssenta/original_data/','train.summary'), 'w') as train:
+        with open(os.path.join('chartssenta/original_data/','test.summary'), 'w') as test:
+            with open(os.path.join('chartssenta/original_data/','valid.summary'), 'w') as valid:
+                for chart in no_delexi_charts:
+                    # charts_descs: list containing all the sentences belonging to only ONE chart
+                    chart_descs = turn_chart_info_files_into_sentences(chart)
+                    print("len=", len(chart_descs))
+                    for desc_idx, desc in enumerate(chart_descs):
+                        if desc_idx in list(range(5)):
+                            #print("test=", desc_idx)
+                            test.write(desc + "\n")
+                        elif desc_idx in list(range(5,10)):
+                            #print("valid=", desc_idx)
+                            valid.write(desc + "\n")
+                        elif desc_idx in list(range(10,len(chart_descs))):
+                            #print("train=", desc_idx)
+                            train.write(desc + "\n")
+                            
+
+
+
+if __name__ == "__main__":
+    no_delexi_charts = ['women_representation_in_different_sectors.txt', 'gender_pay_gap.txt', 'how_do_young_people_spend_their_evenings.txt', 'Median_salary_of_women.txt', 'median_salary_per_year_for_se_with_respect_to_their_degrees.txt', 'Money_spent_on_higher_education.txt', 'Number_of_top_Unis.txt', 'what_causes_obesity.txt', 'what_do_students_choose_to_study.txt', 'women_representation_in_different_departments.txt']
+    #no_delexi_charts = ['women_representation_in_different_sectors.txt']
+    
+    
+    # Create .summary file for chartsoptb
+    #create_chartsoptb_summary(no_delexi_charts)
+
+    # Create the rest of the .summary files for chartsoptb
+    #create_chartsoptb_files(no_delexi_charts)
+
+    # Parse the .txt files with the chart descriptions and return a list of strings containins the sentences
+    #all_descriptions = turn_chart_info_files_into_sentences(no_delexi_charts[0])
+
+    # Create .summary file for chartssenta
+    create_chartssenta_summary(no_delexi_charts)
+
+    # Create the rest of the .summary files for chartsoptb
+    create_chartssenta_files(no_delexi_charts)    
+    
