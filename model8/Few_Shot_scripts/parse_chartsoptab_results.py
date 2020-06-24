@@ -72,10 +72,10 @@ def bleu_gold_chartsopta() -> List[List[float]]:
     for orig_idx in range(10):
         interm_results: List[float] = []
         for gen_idx in range(0,3):
-            gen_idx = orig_idx * 3 + gen_idx
-            interm_results.append(bleu_score(f'desc_chart_{orig_idx}', f'{path_to_gen}valid_pred_summary_{gen_idx}'))
+            new_gen_idx = orig_idx * 3 + gen_idx
+            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_gold_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
         bleu_results.append(interm_results)
-    #pprint(bleu_results)
+    pprint(bleu_results)
     return bleu_results
 
 def bleu_gold_chartsoptb() -> List[List[float]]:
@@ -85,8 +85,8 @@ def bleu_gold_chartsoptb() -> List[List[float]]:
     for orig_idx in range(10):
         interm_results: List[float] = []
         for gen_idx in range(0,3):
-            gen_idx = orig_idx * 3 + gen_idx
-            interm_results.append(bleu_score(f'desc_chart_{orig_idx}', f'{path_to_gen}test_pred_summary_{gen_idx}'))
+            new_gen_idx = orig_idx * 3 + gen_idx
+            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_gold_{orig_idx}_{gen_idx}', f'{path_to_gen}test_pred_summary_{new_gen_idx}'))
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
@@ -119,7 +119,7 @@ def plot_bleu_gold_chartsopta(results: List[List[float]]) -> None:
  
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for OptA Representation")
-    plt.savefig("blue_opta.pdf", bbox_inches="tight")
+    plt.savefig("blue_opta_all.pdf", bbox_inches="tight")
 
 
 def plot_bleu_gold_chartsoptb(results: List[List[float]]) -> None:
@@ -149,7 +149,7 @@ def plot_bleu_gold_chartsoptb(results: List[List[float]]) -> None:
     
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for OptB Representation")
-    plt.savefig("blue_optb.pdf", bbox_inches="tight")
+    plt.savefig("blue_optb_all.pdf", bbox_inches="tight")
 
 
 

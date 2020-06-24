@@ -109,6 +109,15 @@ def create_chartsoptb_summary(no_delexi_charts: List[str]) -> None:
             for desc in chart_descs:
                 g.write(desc + "\n")
 
+def create_separate_gold_files_opt_dom(no_delexi_charts: List[str]) -> None:
+        for cidx, chart in enumerate(no_delexi_charts):
+            chart_descs = parse_info_files_per_chart(chart)
+            for idx, desc in enumerate(chart_descs):
+                if idx in list(range(20,23)):
+                    with open(f'chartsopta/all_gold/opta_gold_{cidx}_{idx-20}', 'w') as g:
+                        g.write(desc + "\n")
+
+
 
 def create_chartsoptb_files(no_delexi_charts: List[str]) -> None:
     with open(os.path.join('chartsoptb/original_data/','train.summary'), 'w') as train:
@@ -201,5 +210,10 @@ if __name__ == "__main__":
     #Generate gold text files for BLEU
     #gen_gold_files(no_delexi_charts)
 
-    #Generate SEPARATE gold text files for BLEU
+    #Generate SEPARATE gold text files for BLEU for sent domain
     create_separate_gold_files_sent_dom(no_delexi_charts)
+
+    #Generate SEPARATE gold text files for BLEU for opt domain
+    create_separate_gold_files_opt_dom(no_delexi_charts)
+
+
