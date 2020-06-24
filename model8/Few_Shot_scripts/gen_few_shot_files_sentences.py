@@ -290,6 +290,7 @@ def turn_dict_into_sent_b(chart_descs: Dict[int, Dict[int, List[Tuple[str,str]]]
     pprint(chart_infos)
     return chart_infos
 
+
 def generate_files_sent_b(chart_infos: Dict[int, Dict[int, Dict[str, Set[str]]]]) -> List[str]:
     print("HERE2\n")
     all_chart_lines: List[str] = []

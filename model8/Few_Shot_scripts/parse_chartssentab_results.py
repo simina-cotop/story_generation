@@ -19,15 +19,16 @@ def bleu_score(labels_file, predictions_path):
             stdin=predictions_file,
             stderr=subprocess.STDOUT)
         bleu_out = bleu_out.decode("utf-8")
-        #bleu_score = re.search(r"BLEU = (.+?),", bleu_out).group(1)
-        matches = re.search(r"BLEU = (.+?), (.+?)/(.+?)/(.+?)/(.+?)", bleu_out)
+        bleu_score = re.search(r"BLEU = (.+?),", bleu_out).group(1)
+        '''matches = re.search(r"BLEU = (.+?), (.+?)/(.+?)/(.+?)/(.+?)", bleu_out)
         bleu_score1 = float(matches.group(2))
         bleu_score2 = float(matches.group(3))
         bleu_score3 = float(matches.group(4))
         bleu_score4 = float(matches.group(5))
-        avg = (bleu_score1 + bleu_score2 + bleu_score3 + bleu_score4) / 4
+        avg = (bleu_score1 + bleu_score2 + bleu_score3 + bleu_score4) / 4'''
         #print(bleu_score)
-        return avg
+        #return avg
+        return float(bleu_score)
 
     except subprocess.CalledProcessError as error:
       if error.output is not None:
@@ -37,19 +38,6 @@ def bleu_score(labels_file, predictions_path):
       return None
 
 
-def get_gold_text() -> List[str]:
-    all_chart_descs: List[str] = []
-    filename = '../../../../few_shot_appendix/data_release/chartssenta/original_data/chartssenta.summary' 
-    with open(filename, 'r') as gold:
-        inline = gold.readline()
-        while inline != '':
-            all_chart_descs.append(inline.replace("\n", ""))
-            inline = gold.readline()
-    #pprint(all_chart_descs)
-    #print(len(all_chart_descs))
-    return all_chart_descs
-
-
 def bleu_gold_chartssenta() -> List[List[float]]:
     bleu_results: List[List[float]] = []
     # Compare 10 original descriptions with only one generated one at a time
@@ -57,8 +45,8 @@ def bleu_gold_chartssenta() -> List[List[float]]:
     for orig_idx in range(10):
         interm_results: List[float] = []
         for gen_idx in range(0,5):
-            gen_idx = orig_idx * 5 + gen_idx
-            interm_results.append(bleu_score(f'desc_sent_{orig_idx}', f'{path_to_gen}valid_pred_summary_{gen_idx}'))
+            new_gen_idx = orig_idx * 5 + gen_idx
+            interm_results.append(bleu_score(f'chartssenta/all_gold/senta_gold_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
@@ -70,14 +58,13 @@ def bleu_gold_chartssentb() -> List[List[float]]:
     for orig_idx in range(10):
         interm_results: List[float] = []
         for gen_idx in range(0,5):
-            gen_idx = orig_idx * 5 + gen_idx
-            interm_results.append(bleu_score(f'desc_sent_{orig_idx}', f'{path_to_gen}valid_pred_summary_{gen_idx}'))
+            new_gen_idx = orig_idx * 5 + gen_idx
+            interm_results.append(bleu_score(f'chartssenta/all_gold/senta_gold_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
 
 
-#TODO: the input list has a different type now, so I have to update that too
 def plot_bleu_gold_chartssenta(results: List[List[float]]) -> None:
     plt.clf()
     bars1: List[float] = []
@@ -111,9 +98,9 @@ def plot_bleu_gold_chartssenta(results: List[List[float]]) -> None:
     plt.xticks(r1+5*barWidth/2.5, ['Chart1', 'Chart2', 'Chart3', 'Chart4', 'Chart5','Chart6', 'Chart7', 'Chart8', 'Chart9', 'Chart10'])
     plt.xlim(0-(0.4-3*barWidth/2),len(bars1)-(0.4-3*barWidth/2))
  
-    plt.ylabel(f"BLEU Average Score")
-    plt.title(f"BLEU Average Score for SentA Representation")
-    plt.savefig("blue_senta.pdf", bbox_inches="tight")
+    plt.ylabel(f"BLEU Score")
+    plt.title(f"BLEU Score for SentA Representation")
+    plt.savefig("blue_senta_all.pdf", bbox_inches="tight")
 
 
 def plot_bleu_gold_chartssentb(results: List[List[float]]) -> None:
@@ -149,9 +136,9 @@ def plot_bleu_gold_chartssentb(results: List[List[float]]) -> None:
     plt.xticks(r1+5*barWidth/2.5, ['Chart1', 'Chart2', 'Chart3', 'Chart4', 'Chart5','Chart6', 'Chart7', 'Chart8', 'Chart9', 'Chart10'])
     plt.xlim(0-(0.6-3*barWidth/2),len(bars1)-(0.6-3*barWidth/2))
     
-    plt.ylabel(f"BLEU Average Score")
-    plt.title(f"BLEU Average Score for SentB Representation")
-    plt.savefig("blue_sentb.pdf", bbox_inches="tight")
+    plt.ylabel(f"BLEU Score")
+    plt.title(f"BLEU Score for SentB Representation")
+    plt.savefig("blue_sentb_all.pdf", bbox_inches="tight")
 
 
 

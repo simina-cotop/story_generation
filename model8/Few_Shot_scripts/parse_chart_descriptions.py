@@ -136,6 +136,17 @@ def create_chartssenta_summary(no_delexi_charts: List[str]) -> None:
             for desc in chart_descs:
                 g.write(desc + "\n")
 
+def create_separate_gold_files_sent_dom(no_delexi_charts: List[str]) -> None:
+        for cidx, chart in enumerate(no_delexi_charts):
+            chart_descs = turn_chart_info_files_into_sentences(chart)
+            for idx, desc in enumerate(chart_descs):
+                if idx in list(range(5,10)):
+                    with open(f'chartssenta/all_gold/senta_gold_{cidx}_{idx-5}', 'w') as g:
+                        g.write(desc + "\n")
+                    
+    
+            
+
 def create_chartssenta_files(no_delexi_charts: List[str]) -> None:
     with open(os.path.join('chartssenta/original_data/','train.summary'), 'w') as train:
         with open(os.path.join('chartssenta/original_data/','test.summary'), 'w') as test:
@@ -188,4 +199,7 @@ if __name__ == "__main__":
     ##create_chartssenta_files(no_delexi_charts)  
 
     #Generate gold text files for BLEU
-    gen_gold_files(no_delexi_charts)
+    #gen_gold_files(no_delexi_charts)
+
+    #Generate SEPARATE gold text files for BLEU
+    create_separate_gold_files_sent_dom(no_delexi_charts)
