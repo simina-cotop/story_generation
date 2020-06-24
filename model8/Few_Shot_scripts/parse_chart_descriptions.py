@@ -154,7 +154,16 @@ def create_chartssenta_files(no_delexi_charts: List[str]) -> None:
                         elif desc_idx in list(range(10,len(chart_descs))):
                             #print("train=", desc_idx)
                             train.write(desc + "\n")
-                            
+
+
+def gen_gold_files(no_delexi_charts: List[str]) -> None:
+    for idx, chart in enumerate(no_delexi_charts):
+        with open(f'desc_sent_{idx}', 'w') as desc_sent:
+                # chart_descs: List[str] corressponding to ONE chart
+                chart_descs = turn_chart_info_files_into_sentences(chart)
+                for desc in chart_descs:
+                    desc_sent.write(desc + "\n")
+
 
 
 
@@ -173,8 +182,10 @@ if __name__ == "__main__":
     #all_descriptions = turn_chart_info_files_into_sentences(no_delexi_charts[0])
 
     # Create .summary file for chartssenta
-    create_chartssenta_summary(no_delexi_charts)
+    ##create_chartssenta_summary(no_delexi_charts)
 
     # Create the rest of the .summary files for chartsoptb
-    create_chartssenta_files(no_delexi_charts)    
-    
+    ##create_chartssenta_files(no_delexi_charts)  
+
+    #Generate gold text files for BLEU
+    gen_gold_files(no_delexi_charts)
