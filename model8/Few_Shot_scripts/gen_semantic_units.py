@@ -17,48 +17,12 @@ from gensim.models import Phrases
 # 2. Parse the description files to get the sentences corresponding to each bar and add those to the dictionary
 # 3. From the dictionary generate the files according to the correct structure
 
-def parse_info_files_per_chart(chart_file: str) -> Tuple[Dict[int, List[Tuple[str,str]]], Dict[int, List[Tuple[str,str]]]]:
-    # chart_descriptions[0] = [(law firms, <x_axis_label_highest_value>),(highest, <y_axis_highest_value>),...]
-    chart_descriptions: Dict[int, List[Tuple[str,str]]] = {}
-    reversed_chart_descriptions: Dict[int, List[Tuple[str,str]]] = {}
-    idx: int = 0
-    with open("../no_delexi_data/" + chart_file, 'r') as fin:
-        inline = fin.readline() # Reads ''
-        inline = fin.readline()
-        # While we did not reach the end of the file        
-        while inline != '':
-            # Remove the \n from the strings
-            inline = inline.replace("\n", "")
-            assert(inline != '')
-            # Split on the spaces
-            splited_inline = inline.split(' <')
 
-            # If we have annotated lines
-            if (len(splited_inline) == 2):
-                assert(splited_inline[1] != '')
-                chart_descriptions.setdefault(idx, list()).append((splited_inline[0].strip(' '), splited_inline[1].rstrip("> ")))
-                reversed_chart_descriptions.setdefault(idx, list()).append((splited_inline[1].rstrip("> "), splited_inline[0].strip(' ')))
-            if inline == '<end_of_description>':
-                    idx += 1
-                    inline = fin.readline()
-            else:
-                inline = fin.readline()
-                
-    #pprint(chart_descriptions)
-    #print(idx)
-    
-    return chart_descriptions, reversed_chart_descriptions
-
-
-
-
-def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int, List[Tuple[str,str]]]], Dict[int, Dict[int, List[Tuple[str,str]]]], List[str]]:
+def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int, List[Tuple[str,str]]]], Dict[int, Dict[int, List[Tuple[str,str]]]]]:
     # chart_descriptions[0] = {0: List[(law firms, <x_axis_label_highest_value>),(highest, <y_axis_highest_value>)], 1:List[()],...}
     chart_descriptions: Dict[int, Dict[int, List[Tuple[str,str]]]] = {}
     reversed_chart_descriptions: Dict[int, Dict[int, List[Tuple[str,str]]]] = {}
-    # Stores all the sentences as training for the gensim Phraser thingy
-    all_sentences: List[str] = []
-
+    
     # idx: description index
     idx: int = 0
 
@@ -86,7 +50,6 @@ def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int,
                 assert(splited_inline[1] != '')
                 chart_descriptions[idx].setdefault(sent_idx, list()).append((splited_inline[0].strip(' '), splited_inline[1].rstrip("> ")))
                 reversed_chart_descriptions[idx].setdefault(sent_idx, list()).append((splited_inline[1].rstrip("> "), splited_inline[0].strip(' ')))
-                all_sentences.append(splited_inline[0].strip(' '))
 
             # If we found a dot, we need to start a new sentence
             if inline == '.':
@@ -102,16 +65,11 @@ def turn_chart_info_into_sentences(chart_file: str) -> Tuple[Dict[int, Dict[int,
     #pprint(chart_descriptions)
     #pprint(reversed_chart_descriptions)
 
-    '''final_sentences:List[str] = []
-    for el in all_sentences:
-        splitted_elems = el.split(" ")
-        for se in splitted_elems:
-            final_sentences.append(se)'''
-    
-    return chart_descriptions, reversed_chart_descriptions, all_sentences
+    return chart_descriptions, reversed_chart_descriptions
 
-def convert_sentences_to_bigrams(reversed_chart_descs: Dict[int, Dict[int, List[Tuple[str,str]]]], bigram) -> Dict[int, Dict[int, List[Tuple[str,str]]]]:
-    new_reversed_chart_descriptions: Dict[int, Dict[int, List[Tuple[str,str]]]] = {}
+
+def convert_sentences_to_bigrams(reversed_chart_descs: Dict[int, Dict[int, List[Tuple[str,str]]]], bigram) -> Dict[int, Dict[int, List[Tuple[str,List[str]]]]]:
+    new_reversed_chart_descriptions: Dict[int, Dict[int, List[Tuple[str,List[str]]]]] = {}
     #all_vals: Dict[int, List[Tuple[str,str]]]
     for idx, all_vals in reversed_chart_descs.items():
         new_reversed_chart_descriptions[idx] = {}
@@ -122,22 +80,22 @@ def convert_sentences_to_bigrams(reversed_chart_descs: Dict[int, Dict[int, List[
             for dict_idx, elems in enumerate(all_sents):
                 interm_sent = elems[1].split(" ")
                 interm_list.append((elems[0], bigram[interm_sent]))
-        new_reversed_chart_descriptions[idx][sent_idx] = interm_list
+            new_reversed_chart_descriptions[idx][sent_idx] = interm_list
     return new_reversed_chart_descriptions
 
 
 
-def generate_files_sa(reversed_chart_descs: Dict[int, Dict[int, List[Tuple[str,str]]]]) -> List[str]:
+def generate_files_sa(new_reversed_chart_descs: Dict[int, Dict[int, List[Tuple[str,List[str]]]]]) -> List[str]:
     all_chart_lines: List[str] = []
     global_counter: int = 1
     
     # idx: int, all_vals: Dict[int, List[Tuple[str,str]]]
-    for idx, all_vals in reversed_chart_descs.items():
+    for idx, all_vals in new_reversed_chart_descs.items():
         for sent_idx, all_sents in all_vals.items():
             chart_line: str = ""
             # dict_idx: int, elems: Tuple[str,str]
             for dict_idx, elems in enumerate(all_sents):
-                all_words_in_element: List[str] = elems[1].split(" ")
+                all_words_in_element: List[str] = elems[1]
                 # Iterate over the words in a sentence and output them
                 for word_idx, word in enumerate(all_words_in_element):
                     chart_line += f"{elems[0]}_{word_idx+1}:{word}\t"
@@ -146,7 +104,7 @@ def generate_files_sa(reversed_chart_descs: Dict[int, Dict[int, List[Tuple[str,s
             chart_line += "\n"
             all_chart_lines.append(chart_line)
     '''for idx, el in enumerate(all_chart_lines):
-        pprint(reversed_chart_descs[idx])
+        pprint(new_reversed_chart_descs[idx])
         print(idx, el, "\n\n\n")'''
     return all_chart_lines
 
@@ -159,20 +117,22 @@ def write_to_file_chartssa(no_delexi_charts: List[str], all_sents: List[List[str
         
                     for chart in no_delexi_charts:
 
-                        chart_descs, reversed_chart_descs, _ = turn_chart_info_into_sentences(chart)
+                        chart_descs, reversed_chart_descs = turn_chart_info_into_sentences(chart)
                         
                         #pprint(chart_descs)
-                        #pprint(reversed_chart_descs)
+                        print("Original_reversed")
+                        pprint(reversed_chart_descs)
                         #pprint(all_sents)
 
                         #!!! all_sents must contain a list of sentences, with each sentence being a list of words
-                        bigram = Phrases(all_sents, min_count=1, threshold=2)
-                        bigram.add_vocab([["Financial", "Groups"], ["Law", "Firms"]])
-                        print("aaaaaaaa=",bigram[['Financial', 'Groups', 'are', 'more', 'awsome', 'than', 'law', 'firms']])
+                        bigram = Phrases(all_sents, min_count=1, threshold=10)
+                        bigram.add_vocab([["Financial", "Groups"], ["Law", "Firms"], ["Computer", "Science"]])
+                        print("aaaaaaaa=",bigram[['Financial', 'Groups', 'are', 'more', 'awsome', 'than', 'law', 'firms', 'and', 'even', 'more', 'awesome', 'than', 'computer', 'science']])
                         #print(bigram.vocab)
 
 
                         new_reversed_chart_descs = convert_sentences_to_bigrams(reversed_chart_descs, bigram)
+                        print("New_reversed")
                         pprint(new_reversed_chart_descs)
                         # chart_lines_senta : all the sentences belonging to chart `chart`
                         chart_lines_sa = generate_files_sa(new_reversed_chart_descs)
