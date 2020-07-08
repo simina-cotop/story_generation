@@ -113,8 +113,11 @@ def create_separate_gold_files_opt_dom(no_delexi_charts: List[str]) -> None:
         for cidx, chart in enumerate(no_delexi_charts):
             chart_descs = parse_info_files_per_chart(chart)
             for idx, desc in enumerate(chart_descs):
-                if idx in list(range(20,23)):
-                    with open(f'chartsopta/all_gold/opta_gold_{cidx}_{idx-20}', 'w') as g:
+                if idx in list(range(17,20)):
+                    with open(f'chartsopta/all_gold/opta_test_{cidx}_{idx-17}', 'w') as g:
+                        g.write(desc + "\n")
+                elif idx in list(range(20,23)):
+                    with open(f'chartsopta/all_gold/opta_valid_{cidx}_{idx-20}', 'w') as g:
                         g.write(desc + "\n")
 
 
@@ -149,10 +152,12 @@ def create_separate_gold_files_sent_dom(no_delexi_charts: List[str]) -> None:
         for cidx, chart in enumerate(no_delexi_charts):
             chart_descs = turn_chart_info_files_into_sentences(chart)
             for idx, desc in enumerate(chart_descs):
-                if idx in list(range(5,10)):
-                    with open(f'chartssenta/all_gold/senta_gold_{cidx}_{idx-5}', 'w') as g:
-                        g.write(desc + "\n")
-                    
+                if idx in list(range(5)):
+                    with open(f'chartssenta/all_gold/senta_test_{cidx}_{idx}', 'w') as g:
+                        g.write(desc + "\n")                    
+                elif idx in list(range(5,10)):
+                    with open(f'chartssenta/all_gold/senta_valid_{cidx}_{idx-5}', 'w') as g:
+                        g.write(desc + "\n")                    
     
             
 
@@ -211,7 +216,7 @@ if __name__ == "__main__":
     #gen_gold_files(no_delexi_charts)
 
     #Generate SEPARATE gold text files for BLEU for sent domain
-    create_separate_gold_files_sent_dom(no_delexi_charts)
+    #create_separate_gold_files_sent_dom(no_delexi_charts)
 
     #Generate SEPARATE gold text files for BLEU for opt domain
     create_separate_gold_files_opt_dom(no_delexi_charts)

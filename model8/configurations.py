@@ -6,7 +6,7 @@ warnings.filterwarnings('ignore')
 class Config(object):
 
     Run_Index = 'gender_pay_gap_beam_10_200epochs_test'
-    os.mkdir('outputs/' + Run_Index)
+    #os.mkdir('outputs/' + Run_Index)
 
     # TODO: EXP
     Sample_binary_path = 'samples_binary_' + Run_Index

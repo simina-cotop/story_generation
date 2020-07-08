@@ -1,0 +1,87 @@
+\section{SB}
+
+\begin{longtable}{|p{13mm}|p{57mm}|p{57mm}|p{57mm}|p{57mm}|}
+	\hline 
+	Chart & Human Description & Validation & Human Description & Test  \\ 
+	\hline 
+	\endhead\multirow{2}{*}{Chart 0}&This chart shows the female representation in various employment sectors.
+ & The female representation in various employment sectors.
+\newline \textbf{BLEU Score: }52.7084 & There are 60\% of women represented in Law Firms than any other sector.
+ & 60\% of women are in Law Firms , while any other sector has 60\% of women in Law Firms.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & The chart shows that in law firms , the highest representation of female workers is in tech with the lowest representation of female workers in these sectors.
+\newline \textbf{BLEU Score: }0.0 &  & 60\% of women are in Law , followed by 40\% in Financial sector.
+\newline \textbf{BLEU Score: }46.1473\\ \cline{2-5}& & The sector with most women representation is in law firms.
+\newline \textbf{BLEU Score: }44.3606 &  & Insurance is over one third of the law.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 1}&This chart shows the female representation in various employment sectors.
+ & Tech has the least at 20\% of women in their sector.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & Technical firms have 20\% each , and Finance and Law.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Insurance is half women representation in financial groups , and just over half women in financial groups.
+\newline \textbf{BLEU Score: }0.0 &  & This chart demonstrates how women are represented across different work sectors.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & This graph shows a gender pay gap in Germany, Spain and the UK.
+\newline \textbf{BLEU Score: }0.0 &  & This graph shows that the gender pay gap is greatest at 10\% and then Germany.
+\newline \textbf{BLEU Score: }19.5648\\ \cline{2-5}\hline\multirow{2}{*}{Chart 2}&This chart shows the female representation in various employment sectors.
+ & The UK has the biggest pay gap , followed by Spain and then Germany has the smallest pay gap.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & Spain is halfway through the world with just half a half hour left in the journey.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & The UK has the largest gender pay gap at 15\% while Germany is mere 5\% and Germany only 5\%
+\newline \textbf{BLEU Score: }0.0 &  & This chart shows the gender pay gap of countries.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Spain has 10\% lower than the UK with its poor Maternity packages
+\newline \textbf{BLEU Score: }0.0 &  & The largest pay gap is in the UK with approximately 17\% difference.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 3}&This chart shows the female representation in various employment sectors.
+ & The wider pay gap with the UK having a higher pay gap with Germany having a higher pay gap with Spain.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & Secondly it is under 10\%
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & This chart demonstrates how young people spend their evenings.
+\newline \textbf{BLEU Score: }0.0 &  & The high percentage of young people watch TV in 40\% , and pre-internet days.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & The high spend of TV and go out whilst smaller spend time with family and read a book.
+\newline \textbf{BLEU Score: }0.0 &  & 30\% go out of the evening.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 4}&This chart shows the female representation in various employment sectors.
+ & Most young people spend their evening watching TV this accounts for 40\%.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & Only 20\% spend time with their family and half go watching TV with their families in this case.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Only 10\% read a book , double spending time with family and a double spending time with family.
+\newline \textbf{BLEU Score: }0.0 &  & It shows that 10\% of read a book.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Most young people spend their evenings watching TV this accounts for about half of their evenings.
+\newline \textbf{BLEU Score: }0.0 &  & This chart demonstrates how young people spend their leisure time in the evenings.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 5}&This chart shows the female representation in various employment sectors.
+ & This charts shows the average salary earned by women between the years 2000 and 2015.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & A logical conclusion would be a few decades ago women did this would not be a reality.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & The chart shows the year on year salaries in China.
+\newline \textbf{BLEU Score: }0.0 &  & This graph presents the median salary of women from the years 2000 - 2015.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & 5 years of the median salary for women has been rising each 5 years , with 2\% of women in the workforce.
+\newline \textbf{BLEU Score: }0.0 &  & The highest percentage is in 2015 at 55\% above 50\% in 2010.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 6}&This chart shows the female representation in various employment sectors.
+ & The chart shows the salary of women in different years.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & 2005 the median was at 45\%
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & The median salary of women grows approximately \$ 5,000 every 5 years.
+\newline \textbf{BLEU Score: }0.0 &  & as a rebut the chart shows an increase of 5 years.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & This charts shows the average annual salary for software engineers relative to their degree.
+\newline \textbf{BLEU Score: }0.0 &  & PhD holders earn well in the salary they receive from those with a PhD holder.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 7}&This chart shows the female representation in various employment sectors.
+ & Those with no degree earn a lower salary at a Bachelors degree than those with a higher degree of polish.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & as a rebut the graph shows an increase in salaries as the level of engineers rises , particularly when compared to other professions.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Masters is more likely to earn a PhD degree than other types of training - especially when compared to other types of training.
+\newline \textbf{BLEU Score: }0.0 &  & Engineers with no degree earn a worse salary of approximately 10\%
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Those with a PhD earn the highest degree with 200,000 being more than those with a degree at this level
+\newline \textbf{BLEU Score: }0.0 &  & The graphs shows the median salary of software engineers with respect to their degrees.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 8}&This chart shows the female representation in various employment sectors.
+ & Masters is 15,000 behind in higher education and 15,000 in higher education.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & Those with no degree earn the lowest at 30\% and those with a Bachelor degree earn the 45\% of students with a degree.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & This graph presents money spent on Higher Education in 2010 by countries.
+\newline \textbf{BLEU Score: }0.0 &  & The chart shows that there is more money spent on higher education in 2010 than in Asia in previous years.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Asia spent the most , followed by North America.
+\newline \textbf{BLEU Score: }0.0 &  & Africa spent the least with 50 million dollars.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline\multirow{2}{*}{Chart 9}&This chart shows the female representation in various employment sectors.
+ & Europe and Africa have much behind them.
+\newline \textbf{BLEU Score: }0.0 & There are 60\% of women represented in Law Firms than any other sector.
+ & Half of the continent is in Europe.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & The chart shows that Asia spends the country with over 300 million dollars , while Africa only spends the country with 50 million dollars.
+\newline \textbf{BLEU Score: }0.0 &  & North America spends a fair amount on Europe - twice as much as Europe and four times as much Asia.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}& & Europe is double that at 200 million dollars , compared to 200 million in N. America.
+\newline \textbf{BLEU Score: }0.0 &  & However these figures need to be associated with population figures to make sense.
+\newline \textbf{BLEU Score: }0.0\\ \cline{2-5}\hline \end{longtable}

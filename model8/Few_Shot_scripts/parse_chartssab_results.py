@@ -41,8 +41,8 @@ def bleu_score(labels_file, predictions_path):
 def bleu_gold_chartssenta() -> List[List[float]]:
     bleu_results: List[List[float]] = []
     # Compare 10 original descriptions with only one generated one at a time
-    #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200628084705/chartssenta/results/test/'
-    path_to_gen: str = '/mnt/Backup/simina/output_final_folder/20200618114823/chartssenta/results/loads/8/valid/'
+    path_to_gen: str = '/mnt/Backup/simina/output_files_aws/20200628190331/chartssa/results/loads/52/valid/'
+    #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200629025049/chartssa/results/test/'
     
     for orig_idx in range(10):
         interm_results: List[float] = []
@@ -57,8 +57,8 @@ def bleu_gold_chartssenta() -> List[List[float]]:
 def bleu_gold_chartssentb() -> List[List[float]]:
     bleu_results: List[List[float]] = []
     # Compare 10 original descriptions with only one generated one at a time
-    #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200628084318/chartssentb/results/test/'
-    path_to_gen: str = '/mnt/Backup/simina/output_final_folder/20200619230445/chartssentb/results/loads/25/valid/'
+    path_to_gen: str = '/mnt/Backup/simina/output_files_aws/20200628222148/chartssb/results/loads/52/valid/'
+    #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200629025149/chartssb/results/test/'
     
     for orig_idx in range(10):
         interm_results: List[float] = []
@@ -106,8 +106,8 @@ def plot_bleu_gold_chartssenta(results: List[List[float]]) -> None:
  
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for SentA Representation")
-    #plt.savefig("blue_senta_test.pdf", bbox_inches="tight")
-    plt.savefig("blue_senta_valid.pdf", bbox_inches="tight")
+    #plt.savefig("blue_sa_test.pdf", bbox_inches="tight")
+    plt.savefig("blue_sa_valid.pdf", bbox_inches="tight")
 
 
 def plot_bleu_gold_chartssentb(results: List[List[float]]) -> None:
@@ -145,8 +145,8 @@ def plot_bleu_gold_chartssentb(results: List[List[float]]) -> None:
     
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for SentB Representation")
-    #plt.savefig("blue_sentb_test.pdf", bbox_inches="tight")
-    plt.savefig("blue_sentb_valid.pdf", bbox_inches="tight")
+    #plt.savefig("blue_sb_test.pdf", bbox_inches="tight")
+    plt.savefig("blue_sb_valid.pdf", bbox_inches="tight")
 
 
 

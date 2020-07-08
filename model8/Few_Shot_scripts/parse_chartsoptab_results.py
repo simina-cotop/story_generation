@@ -68,12 +68,16 @@ def generate_gold_files() -> None:
 def bleu_gold_chartsopta() -> List[List[float]]:
     bleu_results: List[List[float]] = []
     # Compare 10 original descriptions with only one generated one at a time
-    path_to_gen: str = '/mnt/Backup/simina/output_new_folder/20200607003751/chartsopta/results/loads/3/valid/'
+    #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200628084433/chartsopta/results/test/'
+    #path_to_gen: str = '/mnt/Backup/simina/output_new_folder/20200607003751/chartsopta/results/loads/3/valid/'
+    path_to_gen: str = '/mnt/Backup/simina/output_files_aws/20200627223805/chartsopta/results/loads/23/23/valid/'
+
     for orig_idx in range(10):
         interm_results: List[float] = []
         for gen_idx in range(0,3):
             new_gen_idx = orig_idx * 3 + gen_idx
-            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_gold_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
+            #interm_results.append(bleu_score(f'chartsopta/all_gold/opta_test_{orig_idx}_{gen_idx}', f'{path_to_gen}test_pred_summary_{new_gen_idx}'))
+            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_valid_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
@@ -81,12 +85,16 @@ def bleu_gold_chartsopta() -> List[List[float]]:
 def bleu_gold_chartsoptb() -> List[List[float]]:
     bleu_results: List[List[float]] = []
     # Compare 10 original descriptions with only one generated one at a time
-    path_to_gen: str = '/mnt/Backup/simina/output_new_folder/inference_only_20200607120443/chartsoptb/results/test/'
+    #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200628084549/chartsoptb/results/test/'
+    #path_to_gen: str = '/mnt/Backup/simina/output_new_folder/20200606102406/chartsoptb/results/loads/5/valid/'
+    path_to_gen: str = '/mnt/Backup/simina/output_files_aws/20200628011521/chartsoptb/results/loads/23/23/valid/'
+    
     for orig_idx in range(10):
         interm_results: List[float] = []
         for gen_idx in range(0,3):
             new_gen_idx = orig_idx * 3 + gen_idx
-            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_gold_{orig_idx}_{gen_idx}', f'{path_to_gen}test_pred_summary_{new_gen_idx}'))
+            #interm_results.append(bleu_score(f'chartsopta/all_gold/opta_test_{orig_idx}_{gen_idx}', f'{path_to_gen}test_pred_summary_{new_gen_idx}'))
+            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_valid_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
@@ -119,7 +127,8 @@ def plot_bleu_gold_chartsopta(results: List[List[float]]) -> None:
  
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for OptA Representation")
-    plt.savefig("blue_opta_all.pdf", bbox_inches="tight")
+    #plt.savefig("blue_opta_test.pdf", bbox_inches="tight")
+    plt.savefig("blue_opta_valid.pdf", bbox_inches="tight")
 
 
 def plot_bleu_gold_chartsoptb(results: List[List[float]]) -> None:
@@ -149,7 +158,8 @@ def plot_bleu_gold_chartsoptb(results: List[List[float]]) -> None:
     
     plt.ylabel(f"BLEU Score")
     plt.title(f"BLEU Score for OptB Representation")
-    plt.savefig("blue_optb_all.pdf", bbox_inches="tight")
+    #plt.savefig("blue_optb_test.pdf", bbox_inches="tight")
+    plt.savefig("blue_optb_valid.pdf", bbox_inches="tight")
 
 
 
