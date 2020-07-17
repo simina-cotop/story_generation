@@ -95,7 +95,7 @@ def get_all_unique_annotations(no_delexi_charts: List[str]) -> Set[str]:
         all_unique_annotations = set(all_annotations)
         pprint(all_unique_annotations)
         print(len(all_annotations), len(all_unique_annotations))
-        return all_unique_annotations
+    return all_unique_annotations
 
 
 
