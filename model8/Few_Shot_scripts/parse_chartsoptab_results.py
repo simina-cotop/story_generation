@@ -70,7 +70,7 @@ def bleu_gold_chartsopta() -> List[List[float]]:
     # Compare 10 original descriptions with only one generated one at a time
     #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200628084433/chartsopta/results/test/'
     #path_to_gen: str = '/mnt/Backup/simina/output_new_folder/20200607003751/chartsopta/results/loads/3/valid/'
-    path_to_gen: str = '/mnt/Backup/simina/output_files_aws/20200627223805/chartsopta/results/loads/23/23/valid/'
+    path_to_gen: str = '../../../../output_files_aws/20200627223805/chartsopta/results/loads/23/23/valid/'
 
     for orig_idx in range(10):
         interm_results: List[float] = []
@@ -87,7 +87,7 @@ def bleu_gold_chartsoptb() -> List[List[float]]:
     # Compare 10 original descriptions with only one generated one at a time
     #path_to_gen: str = '/mnt/Backup/simina/output_files_aws/inference_only_20200628084549/chartsoptb/results/test/'
     #path_to_gen: str = '/mnt/Backup/simina/output_new_folder/20200606102406/chartsoptb/results/loads/5/valid/'
-    path_to_gen: str = '/mnt/Backup/simina/output_files_aws/20200628011521/chartsoptb/results/loads/23/23/valid/'
+    path_to_gen: str = 'output_files_aws/20200628011521/chartsoptb/results/loads/23/23/valid/'
     
     for orig_idx in range(10):
         interm_results: List[float] = []
