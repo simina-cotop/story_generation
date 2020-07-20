@@ -8,6 +8,7 @@
 from typing import List, Dict, Tuple, NamedTuple, Set
 import matplotlib.pyplot as plt
 import numpy as np
+import regex as re
 import time, os, sys, shutil, io, subprocess, re
 from pprint import pprint
 
@@ -22,8 +23,14 @@ def bleu_score(labels_file, predictions_path):
             stderr=subprocess.STDOUT)
         bleu_out = bleu_out.decode("utf-8")
         bleu_score = re.search(r"BLEU = (.+?),", bleu_out).group(1)
+        matches = re.search(r"BLEU = (.+?), (.+?)/(.+?)/(.+?)/(.+?)", bleu_out)
+        bleu_score1 = float(matches.group(2))
+        bleu_score2 = float(matches.group(3))
+        bleu_score3 = float(matches.group(4))
+        bleu_score4 = float(matches.group(5))
+        all_bleus = [bleu_score1,bleu_score2,bleu_score3,bleu_score4]
         #print(bleu_score)
-        return float(bleu_score)
+        return float(bleu_score), all_bleus
 
     except subprocess.CalledProcessError as error:
       if error.output is not None:
@@ -77,7 +84,8 @@ def bleu_gold_chartsopta() -> List[List[float]]:
         for gen_idx in range(0,3):
             new_gen_idx = orig_idx * 3 + gen_idx
             #interm_results.append(bleu_score(f'chartsopta/all_gold/opta_test_{orig_idx}_{gen_idx}', f'{path_to_gen}test_pred_summary_{new_gen_idx}'))
-            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_valid_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
+            bleu_score, _ = bleu_score(f'chartsopta/all_gold/opta_valid_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}')
+            interm_results.append(bleu_score)
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
@@ -94,7 +102,8 @@ def bleu_gold_chartsoptb() -> List[List[float]]:
         for gen_idx in range(0,3):
             new_gen_idx = orig_idx * 3 + gen_idx
             #interm_results.append(bleu_score(f'chartsopta/all_gold/opta_test_{orig_idx}_{gen_idx}', f'{path_to_gen}test_pred_summary_{new_gen_idx}'))
-            interm_results.append(bleu_score(f'chartsopta/all_gold/opta_valid_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}'))
+            bleu_score, _ =  bleu_score(f'chartsopta/all_gold/opta_valid_{orig_idx}_{gen_idx}', f'{path_to_gen}valid_pred_summary_{new_gen_idx}')
+            interm_results.append(bleu_score)
         bleu_results.append(interm_results)
     pprint(bleu_results)
     return bleu_results
