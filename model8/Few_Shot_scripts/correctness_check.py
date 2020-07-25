@@ -5,15 +5,6 @@ from collections import OrderedDict
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-unit_mapping = {
-    'percentage': ['%'],
-    'salary(1000$)': ['1000', '$'],
-    ' (million dollar)': ['1000000'],
-    'number of university': ['#'],
-    'percentage of people': ['%']
-}
-
-
 #!!!TODO:Change this to test once I have the results
 def get_original_generated_sentences_opt_domain(domain: str, all_charts: List[str], domain_outputs: str) -> Dict[str, Dict[str, List[Tuple[str,str]]]]:
 
@@ -50,12 +41,12 @@ def get_original_generated_sentences_opt_domain(domain: str, all_charts: List[st
 def get_chart_labels(all_charts: List[str]) -> Dict[str, List[Tuple[str,str]]]:
     
     #Dict[chart,List[Tuple[x_cat_val1,y_val1],Tuple[x_cat_val2,y_val2]...]]
-    all_info: Dict[str, List[Tuple[str,str]]] = {}
+    all_info: Dict[str, List[Tuple[str,str]]] = OrderedDict()
     
     for chart_file in all_charts:
         all_info.setdefault(chart_file,list())
 
-        chart_info : Dict[str, List[str]] = {}
+        chart_info : Dict[str, List[str]] = OrderedDict()
 
         with open(f'../charts_info/{chart_file}','r') as f:
             data = f.read()
@@ -85,97 +76,132 @@ def get_chart_labels(all_charts: List[str]) -> Dict[str, List[Tuple[str,str]]]:
 
     '''{'x categories': ['germany', 'spain', 'uk'],
         'y values': ['5', '10', '15']}'''
-    #pprint(all_info)
+    pprint(all_info)
     return all_info
 
 def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple[str,str]],labels_occurr_dict:Dict[Tuple[str,str],Tuple[bool,int]]) -> Dict[Tuple[str,str],Tuple[bool,int]]:
 
     for label in chart_labels:
-        #print(label[0], full_sentence)
 
-        splitted_sentence = word_tokenize(full_sentence)
+        splitted_label = label[0].split(" ")
+        splitted_sentence = word_tokenize(full_sentence)    
+        sentence = [word.lower() for word in splitted_sentence if not word in stopwords.words('english')]
+                
+        if len(splitted_label) == 1:
 
-        if label[0] in splitted_sentence or label[0].lower() in splitted_sentence:
-            
-            
-            sentence = [word for word in splitted_sentence if not word in stopwords.words('english')]
-            
-            #Get the index corresponding to the label
-            index = sentence.index(label[0])
+            if label[0] in sentence:
+                
+                #Get the index corresponding to the label
+                #print(label[0], sentence)
+                index = sentence.index(label[0])
 
-            for window in range(1,len(sentence)):
-                sliced_sent = sentence[index:index+window]
-                #print(index,sliced_sent)
-                xlabel = False 
+                sliced_sent = sentence[index:]
+
+                # if label[1] in sliced_sent:
+                #     labels_occurr_dict[label] = (True, 1)
+                # else:
+                #     labels_occurr_dict[label] = (True, 0)
+                
+                xlabel = True
                 ylabel = False
 
-                if label[0] in sliced_sent or label[0].lower() in sliced_sent:
-                    xlabel = True
-                    #TODO: will probably need to change this when I incorporate the units
-                for el in sliced_sent:
-                    if label[1] in el:
-                        ylabel = True
-                if xlabel == True and ylabel == True:
-                    #print(sliced_sent)
-                    #print("HERE2")
+                if label[1] in sliced_sent:
+                    ylabel = True
+                if ylabel == True:
                     labels_occurr_dict[label] = (True,1)
-                if xlabel == True and ylabel == False:
-                    labels_occurr_dict[label] = (True,0)    
-                xlabel = False
-                ylabel = False
+                if ylabel == False:
+                    labels_occurr_dict[label] = (True,0)        
+            else:
+                xlabel = False 
+                labels_occurr_dict[label] = (False,0)
+        # the label consists of 2 or more words
         else:
-            labels_occurr_dict[label] = (False,0)
-    print("forwards")
-    pprint(labels_occurr_dict)
+            for i in range(0, len(sentence) - len(splitted_label) + 1):
+                if sentence[i:i+len(splitted_label)] == splitted_label:
+                    print("yes", splitted_label)
+                    starting_index = i + len(splitted_label)
+                    sliced_sent = sentence[starting_index:]
+               
+                    xlabel = True
+                    ylabel = False
+
+                    if label[1] in sliced_sent:
+                        ylabel = True
+                    if ylabel == True:
+                        labels_occurr_dict[label] = (True,1)
+                    if ylabel == False:
+                        labels_occurr_dict[label] = (True,0) 
+                    break       
+            else:
+                xlabel = False 
+                labels_occurr_dict[label] = (False,0)
+
+    #print("forwards")
+    #pprint(labels_occurr_dict)
     return labels_occurr_dict
 
 
 def check_label_occurrences_backwards(full_sentence: str, chart_labels:List[Tuple[str,str]], labels_occurr_dict:Dict[Tuple[str,str],Tuple[bool,int]]) -> Dict[Tuple[str,str],Tuple[bool,int]]:
     
     for label in chart_labels:
-        splitted_sentence = word_tokenize(full_sentence)
-        if label[0] in splitted_sentence or label[0].lower() in splitted_sentence:
-            
-            
-            
-            sentence = [word for word in splitted_sentence if not word in stopwords.words('english')]
 
-            #Get the index corresponding to the label
-            index = sentence.index(label[0])
+        splitted_label = label[0].split(" ")
+        splitted_sentence = word_tokenize(full_sentence)    
+            
+        sentence = [word for word in splitted_sentence if not word in stopwords.words('english')]
+
+        if len(splitted_label) == 1:
+
+            if label[0] in sentence:
+            
+                #Get the index corresponding to the label
+                index = sentence.index(label[0])
+        
+                sliced_sent = sentence[:index+1]
     
-            for window in range(0,6):
-                sliced_sent = sentence[index-window:index+1]
-    
-                #print(sliced_sent)
-                xlabel = False 
+                xlabel = True
                 ylabel = False
 
-                if label[0] in sliced_sent or label[0].lower() in sliced_sent:
-                    xlabel = True
-                #TODO: will probably need to change this when I incorporate the units
-                for el in sliced_sent:
-                    if label[1] in el:
-                        ylabel = True
-                if xlabel == True and ylabel == True:
+                if label[1] in sliced_sent:
+                    ylabel = True
+                if ylabel == True:
                     if labels_occurr_dict[label] == (None, None):
-                        labels_occurr_dict[label] = (True,1)
+                        labels_occurr_dict[label] = (True, 1)
 
-                if xlabel == True and ylabel == False:
+                if ylabel == False:
                     if labels_occurr_dict[label] == (None, None):
-                        labels_occurr_dict[label] = (True,0)    
+                        labels_occurr_dict[label] = (True, 0)    
 
+            else:
                 xlabel = False
-                ylabel = False
+                if labels_occurr_dict[label] == (None, None):
+                    labels_occurr_dict[label] = (False,0)
         else:
-            if labels_occurr_dict[label] == (None, None):
+            for i in range(0, len(sentence) - len(splitted_label) + 1):
+                if sentence[i:i+len(splitted_label)] == splitted_label:
+                    
+                    starting_index = i + len(splitted_label)
+                    sliced_sent = sentence[:starting_index]
+               
+                    xlabel = True
+                    ylabel = False
+
+                    if label[1] in sliced_sent:
+                        ylabel = True
+                    if ylabel == True:
+                        labels_occurr_dict[label] = (True,1)
+                    if ylabel == False:
+                        labels_occurr_dict[label] = (True,0) 
+                    break       
+            else:
+                xlabel = False 
                 labels_occurr_dict[label] = (False,0)
 
-    print("backwards") 
-    pprint(labels_occurr_dict)
+    #print("backwards") 
+    #pprint(labels_occurr_dict)
     return labels_occurr_dict
 
 
-#TODO: integrate the units
 #Takes as input the chart and its corresponding label information and checks if that information appears correctly in the generated text
 def check1(all_charts: List[str], domain: str, chart_labels:Dict[str, List[Tuple[str,str]]], all_sentences: Dict[str, Dict[str, List[Tuple[str,str]]]], info_charts:List[str]) -> None:
 
