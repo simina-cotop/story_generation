@@ -47,13 +47,13 @@ def get_original_generated_sentences_opt_domain(domain: str, all_charts: List[st
 #y values : 20, 60, 10, 70, 30
 # into
 # (Computer Science, 20), (Arts, 60), (Mathematics, 10), (Literature, 70), (Engineering, 30)
-def get_chart_labels(all_charts: List[str]) -> Dict[str, Dict[str, List[Tuple[str,str]]]]:
+def get_chart_labels(all_charts: List[str]) -> Dict[str, List[Tuple[str,str]]]:
     
     #Dict[chart,List[Tuple[x_cat_val1,y_val1],Tuple[x_cat_val2,y_val2]...]]
-    all_info: Dict[str, Dict[str,List[Tuple[str,str]]]] = {}
+    all_info: Dict[str, List[Tuple[str,str]]] = {}
     
     for chart_file in all_charts:
-        all_info.setdefault(chart_file,{})
+        all_info.setdefault(chart_file,list())
 
         chart_info : Dict[str, List[str]] = {}
 
@@ -65,33 +65,25 @@ def get_chart_labels(all_charts: List[str]) -> Dict[str, Dict[str, List[Tuple[st
         # Save only the lines we need 
         relevant_lines.append(lines[1]) # x categories
         relevant_lines.append(lines[2]) # y values
-        relevant_lines.append(lines[5]) # y axis unit
+        
         
         for line_idx, line in enumerate(relevant_lines):
-            if line_idx == 0 or line_idx == 1:
-                aux = line.split(" : ")
-                # Category
-                processed_aux: str = aux[1].lower()
-                # Actual values
-                processed_aux = processed_aux.split(", ")
-                chart_info[aux[0]] = processed_aux
-            else:
-                aux = line.split(" : ")
-                chart_info[aux[0]] = []
-                chart_info[aux[0]].append(aux[1].lower())
-
-        for unit in chart_info['y axis unit']:
-            all_info[chart_file][unit] = []
-
+            aux = line.split(" : ")
+            # Category
+            processed_aux: str = aux[1].lower()
+            # Actual values
+            processed_aux = processed_aux.split(", ")
+            chart_info[aux[0]] = processed_aux
+            
+        
         #pprint(chart_info)
 
         # Save pairs of (xcat,yval)
-        for unit in chart_info['y axis unit']:
-            for xcat, yval in zip(chart_info['x categories'], chart_info['y values']):
-                all_info[chart_file][unit].append((xcat,yval))
+        
+        for xcat, yval in zip(chart_info['x categories'], chart_info['y values']):
+            all_info[chart_file].append((xcat,yval))
 
     '''{'x categories': ['germany', 'spain', 'uk'],
-        'y axis unit': ['percentage'],
         'y values': ['5', '10', '15']}'''
     #pprint(all_info)
     return all_info
@@ -100,9 +92,11 @@ def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple
 
     for label in chart_labels:
         #print(label[0], full_sentence)
-        
-        if label[0] in full_sentence or label[0].lower() in full_sentence:
-            splitted_sentence = word_tokenize(full_sentence)
+
+        splitted_sentence = word_tokenize(full_sentence)
+
+        if label[0] in splitted_sentence or label[0].lower() in splitted_sentence:
+            
             
             sentence = [word for word in splitted_sentence if not word in stopwords.words('english')]
             
@@ -139,10 +133,10 @@ def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple
 def check_label_occurrences_backwards(full_sentence: str, chart_labels:List[Tuple[str,str]], labels_occurr_dict:Dict[Tuple[str,str],Tuple[bool,int]]) -> Dict[Tuple[str,str],Tuple[bool,int]]:
     
     for label in chart_labels:
-        
-        if label[0] in full_sentence or label[0].lower() in full_sentence:
+        splitted_sentence = word_tokenize(full_sentence)
+        if label[0] in splitted_sentence or label[0].lower() in splitted_sentence:
             
-            splitted_sentence = word_tokenize(full_sentence)
+            
             
             sentence = [word for word in splitted_sentence if not word in stopwords.words('english')]
 
@@ -175,7 +169,7 @@ def check_label_occurrences_backwards(full_sentence: str, chart_labels:List[Tupl
         else:
             if labels_occurr_dict[label] == (None, None):
                 labels_occurr_dict[label] = (False,0)
-                
+
     print("backwards") 
     pprint(labels_occurr_dict)
     return labels_occurr_dict
@@ -183,27 +177,36 @@ def check_label_occurrences_backwards(full_sentence: str, chart_labels:List[Tupl
 
 #TODO: integrate the units
 #Takes as input the chart and its corresponding label information and checks if that information appears correctly in the generated text
-def check1(chart: str, chart_labels:List[Tuple[str,str]], all_sentences: Dict[str, Dict[str, List[Tuple[str,str]]]], units_maps: List[str]) -> None:
-    
-    for idx, el in enumerate(all_sentences['chartsopta']['gender_pay_gap.txt']):
-        # one_pair[0] is the original sentence
-        # one_pair[1] is the generated sentence
-        one_pair = all_sentences['chartsopta']['gender_pay_gap.txt'][idx]
-        print("el ", one_pair, chart_labels)
-    
-        #TODO: create one dict per chart
-        labels_occurr_dict: Dict[Tuple[str,str],Tuple[bool,int]] = {}
-        for label in chart_labels:
-            labels_occurr_dict[label] = (None, None)
-        
-        for_labels_occur_dict = check_label_occurrences_forwards(one_pair[1].lower(), chart_labels, labels_occurr_dict)
-        final_labels_occur_dict = check_label_occurrences_backwards(one_pair[1].lower(), chart_labels, for_labels_occur_dict)
-        print("FINAL")
-        pprint(final_labels_occur_dict)        
-        #chart_correct_labels = correct_labels_backwards / len(chart_labels)
-        #print(correct_labels_backwards, len(chart_labels), chart_correct_labels)
+def check1(all_charts: List[str], domain: str, chart_labels:Dict[str, List[Tuple[str,str]]], all_sentences: Dict[str, Dict[str, List[Tuple[str,str]]]], info_charts:List[str]) -> None:
 
-    
+    global_dict: Dict[str, Dict[Tuple[str,str],Tuple[bool,int]]] = {}
+
+    for chart_idx, chart in enumerate(all_charts):
+        global_dict[chart] = {}
+        current_chart_labels = chart_labels[info_charts[chart_idx]]
+        for idx, el in enumerate(all_sentences[domain][chart]):
+            # one_pair[0] is the original sentence
+            # one_pair[1] is the generated sentence
+            one_pair = all_sentences[domain][chart][idx]
+            print("el ", one_pair, current_chart_labels)
+        
+            #TODO: create one dict per chart
+            '''{('germany', '5'): (True, 1),
+                ('spain', '10'): (True, 0),
+                ('uk', '15'): (True, 1)}'''
+            labels_occurr_dict: Dict[Tuple[str,str],Tuple[bool,int]] = {}
+            for label in current_chart_labels:
+                labels_occurr_dict[label] = (None, None)
+            
+            for_labels_occur_dict = check_label_occurrences_forwards(one_pair[1].lower(), current_chart_labels, labels_occurr_dict)
+            final_labels_occur_dict = check_label_occurrences_backwards(one_pair[1].lower(), current_chart_labels, for_labels_occur_dict)
+            print("FINAL")
+            pprint(final_labels_occur_dict)        
+            #chart_correct_labels = correct_labels_backwards / len(chart_labels)
+            #print(correct_labels_backwards, len(chart_labels), chart_correct_labels)
+
+        global_dict[chart] = labels_occurr_dict
+    pprint(global_dict)
 
 
 
@@ -243,4 +246,4 @@ if __name__ == '__main__':
 
     all_sentences = get_original_generated_sentences_opt_domain(domains[0], no_delexi_charts, domain_outputs[0])
     chart_labels = get_chart_labels(info_charts)
-    check1(no_delexi_charts[1], chart_labels['info_gender_pay_gap.txt']['percentage'], all_sentences, unit_mapping['percentage'])
+    check1(no_delexi_charts, domains[0], chart_labels, all_sentences, info_charts)
