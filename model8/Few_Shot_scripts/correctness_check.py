@@ -79,7 +79,7 @@ def get_chart_labels(all_charts: List[str]) -> Dict[str, List[Tuple[str,str]]]:
     pprint(all_info)
     return all_info
 
-def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple[str,str]],labels_occurr_dict:Dict[Tuple[str,str],Tuple[bool,int]]) -> Dict[Tuple[str,str],Tuple[bool,int]]:
+def check_label_occurrences(full_sentence: str, chart_labels:List[Tuple[str,str]],labels_occurr_dict:Dict[Tuple[str,str],Tuple[bool,int]]) -> Dict[Tuple[str,str],Tuple[bool,int]]:
 
     for label in chart_labels:
 
@@ -95,8 +95,6 @@ def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple
                 #print(label[0], sentence)
                 index = sentence.index(label[0])
 
-                sliced_sent = sentence[index:]
-
                 # if label[1] in sliced_sent:
                 #     labels_occurr_dict[label] = (True, 1)
                 # else:
@@ -105,7 +103,7 @@ def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple
                 xlabel = True
                 ylabel = False
 
-                if label[1] in sliced_sent:
+                if label[1] in sentence:
                     ylabel = True
                 if ylabel == True:
                     labels_occurr_dict[label] = (True,1)
@@ -118,88 +116,25 @@ def check_label_occurrences_forwards(full_sentence: str, chart_labels:List[Tuple
         else:
             for i in range(0, len(sentence) - len(splitted_label) + 1):
                 if sentence[i:i+len(splitted_label)] == splitted_label:
-                    print("yes", splitted_label)
-                    starting_index = i + len(splitted_label)
-                    sliced_sent = sentence[starting_index:]
-               
-                    xlabel = True
-                    ylabel = False
-
-                    if label[1] in sliced_sent:
-                        ylabel = True
-                    if ylabel == True:
-                        labels_occurr_dict[label] = (True,1)
-                    if ylabel == False:
-                        labels_occurr_dict[label] = (True,0) 
-                    break       
-            else:
-                xlabel = False 
-                labels_occurr_dict[label] = (False,0)
-
-    #print("forwards")
-    #pprint(labels_occurr_dict)
-    return labels_occurr_dict
-
-
-def check_label_occurrences_backwards(full_sentence: str, chart_labels:List[Tuple[str,str]], labels_occurr_dict:Dict[Tuple[str,str],Tuple[bool,int]]) -> Dict[Tuple[str,str],Tuple[bool,int]]:
-    
-    for label in chart_labels:
-
-        splitted_label = label[0].split(" ")
-        splitted_sentence = word_tokenize(full_sentence)    
-            
-        sentence = [word for word in splitted_sentence if not word in stopwords.words('english')]
-
-        if len(splitted_label) == 1:
-
-            if label[0] in sentence:
-            
-                #Get the index corresponding to the label
-                index = sentence.index(label[0])
-        
-                sliced_sent = sentence[:index+1]
-    
-                xlabel = True
-                ylabel = False
-
-                if label[1] in sliced_sent:
-                    ylabel = True
-                if ylabel == True:
-                    if labels_occurr_dict[label] == (None, None):
-                        labels_occurr_dict[label] = (True, 1)
-
-                if ylabel == False:
-                    if labels_occurr_dict[label] == (None, None):
-                        labels_occurr_dict[label] = (True, 0)    
-
-            else:
-                xlabel = False
-                if labels_occurr_dict[label] == (None, None):
-                    labels_occurr_dict[label] = (False,0)
-        else:
-            for i in range(0, len(sentence) - len(splitted_label) + 1):
-                if sentence[i:i+len(splitted_label)] == splitted_label:
                     
-                    starting_index = i + len(splitted_label)
-                    sliced_sent = sentence[:starting_index]
-               
                     xlabel = True
                     ylabel = False
 
-                    if label[1] in sliced_sent:
+                    if label[1] in sentence:
                         ylabel = True
                     if ylabel == True:
-                        labels_occurr_dict[label] = (True,1)
+                        labels_occurr_dict[label] = (True, 1)
                     if ylabel == False:
-                        labels_occurr_dict[label] = (True,0) 
+                        labels_occurr_dict[label] = (True, 0) 
                     break       
             else:
                 xlabel = False 
                 labels_occurr_dict[label] = (False,0)
 
-    #print("backwards") 
     #pprint(labels_occurr_dict)
     return labels_occurr_dict
+
+
 
 
 #Takes as input the chart and its corresponding label information and checks if that information appears correctly in the generated text
@@ -214,9 +149,9 @@ def check1(all_charts: List[str], domain: str, chart_labels:Dict[str, List[Tuple
             # one_pair[0] is the original sentence
             # one_pair[1] is the generated sentence
             one_pair = all_sentences[domain][chart][idx]
-            print("el ", one_pair, current_chart_labels)
+            #print("el ", one_pair, current_chart_labels)
         
-            #TODO: create one dict per chart
+            
             '''{('germany', '5'): (True, 1),
                 ('spain', '10'): (True, 0),
                 ('uk', '15'): (True, 1)}'''
@@ -224,10 +159,10 @@ def check1(all_charts: List[str], domain: str, chart_labels:Dict[str, List[Tuple
             for label in current_chart_labels:
                 labels_occurr_dict[label] = (None, None)
             
-            for_labels_occur_dict = check_label_occurrences_forwards(one_pair[1].lower(), current_chart_labels, labels_occurr_dict)
-            final_labels_occur_dict = check_label_occurrences_backwards(one_pair[1].lower(), current_chart_labels, for_labels_occur_dict)
-            print("FINAL")
-            pprint(final_labels_occur_dict)        
+            final_labels_occur_dict = check_label_occurrences(one_pair[1].lower(), current_chart_labels, labels_occurr_dict)
+            #print("FINAL")
+            #pprint(final_labels_occur_dict)   
+            #      
             #chart_correct_labels = correct_labels_backwards / len(chart_labels)
             #print(correct_labels_backwards, len(chart_labels), chart_correct_labels)
 
