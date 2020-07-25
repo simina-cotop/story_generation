@@ -78,25 +78,88 @@ def get_chart_labels(all_charts: List[str]) -> Dict[str, Dict[str, List[Tuple[st
     pprint(all_info)
     return all_info
 
+def check_label_occurrences_forwards(sentence: List[str], index: int, label: Tuple[str,str]) -> int:
+    correct_labels: int = 0
+    for window in range(1,4):
+        sliced_sent = sentence[index:index+window]
+        #print(index,sliced_sent)
+        xlabel = False 
+        ylabel = False
+
+        if label[0] in sliced_sent:
+            xlabel = True
+        #TODO: will probably need to change this when I incorporate the units
+        for el in sliced_sent:
+            if label[1] in el:
+                ylabel = True
+        if xlabel == True and ylabel == True:
+            #print(sliced_sent)
+            correct_labels += 1
+        xlabel = False
+        ylabel = False
+    print("forwards=",sliced_sent,correct_labels)
+    return correct_labels
+
+
+def check_label_occurrences_backwards(sentence: List[str], chart_labels:List[Tuple[str,str]],labels_occurr_dict) -> int:
+
+    
+
+    for label in chart_labels:
+        
+
+        if label[0] in sentence:
+            
+            #Get the index corresponding to the label
+            index = sentence.index(label[0])
+    
+            for window in range(0,6):
+                sliced_sent = sentence[index-window:index+1]
+    
+                print(sliced_sent)
+                xlabel = False 
+                ylabel = False
+
+                if label[0] in sliced_sent:
+                    xlabel = True
+                #TODO: will probably need to change this when I incorporate the units
+                for el in sliced_sent:
+                    if label[1] in el:
+                        ylabel = True
+                if xlabel == True and ylabel == True:
+                    print("HERE")
+                    if labels_occurr_dict[label] == 0:
+                        labels_occurr_dict[label] = 1
+                
+                
+                xlabel = False
+                ylabel = False
+
+    print("backwards") 
+    pprint(labels_occurr_dict)
+    return 1
+
+
 #TODO: integrate the units
 #Takes as input the chart and its corresponding label information and checks if that information appears correctly in the generated text
 def check1(chart: str, chart_labels:List[Tuple[str,str]], all_sentences: Dict[str, Dict[str, List[Tuple[str,str]]]], units_maps: List[str]) -> None:
     #pprint(all_sentences)
-    one_pair = all_sentences['chartsopta']['gender_pay_gap.txt'][3]
+    one_pair = all_sentences['chartsopta']['gender_pay_gap.txt'][4]
     print(one_pair, chart_labels)
+    
     processed_original: List[str] = one_pair[0].lower().split(" ")
     processed_generated: List[str] = one_pair[1].lower().split(" ")
+    print("processed_original=", processed_original)
+    print("processed_generated=", processed_generated)
+    
+    labels_occurr_dict = {}
     for label in chart_labels:
-        if label[0] in processed_generated:
-            print(label[0], processed_generated)
-            index = processed_generated.index(label[0])
-            print("index=", index)
-            for window in range(1,4):
-                sliced_sent = processed_generated[index:index+window]
-                #TODO: will probably need to change this when I incorporate the units
-                for el in sliced_sent:
-                    if label[1] in el:
-                        print(sliced_sent)
+        labels_occurr_dict[label] = 0
+    #correct_labels_forwards = check_label_occurrences_forwards(processed_generated, index, label)
+    correct_labels_backwards = check_label_occurrences_backwards(processed_generated,chart_labels,labels_occurr_dict)
+            
+    chart_correct_labels = correct_labels_backwards / len(chart_labels)
+    print(correct_labels_backwards, len(chart_labels), chart_correct_labels)
 
     
 
